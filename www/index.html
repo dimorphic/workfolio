@@ -48,6 +48,7 @@
     // ---------------------------------------------------------------------------- //
     // ---------- DEPENDENCIES / COMPONENTS --------------------------------------- //
     // ---------------------------------------------------------------------------- //
+    // TODO: make bundle out of all packages
     -->
 
     <!-- Underscore -->
@@ -75,10 +76,13 @@
     // ---------------------------------------------------------------------------- //
     // ---------- APP DEPS -------------------------------------------------------- //
     // ---------------------------------------------------------------------------- //
+    // TODO: make bundle of app deps and merge with component deps in 1 file? mhm..
     -->
 
-    <script src="/controllers/controllers.bundle.js"></script>
     <!--<script src="/controllers/home.js"></script>-->
+
+    <script src="/controllers/controllers.bundle.js"></script>
+    <script src="/common/directives.js"></script>
 
     <script src="/js/routes.js"></script>
     <script src="/js/app.js"></script>

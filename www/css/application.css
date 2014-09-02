@@ -1,3 +1,4 @@
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css");
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext");
@@ -213,6 +214,87 @@ input, select {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
   animation-play-state: paused !important;
+}
+
+/* line 7, ../../app/scss/_global.scss */
+*,
+*:after,
+*:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 13, ../../app/scss/_global.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 14, ../../app/scss/_global.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 16, ../../app/scss/_global.scss */
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* line 20, ../../app/scss/_global.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+
+/* line 21, ../../app/scss/_global.scss */
+h1 {
+  font-size: 30px;
+  font-size: 3.0rem;
+}
+
+/* line 22, ../../app/scss/_global.scss */
+h2 {
+  font-size: 25px;
+  font-size: 2.5rem;
+}
+
+/* line 23, ../../app/scss/_global.scss */
+h3 {
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+
+/* line 24, ../../app/scss/_global.scss */
+h4 {
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+
+/* line 26, ../../app/scss/_global.scss */
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+/* line 29, ../../app/scss/_global.scss */
+.table-cell {
+  display: table-cell;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+/* line 34, ../../app/scss/_global.scss */
+* {
+  -webkit-user-select: none;
+  /* Disable selection/copy of elements when tapping for a long time */
+  -webkit-touch-callout: none;
+  /* Disable touch callouts */
+}
+
+/* line 41, ../../app/scss/_global.scss */
+input, textarea, [contenteditable] * {
+  -webkit-user-select: auto;
+  /* Allow selection for input elements and those with contenteditable attribute */
 }
 
 @-webkit-keyframes svg_outline {
@@ -1171,87 +1253,6 @@ input, select {
     transform: scale(1);
   }
 }
-/* line 7, ../../app/scss/_global.scss */
-*,
-*:after,
-*:before {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* line 13, ../../app/scss/_global.scss */
-html, body {
-  height: 100%;
-}
-
-/* line 14, ../../app/scss/_global.scss */
-html {
-  font-size: 62.5%;
-}
-
-/* line 16, ../../app/scss/_global.scss */
-body {
-  font-size: 16px;
-  font-size: 1.6rem;
-  line-height: 1.5;
-}
-
-/* line 20, ../../app/scss/_global.scss */
-h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
-}
-
-/* line 21, ../../app/scss/_global.scss */
-h1 {
-  font-size: 30px;
-  font-size: 3.0rem;
-}
-
-/* line 22, ../../app/scss/_global.scss */
-h2 {
-  font-size: 25px;
-  font-size: 2.5rem;
-}
-
-/* line 23, ../../app/scss/_global.scss */
-h3 {
-  font-size: 22px;
-  font-size: 2.2rem;
-}
-
-/* line 24, ../../app/scss/_global.scss */
-h4 {
-  font-size: 15px;
-  font-size: 1.5rem;
-}
-
-/* line 26, ../../app/scss/_global.scss */
-input, button, select, textarea {
-  font-family: inherit;
-}
-
-/* line 29, ../../app/scss/_global.scss */
-.table-cell {
-  display: table-cell;
-  margin: 0 auto;
-  vertical-align: middle;
-}
-
-/* line 34, ../../app/scss/_global.scss */
-* {
-  -webkit-user-select: none;
-  /* Disable selection/copy of elements when tapping for a long time */
-  -webkit-touch-callout: none;
-  /* Disable touch callouts */
-}
-
-/* line 41, ../../app/scss/_global.scss */
-input, textarea, [contenteditable] * {
-  -webkit-user-select: auto;
-  /* Allow selection for input elements and those with contenteditable attribute */
-}
-
 /* line 41, ../../app/scss/application.scss */
 body {
   position: relative;

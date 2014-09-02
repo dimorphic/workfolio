@@ -12,8 +12,9 @@
     ];
 
     var appComponents = [
-        'demo.routes',
-        'demo.controllers'
+        'demo.directives',
+        'demo.controllers',
+        'demo.routes'
     ];
 
   	//

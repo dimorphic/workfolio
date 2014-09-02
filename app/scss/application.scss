@@ -5,14 +5,14 @@
 // ---------------------------------------------------------------------------- //
 // 3rd party "resources"
 
-// @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"); // Open Sans
 @import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext"); // Dosis
 
 // ---------------------------------------------------------------------------- //
-// ---------- DEPENDENCIES ---------------------------------------------------- //
+// ---------- APP DEPENDENCIES ------------------------------------------------ //
 // ---------------------------------------------------------------------------- //
 
 @import "_reset"; // general reset
@@ -28,11 +28,11 @@
 // Utility MIXIN-belt
 @import "_mixins";
 
-// Custom FX / animations
-@import "_fx";
-
 // Global styles
 @import "_global";
+
+// Custom FX / animations
+@import "_fx";
 
 // ---------------------------------------------------------------------------- //
 // ---------- "WORKHOLIO" APP STYLES ------------------------------------------ //
