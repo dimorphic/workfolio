@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module('tapIt.routes', [])
+    angular.module('demo.routes', [])
 
         //
         // Prevent XSS attacks
@@ -24,118 +24,24 @@
                 //
                 // Set up routes that our app will respond to
                 //
-                var home,
-                    room, roomList, roomNew, roomId,
-                    searchRadar;
+                var home;
 
                 // Home
                 home = {
                     name: 'home',
                     url: '/',
-                    templateUrl: 'partials/home.tpl.html',
+                    templateUrl: 'templates/partials/home.tpl.html',
                     controller: 'homeController'
                 };
 
-                // Search Radar
-                searchRadar = {
-                    name: 'radar',
-                    url: '^/radar',
-                    templateUrl: 'partials/search.radar.tpl.html',
-                    controller: 'searchRadarController'
-                };
 
-                // Room
-                room = {
-                    abstract: true,
-                    name: 'rooms',
-                    url: '/rooms',
-                    // templateUrl: 'partials/game.tpl.html',
-                    template: '<ui-view/>',
-                    controller: function($scope) {}
-                };
-
-                roomList = {
-                    name: 'rooms.list',
-                    url: '/list',
-                    templateUrl: 'partials/rooms.list.tpl.html',
-                    controller: 'roomListController'
-                };
-
-                roomNew = {
-                    name: 'rooms.new',
-                    url: '/new',
-                    templateUrl: 'partials/rooms.new.tpl.html',
-                    controller: 'roomNewController'
-                };
-
-                // roomId = {
-                //     name: 'rooms.id',
-                //     url: '^/room/{id}',
-                //     templateUrl: 'partials/room.tpl.html',
-                //     controller: function($scope) {
-                //         $scope.debug = $scope.$stateParams;
-                //     }
-                // };
-
-                // Game
-                var game, gameColorPicker,
-                    gameRoom, gamePlayer;
-
-                game = {
-                    abstract: true,
-                    name: 'game',
-                    url: '/game',
-                    template: '<ui-view/>',
-                    controller: 'gameController'
-                };
-
-                gamePlayer = {
-                    name: 'game.player',
-                    url: '/player',
-                    templateUrl: 'partials/game.player.tpl.html',
-                    controller: 'gamePlayerController'
-                };
-            
-                // gameColorPicker = {
-                //     name: 'picker',
-                //     url: '^/room/{id:[0-9A-z]{8}-[0-9A-z]{4}-[0-9A-z]{4}-[0-9A-z]{4}-[0-9A-z]{12}}/picker',
-                //     templateUrl: 'partials/game.picker.tpl.html',
-                //     controller: 'gameColorPickerController'
-                // };
-
-                gameRoom = {
-                    name: 'game.room',
-                    url: '^/room/{id:[0-9A-z]{8}-[0-9A-z]{4}-[0-9A-z]{4}-[0-9A-z]{4}-[0-9A-z]{12}}',
-                    templateUrl: 'partials/game.room.tpl.html',
-                    controller: 'gameRoomController',
-                    resolve: {
-                        getGame: function($stateParams, GameRoomService) {
-                            // TODO: enable route resolve promise
-                            // return GameRoomService.loadGame($stateParams.id);
-                        }
-                    }
-                };
 
                 // Set states
                 $stateProvider
 
                     // Home
-                    .state(home)
+                    .state(home);
 
-                    // Search (to do)
-                    //.state(searchRadar)
-
-                    // Room
-                    .state(room)
-                    .state(roomList)
-                    .state(roomNew)
-                    //.state(roomId)
-
-                    // Game
-                    .state(game)
-                    .state(gamePlayer)
-                    //.state(gameColorPicker)
-                    .state(gameRoom);
 
                 // Fallback route
                 $urlRouterProvider.otherwise("/");

@@ -1,0 +1,27 @@
+//
+// Debug stuffz
+//
+.debug { z-index: 9999; background: #bdc3c7; color: #000; opacity: 0.7; padding: 20px; display: inline-block; }
+.debug.fixed { background: #f00; color: #fff; position: fixed; bottom: 0; right: 0; }
+.debug.fixed.top { top: 0; bottom: inherit; }
+
+// Viewport simulator
+.viewport {
+  @extend .translateCenter;
+
+  display: inline-block;
+
+  // Iphone 4
+  width: 320px;
+  height: 568px;
+
+  overflow: visible;
+  vertical-align: middle;
+
+  @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+}
+
+/* MISC */
+.show-grid {} /* Bootstrap debug */
+.show-grid [class^="col"],
+.show-grid [class="col"] { background-color: #ddd; border: 1px solid #ccc; }

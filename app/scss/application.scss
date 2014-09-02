@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+// ---------------------------------------------------------------------------- //
+// ---------- VENDOR ---------------------------------------------------------- //
+// ---------------------------------------------------------------------------- //
+// 3rd party "resources"
+
+// @import url("http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
+
+@import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"); // Open Sans
+@import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext"); // Dosis
+
+// ---------------------------------------------------------------------------- //
+// ---------- DEPENDENCIES ---------------------------------------------------- //
+// ---------------------------------------------------------------------------- //
+
+@import "_reset"; // general reset
+
+// SCSS Framework + DEBUG styles (Compass)
+@import "compass/css3";
+@import "_debug"; // debug-belt (TODO: disable for production?)
+
+// Color Schemas + Theme config
+@import "_colors";
+@import "_config";
+
+// Utility MIXIN-belt
+@import "_mixins";
+
+// Custom FX / animations
+@import "_fx";
+
+// Global styles
+@import "_global";
+
+// ---------------------------------------------------------------------------- //
+// ---------- "WORKHOLIO" APP STYLES ------------------------------------------ //
+// ---------------------------------------------------------------------------- //
+
+body {
+  position: relative;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  color: #000;
+
+  @include background-image(linear-gradient(#8b9da9, #fff6e4));
+}
+
+// TYPOGRAPHY / LINKS
+h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; font-weight: 300; color: inherit; }
+
+a {
+  color:#0271b1;
+  text-decoration:none;
+  outline:none;
+
+  @include transition(all 0.2s ease-out);
+
+  &:hover { text-decoration: underline; }
+}

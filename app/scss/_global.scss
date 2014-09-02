@@ -1,0 +1,43 @@
+// ---------------------------------------------------------------------------- //
+// ---------- GLOBAL STYLES --------------------------------------------------- //
+// ---------------------------------------------------------------------------- //
+
+// Box model for all
+// TODO: maybe :: selectors ?
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+html, body { height: 100%; } // force max height on document
+html { font-size: 62.5%; } // set font-size to BASE 10 (used by font-size MIXIN)
+
+body { @include font-size(16); } // set body general font-size
+
+// Typography
+// TODO: change to mixin include ?
+h1, h2, h3, h4, h5, h6 { font-family: inherit; }
+h1 { font-size:30px; font-size:3.0rem; }
+h2 { font-size:25px; font-size:2.5rem; }
+h3 { font-size:22px; font-size:2.2rem; }
+h4 { font-size:15px; font-size:1.5rem; }
+
+input, button, select, textarea { font-family: inherit; }
+
+// Misc
+.table-cell { display:table-cell; margin:0 auto; vertical-align:middle; }
+
+//
+// Touch related "hacks"
+//
+* {
+  -webkit-user-select: none;  /* Disable selection/copy of elements when tapping for a long time */
+  -webkit-touch-callout: none; /* Disable touch callouts */
+
+  // -webkit-text-size-adjust: none;
+}
+
+input, textarea, [contenteditable] * {
+  -webkit-user-select: auto;  /* Allow selection for input elements and those with contenteditable attribute */
+}

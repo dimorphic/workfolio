@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+//@import "ionic/ionic";
+@import "/lib/css/ionic/1.0.0/ionic.css"; // ionic framework
+
+// Compass 
+@import "compass/css3";
+
+// Utility mixins for greater good
+@import "_mixins";
+
+// Variables, Fonts, Colors (changing them leads to changing a color scheme)
+@import "_colors";
+@import "_config";
+
+// Hacks
+@import "_global";
+@import "_fx";
+
+$paint-color:
+  $flat-emerald,
+  $flat-peter-river,
+  $flat-amethyst,
+  $flat-carrot,
+  $flat-pomegranate,
+  $flat-alizarin,
+  $base-color;
+
+$items: item-1 item-2 item-3 item-4 item-5 item-6 item-7;
+
+// Body
+body {}
+
+// Loader container
+.loader {
+  max-width: 100%;
+  @extend .translateCenter; // translate center hack
+
+  @include animation-duration(0.7s !important);
+ }
+
+// Msg / icon
+.msg {
+  /* width:100%; height:100%; */
+  text-align: center;
+
+  /* position: absolute; */
+  @extend .translateCenter; // translate center hack
+
+  // Icon setup
+  & i {
+    color:#fff;
+    @include font-size(40); 
+  }
+}
+
+// Squiggle square
+#squiggle {
+  $squiggSize: 100px;
+
+  width: $squiggSize;
+  height: $squiggSize;
+
+  border-radius: 40%;
+  overflow: hidden;
+
+  @extend .translateCenter; // translate center hack
+
+  @include animation-name(bgcolor);
+  @include animation-duration(8s);
+  @include animation-timing-function(linear);
+  @include animation-iteration-count(infinite);
+
+  font-size:0; /* (FIX) remove horizontal spacing */
+  line-height:0; /* (FIX) and vertical */
+  letter-spacing: -1px; /* (FIX) force webkit */
+
+  display: -moz-inline-stack!important;/* (FIX) */
+}
+@include keyframes (bgcolor){
+  0% { background: $flat-emerald; }
+  20% { background: $flat-peter-river; }
+  40% { background: $flat-alizarin; }
+  60% { background: $flat-amethyst; }
+  80% { background: $flat-orange; }
+  100% { background: $flat-nephritis; }
+}
+
+.contort {
+  @include animation-name(contort);
+  @include animation-duration(2s);
+  @include animation-timing-function(ease-out);
+  @include animation-iteration-count(infinite);
+}
+@include keyframes (contort){
+  0% {
+    @include transform(rotate(0deg));
+    border-radius: 0;
+  }
+  50% {
+    @include transform(rotate(90deg));
+    border-radius: 50%;
+    background: #c0392b;
+  }
+  100% {
+    @include transform(rotate(180deg));
+    border-radius: 0;
+  }
+}
+
+// doJelly
+.doJelly {
+  // Animation ready
+  @extend .noflicker; // force 3d render
+  @include transition(all 0.3s ease-in-out);
+  
+  @include animation-name(jellyize);
+  @include animation-duration(0.8s);
+}
+
+#squiggle span {
+  width: 25%;
+  height: 25%;
+  display: inline-block;
+
+  // animation-name: boxfirst;
+  // animation-duration: .55s;
+  // animation-timing-function: linear;
+  // animation-iteration-count: infinite;
+
+  @include animation-name(boxfirst);
+  @include animation-duration(.55s);
+  @include animation-timing-function(linear);
+  @include animation-iteration-count(infinite);
+}
+@include keyframes (boxfirst){
+  0% {background-color: rgba(0,0,0,.2)}
+  50% {background-color: rgba(255,255,255,.2)}
+  100% {background-color: rgba(0,0,0,.2)}
+}
+
+#squiggle span.box-1 { @include animation-delay(-.55s); }
+#squiggle span.box-2 { @include animation-delay(-.50s); }
+#squiggle span.box-3 { @include animation-delay(-.45s); }
+#squiggle span.box-4 { @include animation-delay(-.40s); }
+#squiggle span.box-8 { @include animation-delay(-.35s); }
+#squiggle span.box-12 { @include animation-delay(-.30s); }
+#squiggle span.box-16 { @include animation-delay(-.25s); }
+#squiggle span.box-15 { @include animation-delay(-.20s); }
+#squiggle span.box-14 { @include animation-delay(-.15s); }
+#squiggle span.box-13 { @include animation-delay(-.10s); }
+#squiggle span.box-9 { @include animation-delay(-.5s); }
+#squiggle span.box-5 { @include animation-delay(0s); }
+
+#squiggle span.box-6 { @include animation-delay(0s);  opacity: .5;}
+#squiggle span.box-7 { @include animation-delay(.18s); opacity: .5;}
+#squiggle span.box-10 { @include animation-delay(.36s); opacity: .5;}
+#squiggle span.box-11 { @include animation-delay(.55s); opacity: .5;}
+
+
+/* Bars loader */
+.bars {
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  margin: auto;
+  width: 100%;
+  height: 80px;
+}
+
+.bars span {
+  display: inline-block;
+  width: 10px;
+  height: 40px;
+  
+  @for $i from 1 through 7 {
+    &.item-#{$i} {
+      background: nth($paint-color, $i); 
+    }
+  }
+
+  @include animation-name(bars-scale);
+  @include animation-duration(1.2s);
+  @include animation-iteration-count(infinite);
+}
+
+@each $i in $items {
+  .bars span.#{$i} {
+    @include delay;
+  }
+}
+
+@include keyframes (bars-scale){
+  0%, 40%, 100%{
+    @include transform(scaleY(0.2));
+  }
+  20%, 60%{
+    @include transform(scaleY(1));
+  }
+  
+}
