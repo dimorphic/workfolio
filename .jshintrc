@@ -1,0 +1,56 @@
+{
+  "curly":   true,
+  "eqeqeq":  true,
+  "immed":   true,
+  "latedef": true,
+  "newcap":  true,
+  "noarg":   true,
+  "sub":     true,
+  "undef":   true,
+  "boss":    true,
+  "eqnull":  true,
+  "browser": true,
+  "node":    true,
+
+  "globals": {
+    // AMD
+    "module":     true,
+    "require":    true,
+    "requirejs":  true,
+    "define":     true,
+
+    // Environments
+    "console":    true,
+    "document":   true,
+    "window":     true,
+    "host":       true,
+
+    // All around 'goodies' libraries
+    "_":          true,
+    "$":          true,
+    
+    "jQuery":     true,
+    "angular":    true,
+    "Firebase":   true,
+
+    // Sylvester.js
+//    "$V":         true,
+//    "$M":         true,
+//    "$L":         true,
+//    "$P":         true,
+
+    // Testing
+    "sinon":      true,
+    "describe":   true,
+    "it":         true,
+    "expect":     true,
+    "beforeEach": true,
+    "afterEach":  true
+
+    // "spyOn":      false,
+    // "inject":     false,
+    // "url":        false,
+    // "jasmine":    false,
+    // "Globalize":  false,
+  }
+}
