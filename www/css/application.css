@@ -1293,7 +1293,12 @@ pre {
   color: #fff;
 }
 
-/* line 77, ../../app/scss/application.scss */
+/* line 74, ../../app/scss/application.scss */
+.app-logo {
+  width: 260px;
+}
+
+/* line 83, ../../app/scss/application.scss */
 .menu .tag {
   display: block;
   text-align: center;
@@ -1302,20 +1307,20 @@ pre {
   line-height: 1.5;
   font-weight: 700;
 }
-/* line 86, ../../app/scss/application.scss */
+/* line 92, ../../app/scss/application.scss */
 .menu ul {
   margin: 0px auto;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 93, ../../app/scss/application.scss */
+/* line 99, ../../app/scss/application.scss */
 .menu ul li {
   padding: 0px 20px;
   font-size: 15px;
   font-size: 1.5rem;
   line-height: 1.5;
 }
-/* line 98, ../../app/scss/application.scss */
+/* line 104, ../../app/scss/application.scss */
 .menu ul li i {
   display: block;
   width: 0px;
@@ -1327,12 +1332,12 @@ pre {
   -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 112, ../../app/scss/application.scss */
+/* line 118, ../../app/scss/application.scss */
 .menu ul li.selected i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 120, ../../app/scss/application.scss */
+/* line 126, ../../app/scss/application.scss */
 .menu ul li:hover i {
   background: #8980fa;
   width: 100%;
