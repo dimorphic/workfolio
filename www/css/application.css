@@ -1,6 +1,5 @@
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css");
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext");
 /* html5doctor.com Reset v1.6.1 - http://cssreset.com */
 /* line 2, ../../app/scss/_reset.scss */
@@ -157,7 +156,7 @@ input, select {
 /* line 26, ../../app/scss/_debug.scss */
 .show-grid [class^="col"],
 .show-grid [class="col"] {
-  background-color: #ddd;
+  background-color: #333;
   border: 1px solid #ccc;
 }
 
@@ -1259,23 +1258,22 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1;
-  color: #000;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzhiOWRhOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlNCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8b9da9), color-stop(100%, #fff6e4));
-  background-image: -moz-linear-gradient(#8b9da9, #fff6e4);
-  background-image: -webkit-linear-gradient(#8b9da9, #fff6e4);
-  background-image: linear-gradient(#8b9da9, #fff6e4);
+  color: #fff;
+  background: #1b1b21;
 }
 
-/* line 53, ../../app/scss/application.scss */
+/* line 54, ../../app/scss/application.scss */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+/* line 58, ../../app/scss/application.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
   color: inherit;
 }
 
-/* line 55, ../../app/scss/application.scss */
+/* line 60, ../../app/scss/application.scss */
 a {
   color: #0271b1;
   text-decoration: none;
@@ -1285,7 +1283,57 @@ a {
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 62, ../../app/scss/application.scss */
+/* line 67, ../../app/scss/application.scss */
 a:hover {
   text-decoration: underline;
+}
+
+/* line 70, ../../app/scss/application.scss */
+pre {
+  color: #fff;
+}
+
+/* line 77, ../../app/scss/application.scss */
+.menu .tag {
+  display: block;
+  text-align: center;
+  font-size: 80px;
+  font-size: 8rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+/* line 86, ../../app/scss/application.scss */
+.menu ul {
+  margin: 0px auto;
+  padding: 10px 0px;
+  text-align: center;
+}
+/* line 93, ../../app/scss/application.scss */
+.menu ul li {
+  padding: 0px 20px;
+  font-size: 15px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+/* line 98, ../../app/scss/application.scss */
+.menu ul li i {
+  display: block;
+  width: 0px;
+  height: 1px;
+  margin-top: 5px;
+  background: #23232f;
+  -moz-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 112, ../../app/scss/application.scss */
+.menu ul li.selected i {
+  background: #7b75cb;
+  width: 100%;
+}
+/* line 120, ../../app/scss/application.scss */
+.menu ul li:hover i {
+  background: #8980fa;
+  width: 100%;
 }

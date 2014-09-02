@@ -8,7 +8,7 @@
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"); // Open Sans
+//@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
 @import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext"); // Dosis
 
 // ---------------------------------------------------------------------------- //
@@ -44,13 +44,18 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1;
-  color: #000;
+  color: #fff;
 
-  @include background-image(linear-gradient(#8b9da9, #fff6e4));
+  //@include background-image(linear-gradient(#8b9da9, #fff6e4));
+  background: #1b1b21;
 }
 
+// "Hacks"
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; } // ui.bootstrap fix for a href clicks
+
+
 // TYPOGRAPHY / LINKS
-h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; font-weight: 300; color: inherit; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; color: inherit; }
 
 a {
   color:#0271b1;
@@ -60,4 +65,63 @@ a {
   @include transition(all 0.2s ease-out);
 
   &:hover { text-decoration: underline; }
+}
+
+pre { color: #fff; }
+
+//
+// Menu Selector
+//
+.menu {
+
+  .tag {
+    display: block;
+    text-align: center;
+
+    @include font-size(80);
+    font-weight: 700;
+  }
+
+  // items list
+  ul {
+    margin: 0px auto;
+    padding: 10px 0px;
+
+    text-align: center; // center items in list
+
+    // item
+    li {
+      padding: 0px 20px;
+
+      @include font-size(15);
+
+      i {
+        display: block;
+
+        width: 0px;
+        height: 1px;
+        margin-top: 5px;
+
+        background: #23232f;
+
+        @include transition(all 0.2s $animationEasing);
+      }
+
+      // selected state
+      &.selected {
+        i {
+          background: #7b75cb;
+          width: 100%;
+        }
+      }
+
+      // hover state
+      &:hover {
+        i {
+          background: #8980fa;
+          width: 100%;
+        }
+      }
+    }
+  }
 }

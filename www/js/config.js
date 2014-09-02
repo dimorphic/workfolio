@@ -5,7 +5,7 @@
 	//
 	//	Config
 	//
-	var appConfig = angular.module('tapIt.config', []);
+	var appConfig = angular.module('demo.config', []);
 
 	// Define settings
 	var configData = {
@@ -13,13 +13,7 @@
 		// General config
 		'GENERAL_CONFIG': {
 			'APP_VERSION': '0.1', // version
-			'FBURL': 'https://tapit.firebaseio.com/' // end this with a trailing slash
-		},
-
-		// Game settings
-		'GAME_CONFIG': {
-			'MAXPLAYERS': 3, // max players on board
-			'DEATH_HP' : 10 // hp percent to trigger death
+			'FBURL': 'https://URL.firebaseio.com/' // end this with a trailing slash
 		},
 
 		// Development settings

@@ -17,6 +17,17 @@
         // ---------------
         $scope.debug = "da fak controller bro";
 
+        // controlz test
+        $scope.singleModel = 1;
+
+        $scope.radioModel = 'Middle';
+
+        $scope.checkModel = {
+            left: false,
+            middle: true,
+            right: false
+        };
+
     };
 
 

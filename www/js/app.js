@@ -6,9 +6,9 @@
     // Dependencies
     //
     var dependencyModules = [
-        'Console',
-        'underscore',
-        'ui.router'
+        'Console', 'underscore',
+        'ui.router',
+        'ui.bootstrap'
     ];
 
     var appComponents = [
