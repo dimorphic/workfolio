@@ -1,9 +1,15 @@
 //
 // Debug stuffz
 //
-.debug { z-index: 9999; background: #bdc3c7; color: #000; opacity: 0.7; padding: 20px; display: inline-block; }
+.debug { z-index: 9999; background: #bdc3c7; color: #000; opacity: 0.8; padding: 20px; display: inline-block; }
 .debug.fixed { background: #f00; color: #fff; position: fixed; bottom: 0; right: 0; }
 .debug.fixed.top { top: 0; bottom: inherit; }
+
+.debug pre {
+  background: none;
+  border: 1px dashed #fff;
+  color: #fff;
+}
 
 // Viewport simulator
 .viewport {

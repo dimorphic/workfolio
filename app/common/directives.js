@@ -6,6 +6,9 @@
     //
 	var appDirectives = angular.module('demo.directives', []);
 
+    //
+    // App Logo
+    //
     appDirectives.directive("appLogo", function($timeout) {
         var tpl = 'templates/directives/app-logo.tpl.html';
 
@@ -20,6 +23,78 @@
         };
     });
 
+    //
+    // Loading SVG icon
+    //
+    appDirectives.directive("loadIcon", function($timeout) {
+        var tpl = 'templates/directives/load-icon.tpl.html';
+
+        // Link to DOM
+        var link = function(scope, element, attrs) { };
+
+        // Return directive config
+        return {
+            restrict: "E",
+            templateUrl: tpl,
+            link: link
+        };
+    });
+
+    //
+    // Grid
+    //
+
+    // grid item
+    appDirectives.directive("gridItem", function($timeout) {
+        var tpl = 'templates/directives/grid.item.tpl.html';
+
+        // Link to DOM
+        var link = function(scope, element, attrs) {
+            //if(!attrs.colors) { console.warn('No color attrs set! returning...'); return; } // do nothing if no model
+            //if(!scope.colors) { console.warn('No color scope set! returning...'); return; } // do nothing if no model
+            if(!scope.project) {
+                console.warn('No project scope set! returning...');
+                return;
+            } // do nothing if no model
+
+            //var index = element.parent().index();
+            var box = element.find(".thumb");
+            //var img = element.find(".thumb > img");
+            var img = box.find("img");
+
+            // bind once
+            img.one("load", function() {
+
+                var src = scope.project.thumb;
+
+                box.css("background-image", 'url(' + src + ')');
+
+                console.log("rdy bind load!", src);
+
+            });
+
+            // click event
+            element.on("click", function() {
+             //console.log('index hp:' + scope.project.name);
+             console.log(box);
+            });
+
+            //console.log('here bro @ ');
+            //console.log(element);
+
+        };
+
+        // Return directive config
+        return {
+            restrict: "E",
+            // create scope alias to model
+            scope: {
+            	project: '=project'
+            },
+            templateUrl: tpl,
+            link: link
+        };
+    });
 
 
     //

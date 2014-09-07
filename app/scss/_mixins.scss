@@ -10,7 +10,8 @@
 // 1600px - huge screen
 // 1920px - hd screen
 
-$screenSmall:    320px !default;
+$screenHand:    320px !default;
+$screenSmall:    768px !default;
 $screenMedium:   992px !default;
 $screenWide:    1200px !default;
 $screenHuge:    1600px !default;
@@ -20,8 +21,20 @@ $screenHd:      1920px !default;
 // Media query MIXIN
 //
 @mixin media-query($media-query) {
+  @if $media-query == hand {
+    @media only screen and (max-width: $screenHand) { @content; }
+  }
+
+  @if $media-query == hand-only {
+    @media only screen and (min-width: $screenHand) and (max-width: $screenSmall - 1) { @content; }
+  }
+
   @if $media-query == small {
-    @media only screen and (max-width: $screenMedium - 1) { @content; }
+    @media only screen and (min-width: $screenSmall) { @content; }
+  }
+
+  @if $media-query == small-only {
+    @media only screen and (min-width: $screenSmall) and (max-width: $screenMedium - 1) { @content; }
   }
 
   @if $media-query == medium {
@@ -42,7 +55,10 @@ $screenHd:      1920px !default;
 }
 
 // ... and some helpers for it
-@mixin small-only { @include media-query(small) { @content }; }
+@mixin hand { @include media-query(hand) { @content }; }
+@mixin hand-only { @include media-query(hand-only) { @content }; }
+@mixin small { @include media-query(small) { @content }; }
+@mixin small-only { @include media-query(small-only) { @content }; }
 @mixin medium { @include media-query(medium) { @content }; }
 @mixin medium-only { @include media-query(medium-only) { @content }; }
 @mixin wide { @include media-query(wide) { @content }; }
@@ -105,7 +121,7 @@ $vendor: '', '-webkit-', '-moz-', '-ms-', '-o-';
   line-height: $line;
 }
 
-// Retina MIXIN
+// Retina MIXIN v1
 @mixin image-set($img, $type) {
   background-image: url($img + $type);
 
@@ -121,6 +137,7 @@ $vendor: '', '-webkit-', '-moz-', '-ms-', '-o-';
 
 // Custom animation easings
 $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955) !default;
+$cubicTwo: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
 // pause CLASS
 // pause all current animations on element (check browser current compability status!)

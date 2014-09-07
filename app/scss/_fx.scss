@@ -21,11 +21,45 @@
 // ---------- CUMSTOM KEYFRAMES / ANIMATIONS ---------------------------------- //
 // ---------------------------------------------------------------------------- //
 
+// Pop-in effect
+@include keyframes(pop-in) {
+  0% {
+    @include transform(scale(0.9), translate3d(0,0,0));
+  }
+
+  33% {
+    @include transform(scale(1.5), translate3d(0,0,0));
+  }
+
+  66% {
+    @include transform(scale(0.975), translate3d(0,0,0));
+  }
+
+  100% {
+    @include transform(scale(1), translate3d(0,0,0));
+  }
+}
+
+
+
+
+
+
+
+
+
+
 // Some SVG animations
 // TODO: change var names and move to own file ?
 
 $svg-color-active: #e25027 !default;
 $svg-color-inactive: #ebebeb !default;
+
+@include keyframes(svg_dash) {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 @include keyframes(svg_outline) {
   100% {

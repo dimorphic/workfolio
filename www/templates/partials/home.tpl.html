@@ -1,59 +1,66 @@
 <!-- DEBUG -->
-<div class="debug fixed">
-    <pre>{{ debug }}</pre>
-    wtf bro
+<div style="display: none;">
+    <div class="debug fixed">
+        <pre>{{ debug }}</pre>
+        wtf bro
+    </div>
+
+    <div class="debug fixed top">
+        <!-- TEMP CONTROLZ -->
+        <div class="controlz">
+
+            <h4>Radio &amp; Uncheckable Radio</h4>
+            <pre>{{radioModel || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-default" ng-model="radioModel" btn-radio="'All'">All works</label>
+                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Apps'">Apps</label>
+                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Banners'">Banners</label>
+                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Branding'">Branding</label>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <!-- APP LOGO -->
 <div class="container">
+
     <app-logo></app-logo>
+
+    <div class="headline">
+        <span>MY WORK</span>
+    </div>
+
 </div>
 
 <!-- CONTENT -->
-<div class="container-fluid show-grid">
+<div class="portofolio">
 
     <!-- MENU SELECTOR -->
     <div class="menu">
-        <div class="tag">
-            <span>MY WORK</span>
-        </div>
 
-        <ul class="list-inline">
-            <li class="item selected">All works<i></i></li>
-            <li class="item">Apps<i></i></li>
-            <li class="item">Banners<i></i></li>
-            <li class="item">Branding<i></i></li>
-        </ul>
-    </div>
-
-    <!-- TEMP CONTROLZ -->
-    <div class="controlz">
-
-        <h4>Radio &amp; Uncheckable Radio</h4>
-        <pre>{{radioModel || 'null'}}</pre>
-        <div class="btn-group">
-            <label class="btn btn-default" ng-model="radioModel" btn-radio="'Left'">Leftxx</label>
-            <label class="btn btn-default" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
-            <label class="btn btn-default" ng-model="radioModel" btn-radio="'Right'">Right</label>
+        <div class="buttons">
+            <label class="item" ng-model="radioModel" btn-radio="'All'">All works<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'Apps'">Apps<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'Banners'">Banners<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'Branding'">Branding<i></i></label>
         </div>
 
     </div>
-    <br/>
+
 
     <!-- PORTOFOLIO (IMAGES LIST) -->
-    <div class="portofolio">
-        <div class="row">
-            <div class="col-xs-8">.col-xs-8</div>
-            <div class="col-xs-4">.col-xs-4</div>
+    <div class="portofolio-images">
+
+        <div class="grid">
+
+            <grid-item ng-repeat="project in projects"
+                       id="project_{{ $index }}"
+                       project="projects[$index]">
+
+            </grid-item>
+
         </div>
-        <div class="row">
-            <div class="col-xs-4">.col-xs-4</div>
-            <div class="col-xs-4">.col-xs-4</div>
-            <div class="col-xs-4">.col-xs-4</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">.col-xs-6</div>
-            <div class="col-xs-6">.col-xs-6</div>
-        </div>
+
     </div>
 </div>

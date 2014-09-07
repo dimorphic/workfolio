@@ -1,5 +1,5 @@
 @import url(/lib/css/ionic/1.0.0/ionic.css);
-/* line 77, ../../app/scss/_mixins.scss */
+/* line 93, ../../app/scss/_mixins.scss */
 .sepa {
   width: 90%;
   height: 1px;
@@ -7,7 +7,7 @@
   border-top: 1px dashed #ecf0f1;
 }
 
-/* line 78, ../../app/scss/_mixins.scss */
+/* line 94, ../../app/scss/_mixins.scss */
 .noselect {
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -15,7 +15,7 @@
   user-select: none;
 }
 
-/* line 81, ../../app/scss/_mixins.scss */
+/* line 97, ../../app/scss/_mixins.scss */
 .noflicker, .doJelly {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -26,7 +26,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* line 85, ../../app/scss/_mixins.scss */
+/* line 101, ../../app/scss/_mixins.scss */
 .translateCenter, .loader, .msg, #squiggle {
   position: absolute;
   top: 50%;
@@ -37,7 +37,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 93, ../../app/scss/_mixins.scss */
+/* line 109, ../../app/scss/_mixins.scss */
 .positionCenter {
   margin: auto;
   position: absolute;
@@ -47,7 +47,7 @@
   right: 0;
 }
 
-/* line 127, ../../app/scss/_mixins.scss */
+/* line 144, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
@@ -135,6 +135,114 @@ input, textarea, [contenteditable] * {
   /* Allow selection for input elements and those with contenteditable attribute */
 }
 
+@-webkit-keyframes pop-in {
+  0% {
+    -moz-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  33% {
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  66% {
+    -moz-transform: scale(0.975);
+    -webkit-transform: scale(0.975);
+    transform: scale(0.975);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes pop-in {
+  0% {
+    -moz-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  33% {
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  66% {
+    -moz-transform: scale(0.975);
+    -webkit-transform: scale(0.975);
+    transform: scale(0.975);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-ms-keyframes pop-in {
+  0% {
+    -moz-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  33% {
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  66% {
+    -moz-transform: scale(0.975);
+    -webkit-transform: scale(0.975);
+    transform: scale(0.975);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pop-in {
+  0% {
+    -moz-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  33% {
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  66% {
+    -moz-transform: scale(0.975);
+    -webkit-transform: scale(0.975);
+    transform: scale(0.975);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes svg_dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes svg_dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-ms-keyframes svg_dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes svg_dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 @-webkit-keyframes svg_outline {
   100% {
     stroke-dashoffset: 0;

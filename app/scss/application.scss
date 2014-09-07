@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------------------- //
 // 3rd party "resources"
 
-@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
+//@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
 //@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
@@ -19,6 +19,11 @@
 
 // SCSS Framework + DEBUG styles (Compass)
 @import "compass/css3";
+
+@import "lib/bootstrap/assets/stylesheets/_bootstrap-compass";
+@import "lib/bootstrap/assets/stylesheets/_bootstrap";
+
+
 @import "_debug"; // debug-belt (TODO: disable for production?)
 
 // Color Schemas + Theme config
@@ -48,6 +53,8 @@ body {
 
   //@include background-image(linear-gradient(#8b9da9, #fff6e4));
   background: #1b1b21;
+
+  overflow-x: hidden; // disable horizontal scrollbars on item hover (we upscale it)
 }
 
 // "Hacks"
@@ -58,21 +65,57 @@ body {
 h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; color: inherit; }
 
 a {
-  color:#0271b1;
-  text-decoration:none;
-  outline:none;
+  color: #fff;
+  text-decoration: none;
+  outline: none;
 
   @include transition(all 0.2s ease-out);
 
   &:hover { text-decoration: underline; }
 }
 
-pre { color: #fff; }
+pre {
+  color: #fff;
+}
 
 // App logo
-
 .app-logo {
-  width: 260px;
+  display: block;
+
+  width: 100%;
+  max-width: 260px;
+
+  margin: 70px auto;
+  text-align: center; // center inline-blocks
+
+  // icon
+  .icon {
+    svg {
+      width: 100%; // TODO: check if this works properly
+      //min-width: 260px;
+    }
+  }
+
+  // tag line
+  .tagline {
+    display: inline-block;
+
+    @include font-size(18, 1);
+    font-weight: 300;
+    color: #fff;
+
+    margin-top: 40px;
+  }
+}
+
+.headline {
+  display: block;
+
+  margin: 0px auto;
+
+  @include font-size(80, 1);
+  font-weight: 700;
+  text-align: center;
 }
 
 //
@@ -80,27 +123,33 @@ pre { color: #fff; }
 //
 .menu {
 
-  .tag {
-    display: block;
-    text-align: center;
+  margin: 60px auto 80px;
 
-    @include font-size(80);
-    font-weight: 700;
-  }
-
-  // items list
-  ul {
+  // buttons
+  .buttons {
     margin: 0px auto;
     padding: 10px 0px;
 
     text-align: center; // center items in list
 
     // item
-    li {
+    .item {
       padding: 0px 20px;
 
       @include font-size(15);
+      font-weight: 300;
 
+      // links
+      a {
+        color: #fff;
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+
+      // decorative underline
       i {
         display: block;
 
@@ -113,21 +162,262 @@ pre { color: #fff; }
         @include transition(all 0.2s $animationEasing);
       }
 
-      // selected state
-      &.selected {
+      // hover state
+      &:hover {
+        color: #fff;
+
         i {
           background: #7b75cb;
           width: 100%;
         }
       }
 
-      // hover state
-      &:hover {
+      // selected state
+      &.selected,
+      &.active {
         i {
-          background: #8980fa;
+          background: #7b75cb;
           width: 100%;
         }
       }
+
     }
   }
+} // @end: menu
+
+//
+// Portofolio Grid
+//
+.portofolio {
+
+  @extend .container-fluid !optional;
+  //overflow-x: hidden; // disable horizontal scrollbars on item hover (we upscale it)
+
+  padding-bottom: 70px;
+
+  // image grid
+  .grid {
+
+    @include make-row();
+    text-align: center; // center inline-blocks
+
+    // grid item
+    .grid-item {
+      z-index: 1;
+      position: relative;
+
+      display: inline-block;
+      vertical-align: top;
+
+      // default sizes
+      max-width: 320px;
+      max-height: 500px;
+
+      height: 500px;
+
+      margin-bottom: 1px;
+
+      // background
+      background: #1b1b1b;
+
+      // Animation ready / Force HA
+      @extend .noflicker;
+      @include transition(all 0.4s $animationEasing);
+
+      // mobile first bitch!
+      @include make-xs-column(6); // 2 per row
+
+      // responsive sizes
+      // TODO: maybe move this to a whole RESPONSIVE section?
+      @include hand() { height: 160px; }
+      @include small() { @include make-xs-column(4); }  // 768px and up / 3 per row
+      @include medium() { @include make-xs-column(3); } // 992px and up / 4 per row
+      @include huge() { @include make-xs-column(2); }   // 1200px and up / 6 per row
+
+      float: none !important; // remove floats
+
+      // tag line
+      .tag {
+        z-index: 3;
+        opacity: 0;
+
+        @extend .translateCenter;
+        padding: 10px;
+
+        background: #F1C40F;
+        @include box-shadow(0 10px 16px -4px rgba(36, 45, 50, 0.25));
+
+        @include font-size(14, 1);
+        //font-weight: 700;
+        color: #000;
+
+        // Animation ready / Force HA
+        @extend .noflicker;
+        @include transition(all 0.2s $animationEasing);
+
+        @include transform(translate(-50%, 200%));
+      }
+
+      // image thumb
+      .thumb {
+        z-index: 2;
+
+        width: 100%;
+        height: 100%;
+
+        @extend .positionCenter;
+        @include background-size(cover);
+
+        cursor: pointer;
+        //border: 2px transparent;
+
+        // Animation ready / Force HA
+        @extend .noflicker;
+        //@include transition(all 0.3s $animationEasing);
+
+        // Gradient mask overlay
+        &:after {
+          content: ''; // force shadow element to show
+
+          @extend .positionCenter;
+
+          background: #292484;
+          @include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
+
+          opacity: 0;
+
+          // Animation ready / Force HA
+          @extend .noflicker;
+          @include transition(all 0.3s $animationEasing);
+        }
+
+        // img holder
+        img {
+          //@extend .translateCenter;
+          display: none; // do not display the image, we use background-image on parent
+        }
+
+      }
+
+      // experimenal border
+      .svg-border {
+        opacity: 0; // hide at start
+
+        z-index: 3;
+
+        @extend .positionCenter;
+        width: 100%;
+        height: 100%;
+
+        // svg
+        svg {
+
+          .shape {
+            fill: transparent;
+
+            stroke: #5dd6ff; // #16A4E6 #74d3f1;
+            stroke-width: 5px;
+
+            stroke-dashoffset: 1400;
+            stroke-dasharray: 1400;
+
+            // responsive sizes
+            // TODO: maybe move this to a whole RESPONSIVE section?
+            @include hand-only() {
+              stroke-dashoffset: 1600;
+              stroke-dasharray: 1600;
+            }
+
+            @include small() {
+              stroke-dashoffset: 1700;
+              stroke-dasharray: 1700;
+            }  // 768px and up
+
+            @include transition(all 0.6s $animationEasing);
+            //transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+            //-moz-transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+          }
+
+        }
+      }
+
+      .zoomer {
+        z-index: 2;
+
+        width: 100%;
+        height: 100%;
+
+        @extend .positionCenter;
+        cursor: pointer;
+
+        // Animation ready / Force HA
+        //@extend .noflicker;
+        @include transition(all 0.3s $animationEasing);
+      }
+
+      // grid item HOVER
+      &:hover {
+        z-index: 999; // render on top of everything
+
+        // fade in up
+        .tag {
+          @include transform(translate(-50%, -50%));
+          opacity: 1;
+        }
+
+        // zoom in thumb
+        .zoomer {
+          @include box-shadow(0 0px 20px rgba(0,0,0, 0.5));
+          @include transform(scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0));
+        }
+
+        // fade in gradient mask
+        .thumb {
+          // old
+          //border: 2px solid #8880fa;
+          //@include transform(scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0));
+
+          &:after {
+            opacity: 0.8;
+          }
+        }
+
+        // fade in border
+        .svg-border {
+          opacity: 1;
+
+          // stroke animation
+          .shape {
+            stroke: #8880fa;
+            stroke-width: 3;
+            //stroke-dashoffset: 0;
+            @include animate(svg_dash, 0.9s, 0.1s, $animationEasing);
+          }
+        }
+
+      }
+
+      // Loading icon
+      .svg-loader {
+        z-index: 1;
+        background: #0f0;
+
+        svg {
+          @extend .positionCenter;
+
+          path {
+            &.circle { fill: #000; }
+            &.light { fill: #16A4E6; }
+          }
+        }
+      }
+
+
+    }
+
+  }
+
+
 }
+
+
