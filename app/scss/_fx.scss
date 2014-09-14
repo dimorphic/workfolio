@@ -40,7 +40,15 @@
   }
 }
 
-
+// Butterlfy wing flippering
+@include keyframes(flipper) {
+  0% {
+    @include transform(scale(1, 1));
+  }
+  100% {
+    @include transform(scale(0.2, 1));
+  }
+}
 
 
 

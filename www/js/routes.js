@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module('demo.routes', [])
+    angular.module('workfolio.routes', [])
 
         //
         // Prevent XSS attacks

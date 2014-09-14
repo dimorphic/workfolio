@@ -4,8 +4,8 @@
     //
     // Controller modules
     //
-    var appControllers = angular.module('demo.controllers', [
-        'demo.ctrls.home'
+    var appControllers = angular.module('workfolio.controllers', [
+        'workfolio.ctrls.home'
     ]);
 
 // end

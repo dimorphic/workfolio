@@ -8,13 +8,15 @@
     var dependencyModules = [
         'Console', 'underscore',
         'ui.router',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngMorph',
+        'oc.modal'
     ];
 
     var appComponents = [
-        'demo.directives',
-        'demo.controllers',
-        'demo.routes'
+        'workfolio.directives',
+        'workfolio.controllers',
+        'workfolio.routes'
     ];
 
   	//
@@ -22,7 +24,7 @@
 	//
 
     // Declare app level module which depends on filters, and services
-	var mainApp = angular.module('demo', dependencyModules.concat(appComponents));
+	var mainApp = angular.module('workfolio', dependencyModules.concat(appComponents));
 
     //
     // Root Scope and UTILS
@@ -34,7 +36,7 @@
             // Helpers utils
             $rootScope.$log = $log;
 
-
+            $rootScope.$wtf = "da fak bro app.js init";
         }
     ]);  
 

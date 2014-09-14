@@ -223,6 +223,62 @@ input, textarea, [contenteditable] * {
     transform: scale(1);
   }
 }
+@-webkit-keyframes flipper {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -moz-transform: scale(0.2, 1);
+    -ms-transform: scale(0.2, 1);
+    -webkit-transform: scale(0.2, 1);
+    transform: scale(0.2, 1);
+  }
+}
+@-moz-keyframes flipper {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -moz-transform: scale(0.2, 1);
+    -ms-transform: scale(0.2, 1);
+    -webkit-transform: scale(0.2, 1);
+    transform: scale(0.2, 1);
+  }
+}
+@-ms-keyframes flipper {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -moz-transform: scale(0.2, 1);
+    -ms-transform: scale(0.2, 1);
+    -webkit-transform: scale(0.2, 1);
+    transform: scale(0.2, 1);
+  }
+}
+@keyframes flipper {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  100% {
+    -moz-transform: scale(0.2, 1);
+    -ms-transform: scale(0.2, 1);
+    -webkit-transform: scale(0.2, 1);
+    transform: scale(0.2, 1);
+  }
+}
 @-webkit-keyframes svg_dash {
   to {
     stroke-dashoffset: 0;

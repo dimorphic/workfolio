@@ -5,7 +5,7 @@
 	//
 	//	Config
 	//
-	var appConfig = angular.module('demo.config', []);
+	var appConfig = angular.module('workfolio.config', []);
 
 	// Define settings
 	var configData = {

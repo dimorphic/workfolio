@@ -23,6 +23,11 @@
 @import "lib/bootstrap/assets/stylesheets/_bootstrap-compass";
 @import "lib/bootstrap/assets/stylesheets/_bootstrap";
 
+// Swipebox (light box)
+//@import "/components/swipebox/src/css/swipebox.min.css";
+@import "/components/ocModal/dist/css/ocModal.light.min.css";
+@import "/components/ocModal/dist/css/ocModal.animations.min.css";
+
 
 @import "_debug"; // debug-belt (TODO: disable for production?)
 
@@ -85,20 +90,34 @@ pre {
   width: 100%;
   max-width: 260px;
 
-  margin: 70px auto;
+  margin: 50px auto;
   text-align: center; // center inline-blocks
+
+  // responsiveness bro
+  @include small() { margin: 70px auto; }
 
   // icon
   .icon {
+    display: inline-block;
+    width: 180px; // mobile first
+
     svg {
       width: 100%; // TODO: check if this works properly
-      //min-width: 260px;
+      height: 100%; // safari is dumb
     }
+
+    // responsive sizes
+    @include hand-only() { width: 200px; }
+    @include small() { width: 260px; }
+
+    // Animation ready: smooth trans
+    @include transition(all 0.2s $animationEasing);
   }
 
   // tag line
   .tagline {
-    display: inline-block;
+    //display: inline-block;
+    display: block;
 
     @include font-size(18, 1);
     font-weight: 300;
@@ -112,10 +131,13 @@ pre {
   display: block;
 
   margin: 0px auto;
-
-  @include font-size(80, 1);
-  font-weight: 700;
   text-align: center;
+
+  @include font-size(50, 1); // mobile first
+  font-weight: 700;
+
+  // responsive sizes
+  @include small() { @include font-size(80, 1); }
 }
 
 //
@@ -165,6 +187,7 @@ pre {
       // hover state
       &:hover {
         color: #fff;
+        cursor: pointer;
 
         i {
           background: #7b75cb;
@@ -175,6 +198,8 @@ pre {
       // selected state
       &.selected,
       &.active {
+        &:hover { cursor: default; }
+
         i {
           background: #7b75cb;
           width: 100%;
@@ -209,32 +234,37 @@ pre {
       display: inline-block;
       vertical-align: top;
 
+      // background
+      background: #1b1b1b;
+
+      // spacing
+      margin-bottom: 1px;
+
       // default sizes
       max-width: 320px;
       max-height: 500px;
 
-      height: 500px;
-
-      margin-bottom: 1px;
-
-      // background
-      background: #1b1b1b;
-
-      // Animation ready / Force HA
-      @extend .noflicker;
-      @include transition(all 0.4s $animationEasing);
+      //height: 500px;
+      height: 160px;
 
       // mobile first bitch!
       @include make-xs-column(6); // 2 per row
 
-      // responsive sizes
+      // RESPONSIVE SIZES
       // TODO: maybe move this to a whole RESPONSIVE section?
-      @include hand() { height: 160px; }
-      @include small() { @include make-xs-column(4); }  // 768px and up / 3 per row
+
+      //@include hand() { height: 160px; }
+      @include hand-only() { @include make-xs-column(4); }
+      @include small() { @include make-xs-column(4); height: 340px; }  // 768px and up / 3 per row
       @include medium() { @include make-xs-column(3); } // 992px and up / 4 per row
+      @include wide() { height:500px; } // higher grid tiles
       @include huge() { @include make-xs-column(2); }   // 1200px and up / 6 per row
 
       float: none !important; // remove floats
+
+      // Animation ready / Force HA
+      @extend .noflicker;
+      @include transition(all 0.4s $animationEasing);
 
       // tag line
       .tag {
@@ -247,7 +277,7 @@ pre {
         background: #F1C40F;
         @include box-shadow(0 10px 16px -4px rgba(36, 45, 50, 0.25));
 
-        @include font-size(14, 1);
+        @include font-size(12, 1.2);
         //font-weight: 700;
         color: #000;
 
@@ -262,11 +292,15 @@ pre {
       .thumb {
         z-index: 2;
 
+        opacity: 0;
         width: 100%;
         height: 100%;
 
         @extend .positionCenter;
         @include background-size(cover);
+        background-position: center center;
+
+//        @include background-position(center);
 
         cursor: pointer;
         //border: 2px transparent;
@@ -318,11 +352,17 @@ pre {
             stroke: #5dd6ff; // #16A4E6 #74d3f1;
             stroke-width: 5px;
 
-            stroke-dashoffset: 1400;
-            stroke-dasharray: 1400;
+            stroke-dashoffset: 1700;
+            stroke-dasharray: 1700;
 
-            // responsive sizes
+            // responsive sizes (reduce stroke dash/offset)
             // TODO: maybe move this to a whole RESPONSIVE section?
+            @include hand() {
+              stroke-dashoffset: 1400;
+              stroke-dasharray: 1400;
+            }
+
+            /*
             @include hand-only() {
               stroke-dashoffset: 1600;
               stroke-dasharray: 1600;
@@ -332,6 +372,7 @@ pre {
               stroke-dashoffset: 1700;
               stroke-dasharray: 1700;
             }  // 768px and up
+            */
 
             @include transition(all 0.6s $animationEasing);
             //transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
@@ -341,6 +382,7 @@ pre {
         }
       }
 
+      // zoom
       .zoomer {
         z-index: 2;
 
@@ -348,16 +390,16 @@ pre {
         height: 100%;
 
         @extend .positionCenter;
-        cursor: pointer;
 
         // Animation ready / Force HA
-        //@extend .noflicker;
+        @extend .noflicker; // TODO: might cause issues, double check this!
         @include transition(all 0.3s $animationEasing);
       }
 
       // grid item HOVER
-      &:hover {
+      &.loaded:hover {
         z-index: 999; // render on top of everything
+        cursor: pointer;
 
         // fade in up
         .tag {
@@ -376,6 +418,7 @@ pre {
           // old
           //border: 2px solid #8880fa;
           //@include transform(scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0));
+          cursor: pointer;
 
           &:after {
             opacity: 0.8;
@@ -390,8 +433,10 @@ pre {
           .shape {
             stroke: #8880fa;
             stroke-width: 3;
+
+            // Animate it
             //stroke-dashoffset: 0;
-            @include animate(svg_dash, 0.9s, 0.1s, $animationEasing);
+            @include animate(svg_dash, 0.7s, 0.1s, $animationEasing);
           }
         }
 

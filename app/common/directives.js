@@ -4,7 +4,7 @@
     //
     // Directives
     //
-	var appDirectives = angular.module('demo.directives', []);
+	var appDirectives = angular.module('workfolio.directives', []);
 
     //
     // App Logo
@@ -13,7 +13,50 @@
         var tpl = 'templates/directives/app-logo.tpl.html';
 
         // Link to DOM
-        var link = function(scope, element, attrs) { };
+        var link = function(scope, element, attrs) {
+
+            var timings = [0, 200, 400, 600, 800, 1000];
+
+            // TODO: finish logo stroke self-draw ?
+            /*
+            var $paths = element.find('path');
+
+            $paths.each(function(i) {
+
+                var $path, pathLen, pathRect;
+
+                $path = $(this);
+                pathLen = this.getTotalLength();
+                pathRect = this.getBoundingClientRect();
+
+                console.log("$path : ", $path);
+                console.log("path len : ", pathLen);
+                console.log("rect : ", pathRect);
+
+                $path.css({
+                   "stroke-dasharray": "" + pathLen + " " + pathLen,
+                   "stroke-dashoffset": pathLen,
+                   "stroke-width": "5",
+                   "stroke": $path.css("fill"),
+                   "fill": "transparent"
+                });
+
+                var $test = $path.css("stroke");
+
+                return $path.css({
+                   "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
+                       (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
+                   "fill": $path.css("stroke"),
+                   "stroke-dashoffset": "0"
+                });
+
+            });
+            */
+
+
+            //console.log($paths);
+
+        };
 
         // Return directive config
         return {
@@ -48,50 +91,100 @@
     appDirectives.directive("gridItem", function($timeout) {
         var tpl = 'templates/directives/grid.item.tpl.html';
 
+        // Animate each box
+        var fadeDirections = [ "Up", "Down", "Left", "Right" ];
+
         // Link to DOM
         var link = function(scope, element, attrs) {
-            //if(!attrs.colors) { console.warn('No color attrs set! returning...'); return; } // do nothing if no model
-            //if(!scope.colors) { console.warn('No color scope set! returning...'); return; } // do nothing if no model
+            // do nothing if no model
             if(!scope.project) {
                 console.warn('No project scope set! returning...');
                 return;
-            } // do nothing if no model
+            }
 
-            //var index = element.parent().index();
-            var box = element.find(".thumb");
-            //var img = element.find(".thumb > img");
-            var img = box.find("img");
+            // continue, do stuffz!
+            var $item = element.find(".grid-item");
+            var $thumb = element.find(".thumb");
+            var $img = $thumb.find("img");
+
+            var src = scope.project.thumb;
+
+            var fxClass = _.sample(fadeDirections, 1);
+            //var delay = element.index() * 0.1 + 's';
 
             // bind once
-            img.one("load", function() {
-
-                var src = scope.project.thumb;
-
-                box.css("background-image", 'url(' + src + ')');
-
+            $img.one("load", function() {
+                //console.log("project: ", scope.project);
+                //console.log("projects: ", scope.projects);
                 console.log("rdy bind load!", src);
 
+                // set background image
+                $thumb.css("background-image", 'url(' + src + ')');
+
+                // fade item in
+                $thumb.addClass("animated fadeIn" + fxClass);
+
+                // set item to 'loaded' state
+                $item.addClass("loaded");
             });
 
             // click event
-            element.on("click", function() {
-             //console.log('index hp:' + scope.project.name);
-             console.log(box);
-            });
-
-            //console.log('here bro @ ');
-            //console.log(element);
-
+            /*element.on("click", function() {
+                console.log("clicky @ ", element.index());
+            });*/
         };
 
         // Return directive config
         return {
             restrict: "E",
             // create scope alias to model
-            scope: {
+            /*scope: {
             	project: '=project'
-            },
+            },*/
             templateUrl: tpl,
+            link: link
+        };
+    });
+
+    //
+    //  Swipebox directive
+    //
+    appDirectives.directive("lightBox", function() {
+        // DOM link
+        var link = function(scope, element, attrs) {
+
+            console.log(attrs);
+
+
+
+            var $img = {
+                href: attrs.href,
+                title: attrs.title
+            };
+
+            var settings = {
+                useCSS : true, // false will force the use of jQuery for animations
+                initialIndexOnArray: 0, // which image index to init when a array is passed
+                hideBarsOnMobile : false, // false will show the caption and navbar on mobile devices
+                hideBarsDelay : 0, // 0 to always show caption and action bar
+                videoMaxWidth : 900, // videos max width
+                beforeOpen: function(){} , // called before opening
+                afterClose: function(){}, // called after closing
+                loopAtEnd: false // true will return to the first image after the last image is reached
+            };
+
+//            element.swipebox(settings);
+
+            /*element.on("click", function(e) {
+                e.preventDefault();
+                $.swipebox($img);
+            });*/
+
+        };
+
+        // Return directive config
+        return {
+            restrict: "A",
             link: link
         };
     });

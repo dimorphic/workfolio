@@ -19,9 +19,14 @@
   ],
   "dependencies": {
     "angular-ui-router": "~0.2.11",
-    "angular": "~1.2.23",
+    "angular": "~1.2.9",
     "jquery": "~2.1.1",
     "underscore": "~1.7.0",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-morph": "*",
+    "ocModal": "git://github.com/ocombe/ocModal.git#~0.1.6"
+  },
+  "devDependencies": {
+    "swipebox": "~1.2.9"
   }
 }
