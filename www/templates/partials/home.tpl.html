@@ -55,6 +55,8 @@
     <!-- MENU SELECTOR -->
     <div class="menu">
 
+        {{ radioModel | json }}
+
         <div class="buttons">
             <label class="item" ng-model="radioModel" btn-radio="'all'">All works<i></i></label>
             <label class="item" ng-model="radioModel" btn-radio="'apps'">Apps<i></i></label>
@@ -67,8 +69,6 @@
 
     <!-- PORTOFOLIO (IMAGES LIST) -->
     <div class="portofolio-images">
-
-        {{ radioModel | json }}
 
         <div class="grid">
 
