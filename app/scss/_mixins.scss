@@ -112,6 +112,21 @@ $vendor: '', '-webkit-', '-moz-', '-ms-', '-o-';
   top: 0; bottom: 0; left: 0; right: 0;
 }
 
+// this needs to be clone
+// (no good way to use on the line above at the same time)
+%translateCenter {
+  position:  absolute;
+  top:       50%;
+  left:      50%;
+  @include transform(translate(-50%, -50%));
+}
+
+%positionCenter {
+  margin: auto;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+
 // Font-size MIXIN
 // automatically apply rem font-size with px fallback (base 10)
 // ... and add 1.5 line-height. default is 16px/1.6rem + 1.5

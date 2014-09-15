@@ -9,62 +9,65 @@
     //
     // App Logo
     //
-    appDirectives.directive("appLogo", function($timeout) {
-        var tpl = 'templates/directives/app-logo.tpl.html';
+    appDirectives.directive("appLogo",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/app-logo.tpl.html';
 
-        // Link to DOM
-        var link = function(scope, element, attrs) {
+            // Link to DOM
+            var link = function(scope, element, attrs) {
 
-            var timings = [0, 200, 400, 600, 800, 1000];
+                var timings = [0, 200, 400, 600, 800, 1000];
 
-            // TODO: finish logo stroke self-draw ?
-            /*
-            var $paths = element.find('path');
+                // TODO: finish logo stroke self-draw ?
+                /*
+                var $paths = element.find('path');
 
-            $paths.each(function(i) {
+                $paths.each(function(i) {
 
-                var $path, pathLen, pathRect;
+                    var $path, pathLen, pathRect;
 
-                $path = $(this);
-                pathLen = this.getTotalLength();
-                pathRect = this.getBoundingClientRect();
+                    $path = $(this);
+                    pathLen = this.getTotalLength();
+                    pathRect = this.getBoundingClientRect();
 
-                console.log("$path : ", $path);
-                console.log("path len : ", pathLen);
-                console.log("rect : ", pathRect);
+                    console.log("$path : ", $path);
+                    console.log("path len : ", pathLen);
+                    console.log("rect : ", pathRect);
 
-                $path.css({
-                   "stroke-dasharray": "" + pathLen + " " + pathLen,
-                   "stroke-dashoffset": pathLen,
-                   "stroke-width": "5",
-                   "stroke": $path.css("fill"),
-                   "fill": "transparent"
+                    $path.css({
+                       "stroke-dasharray": "" + pathLen + " " + pathLen,
+                       "stroke-dashoffset": pathLen,
+                       "stroke-width": "5",
+                       "stroke": $path.css("fill"),
+                       "fill": "transparent"
+                    });
+
+                    var $test = $path.css("stroke");
+
+                    return $path.css({
+                       "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
+                           (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
+                       "fill": $path.css("stroke"),
+                       "stroke-dashoffset": "0"
+                    });
+
                 });
-
-                var $test = $path.css("stroke");
-
-                return $path.css({
-                   "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
-                       (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
-                   "fill": $path.css("stroke"),
-                   "stroke-dashoffset": "0"
-                });
-
-            });
-            */
+                */
 
 
-            //console.log($paths);
+                //console.log($paths);
 
-        };
+            };
 
-        // Return directive config
-        return {
-            restrict: "E",
-            templateUrl: tpl,
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
 
     //
     // Loading SVG icon
@@ -241,6 +244,162 @@
             link: link
         };
     });
+
+    //
+    //  Experimental: fxStringz
+    //
+    appDirectives.directive("fxStringz",
+        ['$rootScope', '$window', '$timeout', 'AnimateService',
+        function($rootScope, $window, $timeout, AnimateService) {
+            // template
+            //var tpl = 'templates/directives/fx-stringz.tpl.html';
+            var tpl = '<canvas> </canvas>';
+
+            // DOM link
+            var link = function(scope, element, attrs) {
+                console.log("hello from stringz bro");
+
+                // Canvas
+                var canvas = $(element).find("canvas")[0];
+                var ctx = canvas.getContext("2d");
+                var W, H = null;
+
+                // Config
+                var padding = 20;
+                var count = 100;
+                var distance = 100;
+
+                // Resize handler
+                scope.onResize = function() {
+                    W = canvas.width = window.innerWidth;
+                    H = canvas.height = window.innerHeight;
+
+                    console.log("on resize trigger bro!");
+                };
+                scope.onResize(); // ... and actually call it
+
+                // ... also bind to window resize
+                angular.element($window).bind('resize', function() {
+                   scope.onResize();
+                });
+
+                //
+                // Point properties and behaviour
+                //
+                var Point = function() {
+                    var self = this; // preserve 'this' for this.update
+
+                    self.pos = {
+                        x: Math.random() * ( W - padding * 2 ) + padding,
+                        y: Math.random() * ( H - padding * 2 ) + padding,
+
+                        update: function () {
+                            if ( self.pos.x < padding || self.pos.x > W - padding ) { self.vel.x *= -1; }
+                            if ( self.pos.y < padding || self.pos.y > H - padding ) { self.vel.y *= -1; }
+                            self.pos.x += self.vel.x;
+                            self.pos.y += self.vel.y;
+                        }
+                    };
+
+                    self.vel = {
+                        x: 2 * ( Math.random() < 0.5 ? -1 : 1 ),
+                        y: 2 * ( Math.random() < 0.5 ? -1 : 1 )
+                    };
+
+                    self.setColor = {
+                        r: Math.round( Math.random() * 255 ),
+                        g: Math.round( Math.random() * 255 ),
+                        b: Math.round( Math.random() * 255 )
+                    };
+                };
+
+                //
+                // Animation / loop / ticker
+                //
+                var animator = function(points, animate) {
+
+                    (function tick() {
+
+                        //console.log('tick! @ ', new Date().getTime());
+
+                        // Paint canvas single color
+                        ctx.fillStyle = "transparent";
+                        ctx.clearRect(0, 0, W, H);
+                        //  ctx.fillRect( 0, 0, W, H );
+
+                        // Draw our strings
+                        ctx.lineWidth = 1;
+
+                        // Cycle over every point
+                        angular.forEach(points, function(p) {
+                        //points.forEach(function(p) {
+
+                            // Compare each point to current point
+                            angular.forEach(points, function(q) {
+                            //points.forEach(function(q) {
+
+                                // Find distance between two points
+                                var xd = p.pos.x - q.pos.x;
+                                var yd = p.pos.y - q.pos.y;
+                                var dist = Math.sqrt( xd*xd + yd*yd );
+
+                                // If under threshold, draw connecting line
+                                if ( dist < distance ) {
+
+                                    // Line intensity based on proximity
+                                    var alpha = 1 - dist / distance;
+
+                                    // Draw shadow
+                                    ctx.strokeStyle = "rgba(0,0,0," + ( alpha * 0.2 ) + ")";
+                                    ctx.beginPath();
+                                    ctx.moveTo( p.pos.x, p.pos.y * 1.2 );
+                                    ctx.lineTo( q.pos.x, q.pos.y * 1.2 );
+                                    ctx.stroke();
+
+                                    // Draw string
+                                    ctx.strokeStyle = "rgba(%r,%g,%b,%a)".replace(/%([a-z])/g, function( m, v ) {
+                                        return v === "a" ? alpha : p.setColor[ v ] ;
+                                    });
+                                    ctx.beginPath();
+                                    ctx.moveTo( p.pos.x, p.pos.y );
+                                    ctx.lineTo( q.pos.x, q.pos.y );
+                                    ctx.stroke();
+
+                                }
+
+                            });
+
+                            // Update location of point for next frame
+                            p.pos.update();
+
+                        });
+
+                        // queue up the next frame
+                        animate(tick);
+
+                    })();
+
+                }; // .tick
+
+
+                // Build points
+                var points = [];
+                while ( count-- ) { points.push( new Point() ); }
+
+                // Fire it up bro!
+                animator(points, AnimateService);
+
+            };
+
+            // Return directive config
+            return {
+                restrict: "E",
+                template: tpl,
+                link: link
+            };
+
+        }
+    ]);
 
 
     //

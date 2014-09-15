@@ -58,6 +58,17 @@
         {{ radioModel | json }}
 
         <div class="buttons">
+
+            <!--<label ng-repeat="item in filterMenu"-->
+                   <!--class="item"-->
+                   <!--ng-model="radioModel"-->
+                   <!--btn-radio="'{{ item }}'">-->
+
+                <!--{{ item }}-->
+
+                <!--<i></i>-->
+            <!--</label>-->
+
             <label class="item" ng-model="radioModel" btn-radio="'all'">All works<i></i></label>
             <label class="item" ng-model="radioModel" btn-radio="'apps'">Apps<i></i></label>
             <label class="item" ng-model="radioModel" btn-radio="'banners'">Banners<i></i></label>
@@ -72,7 +83,7 @@
 
         <div class="grid">
 
-            <grid-item ng-repeat="project in projects"
+            <grid-item ng-repeat="project in projects | filter: filterQuery"
                        id="project_{{ $index }}"
                        project="projects[$index]">
 

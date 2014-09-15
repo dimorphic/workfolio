@@ -91,8 +91,16 @@ pre {
 }
 
 // Custom fixes
+// TODO: clean up
 .modal-wrapper > .modal { display: block; } // oc.modal display fix
 .ngdialog .ngdialog-content { width:100%; height: 100%; } // ngDialog fix
+
+// fancybox
+.fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
+//.fancybox-lock .fancybox-overlay {}
+
+
+.main-container { }
 
 // App logo
 .app-logo {
@@ -446,8 +454,8 @@ pre {
             stroke-width: 3;
 
             // Animate it
-            //stroke-dashoffset: 0;
-            @include animate(svg_dash, 0.7s, 0.1s, $animationEasing);
+            stroke-dashoffset: 0;
+            //@include animate(svg_dash, 0.7s, 0.1s, $animationEasing);
           }
         }
 
@@ -475,9 +483,44 @@ pre {
 
 } // @end: portofolio
 
+
+//
+//  fx.Stringz
+//
+.main-container { z-index: 2; }
+
+fx-stringz {
+  @extend %positionCenter;
+
+  z-index: -1;
+//  position: fixed;
+  
+  // canvas
+  canvas {
+    width: 100%;
+    height: 100%;
+
+//    background: #2C3E50;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+//
+//  Tests
+//
+
+
+// test lightbox
 .lightbox {
   @extend .translateCenter;
-
   width: 80%;
 }
 

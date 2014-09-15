@@ -7232,7 +7232,17 @@ button.close {
   right: 0;
 }
 
-/* line 144, ../../app/scss/_mixins.scss */
+/* line 124, ../../app/scss/_mixins.scss */
+fx-stringz {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* line 159, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
@@ -8487,18 +8497,23 @@ pre {
   color: #fff;
 }
 
-/* line 94, ../../app/scss/application.scss */
+/* line 95, ../../app/scss/application.scss */
 .modal-wrapper > .modal {
   display: block;
 }
 
-/* line 95, ../../app/scss/application.scss */
+/* line 96, ../../app/scss/application.scss */
 .ngdialog .ngdialog-content {
   width: 100%;
   height: 100%;
 }
 
-/* line 98, ../../app/scss/application.scss */
+/* line 99, ../../app/scss/application.scss */
+.fancybox-lock {
+  overflow: visible !important;
+}
+
+/* line 106, ../../app/scss/application.scss */
 .app-logo {
   display: block;
   width: 100%;
@@ -8507,12 +8522,12 @@ pre {
   text-align: center;
 }
 @media only screen and (min-width: 768px) {
-  /* line 98, ../../app/scss/application.scss */
+  /* line 106, ../../app/scss/application.scss */
   .app-logo {
     margin: 70px auto;
   }
 }
-/* line 111, ../../app/scss/application.scss */
+/* line 119, ../../app/scss/application.scss */
 .app-logo .icon {
   display: inline-block;
   width: 180px;
@@ -8520,24 +8535,24 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 115, ../../app/scss/application.scss */
+/* line 123, ../../app/scss/application.scss */
 .app-logo .icon svg {
   width: 100%;
   height: 100%;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 111, ../../app/scss/application.scss */
+  /* line 119, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 200px;
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 111, ../../app/scss/application.scss */
+  /* line 119, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 260px;
   }
 }
-/* line 129, ../../app/scss/application.scss */
+/* line 137, ../../app/scss/application.scss */
 .app-logo .tagline {
   display: block;
   font-size: 18px;
@@ -8548,7 +8563,7 @@ pre {
   margin-top: 40px;
 }
 
-/* line 141, ../../app/scss/application.scss */
+/* line 149, ../../app/scss/application.scss */
 .headline {
   display: block;
   margin: 0px auto;
@@ -8559,7 +8574,7 @@ pre {
   font-weight: 700;
 }
 @media only screen and (min-width: 768px) {
-  /* line 141, ../../app/scss/application.scss */
+  /* line 149, ../../app/scss/application.scss */
   .headline {
     font-size: 80px;
     font-size: 8rem;
@@ -8567,17 +8582,17 @@ pre {
   }
 }
 
-/* line 157, ../../app/scss/application.scss */
+/* line 165, ../../app/scss/application.scss */
 .menu {
   margin: 60px auto 80px;
 }
-/* line 162, ../../app/scss/application.scss */
+/* line 170, ../../app/scss/application.scss */
 .menu .buttons {
   margin: 0px auto;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 169, ../../app/scss/application.scss */
+/* line 177, ../../app/scss/application.scss */
 .menu .buttons .item {
   padding: 0px 20px;
   font-size: 15px;
@@ -8585,16 +8600,16 @@ pre {
   line-height: 1.5;
   font-weight: 300;
 }
-/* line 176, ../../app/scss/application.scss */
+/* line 184, ../../app/scss/application.scss */
 .menu .buttons .item a {
   color: #fff;
 }
-/* line 179, ../../app/scss/application.scss */
+/* line 187, ../../app/scss/application.scss */
 .menu .buttons .item a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 186, ../../app/scss/application.scss */
+/* line 194, ../../app/scss/application.scss */
 .menu .buttons .item i {
   display: block;
   width: 0px;
@@ -8605,31 +8620,31 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 199, ../../app/scss/application.scss */
+/* line 207, ../../app/scss/application.scss */
 .menu .buttons .item:hover {
   color: #fff;
   cursor: pointer;
 }
-/* line 203, ../../app/scss/application.scss */
+/* line 211, ../../app/scss/application.scss */
 .menu .buttons .item:hover i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 212, ../../app/scss/application.scss */
+/* line 220, ../../app/scss/application.scss */
 .menu .buttons .item.selected:hover, .menu .buttons .item.active:hover {
   cursor: default;
 }
-/* line 214, ../../app/scss/application.scss */
+/* line 222, ../../app/scss/application.scss */
 .menu .buttons .item.selected i, .menu .buttons .item.active i {
   background: #7b75cb;
   width: 100%;
 }
 
-/* line 227, ../../app/scss/application.scss */
+/* line 235, ../../app/scss/application.scss */
 .portofolio {
   padding-bottom: 70px;
 }
-/* line 235, ../../app/scss/application.scss */
+/* line 243, ../../app/scss/application.scss */
 .portofolio .grid {
   margin-left: -15px;
   margin-right: -15px;
@@ -8644,7 +8659,7 @@ pre {
 .portofolio .grid:after {
   clear: both;
 }
-/* line 241, ../../app/scss/application.scss */
+/* line 249, ../../app/scss/application.scss */
 .portofolio .grid .grid-item {
   z-index: 1;
   position: relative;
@@ -8667,7 +8682,7 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 241, ../../app/scss/application.scss */
+  /* line 249, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -8678,7 +8693,7 @@ pre {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 241, ../../app/scss/application.scss */
+  /* line 249, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -8690,7 +8705,7 @@ pre {
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 241, ../../app/scss/application.scss */
+  /* line 249, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -8701,13 +8716,13 @@ pre {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 241, ../../app/scss/application.scss */
+  /* line 249, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     height: 500px;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 241, ../../app/scss/application.scss */
+  /* line 249, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -8717,7 +8732,7 @@ pre {
     padding-right: 15px;
   }
 }
-/* line 281, ../../app/scss/application.scss */
+/* line 289, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .tag {
   z-index: 3;
   opacity: 0;
@@ -8737,7 +8752,7 @@ pre {
   -webkit-transform: translate(-50%, 200%);
   transform: translate(-50%, 200%);
 }
-/* line 303, ../../app/scss/application.scss */
+/* line 311, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb {
   z-index: 2;
   opacity: 0;
@@ -8750,7 +8765,7 @@ pre {
   background-position: center center;
   cursor: pointer;
 }
-/* line 324, ../../app/scss/application.scss */
+/* line 332, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb:after {
   content: '';
   background: #292484;
@@ -8764,18 +8779,18 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 340, ../../app/scss/application.scss */
+/* line 348, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb img {
   display: none;
 }
-/* line 348, ../../app/scss/application.scss */
+/* line 356, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border {
   opacity: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
 }
-/* line 360, ../../app/scss/application.scss */
+/* line 368, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border svg .shape {
   fill: transparent;
   stroke: #5dd6ff;
@@ -8798,13 +8813,13 @@ pre {
   transition: all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 360, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .svg-border svg .shape {
     stroke-dashoffset: 1400;
     stroke-dasharray: 1400;
   }
 }
-/* line 397, ../../app/scss/application.scss */
+/* line 405, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .zoomer {
   z-index: 2;
   width: 100%;
@@ -8813,12 +8828,12 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 411, ../../app/scss/application.scss */
+/* line 419, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover {
   z-index: 999;
   cursor: pointer;
 }
-/* line 416, ../../app/scss/application.scss */
+/* line 424, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .tag {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -8826,7 +8841,7 @@ pre {
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-/* line 422, ../../app/scss/application.scss */
+/* line 430, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .zoomer {
   -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
@@ -8835,71 +8850,59 @@ pre {
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
 }
-/* line 428, ../../app/scss/application.scss */
+/* line 436, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb {
   cursor: pointer;
 }
-/* line 434, ../../app/scss/application.scss */
+/* line 442, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb:after {
   opacity: 0.8;
 }
-/* line 440, ../../app/scss/application.scss */
+/* line 448, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border {
   opacity: 1;
 }
-/* line 444, ../../app/scss/application.scss */
+/* line 452, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border .shape {
   stroke: #8880fa;
   stroke-width: 3;
-  -moz-animation-name: svg_dash;
-  -moz-animation-duration: 0.7s;
-  -moz-animation-delay: 0.1s;
-  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-animation-iteration-count: initial;
-  -moz-animation-direction: normal;
-  -moz-animation-fill-mode: forwards;
-  -webkit-animation-name: svg_dash;
-  -webkit-animation-duration: 0.7s;
-  -webkit-animation-delay: 0.1s;
-  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -webkit-animation-iteration-count: initial;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -o-animation-name: svg_dash;
-  -o-animation-duration: 0.7s;
-  -o-animation-delay: 0.1s;
-  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -o-animation-iteration-count: initial;
-  -o-animation-direction: normal;
-  -o-animation-fill-mode: forwards;
-  animation-name: svg_dash;
-  animation-duration: 0.7s;
-  animation-delay: 0.1s;
-  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation-iteration-count: initial;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
+  stroke-dashoffset: 0;
 }
-/* line 457, ../../app/scss/application.scss */
+/* line 465, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader {
   z-index: 1;
   background: #0f0;
 }
-/* line 465, ../../app/scss/application.scss */
+/* line 473, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.circle {
   fill: #000;
 }
-/* line 466, ../../app/scss/application.scss */
+/* line 474, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.light {
   fill: #16A4E6;
 }
 
-/* line 478, ../../app/scss/application.scss */
+/* line 490, ../../app/scss/application.scss */
+.main-container {
+  z-index: 2;
+}
+
+/* line 492, ../../app/scss/application.scss */
+fx-stringz {
+  z-index: -1;
+}
+/* line 499, ../../app/scss/application.scss */
+fx-stringz canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 522, ../../app/scss/application.scss */
 .lightbox {
   width: 80%;
 }
 
-/* line 490, ../../app/scss/application.scss */
+/* line 533, ../../app/scss/application.scss */
 .ngdialog .zen-modal-close {
   z-index: 99;
   position: absolute;

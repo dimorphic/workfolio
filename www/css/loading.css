@@ -47,7 +47,7 @@
   right: 0;
 }
 
-/* line 144, ../../app/scss/_mixins.scss */
+/* line 159, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
