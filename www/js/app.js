@@ -9,14 +9,16 @@
         'Console', 'underscore',
         'ui.router',
         'ui.bootstrap',
-        'ngMorph',
-        'oc.modal'
+        'ngMorph'
+//        'oc.modal',
+//        'ngDialog'
     ];
 
     var appComponents = [
         'workfolio.directives',
         'workfolio.controllers',
-        'workfolio.routes'
+        'workfolio.routes',
+        'workfolio.services'
     ];
 
   	//

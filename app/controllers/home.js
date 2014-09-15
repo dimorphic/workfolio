@@ -6,7 +6,7 @@
     //
     var appControllers = angular.module('workfolio.ctrls.home', []);
 
-    var HomeController = function($scope, $ocModal) {
+    var HomeController = function($scope, $rootScope, ProjectService) {
         // ---------------
         // PRIVATE METHODS
         // ---------------
@@ -19,7 +19,7 @@
 
         // controlz test
         $scope.singleModel = 1;
-        $scope.radioModel = 'All';
+        $scope.radioModel = 'all';
         $scope.checkModel = {
             left: false,
             middle: true,
@@ -29,29 +29,21 @@
 
         $scope.imgUrl = "http://nyx.athma.net/pix/_scraps_2010_Static.jpg";
 
-
+        // oc.modal test
         $scope.settings1 = {
             closeEl: '.close',
             overlay: {
-                templateUrl: 'templates/partials/lightbox.tpl.html',
-                scope: {
-                    imgUrl: "http://nyx.athma.net/pix/_scraps_2010_Static.jpg",
-                    debug: "lolz bro"
-                }
+                templateUrl: 'templates/partials/lightbox.tpl.html'
             }
-
-
         };
 
-
         $scope.displayImage = function(img) {
-            //console.log('img obj: ', img);
+            console.log('img obj: ', img);
 
+            /*$ocModal.open({
+                url: "templates/partials/lightbox.tpl.html",
 
-            $ocModal.open({
-                //url: 'templates/partials/lightbox.tpl.html',
-                template: "wtf bro modal",
-                cls: 'animated fadeInDown',
+                cls: 'animated fadeInUp',
                 onOpen: function() {
                     console.log('modal opened');
                 },
@@ -59,27 +51,23 @@
                     console.log('modal closed');
                 },
                 init: {
-                    debug: "init val bro"
+                    imgUrl: "http://nyx.athma.net/pix/_scraps_2010_Static.jpg"
                 }
-            });
+            });*/
         };
 
+        // ngDialog test
+        $scope.clickToOpen = function() {
+            /*ngDialog.open({
+                template: 'templates/partials/lightbox.tpl.html',
+                className: 'ngdialog-theme-flat',
+                scope: $scope
+            });*/
+        };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        $rootScope.$on('ngDialog.opened', function(e, $dialog) {
+            console.log('ngdialog opened @' + $dialog.attr('id'));
+        });
 
 
         // menu filters
@@ -105,50 +93,45 @@
         //
         // Projects
         //
-        $scope.projects = [
-            {
-                name: "Heineken",
-                thumb: "./assets/images/img-01.jpg"
-            },
-            {
-                name: "We Come One",
-                thumb: "./assets/images/img-02.jpg"
-            },
-            {
-                name: "Scorpiones",
-                thumb: "./assets/images/img-03.jpg"
-            },
-            {
-                name: "Panthera",
-                thumb: "./assets/images/img-04.jpg"
-            },
-            {
-                name: "Vocea Romaniei",
-                thumb: "./assets/images/img-05.jpg"
-            },
-            {
-                name: "They See me Rollin'",
-                thumb: "./assets/images/img-06.jpg"
-            },
-            {
-                name: "Real Steel",
-                thumb: "./assets/images/img-07.jpg"
-            },
-            {
-                name: "X marks the spot",
-                thumb: "./assets/images/img-08.jpg"
-            },
+//        $scope.projects = [
+//            {
+//                name: "Heineken",
+//                thumb: "./assets/images/img-01.jpg"
+//            }
+//        ];
 
-            // -------------------
+        //$scope.projects = ProjectService.getAvailable();
 
-            {
-                name: "test-01",
-                thumb: "http://nyx.athma.net/pix/_scraps_2010_Static.jpg"
-            }
+        ProjectService.init().then(function(data) {
+           // console.log("data here boy!!! : ", data);
 
-        ];
+
+            $scope.projects = data;
+
+            angular.forEach(data, function(value, index) {
+              // console.log('data bro @ ', value);
+
+
+
+            });
+        });
+
+
+        $scope.categoryFilter = null;
+        $scope.setCategoryFilter = function(category) {
+            $scope.categoryFilter = category;
+        };
 
     };
+
+    var LightboxController = function($scope, $rootScope, ProjectService) {
+        console.log("lightbox CONTROLLER ON!");
+
+        $scope.project = {
+            title: "wtf"
+        };
+    };
+
 
 
     //
@@ -160,8 +143,24 @@
         "homeController",
         [
             '$scope',
-            '$ocModal',
+            '$rootScope',
+            'ProjectService',
+
+            //'$ocModal',
+            //'ngDialog',
             HomeController
+        ]
+    );
+
+    // Lightbox
+    appControllers.controller(
+        "lightboxCtrl",
+        [
+            '$scope',
+            '$rootScope',
+            'ProjectService',
+
+            LightboxController
         ]
     );
 

@@ -121,7 +121,13 @@ input, button, select, textarea {
   vertical-align: middle;
 }
 
-/* line 34, ../../app/scss/_global.scss */
+/* line 30, ../../app/scss/_global.scss */
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 35, ../../app/scss/_global.scss */
 * {
   -webkit-user-select: none;
   /* Disable selection/copy of elements when tapping for a long time */
@@ -129,7 +135,7 @@ input, button, select, textarea {
   /* Disable touch callouts */
 }
 
-/* line 41, ../../app/scss/_global.scss */
+/* line 42, ../../app/scss/_global.scss */
 input, textarea, [contenteditable] * {
   -webkit-user-select: auto;
   /* Allow selection for input elements and those with contenteditable attribute */

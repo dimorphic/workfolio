@@ -34,9 +34,8 @@
 
         <div class="container">
             <button class="btn btn-default" ng-morph-overlay="settings1">modal test</button>
-            <button class="btn btn-default" ng-click="displayImage()">modal #2</button>
-
-            <button class="btn btn-default" oc-modal-open="{ url: 'templates/partials/lightbox.tpl.html', cls: 'animated bounce'}">modal #3</button>
+            <!--<button class="btn btn-default" ng-click="displayImage()">modal #2</button>-->
+            <!--<button class="btn btn-default" ng-click="clickToOpen()">modal #3</button>-->
         </div>
 
 <!-- APP LOGO -->
@@ -57,10 +56,10 @@
     <div class="menu">
 
         <div class="buttons">
-            <label class="item" ng-model="radioModel" btn-radio="'All'">All works<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'Apps'">Apps<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'Banners'">Banners<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'Branding'">Branding<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'all'">All works<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'apps'">Apps<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'banners'">Banners<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'branding'">Branding<i></i></label>
         </div>
 
     </div>
@@ -68,6 +67,8 @@
 
     <!-- PORTOFOLIO (IMAGES LIST) -->
     <div class="portofolio-images">
+
+        {{ radioModel | json }}
 
         <div class="grid">
 

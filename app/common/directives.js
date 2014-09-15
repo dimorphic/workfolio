@@ -107,16 +107,33 @@
             var $thumb = element.find(".thumb");
             var $img = $thumb.find("img");
 
-            var src = scope.project.thumb;
+            var src = scope.project.thumbUrl;
 
             var fxClass = _.sample(fadeDirections, 1);
             //var delay = element.index() * 0.1 + 's';
+
+            var handleClick = function (e) {
+                console.log('clicky! @ ', scope.project);
+                /*e.preventDefault();
+
+
+
+                ngDialog.open({
+                    template: 'templates/partials/lightbox.tpl.html',
+                    className: 'ngdialog-theme-flat',
+                    //scope: scope
+                    controller: ['$scope', function($scope) {
+                        // logic here bro
+                        $scope.project = scope.project;
+                    }]
+                });*/
+            };
 
             // bind once
             $img.one("load", function() {
                 //console.log("project: ", scope.project);
                 //console.log("projects: ", scope.projects);
-                console.log("rdy bind load!", src);
+                //console.log("rdy bind load!", src);
 
                 // set background image
                 $thumb.css("background-image", 'url(' + src + ')');
@@ -126,12 +143,11 @@
 
                 // set item to 'loaded' state
                 $item.addClass("loaded");
+
+                // add click event
+                element.on("click", handleClick);
             });
 
-            // click event
-            /*element.on("click", function() {
-                console.log("clicky @ ", element.index());
-            });*/
         };
 
         // Return directive config
@@ -149,35 +165,72 @@
     //
     //  Swipebox directive
     //
-    appDirectives.directive("lightBox", function() {
+    appDirectives.directive("lightBox", function($compile, $http, $timeout) {
+        var tpl = 'templates/partials/lightbox.tpl.html';
+
         // DOM link
         var link = function(scope, element, attrs) {
+            // group tag
+            if (attrs.lightBox) {
+                element.attr('rel', attrs.lightBox);
+            }
 
-            console.log(attrs);
+            var $img = element.find("img");
+
+            // bind once
+            $img.one("load", function() {
+                console.log("lighbox img loaded bro!");
+
+                // get template
+                /*
+
+                $http.get(tpl).then(function(response) {
+                   if(response.status === 200) {
+                       var template = angular.element(response.data);
+                       var compiledTemplate = $compile(template);
+                       compiledTemplate(scope);
+
+
+                       // bind click event
+                       $(element).on("click", function() {
+                           $.fancybox.open({ content: template, type: 'html'});
+
+                           $timeout(function() {
+                               $.fancybox.close();
+                           }, 2000);
+                       });
+                   }
+                });
+                */
+
+                var $project = {
+                    href: scope.project.thumbUrl,
+                    title: scope.project.name
+                };
+/*
+                $http.get(tpl).then(function(response) {
+                    if(response.status === 200) {
+                        var template = angular.element(response.data);
+                        var compiledTemplate = $compile(template)(scope);
+
+
+                    }
+                });
+*/
+
+                // bind click event
+                $(element).on("click", function() {
+                    $.fancybox($project, { padding: 0, openEffect: 'elastic' });
+                    //$.fancybox.open({ href: template, type: 'html' });
+
+                });
 
 
 
-            var $img = {
-                href: attrs.href,
-                title: attrs.title
-            };
+            });
 
-            var settings = {
-                useCSS : true, // false will force the use of jQuery for animations
-                initialIndexOnArray: 0, // which image index to init when a array is passed
-                hideBarsOnMobile : false, // false will show the caption and navbar on mobile devices
-                hideBarsDelay : 0, // 0 to always show caption and action bar
-                videoMaxWidth : 900, // videos max width
-                beforeOpen: function(){} , // called before opening
-                afterClose: function(){}, // called after closing
-                loopAtEnd: false // true will return to the first image after the last image is reached
-            };
+            /*$(element).fancybox({
 
-//            element.swipebox(settings);
-
-            /*element.on("click", function(e) {
-                e.preventDefault();
-                $.swipebox($img);
             });*/
 
         };

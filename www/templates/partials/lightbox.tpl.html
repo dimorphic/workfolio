@@ -1,9 +1,23 @@
-<div class="container trap" style="background: #1BBA9A;">
-    <button class="btn btn-danger close" data-dismiss="modal" oc-modal-close="closeModal()">close modal</button>
+<div class="lightbox" style="background: #1BBA9A;" controller="lightboxCtrl">
+    <span class="fa fa-close close zen-modal-close" ng-click="closeThisDialog('some val')"></span>
 
-    WTF BRO MODAL LIGHTBOX TPL
+    {{ project | json }}
 
-    {{ modal | json }}
+    DASLKDKASKLDJASDKASKJLDLKJAS
 
-    <img class="img-responsive" ng-src="{{ modal.thumb }}" />
+    <div class="col-xs-12">
+        <!--<div class="row">-->
+            <!--<span class="fa fa-close close"></span>-->
+            <!--<span class="fa fa-close" ng-click="closeThisDialog('some val')"></span>-->
+        <!--</div>-->
+        <div class="row">
+            <img class="img-responsive" ng-src="{{ project.thumbUrl }}" />
+        </div>
+    </div>
+
+
 </div>
+
+        <!--wtf bro here gogogogo-->
+<!--<span class="fa fa-close close zen-modal-close" ng-click="closeThisDialog('some val')"></span>-->
+<!--<img class="img-responsive" ng-src="{{ project.thumbUrl }}" />-->

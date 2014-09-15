@@ -8,6 +8,7 @@
 //@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
 
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 //@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
 @import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext"); // Dosis
 
@@ -27,6 +28,12 @@
 //@import "/components/swipebox/src/css/swipebox.min.css";
 @import "/components/ocModal/dist/css/ocModal.light.min.css";
 @import "/components/ocModal/dist/css/ocModal.animations.min.css";
+
+@import "/components/ngDialog/css/ngDialog.min.css";
+@import "/components/ngDialog/css/ngDialog-theme-default.min.css";
+@import "/components/ngDialog/css/ngDialog-theme-plain.min.css";
+
+@import "/components/fancybox/source/jquery.fancybox.css";
 
 
 @import "_debug"; // debug-belt (TODO: disable for production?)
@@ -82,6 +89,10 @@ a {
 pre {
   color: #fff;
 }
+
+// Custom fixes
+.modal-wrapper > .modal { display: block; } // oc.modal display fix
+.ngdialog .ngdialog-content { width:100%; height: 100%; } // ngDialog fix
 
 // App logo
 .app-logo {
@@ -458,11 +469,33 @@ pre {
       }
 
 
-    }
+    } // @end: grid-item
 
-  }
+  } // @end: grid
 
+} // @end: portofolio
 
+.lightbox {
+  @extend .translateCenter;
+
+  width: 80%;
 }
 
 
+//
+// ngDialog
+//
+.ngdialog {
+
+  .zen-modal-close {
+    z-index: 99;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0f0;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+}
