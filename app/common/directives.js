@@ -10,8 +10,8 @@
     // App Logo
     //
     appDirectives.directive("appLogo",
-        ['$timeout',
-        function($timeout) {
+        ['$rootScope', '$timeout',
+        function($rootScope, $timeout) {
             var tpl = 'templates/directives/app-logo.tpl.html';
 
             // Link to DOM
@@ -20,20 +20,16 @@
                 var timings = [0, 200, 400, 600, 800, 1000];
 
                 // TODO: finish logo stroke self-draw ?
-                /*
                 var $paths = element.find('path');
 
                 $paths.each(function(i) {
-
                     var $path, pathLen, pathRect;
 
                     $path = $(this);
                     pathLen = this.getTotalLength();
-                    pathRect = this.getBoundingClientRect();
 
-                    console.log("$path : ", $path);
-                    console.log("path len : ", pathLen);
-                    console.log("rect : ", pathRect);
+                    // console.log("$path : ", $path);
+                    // console.log("path len : ", pathLen);
 
                     $path.css({
                        "stroke-dasharray": "" + pathLen + " " + pathLen,
@@ -45,18 +41,52 @@
 
                     var $test = $path.css("stroke");
 
-                    return $path.css({
+                    pathRect = this.getBoundingClientRect();
+                    // console.log("rect : ", pathRect);
+
+                    $path.css({
                        "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
                            (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
                        "fill": $path.css("stroke"),
                        "stroke-dashoffset": "0"
                     });
 
+                    // $test.css("stroke", "#f00");
+                    // console.log('draw logo!', $test);
+
                 });
-                */
 
+                // circle anim
+                var $circle = $(".st5");
 
-                //console.log($paths);
+                var circlePath = $circle[0].getTotalLength();
+                //console.log("circle path @ ", circlePath);
+
+                $circle.css({
+                   // "stroke-dasharray": " 0 " + circlePath
+                });
+
+                $timeout(function() {
+
+                    // circle
+                    $circle.css({
+                        "stroke": "#fff",
+                        //"stroke-dasharray": "" + circlePath + " " + circlePath,
+                        "stroke-dasharray": "0"
+                        //"opacity": "1"
+                    });
+
+                    // crown
+                    $(".st12").css({
+                        "fill": "#fff"
+                    });
+
+                    // broadcast event to show fx.Stringz
+                    $rootScope.$emit("fx.stringz:showCanvas");
+
+                }, 3000);
+
+                // console.log($paths);
 
             };
 
@@ -119,8 +149,6 @@
                 console.log('clicky! @ ', scope.project);
                 /*e.preventDefault();
 
-
-
                 ngDialog.open({
                     template: 'templates/partials/lightbox.tpl.html',
                     className: 'ngdialog-theme-flat',
@@ -182,7 +210,7 @@
 
             // bind once
             $img.one("load", function() {
-                console.log("lighbox img loaded bro!");
+                // console.log("lighbox img loaded bro!");
 
                 // get template
                 /*
@@ -232,10 +260,6 @@
 
             });
 
-            /*$(element).fancybox({
-
-            });*/
-
         };
 
         // Return directive config
@@ -252,15 +276,32 @@
         ['$rootScope', '$window', '$timeout', 'AnimateService',
         function($rootScope, $window, $timeout, AnimateService) {
             // template
-            //var tpl = 'templates/directives/fx-stringz.tpl.html';
+            // var tpl = 'templates/directives/fx-stringz.tpl.html';
             var tpl = '<canvas> </canvas>';
 
             // DOM link
             var link = function(scope, element, attrs) {
-                console.log("hello from stringz bro");
+                // console.log("hello from stringz bro");
+
+                /*var FpsMon = $window.FPSMeter;
+
+                var meter = new FpsMon({
+                    theme: 'dark',
+                    heat: 1,
+
+                    graph: 1,
+                    history: 10,
+
+                    left: 'auto',
+                    right: 0
+                });*/
+
+                var active = true;
+
+                var $element = $(element);
 
                 // Canvas
-                var canvas = $(element).find("canvas")[0];
+                var canvas = $element.find("canvas")[0];
                 var ctx = canvas.getContext("2d");
                 var W, H = null;
 
@@ -274,14 +315,9 @@
                     W = canvas.width = window.innerWidth;
                     H = canvas.height = window.innerHeight;
 
-                    console.log("on resize trigger bro!");
+                    // console.log("on resize trigger bro!");
                 };
                 scope.onResize(); // ... and actually call it
-
-                // ... also bind to window resize
-                angular.element($window).bind('resize', function() {
-                   scope.onResize();
-                });
 
                 //
                 // Point properties and behaviour
@@ -377,17 +413,53 @@
                         // queue up the next frame
                         animate(tick);
 
+                        // meter ticker
+                        // meter.tick();
+
                     })();
 
                 }; // .tick
 
 
-                // Build points
+                // Points array
                 var points = [];
-                while ( count-- ) { points.push( new Point() ); }
 
-                // Fire it up bro!
-                animator(points, AnimateService);
+                var init = function() {
+                    //console.log('CANVAS starting');
+
+                    if (active) {
+                        // lower points on mobiles (TODO: maybe increase based on devices?)
+                        if($window.isMobile.any()) {
+                            count = 10;
+                        }
+
+                        // Build points
+                        while (count--) {
+                            points.push(new Point());
+                        }
+
+                        // Fire it up bro!
+                        animator(points, AnimateService);
+
+                        scope.$on('fx.stringz:showCanvas', function () {
+                            // console.log('showCanvas event trigger bro!!!!');
+
+                            $timeout(function() {
+                                $element.addClass("animated fadeIn");
+                            }, 100);
+                            //console.log("show canvas @ " , $element);
+                        });
+
+                        // ... also bind to window resize event
+                        angular.element($window).bind('resize', function() {
+                            // console.log('resize baby!');
+                            scope.onResize();
+                        });
+                    }
+
+                };
+
+                init();
 
             };
 

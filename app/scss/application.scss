@@ -24,19 +24,12 @@
 @import "lib/bootstrap/assets/stylesheets/_bootstrap-compass";
 @import "lib/bootstrap/assets/stylesheets/_bootstrap";
 
-// Swipebox (light box)
-//@import "/components/swipebox/src/css/swipebox.min.css";
-@import "/components/ocModal/dist/css/ocModal.light.min.css";
-@import "/components/ocModal/dist/css/ocModal.animations.min.css";
-
-@import "/components/ngDialog/css/ngDialog.min.css";
-@import "/components/ngDialog/css/ngDialog-theme-default.min.css";
-@import "/components/ngDialog/css/ngDialog-theme-plain.min.css";
-
+// Other components
+@import "/components/angular-loading-bar/build/loading-bar.css";
 @import "/components/fancybox/source/jquery.fancybox.css";
 
-
-@import "_debug"; // debug-belt (TODO: disable for production?)
+// Debug-belt (TODO: disable for production?)
+@import "_debug";
 
 // Color Schemas + Theme config
 @import "_colors";
@@ -99,6 +92,63 @@ pre {
 .fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
 //.fancybox-lock .fancybox-overlay {}
 
+// close bttn
+.fancybox-close {
+  width: auto;
+  height: auto;
+
+  padding: 20px;
+
+  background: #121212;
+  border: 1px dashed #444;
+
+  text-align: center;
+  text-decoration: none;
+
+  top: 5px;
+  right: 5px;
+
+  @include transition(all 0.16s ease-in);
+
+  &:before {
+    content: "\f00d";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 40px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  &:hover {
+    background: #ff0000;
+    text-decoration: none;
+
+    &:before { color: #121212; }
+  }
+
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.2s $animationEasing);
+
+  @include animation-duration(0.32s);
+  @include animation-timing-function($animationEasing);
+  @include animation-iteration-count(1);
+  @include animation-name(bounceIn);
+
+}
+
 
 .main-container { }
 
@@ -131,6 +181,11 @@ pre {
 
     // Animation ready: smooth trans
     @include transition(all 0.2s $animationEasing);
+
+    // Butterfly animations
+    .st4, .st8 { @include animate(fadeInLights, 1.16s, 3s, $animationEasing); }
+    .st6, .st7 { @include animate(fadeInShadows, 1.16s, 3s, $animationEasing); }
+
   }
 
   // tag line
@@ -143,6 +198,30 @@ pre {
     color: #fff;
 
     margin-top: 40px;
+
+    // Animation ready / Force HA
+    @extend .noflicker;
+    @include transition(all 0.3s $animationEasing);
+
+    @include animation-delay(3.16s);
+  }
+
+  // custom anims
+  .flipper {
+    @include transform-origin(center center);
+
+    // Animation ready / Force HA
+    @extend .noflicker;
+    @include transition(all 0.4s $animationEasing);
+
+    //@include animate(flipper, 0.32s, 0.2s, $animationEasing);
+
+    @include animation-duration(0.16s);
+    @include animation-timing-function($animationEasing);
+    @include animation-iteration-count(2);
+    @include animation-direction(alternate);
+    @include animation-delay(3.16s);
+    @include animation-name(flipper);
   }
 }
 
@@ -157,6 +236,33 @@ pre {
 
   // responsive sizes
   @include small() { @include font-size(80, 1); }
+
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.4s $animationEasing);
+
+  @include animation-delay(4s);
+}
+
+
+.spreadTheLove {
+  text-align: center;
+  padding: 10px 0px 20px;
+
+  @include font-size(13, 1);
+  font-weight: 300;
+
+  color: #636363;
+
+  .loveicon {
+    color: #e74c3c;
+  }
+
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.4s $animationEasing);
+
+  @include animation-delay(4s);
 }
 
 //
@@ -233,6 +339,14 @@ pre {
 // Portofolio Grid
 //
 .portofolio {
+
+  opacity: 0;
+
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.4s $animationEasing);
+
+  @include animation-delay(4.5s);
 
   @extend .container-fluid !optional;
   //overflow-x: hidden; // disable horizontal scrollbars on item hover (we upscale it)
@@ -480,8 +594,26 @@ pre {
     } // @end: grid-item
 
   } // @end: grid
-
 } // @end: portofolio
+
+//
+//  fx.LoadingBar
+//
+$loading-bar-color: #19b5fe;
+
+#loading-bar .bar { background: $loading-bar-color; }
+
+#loading-bar .peg {
+  -moz-box-shadow: $loading-bar-color 1px 0 6px 1px;
+  -ms-box-shadow: $loading-bar-color 1px 0 6px 1px;
+  -webkit-box-shadow: $loading-bar-color 1px 0 6px 1px;
+  box-shadow: $loading-bar-color 1px 0 6px 1px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  $loading-bar-color;
+  border-left-color: $loading-bar-color;
+}
 
 
 //
@@ -492,15 +624,40 @@ pre {
 fx-stringz {
   @extend %positionCenter;
 
+  opacity: 0;
   z-index: -1;
-//  position: fixed;
-  
+  position: fixed;
+
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.4s $animationEasing);
+
+
   // canvas
   canvas {
     width: 100%;
     height: 100%;
 
-//    background: #2C3E50;
+    // Animation ready / Force HA
+    @extend .noflicker;
+    @include transition(all 0.4s $animationEasing);
+
+//    @include animation-duration(5s);
+//    @include animation-timing-function($animationEasing);
+//    @include animation-iteration-count(infinite);
+//    @include animation-name(pulse);
+  }
+
+  // pretty canvas bro!
+  &.animated {
+    @include animation-timing-function($animationEasing);
+    @include animation-delay(0.32s);
+    @include animation-duration(1.6s); // fade in duration
+
+    // i'm pretty !
+    canvas {
+      @include animation("bounceIn 0.5s 0.16s ease-out, pulse 5s 2s infinite alternate");
+    }
   }
 
 }
@@ -542,3 +699,4 @@ fx-stringz {
   }
 
 }
+

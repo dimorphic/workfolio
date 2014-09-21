@@ -16,47 +16,6 @@
         // PUBLIC METHODS
         // ---------------
 
-        // oc.modal test
-        $scope.settings1 = {
-            closeEl: '.close',
-            overlay: {
-                templateUrl: 'templates/partials/lightbox.tpl.html'
-            }
-        };
-
-        $scope.displayImage = function(img) {
-            console.log('img obj: ', img);
-
-            /*$ocModal.open({
-                url: "templates/partials/lightbox.tpl.html",
-
-                cls: 'animated fadeInUp',
-                onOpen: function() {
-                    console.log('modal opened');
-                },
-                onClose: function() {
-                    console.log('modal closed');
-                },
-                init: {
-                    imgUrl: "http://nyx.athma.net/pix/_scraps_2010_Static.jpg"
-                }
-            });*/
-        };
-
-        // ngDialog test
-        $scope.clickToOpen = function() {
-            /*ngDialog.open({
-                template: 'templates/partials/lightbox.tpl.html',
-                className: 'ngdialog-theme-flat',
-                scope: $scope
-            });*/
-        };
-
-        $rootScope.$on('ngDialog.opened', function(e, $dialog) {
-            console.log('ngdialog opened @' + $dialog.attr('id'));
-        });
-
-
         //
         // Projects
         //
@@ -64,31 +23,43 @@
            // console.log("data here boy!!! : ", data);
             $scope.projects = data;
 
+            //console.log($scope.projects);
             /*angular.forEach(data, function(value, index) {
                 console.log('data bro @ ', value);
             });*/
         });
 
-        // menu filters
+        // menu
+        $scope.mainMenu = [ "all", "app", "branding", "banner" ];
+
+        $scope.contact = {
+            closeEl: '.close',
+            overlay: {
+                templateUrl: 'templates/partials/contact.tpl.html'
+            }
+        };
+
+        // filters
         $scope.radioModel = 'all';
-        $scope.filterMenu = [ "all", "apps", "branding", "banners" ];
+        $scope.predicate = "-year";
 
         $scope.filterQuery = null;
         $scope.setFilter = function(filter) {
             $scope.filterQuery = filter;
         };
 
+        // watch for changes
+        $scope.$watch("radioModel", function(newValue, oldValue) {
+            console.log("menu filter has changed : ", oldValue, " -> ", newValue);
+
+            if(newValue === "all") {
+                $scope.setFilter("");
+            } else {
+                $scope.setFilter(newValue);
+            }
+        });
+
     };
-
-    var LightboxController = function($scope, $rootScope, ProjectService) {
-        console.log("lightbox CONTROLLER ON!");
-
-        $scope.project = {
-            title: "wtf"
-        };
-    };
-
-
 
     //
     // Set controller
@@ -105,18 +76,6 @@
             //'$ocModal',
             //'ngDialog',
             HomeController
-        ]
-    );
-
-    // Lightbox
-    appControllers.controller(
-        "lightboxCtrl",
-        [
-            '$scope',
-            '$rootScope',
-            'ProjectService',
-
-            LightboxController
         ]
     );
 

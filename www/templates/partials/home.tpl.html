@@ -1,78 +1,47 @@
 <!-- DEBUG -->
 <div style="display: none;">
     <div class="debug fixed">
-        <pre>{{ debug }}</pre>
-        wtf bro
-    </div>
-
-    <div class="debug fixed top">
-        <!-- TEMP CONTROLZ -->
-        <div class="controlz">
-
-            <h4>Radio &amp; Uncheckable Radio</h4>
-            <pre>{{radioModel || 'null'}}</pre>
-            <div class="btn-group">
-                <label class="btn btn-default" ng-model="radioModel" btn-radio="'All'">All works</label>
-                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Apps'">Apps</label>
-                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Banners'">Banners</label>
-                <label class="btn btn-default" ng-model="radioModel" btn-radio="'Branding'">Branding</label>
-            </div>
-
-        </div>
+        <pre>{{ filterQuery }}</pre>
+        <input ng-model="filterQuery.type">
     </div>
 </div>
-
-<div class="debug fixed top">
-
-    <!--<a href="http://nyx.athma.net/pix/_scraps_2010_Static.jpg" title="My title here" light-box>-->
-        <!--<img src="./assets/images/img-08.jpg" alt="image" />-->
-    <!--</a>-->
-
-
-
-</div>
-
-        <div class="container">
-            <button class="btn btn-default" ng-morph-overlay="settings1">modal test</button>
-            <!--<button class="btn btn-default" ng-click="displayImage()">modal #2</button>-->
-            <!--<button class="btn btn-default" ng-click="clickToOpen()">modal #3</button>-->
-        </div>
 
 <!-- APP LOGO -->
 <div class="container">
 
     <app-logo></app-logo>
 
-    <div class="headline">
+    <div class="headline animated fadeInDown">
         <span>MY WORK</span>
     </div>
 
 </div>
 
 <!-- CONTENT -->
-<div class="portofolio">
+<div class="portofolio animated fadeInUp">
 
     <!-- MENU SELECTOR -->
     <div class="menu">
 
-        {{ radioModel | json }}
-
         <div class="buttons">
+<!--
+            <label ng-repeat="item in mainMenu"
+                   class="item"
+                   ng-model="radioModel"
+                   btn-radio="'{{ item }}'">
 
-            <!--<label ng-repeat="item in filterMenu"-->
-                   <!--class="item"-->
-                   <!--ng-model="radioModel"-->
-                   <!--btn-radio="'{{ item }}'">-->
+                {{ item }}
 
-                <!--{{ item }}-->
+                <i></i>
+            </label> -->
 
-                <!--<i></i>-->
-            <!--</label>-->
 
             <label class="item" ng-model="radioModel" btn-radio="'all'">All works<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'apps'">Apps<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'banners'">Banners<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'app'">Apps<i></i></label>
+            <label class="item" ng-model="radioModel" btn-radio="'banner'">Banners<i></i></label>
             <label class="item" ng-model="radioModel" btn-radio="'branding'">Branding<i></i></label>
+
+            <!-- <label class="item"><div ng-morph-overlay="contact">Contact</div><i></i></label> -->
         </div>
 
     </div>
@@ -83,7 +52,7 @@
 
         <div class="grid">
 
-            <grid-item ng-repeat="project in projects | filter: filterQuery"
+            <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
                        id="project_{{ $index }}"
                        project="projects[$index]">
 

@@ -9,9 +9,10 @@
         'Console', 'underscore',
         'ui.router',
         'ui.bootstrap',
+        'ngAnimate',
+
+        'angular-loading-bar',
         'ngMorph'
-//        'oc.modal',
-//        'ngDialog'
     ];
 
     var appComponents = [
@@ -21,9 +22,9 @@
         'workfolio.services'
     ];
 
-  	//
-	// App
-	//
+    //
+    // App
+    //
 
     // Declare app level module which depends on filters, and services
 	var mainApp = angular.module('workfolio', dependencyModules.concat(appComponents));

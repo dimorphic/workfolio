@@ -22,52 +22,6 @@
             //
             var projects = [];
 
-            //
-            // demo Projects
-            //
-            projects = [
-                {
-                    name: "Heineken",
-                    thumb: "./assets/images/img-01.jpg"
-                },
-                {
-                    name: "We Come One",
-                    thumb: "./assets/images/img-02.jpg"
-                },
-                {
-                    name: "Scorpiones",
-                    thumb: "./assets/images/img-03.jpg"
-                },
-                {
-                    name: "Panthera",
-                    thumb: "./assets/images/img-04.jpg"
-                },
-                {
-                    name: "Vocea Romaniei",
-                    thumb: "./assets/images/img-05.jpg"
-                },
-                {
-                    name: "They See me Rollin'",
-                    thumb: "./assets/images/img-06.jpg"
-                },
-                {
-                    name: "Real Steel",
-                    thumb: "./assets/images/img-07.jpg"
-                },
-                {
-                    name: "X marks the spot",
-                    thumb: "./assets/images/img-08.jpg"
-                },
-
-                // -------------------
-
-                {
-                    name: "test-01",
-                    thumb: "http://nyx.athma.net/pix/_scraps_2010_Static.jpg"
-                }
-
-            ];
-
             // Map colors
             /*colorCodes = _.map(colors, function(value, key) {
                 return { name: key, code: value };
@@ -98,7 +52,14 @@
                             // project model
                             var $project = {
                                 name: classes.gsx$name.$t,
+                                type: classes.gsx$type.$t,
+                                year: classes.gsx$year.$t,
+                                client: classes.gsx$client.$t,
+
+                                color: classes.gsx$color.$t,
                                 thumbUrl: classes.gsx$imageurl.$t
+                                //imageUrl: classes.gsx$imageurl.$t
+
                             };
 
                             //console.log("project info @ ", $project);

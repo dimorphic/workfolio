@@ -16,85 +16,133 @@
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              width="100%" height="100%" viewBox="0 0 805 805" style="enable-background:new 0 0 805 805;" xml:space="preserve">
                 <style type="text/css">
-                    .st0{filter:url(#Adobe_OpacityMaskFilter);}
+                    /* inner join of wings */
                     .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#141420;}
-                    .st2{fill-rule:evenodd;clip-rule:evenodd;fill:#16A4E6;}
-                    .st3{fill-rule:evenodd;clip-rule:evenodd;fill:#ED1F24;}
+
+                    /* wings */
+                    .st2{fill-rule:evenodd;clip-rule:evenodd;fill:#16A4E6;} /* right */
+                    .st3{fill-rule:evenodd;clip-rule:evenodd;fill:#ED1F24;} /* left */
+
+                    /* circle */
+                    .st5{fill:none !important;stroke:transparent;stroke-width:5;stroke-miterlimit:10;}
+
+                    /* inner lights */
                     .st4{opacity:0.5;mask:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-                    .st5{fill:none !important;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+                    .st8{opacity:0.5;mask:url(#SVGID_4_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+
+                    /* inner shadows */
                     .st6{opacity:0.2;mask:url(#SVGID_1_);fill-rule:evenodd;clip-rule:evenodd;}
                     .st7{opacity:0.2;mask:url(#SVGID_3_);fill-rule:evenodd;clip-rule:evenodd;}
-                    .st8{opacity:0.5;mask:url(#SVGID_4_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+
+                    /* masks */
+                    .st0{filter:url(#Adobe_OpacityMaskFilter);}
                     .st9{filter:url(#Adobe_OpacityMaskFilter_1_);}
                     .st10{filter:url(#Adobe_OpacityMaskFilter_2_);}
                     .st11{filter:url(#Adobe_OpacityMaskFilter_3_);}
                     .st11{filter:url(#Adobe_OpacityMaskFilter_3_);}
 
                     /* crown */
-                    .st12{fill-rule:evenodd;clip-rule:evenodd;fill:#fff;}
+                    .st12{fill-rule:evenodd;clip-rule:evenodd;fill:#fff; stroke: none !important;}
+
+
+                    /*
+                    // FX animations
+                    */
+                    .st1,
+                    .st5, .st12,
+                    .st4, .st8,
+                    .st6, .st7 {
+                        opacity: 0;
+
+                        -webkit-transition:all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                        -moz-transition:all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                        -o-transition:all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                        transition:all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                    }
+
+                    .st1 {
+                        -webkit-animation-delay: 1.16s;
+                        -moz-animation-delay: 1.16s;
+                        -o-animation-delay: 1.16s;
+                        animation-delay: 1.16s;
+                    }
+
+                    .st5, .st12 {
+                        -webkit-animation-delay: 3.16s;
+                        -moz-animation-delay: 3.16s;
+                        -o-animation-delay: 3.16s;
+                        animation-delay: 3.16s;
+                    }
 
                 </style>
                 <g>
-                    <g>
-                        <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
-                            s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
-                        <defs>
-                            <filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="467.8" y="378.6" width="157.4" height="132.1">
-                                <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-                            </filter>
-                        </defs>
-                        <mask maskUnits="userSpaceOnUse" x="467.8" y="378.6" width="157.4" height="132.1" id="SVGID_1_">
-                            <g class="st0">
-                                <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
-                                    s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
-                            </g>
-                        </mask>
-                        <path class="st6" d="M624.8,510.7c0,0-0.6-24.7-22.8-48.5c-3.5-6.7-11.4-16.1-19.8-21.2c-23.3-14.4-61.2-21.2-114.4-15.4
-                            c36.3-11,153.6-6.5,156-42C626.2,348.1,624.8,510.7,624.8,510.7z"/>
-                        <defs>
-                            <filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="387.5" y="58.6" width="291" height="330">
-                                <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-                            </filter>
-                        </defs>
-                        <mask maskUnits="userSpaceOnUse" x="387.5" y="58.6" width="291" height="330" id="SVGID_2_">
-                            <g class="st9">
-                                <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
-                                    s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
-                            </g>
-                        </mask>
-                        <path class="st4" d="M387.6,388.6c0,0-5.3-72.3,70-90c75.3-17.7,307.2-119.8,187-240C391.6,58.6,387.6,388.6,387.6,388.6z"/>
+                    <g class="butterfly-wings animated flipper">
+                        <!-- RIGHT WING -->
+                        <g>
+                            <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
+                                s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
+                            <defs>
+                                <filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="467.8" y="378.6" width="157.4" height="132.1">
+                                    <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+                                </filter>
+                            </defs>
+                            <mask maskUnits="userSpaceOnUse" x="467.8" y="378.6" width="157.4" height="132.1" id="SVGID_1_">
+                                <g class="st0">
+                                    <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
+                                        s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
+                                </g>
+                            </mask>
+                            <path class="st6 animated" d="M624.8,510.7c0,0-0.6-24.7-22.8-48.5c-3.5-6.7-11.4-16.1-19.8-21.2c-23.3-14.4-61.2-21.2-114.4-15.4
+                                c36.3-11,153.6-6.5,156-42C626.2,348.1,624.8,510.7,624.8,510.7z"/>
+                            <defs>
+                                <filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="387.5" y="58.6" width="291" height="330">
+                                    <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+                                </filter>
+                            </defs>
+                            <mask maskUnits="userSpaceOnUse" x="387.5" y="58.6" width="291" height="330" id="SVGID_2_">
+                                <g class="st9">
+                                    <path class="st2" d="M657.3,178.5c0,0-1.4,164.1-75,262.5c7.3,5.2,15.4,14.6,18.9,20.4c1.2,8.1-12.2,149.1-76,156.9
+                                        s-224-273.7-64-335.9C551.1,252.4,625.1,228.2,657.3,178.5z"/>
+                                </g>
+                            </mask>
+                            <path class="st4 animated" d="M387.6,388.6c0,0-5.3-72.3,70-90c75.3-17.7,307.2-119.8,187-240C391.6,58.6,387.6,388.6,387.6,388.6z"/>
+                        </g>
+
+                        <!-- LEFT WING -->
+                        <g>
+                            <path class="st3" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
+                                c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
+                            <defs>
+                                <filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="179.3" y="378.6" width="157.4" height="132.1">
+                                    <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+                                </filter>
+                            </defs>
+                            <mask maskUnits="userSpaceOnUse" x="179.3" y="378.6" width="157.4" height="132.1" id="SVGID_3_">
+                                <g class="st10">
+                                    <path class="st2" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
+                                        c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
+                                </g>
+                            </mask>
+                            <path class="st7 animated" d="M179.7,510.7c0,0,0.6-24.7,22.8-48.5c3.5-6.7,11.4-16.1,19.8-21.2c23.3-14.4,61.2-21.2,114.4-15.4
+                                c-36.3-11-153.6-6.5-156-42C178.3,348.1,179.7,510.7,179.7,510.7z"/>
+                            <defs>
+                                <filter id="Adobe_OpacityMaskFilter_3_" filterUnits="userSpaceOnUse" x="126.1" y="58.6" width="291" height="330">
+                                    <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+                                </filter>
+                            </defs>
+                            <mask maskUnits="userSpaceOnUse" x="126.1" y="58.6" width="291" height="330" id="SVGID_4_">
+                                <g class="st11">
+                                    <path class="st2" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
+                                        c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
+                                </g>
+                            </mask>
+                            <path class="st8 animated" d="M160,58.6c-120.2,120.2,111.7,222.3,187,240s70,90,70,90S413,58.6,160,58.6z"/>
+                        </g>
                     </g>
+
+                    <!-- CROWN -->
                     <g>
-                        <path class="st3" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
-                            c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
-                        <defs>
-                            <filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="179.3" y="378.6" width="157.4" height="132.1">
-                                <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-                            </filter>
-                        </defs>
-                        <mask maskUnits="userSpaceOnUse" x="179.3" y="378.6" width="157.4" height="132.1" id="SVGID_3_">
-                            <g class="st10">
-                                <path class="st2" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
-                                    c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
-                            </g>
-                        </mask>
-                        <path class="st7" d="M179.7,510.7c0,0,0.6-24.7,22.8-48.5c3.5-6.7,11.4-16.1,19.8-21.2c23.3-14.4,61.2-21.2,114.4-15.4
-                            c-36.3-11-153.6-6.5-156-42C178.3,348.1,179.7,510.7,179.7,510.7z"/>
-                        <defs>
-                            <filter id="Adobe_OpacityMaskFilter_3_" filterUnits="userSpaceOnUse" x="126.1" y="58.6" width="291" height="330">
-                                <feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
-                            </filter>
-                        </defs>
-                        <mask maskUnits="userSpaceOnUse" x="126.1" y="58.6" width="291" height="330" id="SVGID_4_">
-                            <g class="st11">
-                                <path class="st2" d="M343.4,282.5c160,62.2-0.2,343.7-64,335.9s-77.2-148.8-76-156.9c3.5-5.8,11.6-15.3,18.9-20.4
-                                    c-73.6-98.4-75-262.5-75-262.5C179.5,228.2,253.5,252.4,343.4,282.5z"/>
-                            </g>
-                        </mask>
-                        <path class="st8" d="M160,58.6c-120.2,120.2,111.7,222.3,187,240s70,90,70,90S413,58.6,160,58.6z"/>
-                    </g>
-                    <g>
-                        <path class="st12" d="M447.2,162.3c3.5,1.3,5.3,3.9,5.3,7.8c0,0.7-0.1,1.3-0.2,2c-0.9,3.5-3.1,5.6-6.6,6.3l-8.2,47.1c-0.3,0.8-0.8,1.2-1.6,1.4
+                        <path class="st12 animated fadeInUp" d="M447.2,162.3c3.5,1.3,5.3,3.9,5.3,7.8c0,0.7-0.1,1.3-0.2,2c-0.9,3.5-3.1,5.6-6.6,6.3l-8.2,47.1c-0.3,0.8-0.8,1.2-1.6,1.4
                             h-66.8c-0.7-0.1-1.2-0.6-1.6-1.4l-8.2-47.1c-0.4-0.1-0.8-0.3-1.4-0.4c-3.6-1.3-5.5-3.9-5.5-7.8c0-1,0.2-2.1,0.6-3.1
                             c1.3-3.5,3.9-5.3,7.8-5.3c0.9,0,1.9,0.2,2.9,0.6c3.5,1.4,5.3,4,5.3,7.8c0,0.4-0.1,0.8-0.2,1.4c-0.5,3.5-2.5,5.7-6.1,6.6
                             c0.3,0.7,0.5,1.4,0.8,2.3c4.2,10.8,10.5,16.2,18.9,16.2c3.3,0,6.2-1.4,8.8-4.1c4.8-4.8,7.9-12.4,9.2-22.7c-0.7-0.1-1.3-0.3-2-0.6
@@ -111,15 +159,19 @@
                             c-0.7-2.5-2.3-3.7-4.9-3.7c-0.4,0-0.8,0.1-1.2,0.2c-2.5,0.5-3.7,2.1-3.7,4.9c0,0.4,0.1,0.8,0.2,1.2c0.7,2.5,2.2,3.7,4.7,3.7
                             C444.5,175,444.9,174.9,445.3,174.8z"/>
                     </g>
-                    <path class="st5" d="M402.5,802.5c-266.7,0-400-133.3-400-400c0-266.7,133.3-400,400-400c266.7,0,400,133.3,400,400
+
+                    <!-- CIRCLE -->
+                    <path class="st5 animated fadeIn" d="M402.5,802.5c-266.7,0-400-133.3-400-400c0-266.7,133.3-400,400-400c266.7,0,400,133.3,400,400
                         C802.5,669.2,669.2,802.5,402.5,802.5z"/>
+
+                    <!-- WINGS INNER JOIN -->
                     <g>
-                        <path class="st1" d="M402.3,337c-14.7,33.8-12,76.5,0,118.3C414.3,413.5,417,370.8,402.3,337z"/>
+                        <path class="st1 animated fadeIn" d="M402.3,337c-14.7,33.8-12,76.5,0,118.3C414.3,413.5,417,370.8,402.3,337z"/>
                     </g>
                 </g>
             </svg>
         </div>
 
-        <span class="tagline">Sabin Tudor</span>
+        <span class="tagline animated fadeIn">Sabin Tudor</span>
     </div>
 </div>
