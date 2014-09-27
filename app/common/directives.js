@@ -146,37 +146,34 @@
             //var delay = element.index() * 0.1 + 's';
 
             var handleClick = function (e) {
-                console.log('clicky! @ ', scope.project);
-                /*e.preventDefault();
+                e.preventDefault();
 
-                ngDialog.open({
-                    template: 'templates/partials/lightbox.tpl.html',
-                    className: 'ngdialog-theme-flat',
-                    //scope: scope
-                    controller: ['$scope', function($scope) {
-                        // logic here bro
-                        $scope.project = scope.project;
-                    }]
-                });*/
+                //console.log('clicky! @ ', scope.project);
+                scope.$broadcast("lightBox:open");
             };
+
+            // console.log("img loaded before: ", $img.complete);
 
             // bind once
             $img.one("load", function() {
-                //console.log("project: ", scope.project);
-                //console.log("projects: ", scope.projects);
                 //console.log("rdy bind load!", src);
 
-                // set background image
-                $thumb.css("background-image", 'url(' + src + ')');
+                $timeout(function() {
+                    //console.log("running fx @ ", src);
 
-                // fade item in
-                $thumb.addClass("animated fadeIn" + fxClass);
+                    // set background image
+                    $thumb.css("background-image", 'url(' + src + ')');
 
-                // set item to 'loaded' state
-                $item.addClass("loaded");
+                    // fade item in
+                    $thumb.addClass("animated fadeIn" + fxClass);
 
-                // add click event
-                element.on("click", handleClick);
+                    // set item to 'loaded' state
+                    $item.addClass("loaded");
+
+                    // add click event
+                    element.on("click", handleClick);
+
+                }, 500);
             });
 
         };
@@ -234,10 +231,6 @@
                 });
                 */
 
-                var $project = {
-                    href: scope.project.thumbUrl,
-                    title: scope.project.name
-                };
 /*
                 $http.get(tpl).then(function(response) {
                     if(response.status === 200) {
@@ -249,14 +242,16 @@
                 });
 */
 
-                // bind click event
-                $(element).on("click", function() {
+
+                var $project = {
+                    href: scope.project.thumbUrl,
+                    title: scope.project.name
+                };
+
+                scope.$on('lightBox:open', function(data) {
+                    //console.log("lightBox event @ ", $project);
                     $.fancybox($project, { padding: 0, openEffect: 'elastic' });
-                    //$.fancybox.open({ href: template, type: 'html' });
-
                 });
-
-
 
             });
 
@@ -276,8 +271,8 @@
         ['$rootScope', '$window', '$timeout', 'AnimateService',
         function($rootScope, $window, $timeout, AnimateService) {
             // template
-            // var tpl = 'templates/directives/fx-stringz.tpl.html';
-            var tpl = '<canvas> </canvas>';
+            var tpl = 'templates/directives/fx-stringz.tpl.html';
+            //var tpl = '<canvas> </canvas>';
 
             // DOM link
             var link = function(scope, element, attrs) {
@@ -466,7 +461,7 @@
             // Return directive config
             return {
                 restrict: "E",
-                template: tpl,
+                templateUrl: tpl,
                 link: link
             };
 
@@ -481,7 +476,9 @@
         // Link to DOM
         var link = function(scope, element, attrs) {
 
-            //element.addClass("3d-tilter");
+            element.addClass("tilter3D");
+
+            //ßconsole.log('3d tilter on!');
 
             // click event
             /*element.on("click", function() {
@@ -490,6 +487,8 @@
 
             // mouse move / tilt
             element.on("mousemove", function(e) {
+                //console.log('3d tilter move!');
+
                 var x, y;
 
                 x = ( e.pageX - element.offset().left - ( element.outerWidth(true) / 2 ) ) * -1 / 9;

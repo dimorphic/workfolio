@@ -22,12 +22,6 @@
             //
             var projects = [];
 
-            // Map colors
-            /*colorCodes = _.map(colors, function(value, key) {
-                return { name: key, code: value };
-            });*/
-
-
             var results = [];
 
             var years = [];
@@ -98,17 +92,10 @@
 
                 setActive: function(value) {
                     activeProject = availableProjects[value];
-
-                    // notify application
-                    // $rootScope.$broadcast('');
                 },
 
                 getAvailable: function() {
                     return availableProjects;
-                },
-
-                getActive: function() {
-                    return activeProject;
                 },
 
                 random: function() {

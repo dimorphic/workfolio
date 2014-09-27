@@ -19,19 +19,58 @@
         //
         // Projects
         //
-        ProjectService.init().then(function(data) {
-           // console.log("data here boy!!! : ", data);
-            $scope.projects = data;
+        $scope.projects = [];
 
-            //console.log($scope.projects);
-            /*angular.forEach(data, function(value, index) {
-                console.log('data bro @ ', value);
-            });*/
+        $scope.loadMore = null;
+        $scope.infiniteDisabled = true;
+        $scope.showHintMore = !$scope.infiniteDisabled;
+
+        // promise!
+        ProjectService.init().then(function(data) {
+            // data is here bro!
+            $scope.projectsData = data;
+
+            // load more function
+            $scope.loadMore = function() {
+
+                // how many items to add when we reach bottom
+                var itemsToAdd = 4;
+                var remaining = $scope.projectsData.length - $scope.projects.length;
+
+                if(remaining) {
+                    //console.log("remaining items : ", remaining);
+
+                    var last = $scope.projects.length;
+                    var items = (remaining < itemsToAdd) ? remaining : itemsToAdd;
+
+                    for(var i = last; i < last+items; i++) {
+                        //console.log('adding @ ', i);
+                        $scope.projects.push($scope.projectsData[i]);
+                    }
+
+                } else {
+                    // console.log('no more items to add');
+
+                    // disable infinite scroll
+                    $scope.infiniteDisabled = true;
+                }
+
+                $scope.showHintMore = !$scope.infiniteDisabled;
+
+            };
+
+            // enable infinite scroll
+            $scope.infiniteDisabled = false;
+
+
         });
 
-        // menu
-        $scope.mainMenu = [ "all", "app", "branding", "banner" ];
 
+        // menu
+        $scope.mainMenu = [ "all", "app", "branding", "banner" ]; // menu sorters
+        $scope.menuModel = 'all'; // curent selected/active menu item
+
+        // modal test
         $scope.contact = {
             closeEl: '.close',
             overlay: {
@@ -40,17 +79,17 @@
         };
 
         // filters
-        $scope.radioModel = 'all';
-        $scope.predicate = "-year";
+        $scope.predicate = ""; // orderBy
 
         $scope.filterQuery = null;
         $scope.setFilter = function(filter) {
             $scope.filterQuery = filter;
         };
 
-        // watch for changes
-        $scope.$watch("radioModel", function(newValue, oldValue) {
-            console.log("menu filter has changed : ", oldValue, " -> ", newValue);
+        // watch for changes on menu
+        $scope.$watch("menuModel", function(newValue, oldValue) {
+            // console.log("menu filter has changed : ", oldValue, " -> ", newValue);
+            //alert('da fak @ ' + $scope.menuModel);
 
             if(newValue === "all") {
                 $scope.setFilter("");

@@ -281,10 +281,14 @@ pre {
 
     // item
     .item {
+      display: inline-block;
+
       padding: 0px 20px;
 
       @include font-size(15);
       font-weight: 300;
+
+      text-decoration: none;
 
       // links
       a {
@@ -300,11 +304,11 @@ pre {
       i {
         display: block;
 
-        width: 0px;
+        width: 0%;
         height: 1px;
         margin-top: 5px;
 
-        background: #23232f;
+        background: #f00; //#23232f;
 
         @include transition(all 0.2s $animationEasing);
       }
@@ -313,6 +317,7 @@ pre {
       &:hover {
         color: #fff;
         cursor: pointer;
+        text-decoration: none;
 
         i {
           background: #7b75cb;
@@ -578,7 +583,7 @@ pre {
       // Loading icon
       .svg-loader {
         z-index: 1;
-        background: #0f0;
+        background: transparent;
 
         svg {
           @extend .positionCenter;
@@ -595,6 +600,97 @@ pre {
 
   } // @end: grid
 } // @end: portofolio
+
+
+//
+// Grid item animations
+//
+.animateGridItem {
+
+  &.ng-enter, &.ng-leave {
+    @extend .noflicker;
+    @include transition(all 0.3s $animationEasing);
+    @include animation-duration(0.3s);
+
+    .grid-item {
+      //@include transition(all 0.3s $animationEasing);
+    }
+  }
+
+
+  &.ng-enter {
+    @include animation-timing-function($animationEasing);
+    @include animation-iteration-count(1);
+    @include animation-name(tada);
+
+    .grid-item {
+      //@include transform(scale3d(1.2, 1.2, 1));
+
+      //background: #19b5fe;
+      opacity: 1;
+    }
+  }
+
+  &.ng-leave {
+    @include animation-timing-function($animationEasing);
+    @include animation-iteration-count(1);
+    @include animation-name(bounceOut);
+
+    .grid-item {
+      //@include transform(scale3d(0.6, 0.6, 1));
+
+      //background: #f00;
+      opacity: 0;
+    }
+  }
+
+  &.ng-enter-stagger,
+  &.ng-leave-stagger,
+  &.ng-move-stagger {
+    @include animation-delay(0.3s);
+    @include animation-duration(0);
+
+    .grid-item {
+      -webkit-transition-delay: 0.2s;
+      transition-delay: 0.2s;
+
+      -webkit-transition-duration: 0;
+      transition-duration: 0;
+    }
+  }
+
+
+}
+
+
+@keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
+@keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom:0px;
+  }
+}
+
 
 //
 //  fx.LoadingBar
@@ -662,18 +758,73 @@ fx-stringz {
 
 }
 
+//
+// Hint: There's more bro!
+//
+.hintMore {
+  z-index: -1;
+  //opacity: 0;
 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
+  text-align: center;
+  padding: 30px;
 
+  // Animation ready / Force HA
+  @extend .noflicker;
+  @include transition(all 0.3s $animationEasing);
 
+  .message {
+    display: inline-block;
 
+    padding: 10px;
+    background: #00f;
 
+    span.icon {
+      @include animation-duration(1s);
+      @include animation-timing-function($animationEasing);
+      @include animation-iteration-count(infinite);
+      @include animation-name(bounce);
+      @include animation-delay(2s);
+    }
+  }
 
+  &.ui-show {
+    z-index: 1;
+    //opacity: 1;
+
+    @include animation-duration(0.32s);
+    @include animation-timing-function($animationEasing);
+    @include animation-iteration-count(1);
+    @include animation-name(fadeInUp);
+  }
+
+  &.ui-hide {
+//      @include transition(all 0.3s ease-in-out);
+
+    @include transform(translate3d(0, 200%, 0));
+    opacity: 0;
+    z-index: -1;
+  }
+
+}
+
+//
+// Experimental
+//
+
+.tilter3D {
+  // Animation ready
+  @extend .noflicker; // force 3d render
+  @include transition(transform $animationEasing);
+}
 
 //
 //  Tests
 //
-
 
 // test lightbox
 .lightbox {

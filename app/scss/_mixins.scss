@@ -95,6 +95,7 @@ $vendor: '', '-webkit-', '-moz-', '-ms-', '-o-';
 
 // Force Hardware Acceleration / "null" transform hack
 .noflicker { @include backface-visibility(hidden); @include transform(translate3d(0,0,0)); }
+%noflicker { @include backface-visibility(hidden); @include transform(translate3d(0,0,0)); }
 
 // Positioning CLASS
 // translate

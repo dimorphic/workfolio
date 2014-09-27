@@ -7,12 +7,15 @@
     //
     var dependencyModules = [
         'Console', 'underscore',
+        'ngTouch',
         'ui.router',
         'ui.bootstrap',
+        'ui.showhide',
         'ngAnimate',
 
         'angular-loading-bar',
-        'ngMorph'
+        'infinite-scroll'
+//        'ngMorph'
     ];
 
     var appComponents = [
@@ -33,13 +36,13 @@
     // Root Scope and UTILS
     //
     mainApp.run(
-        [        '$rootScope', '$log',
-        function ($rootScope,   $log) {
+        [        '$rootScope', '$log', '$window',
+        function ($rootScope,   $log, $window) {
             
             // Helpers utils
             $rootScope.$log = $log;
 
-            $rootScope.$wtf = "da fak bro app.js init";
+            // $window.FastClick.attach(document.body);
         }
     ]);  
 

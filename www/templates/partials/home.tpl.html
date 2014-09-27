@@ -17,6 +17,11 @@
 
 </div>
 
+<!-- HINT: there's more bro! -->
+<!--<div class="hintMore" ui-toggle="showHintMore">-->
+    <!--<div class="message">Pssh! There's more bro! <span class="fa fa-chevron-down animated icon"></span></div>-->
+<!--</div>-->
+
 <!-- CONTENT -->
 <div class="portofolio animated fadeInUp">
 
@@ -36,10 +41,10 @@
             </label> -->
 
 
-            <label class="item" ng-model="radioModel" btn-radio="'all'">All works<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'app'">Apps<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'banner'">Banners<i></i></label>
-            <label class="item" ng-model="radioModel" btn-radio="'branding'">Branding<i></i></label>
+            <label class="item" ng-model="menuModel" btn-radio="'all'">All works<i></i></label>
+            <label class="item" ng-model="menuModel" btn-radio="'app'">Apps<i></i></label>
+            <label class="item" ng-model="menuModel" btn-radio="'banner'">Banners<i></i></label>
+            <label class="item" ng-model="menuModel" btn-radio="'branding'">Branding<i></i></label>
 
             <!-- <label class="item"><div ng-morph-overlay="contact">Contact</div><i></i></label> -->
         </div>
@@ -52,11 +57,17 @@
 
         <div class="grid">
 
-            <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
-                       id="project_{{ $index }}"
-                       project="projects[$index]">
+            <div infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-disabled='infiniteDisabled'>
 
-            </grid-item>
+                <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
+                           class="animateGridItemzz"
+
+                           id="project_{{ $index }}"
+                           project="projects[$index]">
+
+                </grid-item>
+
+            </div>
 
         </div>
 

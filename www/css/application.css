@@ -7202,7 +7202,7 @@ button.close {
 }
 
 /* line 97, ../../app/scss/_mixins.scss */
-.noflicker, .glitch:after, .glitch:before, .fancybox-close, .app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, fx-stringz, fx-stringz canvas {
+.noflicker, .glitch:after, .glitch:before, .fancybox-close, .app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -7212,7 +7212,7 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 101, ../../app/scss/_mixins.scss */
+/* line 102, ../../app/scss/_mixins.scss */
 .translateCenter, .viewport, .portofolio .grid .grid-item .tag, .lightbox {
   position: absolute;
   top: 50%;
@@ -7223,7 +7223,7 @@ button.close {
   transform: translate(-50%, -50%);
 }
 
-/* line 109, ../../app/scss/_mixins.scss */
+/* line 110, ../../app/scss/_mixins.scss */
 .positionCenter, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .svg-border, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .svg-loader svg {
   margin: auto;
   position: absolute;
@@ -7233,7 +7233,7 @@ button.close {
   right: 0;
 }
 
-/* line 124, ../../app/scss/_mixins.scss */
+/* line 125, ../../app/scss/_mixins.scss */
 fx-stringz {
   margin: auto;
   position: absolute;
@@ -7243,7 +7243,7 @@ fx-stringz {
   right: 0;
 }
 
-/* line 159, ../../app/scss/_mixins.scss */
+/* line 160, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
@@ -7891,132 +7891,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(349px, 9999px, 633px, 0);
+    clip: rect(8px, 9999px, 156px, 0);
   }
   5% {
-    clip: rect(563px, 9999px, 335px, 0);
+    clip: rect(189px, 9999px, 309px, 0);
   }
   10% {
-    clip: rect(341px, 9999px, 443px, 0);
+    clip: rect(361px, 9999px, 30px, 0);
   }
   15.0% {
-    clip: rect(484px, 9999px, 393px, 0);
+    clip: rect(584px, 9999px, 465px, 0);
   }
   20% {
-    clip: rect(160px, 9999px, 330px, 0);
+    clip: rect(262px, 9999px, 66px, 0);
   }
   25% {
-    clip: rect(254px, 9999px, 415px, 0);
+    clip: rect(198px, 9999px, 316px, 0);
   }
   30.0% {
-    clip: rect(70px, 9999px, 141px, 0);
+    clip: rect(460px, 9999px, 581px, 0);
   }
   35% {
-    clip: rect(252px, 9999px, 597px, 0);
+    clip: rect(234px, 9999px, 64px, 0);
   }
   40% {
-    clip: rect(632px, 9999px, 155px, 0);
+    clip: rect(392px, 9999px, 157px, 0);
   }
   45% {
-    clip: rect(165px, 9999px, 140px, 0);
+    clip: rect(346px, 9999px, 611px, 0);
   }
   50% {
-    clip: rect(440px, 9999px, 281px, 0);
+    clip: rect(517px, 9999px, 321px, 0);
   }
   55.0% {
-    clip: rect(65px, 9999px, 385px, 0);
+    clip: rect(28px, 9999px, 105px, 0);
   }
   60.0% {
-    clip: rect(318px, 9999px, 14px, 0);
+    clip: rect(199px, 9999px, 312px, 0);
   }
   65% {
-    clip: rect(495px, 9999px, 525px, 0);
+    clip: rect(257px, 9999px, 522px, 0);
   }
   70% {
-    clip: rect(351px, 9999px, 559px, 0);
+    clip: rect(584px, 9999px, 318px, 0);
   }
   75% {
-    clip: rect(597px, 9999px, 182px, 0);
+    clip: rect(587px, 9999px, 403px, 0);
   }
   80% {
-    clip: rect(561px, 9999px, 392px, 0);
+    clip: rect(182px, 9999px, 360px, 0);
   }
   85.0% {
-    clip: rect(306px, 9999px, 295px, 0);
+    clip: rect(291px, 9999px, 467px, 0);
   }
   90% {
-    clip: rect(364px, 9999px, 335px, 0);
+    clip: rect(179px, 9999px, 144px, 0);
   }
   95% {
-    clip: rect(92px, 9999px, 329px, 0);
+    clip: rect(425px, 9999px, 198px, 0);
   }
   100% {
-    clip: rect(184px, 9999px, 461px, 0);
+    clip: rect(92px, 9999px, 593px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(12px, 9999px, 74px, 0);
+    clip: rect(63px, 9999px, 24px, 0);
   }
   5% {
-    clip: rect(60px, 9999px, 89px, 0);
+    clip: rect(21px, 9999px, 63px, 0);
   }
   10% {
-    clip: rect(22px, 9999px, 50px, 0);
+    clip: rect(80px, 9999px, 13px, 0);
   }
   15.0% {
-    clip: rect(33px, 9999px, 31px, 0);
+    clip: rect(49px, 9999px, 25px, 0);
   }
   20% {
-    clip: rect(64px, 9999px, 83px, 0);
+    clip: rect(66px, 9999px, 11px, 0);
   }
   25% {
-    clip: rect(92px, 9999px, 60px, 0);
+    clip: rect(20px, 9999px, 69px, 0);
   }
   30.0% {
-    clip: rect(52px, 9999px, 95px, 0);
+    clip: rect(83px, 9999px, 51px, 0);
   }
   35% {
-    clip: rect(43px, 9999px, 19px, 0);
+    clip: rect(97px, 9999px, 22px, 0);
   }
   40% {
-    clip: rect(4px, 9999px, 48px, 0);
+    clip: rect(25px, 9999px, 91px, 0);
   }
   45% {
-    clip: rect(87px, 9999px, 40px, 0);
+    clip: rect(86px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(11px, 9999px, 39px, 0);
+    clip: rect(57px, 9999px, 83px, 0);
   }
   55.0% {
-    clip: rect(7px, 9999px, 45px, 0);
+    clip: rect(27px, 9999px, 83px, 0);
   }
   60.0% {
-    clip: rect(46px, 9999px, 57px, 0);
+    clip: rect(59px, 9999px, 45px, 0);
   }
   65% {
-    clip: rect(10px, 9999px, 90px, 0);
+    clip: rect(45px, 9999px, 52px, 0);
   }
   70% {
-    clip: rect(68px, 9999px, 14px, 0);
+    clip: rect(16px, 9999px, 23px, 0);
   }
   75% {
-    clip: rect(68px, 9999px, 88px, 0);
+    clip: rect(57px, 9999px, 88px, 0);
   }
   80% {
-    clip: rect(70px, 9999px, 46px, 0);
+    clip: rect(44px, 9999px, 44px, 0);
   }
   85.0% {
-    clip: rect(83px, 9999px, 23px, 0);
+    clip: rect(24px, 9999px, 36px, 0);
   }
   90% {
-    clip: rect(47px, 9999px, 32px, 0);
+    clip: rect(34px, 9999px, 99px, 0);
   }
   95% {
-    clip: rect(57px, 9999px, 60px, 0);
+    clip: rect(83px, 9999px, 87px, 0);
   }
   100% {
-    clip: rect(29px, 9999px, 78px, 0);
+    clip: rect(64px, 9999px, 2px, 0);
   }
 }
 @-webkit-keyframes svg_dash {
@@ -9341,53 +9341,56 @@ pre {
 }
 /* line 283, ../../app/scss/application.scss */
 .menu .buttons .item {
+  display: inline-block;
   padding: 0px 20px;
   font-size: 15px;
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 300;
+  text-decoration: none;
 }
-/* line 290, ../../app/scss/application.scss */
+/* line 294, ../../app/scss/application.scss */
 .menu .buttons .item a {
   color: #fff;
 }
-/* line 293, ../../app/scss/application.scss */
+/* line 297, ../../app/scss/application.scss */
 .menu .buttons .item a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 300, ../../app/scss/application.scss */
+/* line 304, ../../app/scss/application.scss */
 .menu .buttons .item i {
   display: block;
-  width: 0px;
+  width: 0%;
   height: 1px;
   margin-top: 5px;
-  background: #23232f;
+  background: #f00;
   -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 313, ../../app/scss/application.scss */
+/* line 317, ../../app/scss/application.scss */
 .menu .buttons .item:hover {
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
 }
-/* line 317, ../../app/scss/application.scss */
+/* line 322, ../../app/scss/application.scss */
 .menu .buttons .item:hover i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 326, ../../app/scss/application.scss */
+/* line 331, ../../app/scss/application.scss */
 .menu .buttons .item.selected:hover, .menu .buttons .item.active:hover {
   cursor: default;
 }
-/* line 328, ../../app/scss/application.scss */
+/* line 333, ../../app/scss/application.scss */
 .menu .buttons .item.selected i, .menu .buttons .item.active i {
   background: #7b75cb;
   width: 100%;
 }
 
-/* line 341, ../../app/scss/application.scss */
+/* line 346, ../../app/scss/application.scss */
 .portofolio {
   opacity: 0;
   -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9400,7 +9403,7 @@ pre {
   -o-animation-delay: 4.5s;
   padding-bottom: 70px;
 }
-/* line 357, ../../app/scss/application.scss */
+/* line 362, ../../app/scss/application.scss */
 .portofolio .grid {
   margin-left: -15px;
   margin-right: -15px;
@@ -9415,7 +9418,7 @@ pre {
 .portofolio .grid:after {
   clear: both;
 }
-/* line 363, ../../app/scss/application.scss */
+/* line 368, ../../app/scss/application.scss */
 .portofolio .grid .grid-item {
   z-index: 1;
   position: relative;
@@ -9438,7 +9441,7 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 363, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9449,7 +9452,7 @@ pre {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 363, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9461,7 +9464,7 @@ pre {
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 363, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9472,13 +9475,13 @@ pre {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 363, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     height: 500px;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 363, ../../app/scss/application.scss */
+  /* line 368, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9488,7 +9491,7 @@ pre {
     padding-right: 15px;
   }
 }
-/* line 403, ../../app/scss/application.scss */
+/* line 408, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .tag {
   z-index: 3;
   opacity: 0;
@@ -9508,7 +9511,7 @@ pre {
   -webkit-transform: translate(-50%, 200%);
   transform: translate(-50%, 200%);
 }
-/* line 425, ../../app/scss/application.scss */
+/* line 430, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb {
   z-index: 2;
   opacity: 0;
@@ -9521,7 +9524,7 @@ pre {
   background-position: center center;
   cursor: pointer;
 }
-/* line 446, ../../app/scss/application.scss */
+/* line 451, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb:after {
   content: '';
   background: #292484;
@@ -9535,18 +9538,18 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 462, ../../app/scss/application.scss */
+/* line 467, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb img {
   display: none;
 }
-/* line 470, ../../app/scss/application.scss */
+/* line 475, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border {
   opacity: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
 }
-/* line 482, ../../app/scss/application.scss */
+/* line 487, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border svg .shape {
   fill: transparent;
   stroke: #5dd6ff;
@@ -9569,13 +9572,13 @@ pre {
   transition: all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 482, ../../app/scss/application.scss */
+  /* line 487, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .svg-border svg .shape {
     stroke-dashoffset: 1400;
     stroke-dasharray: 1400;
   }
 }
-/* line 519, ../../app/scss/application.scss */
+/* line 524, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .zoomer {
   z-index: 2;
   width: 100%;
@@ -9584,12 +9587,12 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 533, ../../app/scss/application.scss */
+/* line 538, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover {
   z-index: 999;
   cursor: pointer;
 }
-/* line 538, ../../app/scss/application.scss */
+/* line 543, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .tag {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -9597,7 +9600,7 @@ pre {
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-/* line 544, ../../app/scss/application.scss */
+/* line 549, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .zoomer {
   -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
@@ -9606,44 +9609,146 @@ pre {
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
 }
-/* line 550, ../../app/scss/application.scss */
+/* line 555, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb {
   cursor: pointer;
 }
-/* line 556, ../../app/scss/application.scss */
+/* line 561, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb:after {
   opacity: 0.8;
 }
-/* line 562, ../../app/scss/application.scss */
+/* line 567, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border {
   opacity: 1;
 }
-/* line 566, ../../app/scss/application.scss */
+/* line 571, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border .shape {
   stroke: #8880fa;
   stroke-width: 3;
   stroke-dashoffset: 0;
 }
-/* line 579, ../../app/scss/application.scss */
+/* line 584, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader {
   z-index: 1;
-  background: #0f0;
+  background: transparent;
 }
-/* line 587, ../../app/scss/application.scss */
+/* line 592, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.circle {
   fill: #000;
 }
-/* line 588, ../../app/scss/application.scss */
+/* line 593, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.light {
   fill: #16A4E6;
 }
 
-/* line 604, ../../app/scss/application.scss */
+/* line 610, ../../app/scss/application.scss */
+.animateGridItem.ng-enter, .animateGridItem.ng-leave {
+  -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-duration: 0.3s;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -ms-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+}
+/* line 621, ../../app/scss/application.scss */
+.animateGridItem.ng-enter {
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-name: tada;
+  -webkit-animation-name: tada;
+  -moz-animation-name: tada;
+  -ms-animation-name: tada;
+  -o-animation-name: tada;
+}
+/* line 626, ../../app/scss/application.scss */
+.animateGridItem.ng-enter .grid-item {
+  opacity: 1;
+}
+/* line 634, ../../app/scss/application.scss */
+.animateGridItem.ng-leave {
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-name: bounceOut;
+  -webkit-animation-name: bounceOut;
+  -moz-animation-name: bounceOut;
+  -ms-animation-name: bounceOut;
+  -o-animation-name: bounceOut;
+}
+/* line 639, ../../app/scss/application.scss */
+.animateGridItem.ng-leave .grid-item {
+  opacity: 0;
+}
+/* line 647, ../../app/scss/application.scss */
+.animateGridItem.ng-enter-stagger, .animateGridItem.ng-leave-stagger, .animateGridItem.ng-move-stagger {
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  -o-animation-delay: 0.3s;
+  animation-duration: 0;
+  -webkit-animation-duration: 0;
+  -moz-animation-duration: 0;
+  -ms-animation-duration: 0;
+  -o-animation-duration: 0;
+}
+/* line 653, ../../app/scss/application.scss */
+.animateGridItem.ng-enter-stagger .grid-item, .animateGridItem.ng-leave-stagger .grid-item, .animateGridItem.ng-move-stagger .grid-item {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0;
+  transition-duration: 0;
+}
+
+@keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+/* line 700, ../../app/scss/application.scss */
 #loading-bar .bar {
   background: #19b5fe;
 }
 
-/* line 606, ../../app/scss/application.scss */
+/* line 702, ../../app/scss/application.scss */
 #loading-bar .peg {
   -moz-box-shadow: #19b5fe 1px 0 6px 1px;
   -ms-box-shadow: #19b5fe 1px 0 6px 1px;
@@ -9651,18 +9756,18 @@ pre {
   box-shadow: #19b5fe 1px 0 6px 1px;
 }
 
-/* line 613, ../../app/scss/application.scss */
+/* line 709, ../../app/scss/application.scss */
 #loading-bar-spinner .spinner-icon {
   border-top-color: #19b5fe;
   border-left-color: #19b5fe;
 }
 
-/* line 622, ../../app/scss/application.scss */
+/* line 718, ../../app/scss/application.scss */
 .main-container {
   z-index: 2;
 }
 
-/* line 624, ../../app/scss/application.scss */
+/* line 720, ../../app/scss/application.scss */
 fx-stringz {
   opacity: 0;
   z-index: -1;
@@ -9671,7 +9776,7 @@ fx-stringz {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 637, ../../app/scss/application.scss */
+/* line 733, ../../app/scss/application.scss */
 fx-stringz canvas {
   width: 100%;
   height: 100%;
@@ -9679,7 +9784,7 @@ fx-stringz canvas {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 652, ../../app/scss/application.scss */
+/* line 748, ../../app/scss/application.scss */
 fx-stringz.animated {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9697,7 +9802,7 @@ fx-stringz.animated {
   -ms-animation-duration: 1.6s;
   -o-animation-duration: 1.6s;
 }
-/* line 658, ../../app/scss/application.scss */
+/* line 754, ../../app/scss/application.scss */
 fx-stringz.animated canvas {
   /*
   -webkit-animation: $value;
@@ -9712,12 +9817,100 @@ fx-stringz.animated canvas {
   -o-animation: bounceIn 0.5s 0.16s ease-out, pulse 5s 2s infinite alternate;
 }
 
-/* line 679, ../../app/scss/application.scss */
+/* line 764, ../../app/scss/application.scss */
+.hintMore {
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 30px;
+  -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 780, ../../app/scss/application.scss */
+.hintMore .message {
+  display: inline-block;
+  padding: 10px;
+  background: #00f;
+}
+/* line 786, ../../app/scss/application.scss */
+.hintMore .message span.icon {
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-name: bounce;
+  -webkit-animation-name: bounce;
+  -moz-animation-name: bounce;
+  -ms-animation-name: bounce;
+  -o-animation-name: bounce;
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  -o-animation-delay: 2s;
+}
+/* line 795, ../../app/scss/application.scss */
+.hintMore.ui-show {
+  z-index: 1;
+  animation-duration: 0.32s;
+  -webkit-animation-duration: 0.32s;
+  -moz-animation-duration: 0.32s;
+  -ms-animation-duration: 0.32s;
+  -o-animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+  -ms-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
+}
+/* line 805, ../../app/scss/application.scss */
+.hintMore.ui-hide {
+  -moz-transform: translate3d(0, 200%, 0);
+  -ms-transform: translate3d(0, 200%, 0);
+  -webkit-transform: translate3d(0, 200%, 0);
+  transform: translate3d(0, 200%, 0);
+  opacity: 0;
+  z-index: -1;
+}
+
+/* line 819, ../../app/scss/application.scss */
+.tilter3D {
+  -webkit-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* line 830, ../../app/scss/application.scss */
 .lightbox {
   width: 80%;
 }
 
-/* line 690, ../../app/scss/application.scss */
+/* line 841, ../../app/scss/application.scss */
 .ngdialog .zen-modal-close {
   z-index: 99;
   position: absolute;

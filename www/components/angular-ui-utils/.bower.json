@@ -1,0 +1,18 @@
+{
+  "name": "angular-ui-showhide",
+  "main": "./showhide.js",
+  "dependencies": {
+    "angular": ">= 1.0.2"
+  },
+  "homepage": "https://github.com/angular-ui/ui-utils",
+  "_release": "41916517bc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "bower-showhide",
+    "commit": "41916517bcb9fe0fe2f8fd6ac5616f8892c883c2"
+  },
+  "_source": "git://github.com/angular-ui/ui-utils.git",
+  "_target": "bower-showhide",
+  "_originalSource": "angular-ui-utils",
+  "_direct": true
+}
