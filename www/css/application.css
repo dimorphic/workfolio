@@ -7201,8 +7201,13 @@ button.close {
   user-select: none;
 }
 
-/* line 97, ../../app/scss/_mixins.scss */
-.noflicker, .glitch:after, .glitch:before, .fancybox-close, .app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D {
+/* line 95, ../../app/scss/_mixins.scss */
+.noscroll {
+  overflow-y: hidden;
+}
+
+/* line 98, ../../app/scss/_mixins.scss */
+.noflicker, .glitch:after, .glitch:before, .fancybox-close, .app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides .slide, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -7212,8 +7217,8 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 102, ../../app/scss/_mixins.scss */
-.translateCenter, .viewport, .portofolio .grid .grid-item .tag, .lightbox {
+/* line 103, ../../app/scss/_mixins.scss */
+.translateCenter, .viewport, .portofolio .grid .grid-item .tag {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7223,8 +7228,8 @@ button.close {
   transform: translate(-50%, -50%);
 }
 
-/* line 110, ../../app/scss/_mixins.scss */
-.positionCenter, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .svg-border, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .svg-loader svg {
+/* line 111, ../../app/scss/_mixins.scss */
+.positionCenter, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .svg-border, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .svg-loader svg, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides {
   margin: auto;
   position: absolute;
   top: 0;
@@ -7233,7 +7238,7 @@ button.close {
   right: 0;
 }
 
-/* line 125, ../../app/scss/_mixins.scss */
+/* line 126, ../../app/scss/_mixins.scss */
 fx-stringz {
   margin: auto;
   position: absolute;
@@ -7243,7 +7248,7 @@ fx-stringz {
   right: 0;
 }
 
-/* line 160, ../../app/scss/_mixins.scss */
+/* line 161, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
@@ -7344,6 +7349,182 @@ input, textarea, [contenteditable] * {
   /* Allow selection for input elements and those with contenteditable attribute */
 }
 
+@-webkit-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-moz-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-ms-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-webkit-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-moz-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-ms-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-webkit-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-moz-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-ms-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
 @-webkit-keyframes goBlur {
   0% {
     /*
@@ -7776,7 +7957,7 @@ input, textarea, [contenteditable] * {
     filter: alpha(opacity=50);
   }
 }
-/* line 92, ../../app/scss/_fx.scss */
+/* line 133, ../../app/scss/_fx.scss */
 .glitch {
   color: white;
   /* font-size:0px;*/
@@ -7786,7 +7967,7 @@ input, textarea, [contenteditable] * {
   margin: 0 auto;
   text-indent: -999em;
 }
-/* line 102, ../../app/scss/_fx.scss */
+/* line 143, ../../app/scss/_fx.scss */
 .glitch:after {
   content: '';
   width: 100%;
@@ -7837,7 +8018,7 @@ input, textarea, [contenteditable] * {
   -ms-filter: hue-rotate(90deg);
   -o-filter: hue-rotate(90deg);
 }
-/* line 129, ../../app/scss/_fx.scss */
+/* line 170, ../../app/scss/_fx.scss */
 .glitch:before {
   content: '';
   width: 100%;
@@ -7891,132 +8072,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(174px, 9999px, 146px, 0);
+    clip: rect(50px, 9999px, 21px, 0);
   }
   5% {
-    clip: rect(382px, 9999px, 569px, 0);
+    clip: rect(84px, 9999px, 250px, 0);
   }
   10% {
-    clip: rect(208px, 9999px, 284px, 0);
+    clip: rect(371px, 9999px, 221px, 0);
   }
   15.0% {
-    clip: rect(465px, 9999px, 634px, 0);
+    clip: rect(550px, 9999px, 88px, 0);
   }
   20% {
-    clip: rect(264px, 9999px, 623px, 0);
+    clip: rect(412px, 9999px, 547px, 0);
   }
   25% {
-    clip: rect(340px, 9999px, 158px, 0);
+    clip: rect(181px, 9999px, 209px, 0);
   }
   30.0% {
-    clip: rect(559px, 9999px, 501px, 0);
+    clip: rect(49px, 9999px, 267px, 0);
   }
   35% {
-    clip: rect(35px, 9999px, 316px, 0);
+    clip: rect(564px, 9999px, 218px, 0);
   }
   40% {
-    clip: rect(384px, 9999px, 21px, 0);
+    clip: rect(517px, 9999px, 643px, 0);
   }
   45% {
-    clip: rect(88px, 9999px, 389px, 0);
+    clip: rect(31px, 9999px, 13px, 0);
   }
   50% {
-    clip: rect(318px, 9999px, 520px, 0);
+    clip: rect(249px, 9999px, 382px, 0);
   }
   55.0% {
-    clip: rect(369px, 9999px, 179px, 0);
+    clip: rect(57px, 9999px, 603px, 0);
   }
   60.0% {
-    clip: rect(386px, 9999px, 359px, 0);
+    clip: rect(284px, 9999px, 594px, 0);
   }
   65% {
-    clip: rect(456px, 9999px, 627px, 0);
+    clip: rect(249px, 9999px, 79px, 0);
   }
   70% {
-    clip: rect(7px, 9999px, 344px, 0);
+    clip: rect(523px, 9999px, 91px, 0);
   }
   75% {
-    clip: rect(531px, 9999px, 77px, 0);
+    clip: rect(148px, 9999px, 47px, 0);
   }
   80% {
-    clip: rect(108px, 9999px, 149px, 0);
+    clip: rect(29px, 9999px, 339px, 0);
   }
   85.0% {
-    clip: rect(476px, 9999px, 441px, 0);
+    clip: rect(120px, 9999px, 495px, 0);
   }
   90% {
-    clip: rect(642px, 9999px, 450px, 0);
+    clip: rect(206px, 9999px, 200px, 0);
   }
   95% {
-    clip: rect(516px, 9999px, 645px, 0);
+    clip: rect(342px, 9999px, 500px, 0);
   }
   100% {
-    clip: rect(333px, 9999px, 375px, 0);
+    clip: rect(95px, 9999px, 519px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(82px, 9999px, 78px, 0);
+    clip: rect(67px, 9999px, 3px, 0);
   }
   5% {
-    clip: rect(49px, 9999px, 14px, 0);
+    clip: rect(35px, 9999px, 83px, 0);
   }
   10% {
-    clip: rect(33px, 9999px, 37px, 0);
+    clip: rect(62px, 9999px, 64px, 0);
   }
   15.0% {
-    clip: rect(38px, 9999px, 1px, 0);
+    clip: rect(45px, 9999px, 9px, 0);
   }
   20% {
-    clip: rect(43px, 9999px, 73px, 0);
+    clip: rect(91px, 9999px, 84px, 0);
   }
   25% {
-    clip: rect(14px, 9999px, 91px, 0);
+    clip: rect(72px, 9999px, 83px, 0);
   }
   30.0% {
-    clip: rect(39px, 9999px, 49px, 0);
+    clip: rect(3px, 9999px, 28px, 0);
   }
   35% {
-    clip: rect(81px, 9999px, 44px, 0);
+    clip: rect(48px, 9999px, 88px, 0);
   }
   40% {
-    clip: rect(98px, 9999px, 9px, 0);
+    clip: rect(77px, 9999px, 59px, 0);
   }
   45% {
-    clip: rect(67px, 9999px, 55px, 0);
+    clip: rect(17px, 9999px, 86px, 0);
   }
   50% {
-    clip: rect(95px, 9999px, 95px, 0);
+    clip: rect(13px, 9999px, 47px, 0);
   }
   55.0% {
-    clip: rect(59px, 9999px, 72px, 0);
+    clip: rect(31px, 9999px, 71px, 0);
   }
   60.0% {
-    clip: rect(23px, 9999px, 67px, 0);
+    clip: rect(47px, 9999px, 28px, 0);
   }
   65% {
-    clip: rect(5px, 9999px, 32px, 0);
+    clip: rect(47px, 9999px, 76px, 0);
   }
   70% {
-    clip: rect(16px, 9999px, 96px, 0);
+    clip: rect(18px, 9999px, 39px, 0);
   }
   75% {
-    clip: rect(8px, 9999px, 6px, 0);
+    clip: rect(68px, 9999px, 89px, 0);
   }
   80% {
-    clip: rect(36px, 9999px, 14px, 0);
+    clip: rect(78px, 9999px, 55px, 0);
   }
   85.0% {
-    clip: rect(37px, 9999px, 4px, 0);
+    clip: rect(24px, 9999px, 47px, 0);
   }
   90% {
-    clip: rect(44px, 9999px, 3px, 0);
+    clip: rect(82px, 9999px, 92px, 0);
   }
   95% {
-    clip: rect(69px, 9999px, 91px, 0);
+    clip: rect(55px, 9999px, 72px, 0);
   }
   100% {
-    clip: rect(44px, 9999px, 64px, 0);
+    clip: rect(48px, 9999px, 97px, 0);
   }
 }
 @-webkit-keyframes svg_dash {
@@ -9052,7 +9233,16 @@ pre {
   overflow: visible !important;
 }
 
-/* line 96, ../../app/scss/application.scss */
+/* line 93, ../../app/scss/application.scss */
+.fancybox-overlay {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: -webkit-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+}
+
+/* line 99, ../../app/scss/application.scss */
 .fancybox-close {
   width: auto;
   height: auto;
@@ -9090,7 +9280,7 @@ pre {
   -ms-animation-name: bounceIn;
   -o-animation-name: bounceIn;
 }
-/* line 113, ../../app/scss/application.scss */
+/* line 116, ../../app/scss/application.scss */
 .fancybox-close:before {
   content: "\f00d";
   display: inline-block;
@@ -9109,17 +9299,17 @@ pre {
   bottom: 0;
   left: 0;
 }
-/* line 134, ../../app/scss/application.scss */
+/* line 137, ../../app/scss/application.scss */
 .fancybox-close:hover {
   background: #ff0000;
   text-decoration: none;
 }
-/* line 138, ../../app/scss/application.scss */
+/* line 141, ../../app/scss/application.scss */
 .fancybox-close:hover:before {
   color: #121212;
 }
 
-/* line 156, ../../app/scss/application.scss */
+/* line 159, ../../app/scss/application.scss */
 .app-logo {
   display: block;
   width: 100%;
@@ -9128,12 +9318,12 @@ pre {
   text-align: center;
 }
 @media only screen and (min-width: 768px) {
-  /* line 156, ../../app/scss/application.scss */
+  /* line 159, ../../app/scss/application.scss */
   .app-logo {
     margin: 70px auto;
   }
 }
-/* line 169, ../../app/scss/application.scss */
+/* line 172, ../../app/scss/application.scss */
 .app-logo .icon {
   display: inline-block;
   width: 180px;
@@ -9141,24 +9331,24 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 173, ../../app/scss/application.scss */
+/* line 176, ../../app/scss/application.scss */
 .app-logo .icon svg {
   width: 100%;
   height: 100%;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 169, ../../app/scss/application.scss */
+  /* line 172, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 200px;
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 169, ../../app/scss/application.scss */
+  /* line 172, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 260px;
   }
 }
-/* line 186, ../../app/scss/application.scss */
+/* line 189, ../../app/scss/application.scss */
 .app-logo .icon .st4, .app-logo .icon .st8 {
   -moz-animation-name: fadeInLights;
   -moz-animation-duration: 1.16s;
@@ -9189,7 +9379,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 187, ../../app/scss/application.scss */
+/* line 190, ../../app/scss/application.scss */
 .app-logo .icon .st6, .app-logo .icon .st7 {
   -moz-animation-name: fadeInShadows;
   -moz-animation-duration: 1.16s;
@@ -9220,7 +9410,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 192, ../../app/scss/application.scss */
+/* line 195, ../../app/scss/application.scss */
 .app-logo .tagline {
   display: block;
   font-size: 18px;
@@ -9238,7 +9428,7 @@ pre {
   -ms-animation-delay: 3.16s;
   -o-animation-delay: 3.16s;
 }
-/* line 210, ../../app/scss/application.scss */
+/* line 213, ../../app/scss/application.scss */
 .app-logo .flipper {
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -9279,7 +9469,7 @@ pre {
   -o-animation-name: flipper;
 }
 
-/* line 228, ../../app/scss/application.scss */
+/* line 231, ../../app/scss/application.scss */
 .headline {
   display: block;
   margin: 0px auto;
@@ -9298,7 +9488,7 @@ pre {
   -o-animation-delay: 4s;
 }
 @media only screen and (min-width: 768px) {
-  /* line 228, ../../app/scss/application.scss */
+  /* line 231, ../../app/scss/application.scss */
   .headline {
     font-size: 80px;
     font-size: 8rem;
@@ -9306,7 +9496,7 @@ pre {
   }
 }
 
-/* line 248, ../../app/scss/application.scss */
+/* line 251, ../../app/scss/application.scss */
 .spreadTheLove {
   text-align: center;
   padding: 10px 0px 20px;
@@ -9324,22 +9514,22 @@ pre {
   -ms-animation-delay: 4s;
   -o-animation-delay: 4s;
 }
-/* line 257, ../../app/scss/application.scss */
+/* line 260, ../../app/scss/application.scss */
 .spreadTheLove .loveicon {
   color: #e74c3c;
 }
 
-/* line 271, ../../app/scss/application.scss */
+/* line 274, ../../app/scss/application.scss */
 .menu {
   margin: 60px auto 80px;
 }
-/* line 276, ../../app/scss/application.scss */
+/* line 279, ../../app/scss/application.scss */
 .menu .buttons {
   margin: 0px auto;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 283, ../../app/scss/application.scss */
+/* line 286, ../../app/scss/application.scss */
 .menu .buttons .item {
   display: inline-block;
   padding: 0px 20px;
@@ -9349,16 +9539,16 @@ pre {
   font-weight: 300;
   text-decoration: none;
 }
-/* line 294, ../../app/scss/application.scss */
+/* line 297, ../../app/scss/application.scss */
 .menu .buttons .item a {
   color: #fff;
 }
-/* line 297, ../../app/scss/application.scss */
+/* line 300, ../../app/scss/application.scss */
 .menu .buttons .item a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 304, ../../app/scss/application.scss */
+/* line 307, ../../app/scss/application.scss */
 .menu .buttons .item i {
   display: block;
   width: 0%;
@@ -9369,28 +9559,28 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 317, ../../app/scss/application.scss */
+/* line 320, ../../app/scss/application.scss */
 .menu .buttons .item:hover {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
 }
-/* line 322, ../../app/scss/application.scss */
+/* line 325, ../../app/scss/application.scss */
 .menu .buttons .item:hover i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 331, ../../app/scss/application.scss */
+/* line 334, ../../app/scss/application.scss */
 .menu .buttons .item.selected:hover, .menu .buttons .item.active:hover {
   cursor: default;
 }
-/* line 333, ../../app/scss/application.scss */
+/* line 336, ../../app/scss/application.scss */
 .menu .buttons .item.selected i, .menu .buttons .item.active i {
   background: #7b75cb;
   width: 100%;
 }
 
-/* line 346, ../../app/scss/application.scss */
+/* line 349, ../../app/scss/application.scss */
 .portofolio {
   opacity: 0;
   -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9403,7 +9593,7 @@ pre {
   -o-animation-delay: 4.5s;
   padding-bottom: 70px;
 }
-/* line 362, ../../app/scss/application.scss */
+/* line 365, ../../app/scss/application.scss */
 .portofolio .grid {
   margin-left: -15px;
   margin-right: -15px;
@@ -9418,7 +9608,7 @@ pre {
 .portofolio .grid:after {
   clear: both;
 }
-/* line 368, ../../app/scss/application.scss */
+/* line 371, ../../app/scss/application.scss */
 .portofolio .grid .grid-item {
   z-index: 1;
   position: relative;
@@ -9441,7 +9631,7 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 368, ../../app/scss/application.scss */
+  /* line 371, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9452,7 +9642,7 @@ pre {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 368, ../../app/scss/application.scss */
+  /* line 371, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9464,7 +9654,7 @@ pre {
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 368, ../../app/scss/application.scss */
+  /* line 371, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9475,13 +9665,13 @@ pre {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 368, ../../app/scss/application.scss */
+  /* line 371, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     height: 500px;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 368, ../../app/scss/application.scss */
+  /* line 371, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9491,18 +9681,18 @@ pre {
     padding-right: 15px;
   }
 }
-/* line 408, ../../app/scss/application.scss */
+/* line 411, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .tag {
   z-index: 3;
   opacity: 0;
   padding: 10px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #000;
   background: #F1C40F;
   -webkit-box-shadow: 0 10px 16px -4px rgba(36, 45, 50, 0.25);
   box-shadow: 0 10px 16px -4px rgba(36, 45, 50, 0.25);
-  font-size: 12px;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  color: #000;
   -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9511,7 +9701,30 @@ pre {
   -webkit-transform: translate(-50%, 200%);
   transform: translate(-50%, 200%);
 }
-/* line 430, ../../app/scss/application.scss */
+@media only screen and (min-width: 768px) {
+  /* line 411, ../../app/scss/application.scss */
+  .portofolio .grid .grid-item .tag {
+    padding: 10px 20px;
+  }
+}
+/* line 435, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .type {
+  opacity: 0;
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 11px;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 453, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb {
   z-index: 2;
   opacity: 0;
@@ -9524,32 +9737,32 @@ pre {
   background-position: center center;
   cursor: pointer;
 }
-/* line 451, ../../app/scss/application.scss */
+/* line 472, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb:after {
   content: '';
+  opacity: 0;
   background: #292484;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFiMTkxZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzIzMWI4NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
   background-image: -moz-linear-gradient(330deg, #1b191f 0%, #231b86 100%);
   background-image: -webkit-linear-gradient(330deg, #1b191f 0%, #231b86 100%);
   background-image: linear-gradient(120deg, #1b191f 0%, #231b86 100%);
-  opacity: 0;
   -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 467, ../../app/scss/application.scss */
+/* line 492, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb img {
   display: none;
 }
-/* line 475, ../../app/scss/application.scss */
+/* line 500, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border {
   opacity: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
 }
-/* line 487, ../../app/scss/application.scss */
+/* line 512, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border svg .shape {
   fill: transparent;
   stroke: #5dd6ff;
@@ -9572,13 +9785,13 @@ pre {
   transition: all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 487, ../../app/scss/application.scss */
+  /* line 512, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .svg-border svg .shape {
     stroke-dashoffset: 1400;
     stroke-dasharray: 1400;
   }
 }
-/* line 524, ../../app/scss/application.scss */
+/* line 549, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .zoomer {
   z-index: 2;
   width: 100%;
@@ -9587,12 +9800,12 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 538, ../../app/scss/application.scss */
+/* line 563, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover {
   z-index: 999;
   cursor: pointer;
 }
-/* line 543, ../../app/scss/application.scss */
+/* line 568, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .tag {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -9600,7 +9813,11 @@ pre {
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-/* line 549, ../../app/scss/application.scss */
+/* line 573, ../../app/scss/application.scss */
+.portofolio .grid .grid-item.loaded:hover .type {
+  opacity: 0.8;
+}
+/* line 578, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .zoomer {
   -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
@@ -9609,39 +9826,166 @@ pre {
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
 }
-/* line 555, ../../app/scss/application.scss */
+/* line 584, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb {
   cursor: pointer;
 }
-/* line 561, ../../app/scss/application.scss */
+/* line 590, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb:after {
   opacity: 0.8;
 }
-/* line 567, ../../app/scss/application.scss */
+/* line 596, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border {
   opacity: 1;
 }
-/* line 571, ../../app/scss/application.scss */
+/* line 600, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border .shape {
   stroke: #8880fa;
   stroke-width: 3;
   stroke-dashoffset: 0;
 }
-/* line 584, ../../app/scss/application.scss */
+/* line 617, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader {
   z-index: 1;
   background: transparent;
 }
-/* line 592, ../../app/scss/application.scss */
+/* line 625, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.circle {
   fill: #000;
 }
-/* line 593, ../../app/scss/application.scss */
+/* line 626, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.light {
   fill: #16A4E6;
 }
+/* line 632, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader {
+  z-index: 1;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 644, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-delay: 0s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: normal;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-name: spin;
+  -o-animation-duration: 0.5s;
+  -o-animation-delay: 0s;
+  -o-animation-timing-function: linear;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: normal;
+  -o-animation-fill-mode: forwards;
+  animation-name: spin;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+/* line 663, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .circle:before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  border: 2px solid #000;
+  border-left: 2px solid #16A4E6;
+}
+/* line 683, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .slides {
+  width: 25%;
+  height: 1px;
+}
+/* line 696, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .slides .slide {
+  position: absolute;
+  width: 25%;
+  height: 1px;
+  background: #16A4E6;
+  -moz-animation-name: slide;
+  -moz-animation-duration: 1.16s;
+  -moz-animation-delay: 0s;
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: normal;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1.16s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-name: slide;
+  -o-animation-duration: 1.16s;
+  -o-animation-delay: 0s;
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: normal;
+  -o-animation-fill-mode: forwards;
+  animation-name: slide;
+  animation-duration: 1.16s;
+  animation-delay: 0s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+/* line 708, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+1) {
+  opacity: 0.2;
+  -moz-transform: scale(1.8, 1);
+  -ms-transform: scale(1.8, 1);
+  -webkit-transform: scale(1.8, 1);
+  transform: scale(1.8, 1);
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -ms-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+}
+/* line 714, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+2) {
+  opacity: 0.4;
+  -moz-transform: scale(1.4, 1);
+  -ms-transform: scale(1.4, 1);
+  -webkit-transform: scale(1.4, 1);
+  transform: scale(1.4, 1);
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  -ms-animation-delay: 0.1s;
+  -o-animation-delay: 0.1s;
+}
+/* line 720, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+3) {
+  opacity: 0.8;
+}
 
-/* line 610, ../../app/scss/application.scss */
+/* line 742, ../../app/scss/application.scss */
 .animateGridItem.ng-enter, .animateGridItem.ng-leave {
   -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9651,52 +9995,26 @@ pre {
   -moz-animation-duration: 0.3s;
   -ms-animation-duration: 0.3s;
   -o-animation-duration: 0.3s;
-}
-/* line 621, ../../app/scss/application.scss */
-.animateGridItem.ng-enter {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  -ms-animation-iteration-count: 1;
-  -o-animation-iteration-count: 1;
-  animation-name: tada;
-  -webkit-animation-name: tada;
-  -moz-animation-name: tada;
-  -ms-animation-name: tada;
-  -o-animation-name: tada;
 }
-/* line 626, ../../app/scss/application.scss */
-.animateGridItem.ng-enter .grid-item {
-  opacity: 1;
-}
-/* line 634, ../../app/scss/application.scss */
+/* line 765, ../../app/scss/application.scss */
 .animateGridItem.ng-leave {
-  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   -ms-animation-iteration-count: 1;
   -o-animation-iteration-count: 1;
-  animation-name: bounceOut;
-  -webkit-animation-name: bounceOut;
-  -moz-animation-name: bounceOut;
-  -ms-animation-name: bounceOut;
-  -o-animation-name: bounceOut;
+  animation-name: fadeOutDown;
+  -webkit-animation-name: fadeOutDown;
+  -moz-animation-name: fadeOutDown;
+  -ms-animation-name: fadeOutDown;
+  -o-animation-name: fadeOutDown;
 }
-/* line 639, ../../app/scss/application.scss */
-.animateGridItem.ng-leave .grid-item {
-  opacity: 0;
-}
-/* line 647, ../../app/scss/application.scss */
+/* line 775, ../../app/scss/application.scss */
 .animateGridItem.ng-enter-stagger, .animateGridItem.ng-leave-stagger, .animateGridItem.ng-move-stagger {
   animation-delay: 0.3s;
   -webkit-animation-delay: 0.3s;
@@ -9708,8 +10026,12 @@ pre {
   -moz-animation-duration: 0;
   -ms-animation-duration: 0;
   -o-animation-duration: 0;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transition-duration: 0;
+  transition-duration: 0;
 }
-/* line 653, ../../app/scss/application.scss */
+/* line 787, ../../app/scss/application.scss */
 .animateGridItem.ng-enter-stagger .grid-item, .animateGridItem.ng-leave-stagger .grid-item, .animateGridItem.ng-move-stagger .grid-item {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
@@ -9717,38 +10039,12 @@ pre {
   transition-duration: 0;
 }
 
-@keyframes enterDown {
-  from {
-    opacity: 0;
-    bottom: -70px;
-  }
-  75% {
-    bottom: 15px;
-  }
-  to {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
-@keyframes leaveDown {
-  to {
-    opacity: 0;
-    bottom: -70px;
-  }
-  25% {
-    bottom: 15px;
-  }
-  from {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
-/* line 700, ../../app/scss/application.scss */
+/* line 805, ../../app/scss/application.scss */
 #loading-bar .bar {
   background: #19b5fe;
 }
 
-/* line 702, ../../app/scss/application.scss */
+/* line 807, ../../app/scss/application.scss */
 #loading-bar .peg {
   -moz-box-shadow: #19b5fe 1px 0 6px 1px;
   -ms-box-shadow: #19b5fe 1px 0 6px 1px;
@@ -9756,18 +10052,18 @@ pre {
   box-shadow: #19b5fe 1px 0 6px 1px;
 }
 
-/* line 709, ../../app/scss/application.scss */
+/* line 814, ../../app/scss/application.scss */
 #loading-bar-spinner .spinner-icon {
   border-top-color: #19b5fe;
   border-left-color: #19b5fe;
 }
 
-/* line 718, ../../app/scss/application.scss */
+/* line 823, ../../app/scss/application.scss */
 .main-container {
   z-index: 2;
 }
 
-/* line 720, ../../app/scss/application.scss */
+/* line 825, ../../app/scss/application.scss */
 fx-stringz {
   opacity: 0;
   z-index: -1;
@@ -9776,7 +10072,7 @@ fx-stringz {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 733, ../../app/scss/application.scss */
+/* line 838, ../../app/scss/application.scss */
 fx-stringz canvas {
   width: 100%;
   height: 100%;
@@ -9784,7 +10080,7 @@ fx-stringz canvas {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 748, ../../app/scss/application.scss */
+/* line 853, ../../app/scss/application.scss */
 fx-stringz.animated {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9802,7 +10098,7 @@ fx-stringz.animated {
   -ms-animation-duration: 1.6s;
   -o-animation-duration: 1.6s;
 }
-/* line 754, ../../app/scss/application.scss */
+/* line 859, ../../app/scss/application.scss */
 fx-stringz.animated canvas {
   /*
   -webkit-animation: $value;
@@ -9817,7 +10113,7 @@ fx-stringz.animated canvas {
   -o-animation: bounceIn 0.5s 0.16s ease-out, pulse 5s 2s infinite alternate;
 }
 
-/* line 764, ../../app/scss/application.scss */
+/* line 869, ../../app/scss/application.scss */
 .hintMore {
   z-index: -1;
   position: fixed;
@@ -9830,13 +10126,13 @@ fx-stringz.animated canvas {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 780, ../../app/scss/application.scss */
+/* line 885, ../../app/scss/application.scss */
 .hintMore .message {
   display: inline-block;
   padding: 10px;
   background: #00f;
 }
-/* line 786, ../../app/scss/application.scss */
+/* line 891, ../../app/scss/application.scss */
 .hintMore .message span.icon {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -9864,7 +10160,7 @@ fx-stringz.animated canvas {
   -ms-animation-delay: 2s;
   -o-animation-delay: 2s;
 }
-/* line 795, ../../app/scss/application.scss */
+/* line 900, ../../app/scss/application.scss */
 .hintMore.ui-show {
   z-index: 1;
   animation-duration: 0.32s;
@@ -9888,7 +10184,7 @@ fx-stringz.animated canvas {
   -ms-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
 }
-/* line 805, ../../app/scss/application.scss */
+/* line 910, ../../app/scss/application.scss */
 .hintMore.ui-hide {
   -moz-transform: translate3d(0, 200%, 0);
   -ms-transform: translate3d(0, 200%, 0);
@@ -9898,25 +10194,9 @@ fx-stringz.animated canvas {
   z-index: -1;
 }
 
-/* line 819, ../../app/scss/application.scss */
+/* line 924, ../../app/scss/application.scss */
 .tilter3D {
   -webkit-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
-
-/* line 830, ../../app/scss/application.scss */
-.lightbox {
-  width: 80%;
-}
-
-/* line 841, ../../app/scss/application.scss */
-.ngdialog .zen-modal-close {
-  z-index: 99;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #0f0;
-  padding: 20px;
-  font-size: 20px;
 }

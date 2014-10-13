@@ -15,7 +15,12 @@
   user-select: none;
 }
 
-/* line 97, ../../app/scss/_mixins.scss */
+/* line 95, ../../app/scss/_mixins.scss */
+.noscroll {
+  overflow-y: hidden;
+}
+
+/* line 98, ../../app/scss/_mixins.scss */
 .noflicker, .glitch:after, .glitch:before, .doJelly {
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -26,7 +31,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* line 102, ../../app/scss/_mixins.scss */
+/* line 103, ../../app/scss/_mixins.scss */
 .translateCenter, .loader, .msg, #squiggle {
   position: absolute;
   top: 50%;
@@ -37,7 +42,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 110, ../../app/scss/_mixins.scss */
+/* line 111, ../../app/scss/_mixins.scss */
 .positionCenter {
   margin: auto;
   position: absolute;
@@ -47,7 +52,7 @@
   right: 0;
 }
 
-/* line 160, ../../app/scss/_mixins.scss */
+/* line 161, ../../app/scss/_mixins.scss */
 .pause-anim {
   -moz-animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
@@ -148,6 +153,182 @@ input, textarea, [contenteditable] * {
   /* Allow selection for input elements and those with contenteditable attribute */
 }
 
+@-webkit-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-moz-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-ms-keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@keyframes slide {
+  0%, 100% {
+    left: 0;
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    background: #16A4E6;
+  }
+}
+@-webkit-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-moz-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-ms-keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes enterDown {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-webkit-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-moz-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@-ms-keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+@keyframes leaveDown {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
 @-webkit-keyframes goBlur {
   0% {
     /*
@@ -580,7 +761,7 @@ input, textarea, [contenteditable] * {
     filter: alpha(opacity=50);
   }
 }
-/* line 92, ../../app/scss/_fx.scss */
+/* line 133, ../../app/scss/_fx.scss */
 .glitch {
   color: white;
   /* font-size:0px;*/
@@ -590,7 +771,7 @@ input, textarea, [contenteditable] * {
   margin: 0 auto;
   text-indent: -999em;
 }
-/* line 102, ../../app/scss/_fx.scss */
+/* line 143, ../../app/scss/_fx.scss */
 .glitch:after {
   content: '';
   width: 100%;
@@ -642,7 +823,7 @@ input, textarea, [contenteditable] * {
   -ms-filter: hue-rotate(90deg);
   -o-filter: hue-rotate(90deg);
 }
-/* line 129, ../../app/scss/_fx.scss */
+/* line 170, ../../app/scss/_fx.scss */
 .glitch:before {
   content: '';
   width: 100%;
@@ -697,132 +878,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(60px, 9999px, 418px, 0);
+    clip: rect(238px, 9999px, 27px, 0);
   }
   5% {
-    clip: rect(1px, 9999px, 631px, 0);
+    clip: rect(241px, 9999px, 606px, 0);
   }
   10% {
-    clip: rect(260px, 9999px, 483px, 0);
+    clip: rect(123px, 9999px, 349px, 0);
   }
   15.0% {
-    clip: rect(24px, 9999px, 602px, 0);
+    clip: rect(222px, 9999px, 152px, 0);
   }
   20% {
-    clip: rect(569px, 9999px, 62px, 0);
+    clip: rect(518px, 9999px, 153px, 0);
   }
   25% {
-    clip: rect(632px, 9999px, 478px, 0);
+    clip: rect(271px, 9999px, 203px, 0);
   }
   30.0% {
-    clip: rect(247px, 9999px, 284px, 0);
+    clip: rect(318px, 9999px, 346px, 0);
   }
   35% {
-    clip: rect(546px, 9999px, 581px, 0);
+    clip: rect(272px, 9999px, 554px, 0);
   }
   40% {
-    clip: rect(126px, 9999px, 306px, 0);
+    clip: rect(57px, 9999px, 311px, 0);
   }
   45% {
-    clip: rect(49px, 9999px, 532px, 0);
+    clip: rect(610px, 9999px, 201px, 0);
   }
   50% {
-    clip: rect(433px, 9999px, 302px, 0);
+    clip: rect(562px, 9999px, 610px, 0);
   }
   55.0% {
-    clip: rect(509px, 9999px, 311px, 0);
+    clip: rect(199px, 9999px, 191px, 0);
   }
   60.0% {
-    clip: rect(514px, 9999px, 632px, 0);
+    clip: rect(462px, 9999px, 555px, 0);
   }
   65% {
-    clip: rect(604px, 9999px, 43px, 0);
+    clip: rect(8px, 9999px, 55px, 0);
   }
   70% {
-    clip: rect(585px, 9999px, 318px, 0);
+    clip: rect(245px, 9999px, 56px, 0);
   }
   75% {
-    clip: rect(542px, 9999px, 58px, 0);
+    clip: rect(192px, 9999px, 398px, 0);
   }
   80% {
-    clip: rect(639px, 9999px, 206px, 0);
+    clip: rect(150px, 9999px, 551px, 0);
   }
   85.0% {
-    clip: rect(544px, 9999px, 72px, 0);
+    clip: rect(163px, 9999px, 256px, 0);
   }
   90% {
-    clip: rect(365px, 9999px, 446px, 0);
+    clip: rect(222px, 9999px, 185px, 0);
   }
   95% {
-    clip: rect(502px, 9999px, 316px, 0);
+    clip: rect(634px, 9999px, 554px, 0);
   }
   100% {
-    clip: rect(222px, 9999px, 359px, 0);
+    clip: rect(193px, 9999px, 121px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(100px, 9999px, 84px, 0);
+    clip: rect(25px, 9999px, 81px, 0);
   }
   5% {
-    clip: rect(65px, 9999px, 89px, 0);
+    clip: rect(82px, 9999px, 72px, 0);
   }
   10% {
-    clip: rect(85px, 9999px, 4px, 0);
+    clip: rect(54px, 9999px, 84px, 0);
   }
   15.0% {
-    clip: rect(25px, 9999px, 61px, 0);
+    clip: rect(63px, 9999px, 66px, 0);
   }
   20% {
-    clip: rect(64px, 9999px, 87px, 0);
+    clip: rect(45px, 9999px, 75px, 0);
   }
   25% {
-    clip: rect(92px, 9999px, 34px, 0);
+    clip: rect(35px, 9999px, 21px, 0);
   }
   30.0% {
-    clip: rect(75px, 9999px, 9px, 0);
+    clip: rect(41px, 9999px, 62px, 0);
   }
   35% {
-    clip: rect(41px, 9999px, 69px, 0);
+    clip: rect(94px, 9999px, 16px, 0);
   }
   40% {
-    clip: rect(23px, 9999px, 28px, 0);
+    clip: rect(1px, 9999px, 91px, 0);
   }
   45% {
-    clip: rect(79px, 9999px, 89px, 0);
+    clip: rect(60px, 9999px, 43px, 0);
   }
   50% {
-    clip: rect(61px, 9999px, 57px, 0);
+    clip: rect(98px, 9999px, 91px, 0);
   }
   55.0% {
-    clip: rect(52px, 9999px, 61px, 0);
+    clip: rect(45px, 9999px, 70px, 0);
   }
   60.0% {
-    clip: rect(42px, 9999px, 50px, 0);
+    clip: rect(94px, 9999px, 62px, 0);
   }
   65% {
-    clip: rect(18px, 9999px, 1px, 0);
+    clip: rect(2px, 9999px, 80px, 0);
   }
   70% {
-    clip: rect(52px, 9999px, 83px, 0);
+    clip: rect(67px, 9999px, 94px, 0);
   }
   75% {
-    clip: rect(66px, 9999px, 3px, 0);
+    clip: rect(83px, 9999px, 21px, 0);
   }
   80% {
-    clip: rect(19px, 9999px, 10px, 0);
+    clip: rect(67px, 9999px, 72px, 0);
   }
   85.0% {
-    clip: rect(32px, 9999px, 44px, 0);
+    clip: rect(65px, 9999px, 57px, 0);
   }
   90% {
-    clip: rect(78px, 9999px, 90px, 0);
+    clip: rect(70px, 9999px, 63px, 0);
   }
   95% {
-    clip: rect(45px, 9999px, 57px, 0);
+    clip: rect(13px, 9999px, 14px, 0);
   }
   100% {
-    clip: rect(93px, 9999px, 92px, 0);
+    clip: rect(92px, 9999px, 73px, 0);
   }
 }
 @-webkit-keyframes svg_dash {

@@ -6,7 +6,7 @@
     //
     var appControllers = angular.module('workfolio.ctrls.home', []);
 
-    var HomeController = function($scope, $rootScope, ProjectService) {
+    var HomeController = function($scope, $timeout, ProjectService) {
         // ---------------
         // PRIVATE METHODS
         // ---------------
@@ -62,6 +62,10 @@
             // enable infinite scroll
             $scope.infiniteDisabled = false;
 
+            // disable noscroll directive
+            $timeout(function() {
+                $scope.$emit("noScroll:disable");
+            }, 4000);
 
         });
 
@@ -69,14 +73,6 @@
         // menu
         $scope.mainMenu = [ "all", "app", "branding", "banner" ]; // menu sorters
         $scope.menuModel = 'all'; // curent selected/active menu item
-
-        // modal test
-        $scope.contact = {
-            closeEl: '.close',
-            overlay: {
-                templateUrl: 'templates/partials/contact.tpl.html'
-            }
-        };
 
         // filters
         $scope.predicate = ""; // orderBy
@@ -109,11 +105,9 @@
         "homeController",
         [
             '$scope',
-            '$rootScope',
+            '$timeout',
             'ProjectService',
 
-            //'$ocModal',
-            //'ngDialog',
             HomeController
         ]
     );

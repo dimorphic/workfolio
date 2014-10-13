@@ -6,6 +6,32 @@
     //
 	var appDirectives = angular.module('workfolio.directives', []);
 
+    // No scroll
+    appDirectives.directive("noScroll",
+        ['$rootScope', '$timeout',
+        function($rootScope, $timeout) {
+            var first = true;
+
+            // Link to DOM
+            var link = function (scope, element) {
+                // add no-scroll class
+                element.addClass("noscroll");
+
+                // wait for trigger
+                scope.$on("noScroll:disable", function(data){
+                    element.removeClass("noscroll");
+                    first = false;
+                });
+            };
+
+            // Return directive config
+            return {
+                restrict: "A",
+                link: link
+            };
+        }
+    ]);
+
     //
     // App Logo
     //
@@ -21,7 +47,9 @@
 
                 // TODO: finish logo stroke self-draw ?
                 var $paths = element.find('path');
+                var $circle = $(".st5");
 
+                // butterfly
                 $paths.each(function(i) {
                     var $path, pathLen, pathRect;
 
@@ -39,8 +67,6 @@
                        "fill": "transparent"
                     });
 
-                    var $test = $path.css("stroke");
-
                     pathRect = this.getBoundingClientRect();
                     // console.log("rect : ", pathRect);
 
@@ -51,21 +77,9 @@
                        "stroke-dashoffset": "0"
                     });
 
-                    // $test.css("stroke", "#f00");
-                    // console.log('draw logo!', $test);
-
                 });
 
                 // circle anim
-                var $circle = $(".st5");
-
-                var circlePath = $circle[0].getTotalLength();
-                //console.log("circle path @ ", circlePath);
-
-                $circle.css({
-                   // "stroke-dasharray": " 0 " + circlePath
-                });
-
                 $timeout(function() {
 
                     // circle
@@ -156,7 +170,6 @@
 
             // bind once
             $img.one("load", function() {
-                //console.log("rdy bind load!", src);
 
                 $timeout(function() {
                     //console.log("running fx @ ", src);
@@ -174,6 +187,7 @@
                     element.on("click", handleClick);
 
                 }, 500);
+
             });
 
         };

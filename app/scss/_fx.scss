@@ -3,6 +3,47 @@
 // ---------------------------------------------------------------------------- //
 // TODO: move to own file ?
 
+@include keyframes(spin) {
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+@include keyframes(slide) {
+  0%, 100% { left: 0; background: #ED1F24; }
+  50% { left: 100%; background: #16A4E6; }
+}
+
+@include keyframes(enterDown) {
+  from {
+    opacity: 0;
+    bottom: -70px;
+  }
+  75% {
+    bottom: 15px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
+@include keyframes(leaveDown) {
+  to {
+    opacity: 0;
+    bottom: -70px;
+  }
+  25% {
+    bottom: 15px;
+  }
+  from {
+    opacity: 1;
+    bottom:0px;
+  }
+}
+
+
+
 // long shadow text style
 @function makelongshadow($color) {
   $val: 0px 0px $color;

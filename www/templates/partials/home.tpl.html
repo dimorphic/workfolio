@@ -8,13 +8,11 @@
 
 <!-- APP LOGO -->
 <div class="container">
-
     <app-logo></app-logo>
 
     <div class="headline animated fadeInDown">
         <span>MY WORK</span>
     </div>
-
 </div>
 
 <!-- HINT: there's more bro! -->
@@ -27,7 +25,6 @@
 
     <!-- MENU SELECTOR -->
     <div class="menu">
-
         <div class="buttons">
 <!--
             <label ng-repeat="item in mainMenu"
@@ -40,27 +37,21 @@
                 <i></i>
             </label> -->
 
-
             <label class="item" ng-model="menuModel" btn-radio="'all'">All works<i></i></label>
             <label class="item" ng-model="menuModel" btn-radio="'app'">Apps<i></i></label>
             <label class="item" ng-model="menuModel" btn-radio="'banner'">Banners<i></i></label>
             <label class="item" ng-model="menuModel" btn-radio="'branding'">Branding<i></i></label>
-
-            <!-- <label class="item"><div ng-morph-overlay="contact">Contact</div><i></i></label> -->
-        </div>
-
-    </div>
-
+        </div><!-- /buttons -->
+    </div><!-- /menu -->
 
     <!-- PORTOFOLIO (IMAGES LIST) -->
     <div class="portofolio-images">
-
         <div class="grid">
 
             <div infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-disabled='infiniteDisabled'>
 
                 <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
-                           class="animateGridItemzz"
+                           class="animateGridItem"
 
                            id="project_{{ $index }}"
                            project="projects[$index]">
@@ -69,7 +60,6 @@
 
             </div>
 
-        </div>
-
-    </div>
+        </div><!-- /grid -->
+    </div><!-- /portofolio-images -->
 </div>

@@ -92,6 +92,7 @@ $vendor: '', '-webkit-', '-moz-', '-ms-', '-o-';
 // "all around" goodies
 .sepa { width:90%; height:1px; margin: 0px auto; border-top:1px dashed #ecf0f1; }
 .noselect { -moz-user-select:-moz-none; -khtml-user-select:none; -webkit-user-select:none; user-select:none; }
+.noscroll { overflow-y: hidden; }
 
 // Force Hardware Acceleration / "null" transform hack
 .noflicker { @include backface-visibility(hidden); @include transform(translate3d(0,0,0)); }

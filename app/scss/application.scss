@@ -90,7 +90,10 @@ pre {
 
 // fancybox
 .fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
-//.fancybox-lock .fancybox-overlay {}
+.fancybox-overlay {
+  //@include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
+  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
+}
 
 // close bttn
 .fancybox-close {
@@ -412,18 +415,38 @@ pre {
         @extend .translateCenter;
         padding: 10px;
 
+        @include font-size(12, 1);
+        //font-weight: 700;
+        color: #000;
+
         background: #F1C40F;
         @include box-shadow(0 10px 16px -4px rgba(36, 45, 50, 0.25));
 
-        @include font-size(12, 1.2);
-        //font-weight: 700;
-        color: #000;
+        @include small() { padding: 10px 20px; }
 
         // Animation ready / Force HA
         @extend .noflicker;
         @include transition(all 0.2s $animationEasing);
 
         @include transform(translate(-50%, 200%));
+      }
+
+      // project type
+      .type {
+        opacity: 0;
+
+        z-index: 3;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        padding: 10px;
+
+        @include font-size(11, 1);
+        text-transform: uppercase;
+
+        @include transition(all 0.5s $animationEasing);
       }
 
       // image thumb
@@ -438,8 +461,6 @@ pre {
         @include background-size(cover);
         background-position: center center;
 
-//        @include background-position(center);
-
         cursor: pointer;
         //border: 2px transparent;
 
@@ -451,12 +472,16 @@ pre {
         &:after {
           content: ''; // force shadow element to show
 
+          opacity: 0;
           @extend .positionCenter;
 
           background: #292484;
+
+          // old gradient
           @include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
 
-          opacity: 0;
+          // new gradient
+          //@include background-image(linear-gradient(120deg, rgba(27, 25, 31, 1) 0%, rgba(35, 27, 134, 1) 100%));
 
           // Animation ready / Force HA
           @extend .noflicker;
@@ -545,6 +570,10 @@ pre {
           opacity: 1;
         }
 
+        .type {
+          opacity: 0.8;
+        }
+
         // zoom in thumb
         .zoomer {
           @include box-shadow(0 0px 20px rgba(0,0,0, 0.5));
@@ -580,7 +609,11 @@ pre {
 
       }
 
+      //
       // Loading icon
+      //
+
+      // svg version
       .svg-loader {
         z-index: 1;
         background: transparent;
@@ -593,6 +626,105 @@ pre {
             &.light { fill: #16A4E6; }
           }
         }
+      }
+
+      // css version
+      .icon-loader {
+        z-index: 1;
+
+        width: 100%;
+        min-height: 100%;
+
+        margin: 0 auto;
+
+        text-align: center;
+        vertical-align: middle;
+
+        // circle loader
+        .circle {
+          $ringBorder: 2px;
+          $ringSize: 30px;
+
+          $ringColor: #16A4E6;
+          $ringBg: #000;
+
+          @extend .positionCenter;
+
+          width: $ringSize;
+          height: $ringSize;
+
+          border-radius: 50%;
+          border: $ringBorder solid $ringBg;
+
+          // Animation ready / Force HA
+          @extend .noflicker;
+          @include animate(spin, 0.5s, 0s, linear, infinite);
+
+          &:before {
+            content: '';
+            display: block;
+
+            width: $ringSize;
+            height: $ringSize;
+
+            border-radius: 50%;
+
+            position: absolute;
+            top: -$ringBorder;
+            left: -$ringBorder;
+
+            border: $ringBorder solid $ringBg;
+            border-left: $ringBorder solid $ringColor;
+          }
+
+        } //.circle loader
+
+        // lines loader
+        .slides {
+          $slideSize: 1px;
+          $slideColor: #16A4E6;
+          //$slideColor: #7b75cb;
+
+          @extend .positionCenter;
+          // position: relative;
+          // margin: 0px auto;
+
+          width: 25%;
+          height: $slideSize;
+
+          // slide
+          .slide {
+            position: absolute;
+
+            width: 25%;
+            height: $slideSize;
+
+            background: $slideColor;
+
+            // Animation ready / Force HA
+            @extend .noflicker;
+            @include animate(slide, 1.16s, 0s, $animationEasing, infinite);
+
+            &:nth-of-type(0n+1) {
+              opacity: 0.2;
+              @include transform(scale(1.8, 1));
+              @include animation-delay(0.2s);
+            }
+
+            &:nth-of-type(0n+2) {
+              opacity: 0.4;
+              @include transform(scale(1.4, 1));
+              @include animation-delay(0.1s);
+            }
+
+            &:nth-of-type(0n+3) {
+              opacity: 0.8;
+            }
+
+          }
+
+        }
+
       }
 
 
@@ -611,6 +743,7 @@ pre {
     @extend .noflicker;
     @include transition(all 0.3s $animationEasing);
     @include animation-duration(0.3s);
+    @include animation-timing-function($animationEasing);
 
     .grid-item {
       //@include transition(all 0.3s $animationEasing);
@@ -619,28 +752,23 @@ pre {
 
 
   &.ng-enter {
-    @include animation-timing-function($animationEasing);
-    @include animation-iteration-count(1);
-    @include animation-name(tada);
+    //@include animation-iteration-count(1);
+    //@include animation-name(fadeIn);
+    //opacity: 1;
 
     .grid-item {
-      //@include transform(scale3d(1.2, 1.2, 1));
-
+      //@include transform(scale3d(0.7, 0.7, 1));
       //background: #19b5fe;
-      opacity: 1;
     }
   }
 
   &.ng-leave {
-    @include animation-timing-function($animationEasing);
     @include animation-iteration-count(1);
-    @include animation-name(bounceOut);
+    @include animation-name(fadeOutDown);
+    //opacity: 0;
 
     .grid-item {
-      //@include transform(scale3d(0.6, 0.6, 1));
-
       //background: #f00;
-      opacity: 0;
     }
   }
 
@@ -649,6 +777,12 @@ pre {
   &.ng-move-stagger {
     @include animation-delay(0.3s);
     @include animation-duration(0);
+
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    -webkit-transition-duration: 0;
+    transition-duration: 0;
 
     .grid-item {
       -webkit-transition-delay: 0.2s;
@@ -659,37 +793,8 @@ pre {
     }
   }
 
-
 }
 
-
-@keyframes enterDown {
-  from {
-    opacity: 0;
-    bottom: -70px;
-  }
-  75% {
-    bottom: 15px;
-  }
-  to {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
-
-@keyframes leaveDown {
-  to {
-    opacity: 0;
-    bottom: -70px;
-  }
-  25% {
-    bottom: 15px;
-  }
-  from {
-    opacity: 1;
-    bottom:0px;
-  }
-}
 
 
 //
@@ -821,33 +926,3 @@ fx-stringz {
   @extend .noflicker; // force 3d render
   @include transition(transform $animationEasing);
 }
-
-//
-//  Tests
-//
-
-// test lightbox
-.lightbox {
-  @extend .translateCenter;
-  width: 80%;
-}
-
-
-//
-// ngDialog
-//
-.ngdialog {
-
-  .zen-modal-close {
-    z-index: 99;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #0f0;
-    padding: 20px;
-    font-size: 20px;
-  }
-
-}
-
