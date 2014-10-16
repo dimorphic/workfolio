@@ -1,8 +1,10 @@
 <!-- DEBUG -->
-<div style="display: none;">
+<div style="">
     <div class="debug fixed">
         <pre>{{ filterQuery }}</pre>
+        <pre>{{ reverse }}</pre>
         <input ng-model="filterQuery.type">
+        <a href="" ng-click="reverse=!reverse">reverse</a>
     </div>
 </div>
 
@@ -53,7 +55,7 @@
                 <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
                            class="animateGridItem"
 
-                           id="project_{{ $index }}"
+                           id="project_{{ ::$index }}"
                            project="projects[$index]">
 
                 </grid-item>

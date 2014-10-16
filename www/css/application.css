@@ -8072,132 +8072,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(50px, 9999px, 21px, 0);
+    clip: rect(18px, 9999px, 113px, 0);
   }
   5% {
-    clip: rect(84px, 9999px, 250px, 0);
+    clip: rect(96px, 9999px, 270px, 0);
   }
   10% {
-    clip: rect(371px, 9999px, 221px, 0);
+    clip: rect(403px, 9999px, 307px, 0);
   }
   15.0% {
-    clip: rect(550px, 9999px, 88px, 0);
+    clip: rect(131px, 9999px, 337px, 0);
   }
   20% {
-    clip: rect(412px, 9999px, 547px, 0);
+    clip: rect(545px, 9999px, 336px, 0);
   }
   25% {
-    clip: rect(181px, 9999px, 209px, 0);
+    clip: rect(99px, 9999px, 586px, 0);
   }
   30.0% {
-    clip: rect(49px, 9999px, 267px, 0);
+    clip: rect(539px, 9999px, 384px, 0);
   }
   35% {
-    clip: rect(564px, 9999px, 218px, 0);
+    clip: rect(652px, 9999px, 469px, 0);
   }
   40% {
-    clip: rect(517px, 9999px, 643px, 0);
+    clip: rect(32px, 9999px, 63px, 0);
   }
   45% {
-    clip: rect(31px, 9999px, 13px, 0);
+    clip: rect(330px, 9999px, 228px, 0);
   }
   50% {
-    clip: rect(249px, 9999px, 382px, 0);
+    clip: rect(52px, 9999px, 89px, 0);
   }
   55.0% {
-    clip: rect(57px, 9999px, 603px, 0);
+    clip: rect(523px, 9999px, 63px, 0);
   }
   60.0% {
-    clip: rect(284px, 9999px, 594px, 0);
+    clip: rect(269px, 9999px, 462px, 0);
   }
   65% {
-    clip: rect(249px, 9999px, 79px, 0);
+    clip: rect(357px, 9999px, 348px, 0);
   }
   70% {
-    clip: rect(523px, 9999px, 91px, 0);
+    clip: rect(123px, 9999px, 146px, 0);
   }
   75% {
-    clip: rect(148px, 9999px, 47px, 0);
+    clip: rect(614px, 9999px, 368px, 0);
   }
   80% {
-    clip: rect(29px, 9999px, 339px, 0);
+    clip: rect(305px, 9999px, 517px, 0);
   }
   85.0% {
-    clip: rect(120px, 9999px, 495px, 0);
+    clip: rect(523px, 9999px, 36px, 0);
   }
   90% {
-    clip: rect(206px, 9999px, 200px, 0);
+    clip: rect(577px, 9999px, 118px, 0);
   }
   95% {
-    clip: rect(342px, 9999px, 500px, 0);
+    clip: rect(78px, 9999px, 611px, 0);
   }
   100% {
-    clip: rect(95px, 9999px, 519px, 0);
+    clip: rect(633px, 9999px, 254px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(67px, 9999px, 3px, 0);
+    clip: rect(31px, 9999px, 78px, 0);
   }
   5% {
-    clip: rect(35px, 9999px, 83px, 0);
+    clip: rect(25px, 9999px, 93px, 0);
   }
   10% {
-    clip: rect(62px, 9999px, 64px, 0);
+    clip: rect(34px, 9999px, 87px, 0);
   }
   15.0% {
-    clip: rect(45px, 9999px, 9px, 0);
+    clip: rect(50px, 9999px, 6px, 0);
   }
   20% {
-    clip: rect(91px, 9999px, 84px, 0);
+    clip: rect(34px, 9999px, 10px, 0);
   }
   25% {
-    clip: rect(72px, 9999px, 83px, 0);
+    clip: rect(100px, 9999px, 56px, 0);
   }
   30.0% {
-    clip: rect(3px, 9999px, 28px, 0);
+    clip: rect(17px, 9999px, 96px, 0);
   }
   35% {
-    clip: rect(48px, 9999px, 88px, 0);
+    clip: rect(70px, 9999px, 65px, 0);
   }
   40% {
-    clip: rect(77px, 9999px, 59px, 0);
+    clip: rect(93px, 9999px, 33px, 0);
   }
   45% {
-    clip: rect(17px, 9999px, 86px, 0);
+    clip: rect(27px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(13px, 9999px, 47px, 0);
+    clip: rect(100px, 9999px, 51px, 0);
   }
   55.0% {
-    clip: rect(31px, 9999px, 71px, 0);
+    clip: rect(78px, 9999px, 4px, 0);
   }
   60.0% {
-    clip: rect(47px, 9999px, 28px, 0);
+    clip: rect(97px, 9999px, 14px, 0);
   }
   65% {
-    clip: rect(47px, 9999px, 76px, 0);
+    clip: rect(11px, 9999px, 94px, 0);
   }
   70% {
-    clip: rect(18px, 9999px, 39px, 0);
+    clip: rect(31px, 9999px, 6px, 0);
   }
   75% {
-    clip: rect(68px, 9999px, 89px, 0);
+    clip: rect(47px, 9999px, 22px, 0);
   }
   80% {
-    clip: rect(78px, 9999px, 55px, 0);
+    clip: rect(20px, 9999px, 54px, 0);
   }
   85.0% {
-    clip: rect(24px, 9999px, 47px, 0);
+    clip: rect(75px, 9999px, 77px, 0);
   }
   90% {
-    clip: rect(82px, 9999px, 92px, 0);
+    clip: rect(93px, 9999px, 14px, 0);
   }
   95% {
-    clip: rect(55px, 9999px, 72px, 0);
+    clip: rect(23px, 9999px, 13px, 0);
   }
   100% {
-    clip: rect(48px, 9999px, 97px, 0);
+    clip: rect(62px, 9999px, 9px, 0);
   }
 }
 @-webkit-keyframes svg_dash {
@@ -9985,6 +9985,30 @@ pre {
   opacity: 0.8;
 }
 
+/* line 740, ../../app/scss/application.scss */
+.animateGridItem {
+  /*
+  &.ng-enter-stagger,
+  &.ng-leave-stagger,
+  &.ng-move-stagger {
+    @include animation-delay(0.3s);
+    @include animation-duration(0);
+
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    -webkit-transition-duration: 0;
+    transition-duration: 0;
+
+    .grid-item {
+      -webkit-transition-delay: 0.2s;
+      transition-delay: 0.2s;
+
+      -webkit-transition-duration: 0;
+      transition-duration: 0;
+    }
+  }*/
+}
 /* line 742, ../../app/scss/application.scss */
 .animateGridItem.ng-enter, .animateGridItem.ng-leave {
   -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10014,37 +10038,13 @@ pre {
   -ms-animation-name: fadeOutDown;
   -o-animation-name: fadeOutDown;
 }
-/* line 775, ../../app/scss/application.scss */
-.animateGridItem.ng-enter-stagger, .animateGridItem.ng-leave-stagger, .animateGridItem.ng-move-stagger {
-  animation-delay: 0.3s;
-  -webkit-animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
-  -ms-animation-delay: 0.3s;
-  -o-animation-delay: 0.3s;
-  animation-duration: 0;
-  -webkit-animation-duration: 0;
-  -moz-animation-duration: 0;
-  -ms-animation-duration: 0;
-  -o-animation-duration: 0;
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-  -webkit-transition-duration: 0;
-  transition-duration: 0;
-}
-/* line 787, ../../app/scss/application.scss */
-.animateGridItem.ng-enter-stagger .grid-item, .animateGridItem.ng-leave-stagger .grid-item, .animateGridItem.ng-move-stagger .grid-item {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-  -webkit-transition-duration: 0;
-  transition-duration: 0;
-}
 
-/* line 805, ../../app/scss/application.scss */
+/* line 806, ../../app/scss/application.scss */
 #loading-bar .bar {
   background: #19b5fe;
 }
 
-/* line 807, ../../app/scss/application.scss */
+/* line 808, ../../app/scss/application.scss */
 #loading-bar .peg {
   -moz-box-shadow: #19b5fe 1px 0 6px 1px;
   -ms-box-shadow: #19b5fe 1px 0 6px 1px;
@@ -10052,18 +10052,18 @@ pre {
   box-shadow: #19b5fe 1px 0 6px 1px;
 }
 
-/* line 814, ../../app/scss/application.scss */
+/* line 815, ../../app/scss/application.scss */
 #loading-bar-spinner .spinner-icon {
   border-top-color: #19b5fe;
   border-left-color: #19b5fe;
 }
 
-/* line 823, ../../app/scss/application.scss */
+/* line 824, ../../app/scss/application.scss */
 .main-container {
   z-index: 2;
 }
 
-/* line 825, ../../app/scss/application.scss */
+/* line 826, ../../app/scss/application.scss */
 fx-stringz {
   opacity: 0;
   z-index: -1;
@@ -10072,7 +10072,7 @@ fx-stringz {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 838, ../../app/scss/application.scss */
+/* line 839, ../../app/scss/application.scss */
 fx-stringz canvas {
   width: 100%;
   height: 100%;
@@ -10080,7 +10080,7 @@ fx-stringz canvas {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 853, ../../app/scss/application.scss */
+/* line 854, ../../app/scss/application.scss */
 fx-stringz.animated {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10098,7 +10098,7 @@ fx-stringz.animated {
   -ms-animation-duration: 1.6s;
   -o-animation-duration: 1.6s;
 }
-/* line 859, ../../app/scss/application.scss */
+/* line 860, ../../app/scss/application.scss */
 fx-stringz.animated canvas {
   /*
   -webkit-animation: $value;
@@ -10113,7 +10113,7 @@ fx-stringz.animated canvas {
   -o-animation: bounceIn 0.5s 0.16s ease-out, pulse 5s 2s infinite alternate;
 }
 
-/* line 869, ../../app/scss/application.scss */
+/* line 870, ../../app/scss/application.scss */
 .hintMore {
   z-index: -1;
   position: fixed;
@@ -10126,13 +10126,13 @@ fx-stringz.animated canvas {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 885, ../../app/scss/application.scss */
+/* line 886, ../../app/scss/application.scss */
 .hintMore .message {
   display: inline-block;
   padding: 10px;
   background: #00f;
 }
-/* line 891, ../../app/scss/application.scss */
+/* line 892, ../../app/scss/application.scss */
 .hintMore .message span.icon {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -10160,7 +10160,7 @@ fx-stringz.animated canvas {
   -ms-animation-delay: 2s;
   -o-animation-delay: 2s;
 }
-/* line 900, ../../app/scss/application.scss */
+/* line 901, ../../app/scss/application.scss */
 .hintMore.ui-show {
   z-index: 1;
   animation-duration: 0.32s;
@@ -10184,7 +10184,7 @@ fx-stringz.animated canvas {
   -ms-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
 }
-/* line 910, ../../app/scss/application.scss */
+/* line 911, ../../app/scss/application.scss */
 .hintMore.ui-hide {
   -moz-transform: translate3d(0, 200%, 0);
   -ms-transform: translate3d(0, 200%, 0);
@@ -10194,7 +10194,7 @@ fx-stringz.animated canvas {
   z-index: -1;
 }
 
-/* line 924, ../../app/scss/application.scss */
+/* line 925, ../../app/scss/application.scss */
 .tilter3D {
   -webkit-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);

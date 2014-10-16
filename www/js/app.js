@@ -15,7 +15,6 @@
 
         'angular-loading-bar',
         'infinite-scroll'
-//        'ngMorph'
     ];
 
     var appComponents = [

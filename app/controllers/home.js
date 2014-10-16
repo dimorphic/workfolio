@@ -30,6 +30,8 @@
             // data is here bro!
             $scope.projectsData = data;
 
+            console.log(data);
+
             // load more function
             $scope.loadMore = function() {
 
@@ -75,7 +77,8 @@
         $scope.menuModel = 'all'; // curent selected/active menu item
 
         // filters
-        $scope.predicate = ""; // orderBy
+        $scope.predicate = "-year"; // orderBy
+        $scope.reverse = false;
 
         $scope.filterQuery = null;
         $scope.setFilter = function(filter) {

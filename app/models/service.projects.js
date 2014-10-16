@@ -18,15 +18,11 @@
         function(_, $rootScope, $q, $http) {
 
             //
-            // Define colors
+            // Define projects
             //
             var projects = [];
 
-            var results = [];
-
-            var years = [];
-            var availableCategories = [];
-
+            // fetcher
             var init = function() {
                 // there's always a promise!
                 var deferred = $q.defer();
@@ -47,13 +43,12 @@
                             var $project = {
                                 name: classes.gsx$name.$t,
                                 type: classes.gsx$type.$t,
-                                year: classes.gsx$year.$t,
+                                year: parseInt(classes.gsx$year.$t),
                                 client: classes.gsx$client.$t,
 
                                 color: classes.gsx$color.$t,
                                 thumbUrl: classes.gsx$imageurl.$t
                                 //imageUrl: classes.gsx$imageurl.$t
-
                             };
 
                             //console.log("project info @ ", $project);
@@ -61,8 +56,13 @@
                         });
                     });
 
+                    //projects = projectList;
+
+                    // sort data by year, DESC
+                    projects = _.sortBy(projectList, function(obj) { return +obj.year; }).reverse();
+
                     // resolve promise!
-                    deferred.resolve(projectList);
+                    deferred.resolve(projects);
 
                 }).error(function(error) {
 
@@ -76,11 +76,8 @@
             };
 
             // init();
-
-            var activeProject = [];
-            var availableProjects = projects;
-
-
+            // var activeProject = [];
+            // var availableProjects = projects;
 
             // expose
             return {
@@ -88,7 +85,9 @@
 
                 all: function() {
                     return projects;
-                },
+                }
+
+                /*
 
                 setActive: function(value) {
                     activeProject = availableProjects[value];
@@ -101,7 +100,7 @@
                 random: function() {
                     return availableProjects[_.random(availableProjects.length - 1)];
                 }
-
+                */
             };
 
         }

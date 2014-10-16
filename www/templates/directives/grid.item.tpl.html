@@ -1,9 +1,9 @@
 <div class="grid-item" light-box>
 
-    <!--<div class="type">{{ project.type }}</div>-->
+    <!--<div class="type">{{ ::project.type }}</div>-->
 
     <div class="tag">
-        <div class="title">{{ project.name }}</div>
+        <div class="title">{{ ::project.name }}</div>
     </div>
 
     <div class="zoomer">
@@ -16,7 +16,7 @@
 
         <div class="thumb">
             <img class="img-responsive"
-                 ng-src="{{ project.thumbUrl }}" />
+                 ng-src="{{ ::project.thumbUrl }}" />
         </div>
 
     </div>
