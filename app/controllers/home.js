@@ -27,27 +27,31 @@
 
         // promise!
         ProjectService.init().then(function(data) {
+
             // data is here bro!
             $scope.projectsData = data;
 
-            console.log(data);
-
             // load more function
             $scope.loadMore = function() {
+
+                var addProject = function(item) {
+                    $timeout(function() {
+                        $scope.projects.push(item);
+                    });
+                };
 
                 // how many items to add when we reach bottom
                 var itemsToAdd = 4;
                 var remaining = $scope.projectsData.length - $scope.projects.length;
 
                 if(remaining) {
-                    //console.log("remaining items : ", remaining);
+                    $scope.showHintMore = true;
 
                     var last = $scope.projects.length;
                     var items = (remaining < itemsToAdd) ? remaining : itemsToAdd;
 
                     for(var i = last; i < last+items; i++) {
-                        //console.log('adding @ ', i);
-                        $scope.projects.push($scope.projectsData[i]);
+                        addProject($scope.projectsData[i]);
                     }
 
                 } else {
@@ -55,9 +59,8 @@
 
                     // disable infinite scroll
                     $scope.infiniteDisabled = true;
+                    $scope.showHintMore = !$scope.infiniteDisabled;
                 }
-
-                $scope.showHintMore = !$scope.infiniteDisabled;
 
             };
 

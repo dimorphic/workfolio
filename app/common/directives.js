@@ -13,7 +13,7 @@
             var first = true;
 
             // Link to DOM
-            var link = function (scope, element) {
+            var link = function(scope, element) {
                 // add no-scroll class
                 element.addClass("noscroll");
 
@@ -21,6 +21,11 @@
                 scope.$on("noScroll:disable", function(data){
                     element.removeClass("noscroll");
                     first = false;
+                });
+
+                // wait for trigger
+                scope.$on("noScroll:enable", function(data){
+                    element.addClass("noscroll");
                 });
             };
 
@@ -118,6 +123,23 @@
     //
     appDirectives.directive("loadIcon", function($timeout) {
         var tpl = 'templates/directives/load-icon.tpl.html';
+
+        // Link to DOM
+        var link = function(scope, element, attrs) { };
+
+        // Return directive config
+        return {
+            restrict: "E",
+            templateUrl: tpl,
+            link: link
+        };
+    });
+
+    //
+    // Hint more @ infinite scroller
+    //
+    appDirectives.directive("infiniteHintMore", function($timeout) {
+        var tpl = 'templates/directives/hint-more.tpl.html';
 
         // Link to DOM
         var link = function(scope, element, attrs) { };
@@ -284,15 +306,19 @@
     appDirectives.directive("fxStringz",
         ['$rootScope', '$window', '$timeout', 'AnimateService',
         function($rootScope, $window, $timeout, AnimateService) {
+
             // template
             var tpl = 'templates/directives/fx-stringz.tpl.html';
             //var tpl = '<canvas> </canvas>';
 
             // DOM link
             var link = function(scope, element, attrs) {
-                // console.log("hello from stringz bro");
 
-                /*var FpsMon = $window.FPSMeter;
+                // you mobile, bro ?
+                var mobileDevice = $window.isMobile.any();
+
+                // FPS monitor (enable via uncomment)
+                /* var FpsMon = $window.FPSMeter;
 
                 var meter = new FpsMon({
                     theme: 'dark',
@@ -305,19 +331,19 @@
                     right: 0
                 });*/
 
+                // Canvas
                 var active = true;
 
-                var $element = $(element);
-
-                // Canvas
-                var canvas = $element.find("canvas")[0];
+                var canvas = element.find("canvas")[0];
                 var ctx = canvas.getContext("2d");
                 var W, H = null;
 
                 // Config
-                var padding = 20;
-                var count = 100;
-                var distance = 100;
+                var distance = 100; // connect threshold
+                var padding = (mobileDevice) ? 10 : 20;
+
+                // points number (TODO: maybe increase based on devices?)
+                var count = (mobileDevice) ? 20 : 100;
 
                 // Resize handler
                 scope.onResize = function() {
@@ -377,11 +403,9 @@
 
                         // Cycle over every point
                         angular.forEach(points, function(p) {
-                        //points.forEach(function(p) {
 
                             // Compare each point to current point
                             angular.forEach(points, function(q) {
-                            //points.forEach(function(q) {
 
                                 // Find distance between two points
                                 var xd = p.pos.x - q.pos.x;
@@ -405,11 +429,11 @@
                                     ctx.strokeStyle = "rgba(%r,%g,%b,%a)".replace(/%([a-z])/g, function( m, v ) {
                                         return v === "a" ? alpha : p.setColor[ v ] ;
                                     });
+
                                     ctx.beginPath();
                                     ctx.moveTo( p.pos.x, p.pos.y );
                                     ctx.lineTo( q.pos.x, q.pos.y );
                                     ctx.stroke();
-
                                 }
 
                             });
@@ -422,7 +446,7 @@
                         // queue up the next frame
                         animate(tick);
 
-                        // meter ticker
+                        // fps meter ticker
                         // meter.tick();
 
                     })();
@@ -437,10 +461,6 @@
                     //console.log('CANVAS starting');
 
                     if (active) {
-                        // lower points on mobiles (TODO: maybe increase based on devices?)
-                        if($window.isMobile.any()) {
-                            count = 10;
-                        }
 
                         // Build points
                         while (count--) {
@@ -450,18 +470,17 @@
                         // Fire it up bro!
                         animator(points, AnimateService);
 
+                        // Attach events
                         scope.$on('fx.stringz:showCanvas', function () {
-                            // console.log('showCanvas event trigger bro!!!!');
 
                             $timeout(function() {
-                                $element.addClass("animated fadeIn");
+                                element.addClass("animated fadeIn");
                             }, 100);
-                            //console.log("show canvas @ " , $element);
+
                         });
 
                         // ... also bind to window resize event
                         angular.element($window).bind('resize', function() {
-                            // console.log('resize baby!');
                             scope.onResize();
                         });
                     }

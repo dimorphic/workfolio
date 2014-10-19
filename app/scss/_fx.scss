@@ -10,8 +10,16 @@
 }
 
 @include keyframes(slide) {
-  0%, 100% { left: 0; background: #ED1F24; }
-  50% { left: 100%; background: #16A4E6; }
+  0%, 100% {
+    left: 0;
+    //@include transform(translate3d(0, 0%, 0));
+    background: #ED1F24;
+  }
+  50% {
+    left: 100%;
+    //@include transform(translate3d(0, 100%, 0));
+    background: #16A4E6;
+  }
 }
 
 @include keyframes(enterDown) {

@@ -1,5 +1,5 @@
 <!-- DEBUG -->
-<div style="">
+<div style="display: none;">
     <div class="debug fixed">
         <pre>{{ filterQuery }}</pre>
         <pre>{{ reverse }}</pre>
@@ -17,15 +17,15 @@
     </div>
 </div>
 
-<!-- HINT: there's more bro! -->
-<!--<div class="hintMore" ui-toggle="showHintMore">-->
-    <!--<div class="message">Pssh! There's more bro! <span class="fa fa-chevron-down animated icon"></span></div>-->
-<!--</div>-->
-
 <!-- CONTENT -->
+
+<!-- HINT: there's more bro! -->
+<!--<infinite-hint-more></infinite-hint-more>-->
+
+<!-- PORTOFOLIO -->
 <div class="portofolio animated fadeInUp">
 
-    <!-- MENU SELECTOR -->
+    <!-- MENU -->
     <div class="menu">
         <div class="buttons">
 <!--
@@ -50,8 +50,10 @@
     <div class="portofolio-images">
         <div class="grid">
 
+            <!-- INFINITE SCROLLER -->
             <div infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-disabled='infiniteDisabled'>
 
+                <!-- GRID ITEM -->
                 <grid-item ng-repeat="project in projects | filter:filterQuery | orderBy:predicate"
                            class="animateGridItem"
 

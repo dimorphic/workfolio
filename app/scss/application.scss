@@ -56,8 +56,10 @@ body {
   line-height: 1;
   color: #fff;
 
-  //@include background-image(linear-gradient(#8b9da9, #fff6e4));
   background: #1b1b21;
+
+  //@include background-image(linear-gradient(#8b9da9, #fff6e4));
+  //@include background-image(linear-gradient(180deg, rgba(27, 25, 31, 0.9) 20%, rgba(19, 17, 94, 0.9) 100%));
 
   overflow-x: hidden; // disable horizontal scrollbars on item hover (we upscale it)
 }
@@ -245,6 +247,47 @@ pre {
   @include transition(all 0.4s $animationEasing);
 
   @include animation-delay(4s);
+}
+
+.overlay-modal {
+  z-index: 999;
+  @extend %positionCenter;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
+  
+  .overlay-wrapper {
+    //@extend %translateCenter;
+  }
+}
+
+// Project detail modal
+// TODO: finish this. v2 maybe ?
+.project-detail {
+  height: 90%;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 0px;
+  margin: 0px auto;
+
+  background: #fff;
+  color: #000;
+
+  .pic-frame {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+
+    @include background-size(cover);
+    background-position: center center;
+  }
 }
 
 
@@ -692,6 +735,10 @@ pre {
           width: 25%;
           height: $slideSize;
 
+          // Animation ready
+          @extend .noflicker;
+          @include transition(all 0.3s $animationEasing);
+
           // slide
           .slide {
             position: absolute;
@@ -744,32 +791,18 @@ pre {
     @include transition(all 0.3s $animationEasing);
     @include animation-duration(0.3s);
     @include animation-timing-function($animationEasing);
-
-    .grid-item {
-      //@include transition(all 0.3s $animationEasing);
-    }
   }
 
-
   &.ng-enter {
-    //@include animation-iteration-count(1);
-    //@include animation-name(fadeIn);
+    @include animation-iteration-count(1);
+    @include animation-name(fadeInUp);
     //opacity: 1;
-
-    .grid-item {
-      //@include transform(scale3d(0.7, 0.7, 1));
-      //background: #19b5fe;
-    }
   }
 
   &.ng-leave {
     @include animation-iteration-count(1);
     @include animation-name(fadeOutDown);
     //opacity: 0;
-
-    .grid-item {
-      //background: #f00;
-    }
   }
 
   /*
@@ -803,13 +836,15 @@ pre {
 //
 $loading-bar-color: #19b5fe;
 
-#loading-bar .bar { background: $loading-bar-color; }
+#loading-bar {
+  .bar { background: $loading-bar-color; }
 
-#loading-bar .peg {
-  -moz-box-shadow: $loading-bar-color 1px 0 6px 1px;
-  -ms-box-shadow: $loading-bar-color 1px 0 6px 1px;
-  -webkit-box-shadow: $loading-bar-color 1px 0 6px 1px;
-  box-shadow: $loading-bar-color 1px 0 6px 1px;
+  .peg {
+    -moz-box-shadow: $loading-bar-color 1px 0 6px 1px;
+    -ms-box-shadow: $loading-bar-color 1px 0 6px 1px;
+    -webkit-box-shadow: $loading-bar-color 1px 0 6px 1px;
+    box-shadow: $loading-bar-color 1px 0 6px 1px;
+  }
 }
 
 #loading-bar-spinner .spinner-icon {
@@ -843,11 +878,6 @@ fx-stringz {
     // Animation ready / Force HA
     @extend .noflicker;
     @include transition(all 0.4s $animationEasing);
-
-//    @include animation-duration(5s);
-//    @include animation-timing-function($animationEasing);
-//    @include animation-iteration-count(infinite);
-//    @include animation-name(pulse);
   }
 
   // pretty canvas bro!
@@ -858,7 +888,12 @@ fx-stringz {
 
     // i'm pretty !
     canvas {
-      @include animation("bounceIn 0.5s 0.16s ease-out, pulse 5s 2s infinite alternate");
+      //@include animation("pulse 5s 2s infinite alternate");
+
+      @include animation-duration(5s);
+      @include animation-timing-function($animationEasing);
+      @include animation-iteration-count(infinite);
+      @include animation-name(pulse);
     }
   }
 
@@ -869,7 +904,7 @@ fx-stringz {
 //
 .hintMore {
   z-index: -1;
-  //opacity: 0;
+  opacity: 0;
 
   position: fixed;
   bottom: 0;
@@ -899,13 +934,13 @@ fx-stringz {
   }
 
   &.ui-show {
-    z-index: 1;
-    //opacity: 1;
+    z-index: 10;
 
     @include animation-duration(0.32s);
     @include animation-timing-function($animationEasing);
     @include animation-iteration-count(1);
     @include animation-name(fadeInUp);
+    opacity: 1;
   }
 
   &.ui-hide {
