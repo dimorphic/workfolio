@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css");
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
-@import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext");
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext");
 /* html5doctor.com Reset v1.6.1 - http://cssreset.com */
 @import url(/components/angular-loading-bar/build/loading-bar.css);
-@import url(/components/fancybox/source/jquery.fancybox.css);
+@import url(/components/strip/css/strip.css);
 /* line 2, ../../app/scss/_reset.scss */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
@@ -7207,7 +7207,18 @@ button.close {
 }
 
 /* line 98, ../../app/scss/_mixins.scss */
-.noflicker, .glitch:after, .glitch:before, .fancybox-close, .app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides, .portofolio .grid .grid-item .icon-loader .slides .slide, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D {
+.noflicker, .glitch:after, .glitch:before {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 99, ../../app/scss/_mixins.scss */
+.app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides, .portofolio .grid .grid-item .icon-loader .slides .slide, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D, .fancybox-close {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -7218,7 +7229,7 @@ button.close {
 }
 
 /* line 103, ../../app/scss/_mixins.scss */
-.translateCenter, .viewport, .portofolio .grid .grid-item .tag {
+.translateCenter, .viewport {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7229,7 +7240,7 @@ button.close {
 }
 
 /* line 111, ../../app/scss/_mixins.scss */
-.positionCenter, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .svg-border, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .svg-loader svg, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides {
+.positionCenter, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .svg-border, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides {
   margin: auto;
   position: absolute;
   top: 0;
@@ -7238,8 +7249,19 @@ button.close {
   right: 0;
 }
 
+/* line 119, ../../app/scss/_mixins.scss */
+.portofolio .grid .grid-item .tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 /* line 126, ../../app/scss/_mixins.scss */
-.overlay-modal, fx-stringz {
+.overlay-modal, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .svg-loader svg, fx-stringz {
   margin: auto;
   position: absolute;
   top: 0;
@@ -8072,132 +8094,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(434px, 9999px, 478px, 0);
+    clip: rect(49px, 9999px, 468px, 0);
   }
   5% {
-    clip: rect(202px, 9999px, 546px, 0);
+    clip: rect(346px, 9999px, 462px, 0);
   }
   10% {
-    clip: rect(624px, 9999px, 506px, 0);
+    clip: rect(437px, 9999px, 183px, 0);
   }
   15.0% {
-    clip: rect(623px, 9999px, 411px, 0);
+    clip: rect(509px, 9999px, 553px, 0);
   }
   20% {
-    clip: rect(42px, 9999px, 86px, 0);
+    clip: rect(299px, 9999px, 328px, 0);
   }
   25% {
-    clip: rect(619px, 9999px, 331px, 0);
+    clip: rect(257px, 9999px, 264px, 0);
   }
   30.0% {
-    clip: rect(336px, 9999px, 66px, 0);
+    clip: rect(377px, 9999px, 20px, 0);
   }
   35% {
-    clip: rect(159px, 9999px, 249px, 0);
+    clip: rect(497px, 9999px, 602px, 0);
   }
   40% {
-    clip: rect(460px, 9999px, 33px, 0);
+    clip: rect(21px, 9999px, 34px, 0);
   }
   45% {
-    clip: rect(510px, 9999px, 286px, 0);
+    clip: rect(184px, 9999px, 27px, 0);
   }
   50% {
-    clip: rect(618px, 9999px, 428px, 0);
+    clip: rect(612px, 9999px, 58px, 0);
   }
   55.0% {
-    clip: rect(378px, 9999px, 148px, 0);
+    clip: rect(263px, 9999px, 157px, 0);
   }
   60.0% {
-    clip: rect(28px, 9999px, 517px, 0);
+    clip: rect(106px, 9999px, 464px, 0);
   }
   65% {
-    clip: rect(489px, 9999px, 103px, 0);
+    clip: rect(155px, 9999px, 551px, 0);
   }
   70% {
-    clip: rect(277px, 9999px, 206px, 0);
+    clip: rect(463px, 9999px, 230px, 0);
   }
   75% {
-    clip: rect(416px, 9999px, 584px, 0);
+    clip: rect(375px, 9999px, 591px, 0);
   }
   80% {
-    clip: rect(207px, 9999px, 49px, 0);
+    clip: rect(553px, 9999px, 107px, 0);
   }
   85.0% {
-    clip: rect(34px, 9999px, 611px, 0);
+    clip: rect(430px, 9999px, 444px, 0);
   }
   90% {
-    clip: rect(563px, 9999px, 49px, 0);
+    clip: rect(448px, 9999px, 457px, 0);
   }
   95% {
-    clip: rect(474px, 9999px, 282px, 0);
+    clip: rect(306px, 9999px, 347px, 0);
   }
   100% {
-    clip: rect(564px, 9999px, 94px, 0);
+    clip: rect(595px, 9999px, 366px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(91px, 9999px, 29px, 0);
+    clip: rect(84px, 9999px, 26px, 0);
   }
   5% {
-    clip: rect(98px, 9999px, 42px, 0);
+    clip: rect(74px, 9999px, 51px, 0);
   }
   10% {
-    clip: rect(85px, 9999px, 72px, 0);
+    clip: rect(37px, 9999px, 60px, 0);
   }
   15.0% {
-    clip: rect(6px, 9999px, 31px, 0);
+    clip: rect(12px, 9999px, 57px, 0);
   }
   20% {
-    clip: rect(63px, 9999px, 10px, 0);
+    clip: rect(34px, 9999px, 1px, 0);
   }
   25% {
-    clip: rect(70px, 9999px, 16px, 0);
+    clip: rect(37px, 9999px, 62px, 0);
   }
   30.0% {
-    clip: rect(98px, 9999px, 34px, 0);
+    clip: rect(10px, 9999px, 41px, 0);
   }
   35% {
-    clip: rect(37px, 9999px, 68px, 0);
+    clip: rect(33px, 9999px, 12px, 0);
   }
   40% {
-    clip: rect(16px, 9999px, 18px, 0);
+    clip: rect(66px, 9999px, 94px, 0);
   }
   45% {
-    clip: rect(20px, 9999px, 13px, 0);
+    clip: rect(72px, 9999px, 84px, 0);
   }
   50% {
-    clip: rect(15px, 9999px, 30px, 0);
+    clip: rect(68px, 9999px, 69px, 0);
   }
   55.0% {
-    clip: rect(16px, 9999px, 42px, 0);
+    clip: rect(25px, 9999px, 55px, 0);
   }
   60.0% {
-    clip: rect(5px, 9999px, 77px, 0);
+    clip: rect(28px, 9999px, 25px, 0);
   }
   65% {
-    clip: rect(91px, 9999px, 36px, 0);
+    clip: rect(30px, 9999px, 23px, 0);
   }
   70% {
-    clip: rect(85px, 9999px, 28px, 0);
+    clip: rect(62px, 9999px, 47px, 0);
   }
   75% {
-    clip: rect(12px, 9999px, 87px, 0);
+    clip: rect(83px, 9999px, 59px, 0);
   }
   80% {
-    clip: rect(60px, 9999px, 1px, 0);
+    clip: rect(30px, 9999px, 76px, 0);
   }
   85.0% {
-    clip: rect(37px, 9999px, 16px, 0);
+    clip: rect(44px, 9999px, 3px, 0);
   }
   90% {
-    clip: rect(2px, 9999px, 19px, 0);
+    clip: rect(16px, 9999px, 80px, 0);
   }
   95% {
-    clip: rect(43px, 9999px, 83px, 0);
+    clip: rect(41px, 9999px, 54px, 0);
   }
   100% {
-    clip: rect(15px, 9999px, 40px, 0);
+    clip: rect(77px, 9999px, 93px, 0);
   }
 }
 @-webkit-keyframes svg_dash {
@@ -9176,7 +9198,7 @@ input, textarea, [contenteditable] * {
     transform: scale(1);
   }
 }
-/* line 51, ../../app/scss/application.scss */
+/* line 50, ../../app/scss/application.scss */
 body {
   position: relative;
   font-family: 'Open Sans', sans-serif;
@@ -9187,18 +9209,18 @@ body {
   overflow-x: hidden;
 }
 
-/* line 68, ../../app/scss/application.scss */
+/* line 67, ../../app/scss/application.scss */
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer;
 }
 
-/* line 72, ../../app/scss/application.scss */
+/* line 71, ../../app/scss/application.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
   color: inherit;
 }
 
-/* line 74, ../../app/scss/application.scss */
+/* line 73, ../../app/scss/application.scss */
 a {
   color: #fff;
   text-decoration: none;
@@ -9207,109 +9229,17 @@ a {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 81, ../../app/scss/application.scss */
+/* line 80, ../../app/scss/application.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 84, ../../app/scss/application.scss */
+/* line 83, ../../app/scss/application.scss */
 pre {
   color: #fff;
 }
 
 /* line 90, ../../app/scss/application.scss */
-.modal-wrapper > .modal {
-  display: block;
-}
-
-/* line 91, ../../app/scss/application.scss */
-.ngdialog .ngdialog-content {
-  width: 100%;
-  height: 100%;
-}
-
-/* line 94, ../../app/scss/application.scss */
-.fancybox-lock {
-  overflow: visible !important;
-}
-
-/* line 95, ../../app/scss/application.scss */
-.fancybox-overlay {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -moz-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
-  background-image: -webkit-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
-  background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
-}
-
-/* line 101, ../../app/scss/application.scss */
-.fancybox-close {
-  width: auto;
-  height: auto;
-  padding: 20px;
-  background: #121212;
-  border: 1px dashed #444;
-  text-align: center;
-  text-decoration: none;
-  top: 5px;
-  right: 5px;
-  -webkit-transition: all 0.16s ease-in;
-  -o-transition: all 0.16s ease-in;
-  transition: all 0.16s ease-in;
-  -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation-duration: 0.32s;
-  -webkit-animation-duration: 0.32s;
-  -moz-animation-duration: 0.32s;
-  -ms-animation-duration: 0.32s;
-  -o-animation-duration: 0.32s;
-  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  -ms-animation-iteration-count: 1;
-  -o-animation-iteration-count: 1;
-  animation-name: bounceIn;
-  -webkit-animation-name: bounceIn;
-  -moz-animation-name: bounceIn;
-  -ms-animation-name: bounceIn;
-  -o-animation-name: bounceIn;
-}
-/* line 118, ../../app/scss/application.scss */
-.fancybox-close:before {
-  content: "\f00d";
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 40px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-/* line 139, ../../app/scss/application.scss */
-.fancybox-close:hover {
-  background: #ff0000;
-  text-decoration: none;
-}
-/* line 143, ../../app/scss/application.scss */
-.fancybox-close:hover:before {
-  color: #121212;
-}
-
-/* line 161, ../../app/scss/application.scss */
 .app-logo {
   display: block;
   width: 100%;
@@ -9318,12 +9248,12 @@ pre {
   text-align: center;
 }
 @media only screen and (min-width: 768px) {
-  /* line 161, ../../app/scss/application.scss */
+  /* line 90, ../../app/scss/application.scss */
   .app-logo {
     margin: 70px auto;
   }
 }
-/* line 174, ../../app/scss/application.scss */
+/* line 103, ../../app/scss/application.scss */
 .app-logo .icon {
   display: inline-block;
   width: 180px;
@@ -9331,24 +9261,24 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 178, ../../app/scss/application.scss */
+/* line 107, ../../app/scss/application.scss */
 .app-logo .icon svg {
   width: 100%;
   height: 100%;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 174, ../../app/scss/application.scss */
+  /* line 103, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 200px;
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 174, ../../app/scss/application.scss */
+  /* line 103, ../../app/scss/application.scss */
   .app-logo .icon {
     width: 260px;
   }
 }
-/* line 191, ../../app/scss/application.scss */
+/* line 120, ../../app/scss/application.scss */
 .app-logo .icon .st4, .app-logo .icon .st8 {
   -moz-animation-name: fadeInLights;
   -moz-animation-duration: 1.16s;
@@ -9379,7 +9309,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 192, ../../app/scss/application.scss */
+/* line 121, ../../app/scss/application.scss */
 .app-logo .icon .st6, .app-logo .icon .st7 {
   -moz-animation-name: fadeInShadows;
   -moz-animation-duration: 1.16s;
@@ -9410,7 +9340,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 197, ../../app/scss/application.scss */
+/* line 126, ../../app/scss/application.scss */
 .app-logo .tagline {
   display: block;
   font-size: 18px;
@@ -9428,7 +9358,7 @@ pre {
   -ms-animation-delay: 3.16s;
   -o-animation-delay: 3.16s;
 }
-/* line 215, ../../app/scss/application.scss */
+/* line 144, ../../app/scss/application.scss */
 .app-logo .flipper {
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -9469,7 +9399,7 @@ pre {
   -o-animation-name: flipper;
 }
 
-/* line 233, ../../app/scss/application.scss */
+/* line 162, ../../app/scss/application.scss */
 .headline {
   display: block;
   margin: 0px auto;
@@ -9488,7 +9418,7 @@ pre {
   -o-animation-delay: 4s;
 }
 @media only screen and (min-width: 768px) {
-  /* line 233, ../../app/scss/application.scss */
+  /* line 162, ../../app/scss/application.scss */
   .headline {
     font-size: 80px;
     font-size: 8rem;
@@ -9496,7 +9426,7 @@ pre {
   }
 }
 
-/* line 252, ../../app/scss/application.scss */
+/* line 181, ../../app/scss/application.scss */
 .overlay-modal {
   z-index: 999;
   position: fixed;
@@ -9509,7 +9439,7 @@ pre {
   background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
 }
 
-/* line 269, ../../app/scss/application.scss */
+/* line 198, ../../app/scss/application.scss */
 .project-detail {
   height: 90%;
   position: absolute;
@@ -9521,7 +9451,7 @@ pre {
   background: #fff;
   color: #000;
 }
-/* line 283, ../../app/scss/application.scss */
+/* line 212, ../../app/scss/application.scss */
 .project-detail .pic-frame {
   width: 100%;
   height: 100%;
@@ -9533,7 +9463,7 @@ pre {
   background-position: center center;
 }
 
-/* line 294, ../../app/scss/application.scss */
+/* line 223, ../../app/scss/application.scss */
 .spreadTheLove {
   text-align: center;
   padding: 10px 0px 20px;
@@ -9551,22 +9481,32 @@ pre {
   -ms-animation-delay: 4s;
   -o-animation-delay: 4s;
 }
-/* line 303, ../../app/scss/application.scss */
+/* line 232, ../../app/scss/application.scss */
 .spreadTheLove .loveicon {
   color: #e74c3c;
 }
 
-/* line 317, ../../app/scss/application.scss */
+/* line 246, ../../app/scss/application.scss */
 .menu {
   margin: 60px auto 80px;
+  -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 322, ../../app/scss/application.scss */
+@media only screen and (max-width: 320px) {
+  /* line 246, ../../app/scss/application.scss */
+  .menu {
+    opacity: 0;
+    margin: 0px;
+  }
+}
+/* line 256, ../../app/scss/application.scss */
 .menu .buttons {
   margin: 0px auto;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 329, ../../app/scss/application.scss */
+/* line 263, ../../app/scss/application.scss */
 .menu .buttons .item {
   display: inline-block;
   padding: 0px 20px;
@@ -9576,16 +9516,16 @@ pre {
   font-weight: 300;
   text-decoration: none;
 }
-/* line 340, ../../app/scss/application.scss */
+/* line 274, ../../app/scss/application.scss */
 .menu .buttons .item a {
   color: #fff;
 }
-/* line 343, ../../app/scss/application.scss */
+/* line 277, ../../app/scss/application.scss */
 .menu .buttons .item a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 350, ../../app/scss/application.scss */
+/* line 284, ../../app/scss/application.scss */
 .menu .buttons .item i {
   display: block;
   width: 0%;
@@ -9596,28 +9536,28 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 363, ../../app/scss/application.scss */
+/* line 297, ../../app/scss/application.scss */
 .menu .buttons .item:hover {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
 }
-/* line 368, ../../app/scss/application.scss */
+/* line 302, ../../app/scss/application.scss */
 .menu .buttons .item:hover i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 377, ../../app/scss/application.scss */
+/* line 311, ../../app/scss/application.scss */
 .menu .buttons .item.selected:hover, .menu .buttons .item.active:hover {
   cursor: default;
 }
-/* line 379, ../../app/scss/application.scss */
+/* line 313, ../../app/scss/application.scss */
 .menu .buttons .item.selected i, .menu .buttons .item.active i {
   background: #7b75cb;
   width: 100%;
 }
 
-/* line 392, ../../app/scss/application.scss */
+/* line 326, ../../app/scss/application.scss */
 .portofolio {
   opacity: 0;
   -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9630,7 +9570,7 @@ pre {
   -o-animation-delay: 4.5s;
   padding-bottom: 70px;
 }
-/* line 408, ../../app/scss/application.scss */
+/* line 342, ../../app/scss/application.scss */
 .portofolio .grid {
   margin-left: -15px;
   margin-right: -15px;
@@ -9645,7 +9585,7 @@ pre {
 .portofolio .grid:after {
   clear: both;
 }
-/* line 414, ../../app/scss/application.scss */
+/* line 348, ../../app/scss/application.scss */
 .portofolio .grid .grid-item {
   z-index: 1;
   position: relative;
@@ -9668,7 +9608,7 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 414, ../../app/scss/application.scss */
+  /* line 348, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9679,7 +9619,7 @@ pre {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 414, ../../app/scss/application.scss */
+  /* line 348, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9691,7 +9631,7 @@ pre {
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 414, ../../app/scss/application.scss */
+  /* line 348, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9702,13 +9642,13 @@ pre {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 414, ../../app/scss/application.scss */
+  /* line 348, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     height: 500px;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 414, ../../app/scss/application.scss */
+  /* line 348, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9718,7 +9658,7 @@ pre {
     padding-right: 15px;
   }
 }
-/* line 454, ../../app/scss/application.scss */
+/* line 388, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .tag {
   z-index: 3;
   opacity: 0;
@@ -9739,12 +9679,12 @@ pre {
   transform: translate(-50%, 200%);
 }
 @media only screen and (min-width: 768px) {
-  /* line 454, ../../app/scss/application.scss */
+  /* line 388, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .tag {
     padding: 10px 20px;
   }
 }
-/* line 478, ../../app/scss/application.scss */
+/* line 412, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .type {
   opacity: 0;
   z-index: 3;
@@ -9761,7 +9701,7 @@ pre {
   -o-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 496, ../../app/scss/application.scss */
+/* line 430, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb {
   z-index: 2;
   opacity: 0;
@@ -9774,7 +9714,7 @@ pre {
   background-position: center center;
   cursor: pointer;
 }
-/* line 515, ../../app/scss/application.scss */
+/* line 449, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb:after {
   content: '';
   opacity: 0;
@@ -9788,18 +9728,18 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 535, ../../app/scss/application.scss */
+/* line 469, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb img {
   display: none;
 }
-/* line 543, ../../app/scss/application.scss */
+/* line 477, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border {
   opacity: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
 }
-/* line 555, ../../app/scss/application.scss */
+/* line 489, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border svg .shape {
   fill: transparent;
   stroke: #5dd6ff;
@@ -9822,13 +9762,13 @@ pre {
   transition: all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 555, ../../app/scss/application.scss */
+  /* line 489, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .svg-border svg .shape {
     stroke-dashoffset: 1400;
     stroke-dasharray: 1400;
   }
 }
-/* line 592, ../../app/scss/application.scss */
+/* line 526, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .zoomer {
   z-index: 2;
   width: 100%;
@@ -9837,12 +9777,12 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 606, ../../app/scss/application.scss */
+/* line 540, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover {
   z-index: 999;
   cursor: pointer;
 }
-/* line 611, ../../app/scss/application.scss */
+/* line 545, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .tag {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -9850,11 +9790,11 @@ pre {
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-/* line 616, ../../app/scss/application.scss */
+/* line 550, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .type {
   opacity: 0.8;
 }
-/* line 621, ../../app/scss/application.scss */
+/* line 555, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .zoomer {
   -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
@@ -9863,38 +9803,38 @@ pre {
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
 }
-/* line 627, ../../app/scss/application.scss */
+/* line 561, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb {
   cursor: pointer;
 }
-/* line 633, ../../app/scss/application.scss */
+/* line 567, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb:after {
   opacity: 0.8;
 }
-/* line 639, ../../app/scss/application.scss */
+/* line 573, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border {
   opacity: 1;
 }
-/* line 643, ../../app/scss/application.scss */
+/* line 577, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border .shape {
   stroke: #8880fa;
   stroke-width: 3;
   stroke-dashoffset: 0;
 }
-/* line 660, ../../app/scss/application.scss */
+/* line 594, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader {
   z-index: 1;
   background: transparent;
 }
-/* line 668, ../../app/scss/application.scss */
+/* line 602, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.circle {
   fill: #000;
 }
-/* line 669, ../../app/scss/application.scss */
+/* line 603, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.light {
   fill: #16A4E6;
 }
-/* line 675, ../../app/scss/application.scss */
+/* line 609, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader {
   z-index: 1;
   width: 100%;
@@ -9903,7 +9843,7 @@ pre {
   text-align: center;
   vertical-align: middle;
 }
-/* line 687, ../../app/scss/application.scss */
+/* line 621, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .circle {
   width: 30px;
   height: 30px;
@@ -9938,7 +9878,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 706, ../../app/scss/application.scss */
+/* line 640, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .circle:before {
   content: '';
   display: block;
@@ -9951,7 +9891,7 @@ pre {
   border: 2px solid #000;
   border-left: 2px solid #16A4E6;
 }
-/* line 726, ../../app/scss/application.scss */
+/* line 660, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides {
   width: 25%;
   height: 1px;
@@ -9959,7 +9899,7 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 743, ../../app/scss/application.scss */
+/* line 677, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide {
   position: absolute;
   width: 25%;
@@ -9994,7 +9934,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 755, ../../app/scss/application.scss */
+/* line 689, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+1) {
   opacity: 0.2;
   -moz-transform: scale(1.8, 1);
@@ -10007,7 +9947,7 @@ pre {
   -ms-animation-delay: 0.2s;
   -o-animation-delay: 0.2s;
 }
-/* line 761, ../../app/scss/application.scss */
+/* line 695, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+2) {
   opacity: 0.4;
   -moz-transform: scale(1.4, 1);
@@ -10020,12 +9960,12 @@ pre {
   -ms-animation-delay: 0.1s;
   -o-animation-delay: 0.1s;
 }
-/* line 767, ../../app/scss/application.scss */
+/* line 701, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+3) {
   opacity: 0.8;
 }
 
-/* line 787, ../../app/scss/application.scss */
+/* line 721, ../../app/scss/application.scss */
 .animateGridItem {
   /*
   &.ng-enter-stagger,
@@ -10049,7 +9989,7 @@ pre {
     }
   }*/
 }
-/* line 789, ../../app/scss/application.scss */
+/* line 723, ../../app/scss/application.scss */
 .animateGridItem.ng-enter, .animateGridItem.ng-leave {
   -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10065,7 +10005,7 @@ pre {
   -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 796, ../../app/scss/application.scss */
+/* line 730, ../../app/scss/application.scss */
 .animateGridItem.ng-enter {
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
@@ -10078,7 +10018,7 @@ pre {
   -ms-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
 }
-/* line 802, ../../app/scss/application.scss */
+/* line 736, ../../app/scss/application.scss */
 .animateGridItem.ng-leave {
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
@@ -10092,11 +10032,11 @@ pre {
   -o-animation-name: fadeOutDown;
 }
 
-/* line 840, ../../app/scss/application.scss */
+/* line 774, ../../app/scss/application.scss */
 #loading-bar .bar {
   background: #19b5fe;
 }
-/* line 842, ../../app/scss/application.scss */
+/* line 776, ../../app/scss/application.scss */
 #loading-bar .peg {
   -moz-box-shadow: #19b5fe 1px 0 6px 1px;
   -ms-box-shadow: #19b5fe 1px 0 6px 1px;
@@ -10104,18 +10044,18 @@ pre {
   box-shadow: #19b5fe 1px 0 6px 1px;
 }
 
-/* line 850, ../../app/scss/application.scss */
+/* line 784, ../../app/scss/application.scss */
 #loading-bar-spinner .spinner-icon {
   border-top-color: #19b5fe;
   border-left-color: #19b5fe;
 }
 
-/* line 859, ../../app/scss/application.scss */
+/* line 793, ../../app/scss/application.scss */
 .main-container {
   z-index: 2;
 }
 
-/* line 861, ../../app/scss/application.scss */
+/* line 795, ../../app/scss/application.scss */
 fx-stringz {
   opacity: 0;
   z-index: -1;
@@ -10124,7 +10064,7 @@ fx-stringz {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 874, ../../app/scss/application.scss */
+/* line 808, ../../app/scss/application.scss */
 fx-stringz canvas {
   width: 100%;
   height: 100%;
@@ -10132,7 +10072,7 @@ fx-stringz canvas {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 884, ../../app/scss/application.scss */
+/* line 818, ../../app/scss/application.scss */
 fx-stringz.animated {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10150,7 +10090,7 @@ fx-stringz.animated {
   -ms-animation-duration: 1.6s;
   -o-animation-duration: 1.6s;
 }
-/* line 890, ../../app/scss/application.scss */
+/* line 824, ../../app/scss/application.scss */
 fx-stringz.animated canvas {
   animation-duration: 5s;
   -webkit-animation-duration: 5s;
@@ -10174,7 +10114,7 @@ fx-stringz.animated canvas {
   -o-animation-name: pulse;
 }
 
-/* line 905, ../../app/scss/application.scss */
+/* line 839, ../../app/scss/application.scss */
 .hintMore {
   z-index: -1;
   opacity: 0;
@@ -10188,13 +10128,13 @@ fx-stringz.animated canvas {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 921, ../../app/scss/application.scss */
+/* line 855, ../../app/scss/application.scss */
 .hintMore .message {
   display: inline-block;
   padding: 10px;
   background: #00f;
 }
-/* line 927, ../../app/scss/application.scss */
+/* line 861, ../../app/scss/application.scss */
 .hintMore .message span.icon {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -10222,7 +10162,7 @@ fx-stringz.animated canvas {
   -ms-animation-delay: 2s;
   -o-animation-delay: 2s;
 }
-/* line 936, ../../app/scss/application.scss */
+/* line 870, ../../app/scss/application.scss */
 .hintMore.ui-show {
   z-index: 10;
   animation-duration: 0.32s;
@@ -10247,7 +10187,7 @@ fx-stringz.animated canvas {
   -o-animation-name: fadeInUp;
   opacity: 1;
 }
-/* line 946, ../../app/scss/application.scss */
+/* line 880, ../../app/scss/application.scss */
 .hintMore.ui-hide {
   -moz-transform: translate3d(0, 200%, 0);
   -ms-transform: translate3d(0, 200%, 0);
@@ -10257,9 +10197,174 @@ fx-stringz.animated canvas {
   z-index: -1;
 }
 
-/* line 960, ../../app/scss/application.scss */
+/* line 894, ../../app/scss/application.scss */
 .tilter3D {
   -webkit-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* line 903, ../../app/scss/application.scss */
+.modal-wrapper > .modal {
+  display: block;
+}
+
+/* line 904, ../../app/scss/application.scss */
+.ngdialog .ngdialog-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 909, ../../app/scss/application.scss */
+.fancybox-lock {
+  overflow: visible !important;
+}
+
+/* line 910, ../../app/scss/application.scss */
+.fancybox-overlay {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: -webkit-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+}
+
+/* line 916, ../../app/scss/application.scss */
+.fancybox-close {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  background: #121212;
+  border: 1px dashed #444;
+  text-align: center;
+  text-decoration: none;
+  top: 5px;
+  right: 5px;
+  -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-duration: 0.32s;
+  -webkit-animation-duration: 0.32s;
+  -moz-animation-duration: 0.32s;
+  -ms-animation-duration: 0.32s;
+  -o-animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-name: bounceIn;
+  -webkit-animation-name: bounceIn;
+  -moz-animation-name: bounceIn;
+  -ms-animation-name: bounceIn;
+  -o-animation-name: bounceIn;
+}
+/* line 931, ../../app/scss/application.scss */
+.fancybox-close:before {
+  content: "\f00d";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 952, ../../app/scss/application.scss */
+.fancybox-close:hover {
+  background: #ff0000;
+  text-decoration: none;
+}
+/* line 956, ../../app/scss/application.scss */
+.fancybox-close:hover:before {
+  color: #121212;
+}
+
+/* line 973, ../../app/scss/application.scss */
+.strp-window {
+  background: none;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: -webkit-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+  background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
+}
+/* line 979, ../../app/scss/application.scss */
+.strp-window .strp-container {
+  background: none;
+}
+/* line 982, ../../app/scss/application.scss */
+.strp-window .strp-close {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  top: 10px;
+  left: 10px;
+  right: auto;
+  text-align: center;
+}
+/* line 995, ../../app/scss/application.scss */
+.strp-window .strp-close .strp-close-background,
+.strp-window .strp-close .strp-close-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 1008, ../../app/scss/application.scss */
+.strp-window .strp-close .strp-close-background {
+  background: #121212;
+  border: 1px dashed #444;
+  -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 1017, ../../app/scss/application.scss */
+.strp-window .strp-close .strp-close-icon {
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+/* line 1023, ../../app/scss/application.scss */
+.strp-window .strp-close .strp-close-icon:before {
+  content: "\f00d";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: #fff;
+  font: normal normal normal 14px/40px FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 1052, ../../app/scss/application.scss */
+.strp-window .strp-close:hover .strp-close-background {
+  background: #ff0000;
+}
+/* line 1053, ../../app/scss/application.scss */
+.strp-window .strp-close:hover .strp-close-icon:before {
+  color: #121212;
 }

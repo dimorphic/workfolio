@@ -6,7 +6,7 @@
     // Dependencies
     //
     var dependencyModules = [
-        'Console', 'underscore',
+        'Console', 'underscore', 'Strip',
         'ngTouch',
         'ui.router',
         'ui.bootstrap',

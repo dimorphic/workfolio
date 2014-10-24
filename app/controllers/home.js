@@ -97,6 +97,7 @@
                 $scope.setFilter("");
             } else {
                 $scope.setFilter(newValue);
+
             }
         });
 

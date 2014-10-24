@@ -17,7 +17,7 @@
     <!-- SITE: INFO -->
     <meta name="author" content="Sabin Tudor">
     <meta name="description" content="">
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="personal, work, portofolio, workfolio, sabin, tudor, dimorphic" />
 
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
 
@@ -48,15 +48,18 @@
 
 <body no-scroll>
 
+    <!-- MAIN CONTAINER -->
     <div class="main-container">
         <div ui-view></div>
     </div>
 
+    <!-- SEXY BEAST -->
     <fx-stringz></fx-stringz>
 
+    <!-- FOOTER -->
     <footer class="spreadTheLove animated fadeIn">
-        <p>Best viewed in Chrome</p>
         <p>Made with <span class="fa fa-heart loveicon"></span> in Romania</p>
+        <p>Best viewed in Chrome</p>
     </footer>
 
     <!--
@@ -103,7 +106,6 @@
     <script src="/components/angular-ui-utils/showhide.min.js"></script>
     <script src="/components/angular-loading-bar/build/loading-bar.min.js"></script>
     <script src="/components/nginfinitescroll/build/ng-infinite-scroll.min.js"></script>
-    <!--<script src="/components/angular-morph/dist/angular-morph.min.js"></script>-->
 
     <!-- Sylvester (TODO: WIP for 3d Tilter) -->
     <!--<script src="/components/sylvester/sylvester.js"></script>-->
@@ -111,9 +113,14 @@
 
     <!-- @end AngularJs -->
 
+    <!-- Strip -->
+    <script src="/components/strip/js/strip.pkgd.min.js"></script>
+    <script src="/components/angular-extra/angular-strip.js"></script>
+
+    <!--<script src="/components/fancybox/source/jquery.fancybox.pack.js"></script>-->
+
     <!-- Helpers -->
     <script src="/js/_helpers.js"></script>
-    <script src="/components/fancybox/source/jquery.fancybox.pack.js"></script>
 
     <!--
     // ---------------------------------------------------------------------------- //
@@ -121,8 +128,6 @@
     // ---------------------------------------------------------------------------- //
     // TODO: make bundle of app deps and merge with component deps in 1 file? mhm..
     -->
-
-    <!--<script src="/controllers/home.js"></script>-->
 
     <script src="/controllers/controllers.bundle.js"></script>
     <script src="/models/models.bundle.js"></script>

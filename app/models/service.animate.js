@@ -13,8 +13,8 @@
 
     // TO DO: double check this?
     appService.factory('AnimateService',
-        ['_', '$rootScope', '$window',
-        function(_, $rootScope, $window) {
+        ['$rootScope', '$window', '$timeout',
+        function($rootScope, $window, $timeout) {
 
             //
             // Define raF

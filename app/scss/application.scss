@@ -5,12 +5,9 @@
 // ---------------------------------------------------------------------------- //
 // 3rd party "resources"
 
-//@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css");
-
 @import url("//cdn.jsdelivr.net/animatecss/3.1.0/animate.css"); // Animate.css
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
-//@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
-@import url("//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext"); // Dosis
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
 
 // ---------------------------------------------------------------------------- //
 // ---------- APP DEPENDENCIES ------------------------------------------------ //
@@ -21,12 +18,14 @@
 // SCSS Framework + DEBUG styles (Compass)
 @import "compass/css3";
 
+// Bootstrap
 @import "lib/bootstrap/assets/stylesheets/_bootstrap-compass";
 @import "lib/bootstrap/assets/stylesheets/_bootstrap";
 
 // Other components
 @import "/components/angular-loading-bar/build/loading-bar.css";
-@import "/components/fancybox/source/jquery.fancybox.css";
+@import "/components/strip/css/strip.css";
+//@import "/components/fancybox/source/jquery.fancybox.css";
 
 // Debug-belt (TODO: disable for production?)
 @import "_debug";
@@ -85,76 +84,6 @@ pre {
   color: #fff;
 }
 
-// Custom fixes
-// TODO: clean up
-.modal-wrapper > .modal { display: block; } // oc.modal display fix
-.ngdialog .ngdialog-content { width:100%; height: 100%; } // ngDialog fix
-
-// fancybox
-.fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
-.fancybox-overlay {
-  //@include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
-  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
-}
-
-// close bttn
-.fancybox-close {
-  width: auto;
-  height: auto;
-
-  padding: 20px;
-
-  background: #121212;
-  border: 1px dashed #444;
-
-  text-align: center;
-  text-decoration: none;
-
-  top: 5px;
-  right: 5px;
-
-  @include transition(all 0.16s ease-in);
-
-  &:before {
-    content: "\f00d";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-
-    color: #fff;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 40px;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  
-  &:hover {
-    background: #ff0000;
-    text-decoration: none;
-
-    &:before { color: #121212; }
-  }
-
-  // Animation ready / Force HA
-  @extend .noflicker;
-  @include transition(all 0.2s $animationEasing);
-
-  @include animation-duration(0.32s);
-  @include animation-timing-function($animationEasing);
-  @include animation-iteration-count(1);
-  @include animation-name(bounceIn);
-
-}
-
-
 .main-container { }
 
 // App logo
@@ -205,7 +134,7 @@ pre {
     margin-top: 40px;
 
     // Animation ready / Force HA
-    @extend .noflicker;
+    @extend %noflicker;
     @include transition(all 0.3s $animationEasing);
 
     @include animation-delay(3.16s);
@@ -216,7 +145,7 @@ pre {
     @include transform-origin(center center);
 
     // Animation ready / Force HA
-    @extend .noflicker;
+    @extend %noflicker;
     @include transition(all 0.4s $animationEasing);
 
     //@include animate(flipper, 0.32s, 0.2s, $animationEasing);
@@ -243,7 +172,7 @@ pre {
   @include small() { @include font-size(80, 1); }
 
   // Animation ready / Force HA
-  @extend .noflicker;
+  @extend %noflicker;
   @include transition(all 0.4s $animationEasing);
 
   @include animation-delay(4s);
@@ -305,7 +234,7 @@ pre {
   }
 
   // Animation ready / Force HA
-  @extend .noflicker;
+  @extend %noflicker;
   @include transition(all 0.4s $animationEasing);
 
   @include animation-delay(4s);
@@ -317,6 +246,11 @@ pre {
 .menu {
 
   margin: 60px auto 80px;
+
+  @include transition(all 0.4s $animationEasing);
+
+  // Responsiveness
+  @include hand() { opacity: 0; margin: 0px; }
 
   // buttons
   .buttons {
@@ -394,7 +328,7 @@ pre {
   opacity: 0;
 
   // Animation ready / Force HA
-  @extend .noflicker;
+  @extend %noflicker;
   @include transition(all 0.4s $animationEasing);
 
   @include animation-delay(4.5s);
@@ -447,7 +381,7 @@ pre {
       float: none !important; // remove floats
 
       // Animation ready / Force HA
-      @extend .noflicker;
+      @extend %noflicker;
       @include transition(all 0.4s $animationEasing);
 
       // tag line
@@ -455,7 +389,7 @@ pre {
         z-index: 3;
         opacity: 0;
 
-        @extend .translateCenter;
+        @extend %translateCenter;
         padding: 10px;
 
         @include font-size(12, 1);
@@ -468,7 +402,7 @@ pre {
         @include small() { padding: 10px 20px; }
 
         // Animation ready / Force HA
-        @extend .noflicker;
+        @extend %noflicker;
         @include transition(all 0.2s $animationEasing);
 
         @include transform(translate(-50%, 200%));
@@ -500,7 +434,7 @@ pre {
         width: 100%;
         height: 100%;
 
-        @extend .positionCenter;
+        @extend %positionCenter;
         @include background-size(cover);
         background-position: center center;
 
@@ -508,7 +442,7 @@ pre {
         //border: 2px transparent;
 
         // Animation ready / Force HA
-        @extend .noflicker;
+        @extend %noflicker;
         //@include transition(all 0.3s $animationEasing);
 
         // Gradient mask overlay
@@ -527,7 +461,7 @@ pre {
           //@include background-image(linear-gradient(120deg, rgba(27, 25, 31, 1) 0%, rgba(35, 27, 134, 1) 100%));
 
           // Animation ready / Force HA
-          @extend .noflicker;
+          @extend %noflicker;
           @include transition(all 0.3s $animationEasing);
         }
 
@@ -598,7 +532,7 @@ pre {
         @extend .positionCenter;
 
         // Animation ready / Force HA
-        @extend .noflicker; // TODO: might cause issues, double check this!
+        @extend %noflicker; // TODO: might cause issues, double check this!
         @include transition(all 0.3s $animationEasing);
       }
 
@@ -662,7 +596,7 @@ pre {
         background: transparent;
 
         svg {
-          @extend .positionCenter;
+          @extend %positionCenter;
 
           path {
             &.circle { fill: #000; }
@@ -700,7 +634,7 @@ pre {
           border: $ringBorder solid $ringBg;
 
           // Animation ready / Force HA
-          @extend .noflicker;
+          @extend %noflicker;
           @include animate(spin, 0.5s, 0s, linear, infinite);
 
           &:before {
@@ -736,7 +670,7 @@ pre {
           height: $slideSize;
 
           // Animation ready
-          @extend .noflicker;
+          @extend %noflicker;
           @include transition(all 0.3s $animationEasing);
 
           // slide
@@ -749,7 +683,7 @@ pre {
             background: $slideColor;
 
             // Animation ready / Force HA
-            @extend .noflicker;
+            @extend %noflicker;
             @include animate(slide, 1.16s, 0s, $animationEasing, infinite);
 
             &:nth-of-type(0n+1) {
@@ -787,7 +721,7 @@ pre {
 .animateGridItem {
 
   &.ng-enter, &.ng-leave {
-    @extend .noflicker;
+    @extend %noflicker;
     @include transition(all 0.3s $animationEasing);
     @include animation-duration(0.3s);
     @include animation-timing-function($animationEasing);
@@ -866,7 +800,7 @@ fx-stringz {
   position: fixed;
 
   // Animation ready / Force HA
-  @extend .noflicker;
+  @extend %noflicker;
   @include transition(all 0.4s $animationEasing);
 
 
@@ -876,7 +810,7 @@ fx-stringz {
     height: 100%;
 
     // Animation ready / Force HA
-    @extend .noflicker;
+    @extend %noflicker;
     @include transition(all 0.4s $animationEasing);
   }
 
@@ -915,7 +849,7 @@ fx-stringz {
   padding: 30px;
 
   // Animation ready / Force HA
-  @extend .noflicker;
+  @extend %noflicker;
   @include transition(all 0.3s $animationEasing);
 
   .message {
@@ -959,6 +893,168 @@ fx-stringz {
 
 .tilter3D {
   // Animation ready
-  @extend .noflicker; // force 3d render
+  @extend %noflicker; // force 3d render
   @include transition(transform $animationEasing);
+}
+
+
+// Custom fixes
+// TODO: clean up
+.modal-wrapper > .modal { display: block; } // oc.modal display fix
+.ngdialog .ngdialog-content { width:100%; height: 100%; } // ngDialog fix
+
+//
+// Fancybox customization
+//
+.fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
+.fancybox-overlay {
+  //@include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
+  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
+}
+
+// close bttn
+.fancybox-close {
+  width: auto;
+  height: auto;
+
+  padding: 20px;
+
+  background: #121212;
+  border: 1px dashed #444;
+
+  text-align: center;
+  text-decoration: none;
+
+  top: 5px;
+  right: 5px;
+
+  &:before {
+    content: "\f00d";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 40px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:hover {
+    background: #ff0000;
+    text-decoration: none;
+
+    &:before { color: #121212; }
+  }
+
+  // Animation ready / Force HA
+  @extend %noflicker;
+  @include transition(all 0.2s $animationEasing);
+
+  @include animation-duration(0.32s);
+  @include animation-timing-function($animationEasing);
+  @include animation-iteration-count(1);
+  @include animation-name(bounceIn);
+
+}
+
+//
+// Strip customization
+//
+.strp-window {
+
+  background: none;
+  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
+
+  // strip container
+  .strp-container { background: none; }
+
+  // close bttn container
+  .strp-close {
+    width: auto;
+    height: auto;
+
+    padding: 20px;
+
+    top: 10px;
+    left: 10px;
+    right: auto;
+
+    text-align: center;
+
+    // Close bttn
+    .strp-close-background,
+    .strp-close-icon {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    // bg
+    .strp-close-background {
+      background: #121212;
+      border: 1px dashed #444;
+
+      // Animation ready / Force HA
+      @include transition(all 0.2s $animationEasing);
+    }
+
+    // icon
+    .strp-close-icon {
+      width: 100%;
+      height: 100%;
+
+      background: none;
+
+      &:before {
+        content: "\f00d";
+        display: inline-block;
+        
+        width: 100%;
+        height: 100%;
+
+        background: transparent;
+
+        color: #fff;
+        font: normal normal normal 14px/40px FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    // hover action
+    &:hover {
+
+      .strp-close-background { background: #ff0000; }
+      .strp-close-icon:before {
+        color: #121212;
+      }
+    }
+
+  }
+
 }

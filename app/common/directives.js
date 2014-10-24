@@ -61,8 +61,8 @@
                     $path = $(this);
                     pathLen = this.getTotalLength();
 
-                    // console.log("$path : ", $path);
-                    // console.log("path len : ", pathLen);
+                    //console.log("$path : ", $path);
+                    //console.log("path len : ", pathLen);
 
                     $path.css({
                        "stroke-dasharray": "" + pathLen + " " + pathLen,
@@ -73,7 +73,9 @@
                     });
 
                     pathRect = this.getBoundingClientRect();
-                    // console.log("rect : ", pathRect);
+
+                    //console.log("rect : ", pathRect);
+                    //console.log(" ");
 
                     $path.css({
                        "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
@@ -121,184 +123,171 @@
     //
     // Loading SVG icon
     //
-    appDirectives.directive("loadIcon", function($timeout) {
-        var tpl = 'templates/directives/load-icon.tpl.html';
+    appDirectives.directive("loadIcon",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/load-icon.tpl.html';
 
-        // Link to DOM
-        var link = function(scope, element, attrs) { };
+            // Link to DOM
+            var link = function(scope, element, attrs) { };
 
-        // Return directive config
-        return {
-            restrict: "E",
-            templateUrl: tpl,
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
 
     //
     // Hint more @ infinite scroller
     //
-    appDirectives.directive("infiniteHintMore", function($timeout) {
-        var tpl = 'templates/directives/hint-more.tpl.html';
+    appDirectives.directive("infiniteHintMore",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/hint-more.tpl.html';
 
-        // Link to DOM
-        var link = function(scope, element, attrs) { };
+            // Link to DOM
+            var link = function(scope, element, attrs) { };
 
-        // Return directive config
-        return {
-            restrict: "E",
-            templateUrl: tpl,
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
 
     //
     // Grid
     //
 
     // grid item
-    appDirectives.directive("gridItem", function($timeout) {
-        var tpl = 'templates/directives/grid.item.tpl.html';
+    appDirectives.directive("gridItem",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/grid.item.tpl.html';
 
-        // Animate each box
-        var fadeDirections = [ "Up", "Down", "Left", "Right" ];
+            // Animate each box
+            var fadeDirections = [ "Up", "Down", "Left", "Right" ];
 
-        // Link to DOM
-        var link = function(scope, element, attrs) {
-            // do nothing if no model
-            if(!scope.project) {
-                console.warn('No project scope set! returning...');
-                return;
-            }
+            // Link to DOM
+            var link = function(scope, element, attrs) {
+                // do nothing if no model
+                if(!scope.project) {
+                    //console.warn('No project scope set! returning...');
+                    return;
+                }
 
-            // continue, do stuffz!
-            var $item = element.find(".grid-item");
-            var $thumb = element.find(".thumb");
-            var $img = $thumb.find("img");
+                // continue, do stuffz!
+                var $item = element.find(".grid-item");
+                var $thumb = element.find(".thumb");
+                var $img = $thumb.find("img");
 
-            var src = scope.project.thumbUrl;
+                var src = scope.project.thumbUrl;
 
-            var fxClass = _.sample(fadeDirections, 1);
-            //var delay = element.index() * 0.1 + 's';
+                var fxClass = _.sample(fadeDirections, 1);
+                //var delay = element.index() * 0.1 + 's';
 
-            var handleClick = function (e) {
-                e.preventDefault();
+                // open lightbox
+                var handleClick = function (e) {
+                    e.preventDefault();
 
-                //console.log('clicky! @ ', scope.project);
-                scope.$broadcast("lightBox:open");
+                    scope.$broadcast("lightBox:open");
+                };
+
+                // console.log("img loaded before: ", $img.complete);
+
+                // bind once
+                $img.one("load", function() {
+
+                    $timeout(function() {
+                        //console.log("running fx @ ", src);
+
+                        // set background image
+                        $thumb.css("background-image", 'url(' + src + ')');
+
+                        // fade item in
+                        $thumb.addClass("animated fadeIn" + fxClass);
+
+                        // set item to 'loaded' state
+                        $item.addClass("loaded");
+
+                        // add click event
+                        element.on("click", handleClick);
+
+                    }, 500);
+
+                });
+
             };
 
-            // console.log("img loaded before: ", $img.complete);
-
-            // bind once
-            $img.one("load", function() {
-
-                $timeout(function() {
-                    //console.log("running fx @ ", src);
-
-                    // set background image
-                    $thumb.css("background-image", 'url(' + src + ')');
-
-                    // fade item in
-                    $thumb.addClass("animated fadeIn" + fxClass);
-
-                    // set item to 'loaded' state
-                    $item.addClass("loaded");
-
-                    // add click event
-                    element.on("click", handleClick);
-
-                }, 500);
-
-            });
-
-        };
-
-        // Return directive config
-        return {
-            restrict: "E",
-            // create scope alias to model
-            /*scope: {
-            	project: '=project'
-            },*/
-            templateUrl: tpl,
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "E",
+                // create scope alias to model
+                /*scope: {
+                    project: '=project'
+                },*/
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
 
     //
     //  Swipebox directive
     //
-    appDirectives.directive("lightBox", function($compile, $http, $timeout) {
-        var tpl = 'templates/partials/lightbox.tpl.html';
+    appDirectives.directive("lightBox",
+        ['$timeout', 'Strip',
+        function($timeout, Strip) {
+            var tpl = 'templates/partials/lightbox.tpl.html';
 
-        // DOM link
-        var link = function(scope, element, attrs) {
-            // group tag
-            if (attrs.lightBox) {
-                element.attr('rel', attrs.lightBox);
-            }
+            var $boxOptions = {
+                side: 'right'
+            };
 
-            var $img = element.find("img");
+            // DOM link
+            var link = function(scope, element, attrs) {
 
-            // bind once
-            $img.one("load", function() {
-                // console.log("lighbox img loaded bro!");
+                // catch image
+                var $img = element.find("img");
 
-                // get template
-                /*
+                // bind once
+                $img.one("load", function() {
 
-                $http.get(tpl).then(function(response) {
-                   if(response.status === 200) {
-                       var template = angular.element(response.data);
-                       var compiledTemplate = $compile(template);
-                       compiledTemplate(scope);
+                    /*var $project = {
+                        href: scope.project.thumbUrl,
+                        title: scope.project.name
+                    };*/
 
+                    var $project = {
+                        url: scope.project.thumbUrl,
+                        caption: scope.project.name
+                    };
 
-                       // bind click event
-                       $(element).on("click", function() {
-                           $.fancybox.open({ content: template, type: 'html'});
+                    // wait for event to open light box
+                    scope.$on('lightBox:open', function(data) {
+                        // strip implementation
+                        Strip.show($project, $boxOptions);
 
-                           $timeout(function() {
-                               $.fancybox.close();
-                           }, 2000);
-                       });
-                   }
-                });
-                */
+                        // fancybox implementation
+                        //$.fancybox($project, { padding: 0, openEffect: 'elastic' });
+                    });
 
-/*
-                $http.get(tpl).then(function(response) {
-                    if(response.status === 200) {
-                        var template = angular.element(response.data);
-                        var compiledTemplate = $compile(template)(scope);
-
-
-                    }
-                });
-*/
-
-
-                var $project = {
-                    href: scope.project.thumbUrl,
-                    title: scope.project.name
-                };
-
-                scope.$on('lightBox:open', function(data) {
-                    //console.log("lightBox event @ ", $project);
-                    $.fancybox($project, { padding: 0, openEffect: 'elastic' });
                 });
 
-            });
+            };
 
-        };
-
-        // Return directive config
-        return {
-            restrict: "A",
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "A",
+                link: link
+            };
+        }
+    ]);
 
     //
     //  Experimental: fxStringz
@@ -346,13 +335,13 @@
                 var count = (mobileDevice) ? 20 : 100;
 
                 // Resize handler
-                scope.onResize = function() {
+                var resizeHandler = function() {
                     W = canvas.width = window.innerWidth;
                     H = canvas.height = window.innerHeight;
 
                     // console.log("on resize trigger bro!");
                 };
-                scope.onResize(); // ... and actually call it
+                resizeHandler(); // ... and actually call it
 
                 //
                 // Point properties and behaviour
@@ -481,7 +470,7 @@
 
                         // ... also bind to window resize event
                         angular.element($window).bind('resize', function() {
-                            scope.onResize();
+                            resizeHandler();
                         });
                     }
 
@@ -505,63 +494,66 @@
     //
     //  Experimental: 3d tilter
     //
-    appDirectives.directive("3dTilter", function($rootScope, $timeout, $M) {
-        // Link to DOM
-        var link = function(scope, element, attrs) {
+    appDirectives.directive("3dTilter",
+        ['$rootScope', '$timeout', '$M',
+        function($rootScope, $timeout, $M) {
+            // Link to DOM
+            var link = function(scope, element, attrs) {
 
-            element.addClass("tilter3D");
+                element.addClass("tilter3D");
 
-            //ßconsole.log('3d tilter on!');
+                //ßconsole.log('3d tilter on!');
 
-            // click event
-            /*element.on("click", function() {
-                console.log("tilter click");
-            });*/
+                // click event
+                /*element.on("click", function() {
+                    console.log("tilter click");
+                });*/
 
-            // mouse move / tilt
-            element.on("mousemove", function(e) {
-                //console.log('3d tilter move!');
+                // mouse move / tilt
+                element.on("mousemove", function(e) {
+                    //console.log('3d tilter move!');
 
-                var x, y;
+                    var x, y;
 
-                x = ( e.pageX - element.offset().left - ( element.outerWidth(true) / 2 ) ) * -1 / 9;
-                y = ( e.pageY - element.offset().top - ( element.outerHeight(true) / 2 ) ) * -1 / 9;
+                    x = ( e.pageX - element.offset().left - ( element.outerWidth(true) / 2 ) ) * -1 / 9;
+                    y = ( e.pageY - element.offset().top - ( element.outerHeight(true) / 2 ) ) * -1 / 9;
 
-                // simplify numbers for our matrix
-                x /= 15;
-                y /= 15;
+                    // simplify numbers for our matrix
+                    x /= 15;
+                    y /= 15;
 
-                // sylvester matrix
-                var tM = $M([
-                    [1, 0, 0, -x*1E-4],
-                    [0, 1, 0, -y*1E-4],
-                    [0, 0, 1, 1],
-                    [0, 0, 0, 1]
-                ]);
+                    // sylvester matrix
+                    var tM = $M([
+                        [1, 0, 0, -x*1E-4],
+                        [0, 1, 0, -y*1E-4],
+                        [0, 0, 1, 1],
+                        [0, 0, 0, 1]
+                    ]);
 
-                // matrix position
-                var pos = "matrix3d(";
+                    // matrix position
+                    var pos = "matrix3d(";
 
-                pos += tM.e(1,1).toFixed(10) + "," + tM.e(1,2).toFixed(10) + "," + tM.e(1,3).toFixed(10) + "," + tM.e(1,4).toFixed(10) + ",";
-                pos += tM.e(2,1).toFixed(10) + "," + tM.e(2,2).toFixed(10) + "," + tM.e(2,3).toFixed(10) + "," + tM.e(2,4).toFixed(10) + ",";
-                pos += tM.e(3,1).toFixed(10) + "," + tM.e(3,2).toFixed(10) + "," + tM.e(3,3).toFixed(10) + "," + tM.e(3,4).toFixed(10) + ",";
-                pos += tM.e(4,1).toFixed(10) + "," + tM.e(4,2).toFixed(10) + "," + tM.e(4,3).toFixed(10) + "," + tM.e(4,4).toFixed(10);
+                    pos += tM.e(1,1).toFixed(10) + "," + tM.e(1,2).toFixed(10) + "," + tM.e(1,3).toFixed(10) + "," + tM.e(1,4).toFixed(10) + ",";
+                    pos += tM.e(2,1).toFixed(10) + "," + tM.e(2,2).toFixed(10) + "," + tM.e(2,3).toFixed(10) + "," + tM.e(2,4).toFixed(10) + ",";
+                    pos += tM.e(3,1).toFixed(10) + "," + tM.e(3,2).toFixed(10) + "," + tM.e(3,3).toFixed(10) + "," + tM.e(3,4).toFixed(10) + ",";
+                    pos += tM.e(4,1).toFixed(10) + "," + tM.e(4,2).toFixed(10) + "," + tM.e(4,3).toFixed(10) + "," + tM.e(4,4).toFixed(10);
 
-                pos += ")";
+                    pos += ")";
 
-                // set 3d tilt shift
-                element.css("transform", pos);
-            });
+                    // set 3d tilt shift
+                    element.css("transform", pos);
+                });
 
 
-        };
+            };
 
-        // Return directive config
-        return {
-            restrict: "AC",
-            link: link
-        };
-    });
+            // Return directive config
+            return {
+                restrict: "AC",
+                link: link
+            };
+        }
+    ]);
 
 
 // end directives
