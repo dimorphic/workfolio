@@ -13,7 +13,7 @@
 		// General config
 		'GENERAL_CONFIG': {
 			'APP_VERSION': '0.1', // version
-			'FBURL': 'https://URL.firebaseio.com/' // end this with a trailing slash
+			'DBURL': 'https://spreadsheets.google.com/feeds/list/1BVPdAa0j09ZdP_3u1AhId941gUpKcngBMliDL7GYnGA/od6/public/values?alt=json-in-script' + '&callback=JSON_CALLBACK' // google docs as db
 		},
 
 		// Development settings
@@ -25,20 +25,15 @@
 	// set constants
 	appConfig.constant(configData);
 
-	// angular.forEach(configData, function(key,value) {
-	//   appConfig.constant(value,key);
-	// });
-
 	// Decorate $log provider
 	appConfig.config(['$logProvider', function ($logProvider) {
 
 		if(configData['DEV_CONFIG'].debugEnabled) {
 			// uncomment to enable dev logging in the app
-			$logProvider.debugEnabled(true); // not working atm for some reason ??!
-
-			//console.log("[DEV MODE] Debug logging ON");
+			$logProvider.debugEnabled(true); // todo: finish
 		}
 
 	}]);
 
+// end
 })(angular);

@@ -7218,7 +7218,7 @@ button.close {
 }
 
 /* line 99, ../../app/scss/_mixins.scss */
-.app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides, .portofolio .grid .grid-item .icon-loader .slides .slide, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D, .fancybox-close {
+.app-logo .tagline, .app-logo .flipper, .headline, .spreadTheLove, .portofolio, .portofolio .grid .grid-item, .portofolio .grid .grid-item .tag, .portofolio .grid .grid-item .tag .title, .portofolio .grid .grid-item .thumb, .portofolio .grid .grid-item .thumb:after, .portofolio .grid .grid-item .zoomer, .portofolio .grid .grid-item .icon-loader .circle, .portofolio .grid .grid-item .icon-loader .slides, .portofolio .grid .grid-item .icon-loader .slides .slide, .animateGridItem.ng-enter, .animateGridItem.ng-leave, fx-stringz, fx-stringz canvas, .hintMore, .tilter3D, .fancybox-close {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -7342,6 +7342,7 @@ h4 {
 /* line 26, ../../app/scss/_global.scss */
 input, button, select, textarea {
   font-family: inherit;
+  color: #000;
 }
 
 /* line 29, ../../app/scss/_global.scss */
@@ -8094,132 +8095,132 @@ input, textarea, [contenteditable] * {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(49px, 9999px, 468px, 0);
+    clip: rect(54px, 9999px, 499px, 0);
   }
   5% {
-    clip: rect(346px, 9999px, 462px, 0);
+    clip: rect(346px, 9999px, 276px, 0);
   }
   10% {
-    clip: rect(437px, 9999px, 183px, 0);
+    clip: rect(479px, 9999px, 9px, 0);
   }
   15.0% {
-    clip: rect(509px, 9999px, 553px, 0);
+    clip: rect(154px, 9999px, 25px, 0);
   }
   20% {
-    clip: rect(299px, 9999px, 328px, 0);
+    clip: rect(447px, 9999px, 444px, 0);
   }
   25% {
-    clip: rect(257px, 9999px, 264px, 0);
+    clip: rect(543px, 9999px, 498px, 0);
   }
   30.0% {
-    clip: rect(377px, 9999px, 20px, 0);
+    clip: rect(637px, 9999px, 61px, 0);
   }
   35% {
-    clip: rect(497px, 9999px, 602px, 0);
+    clip: rect(311px, 9999px, 596px, 0);
   }
   40% {
-    clip: rect(21px, 9999px, 34px, 0);
+    clip: rect(295px, 9999px, 402px, 0);
   }
   45% {
-    clip: rect(184px, 9999px, 27px, 0);
+    clip: rect(466px, 9999px, 468px, 0);
   }
   50% {
-    clip: rect(612px, 9999px, 58px, 0);
+    clip: rect(164px, 9999px, 34px, 0);
   }
   55.0% {
-    clip: rect(263px, 9999px, 157px, 0);
+    clip: rect(439px, 9999px, 261px, 0);
   }
   60.0% {
-    clip: rect(106px, 9999px, 464px, 0);
+    clip: rect(146px, 9999px, 351px, 0);
   }
   65% {
-    clip: rect(155px, 9999px, 551px, 0);
+    clip: rect(574px, 9999px, 632px, 0);
   }
   70% {
-    clip: rect(463px, 9999px, 230px, 0);
+    clip: rect(553px, 9999px, 304px, 0);
   }
   75% {
-    clip: rect(375px, 9999px, 591px, 0);
+    clip: rect(603px, 9999px, 603px, 0);
   }
   80% {
-    clip: rect(553px, 9999px, 107px, 0);
+    clip: rect(404px, 9999px, 388px, 0);
   }
   85.0% {
-    clip: rect(430px, 9999px, 444px, 0);
+    clip: rect(206px, 9999px, 214px, 0);
   }
   90% {
-    clip: rect(448px, 9999px, 457px, 0);
+    clip: rect(124px, 9999px, 343px, 0);
   }
   95% {
-    clip: rect(306px, 9999px, 347px, 0);
+    clip: rect(63px, 9999px, 208px, 0);
   }
   100% {
-    clip: rect(595px, 9999px, 366px, 0);
+    clip: rect(94px, 9999px, 596px, 0);
   }
 }
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(84px, 9999px, 26px, 0);
+    clip: rect(72px, 9999px, 37px, 0);
   }
   5% {
-    clip: rect(74px, 9999px, 51px, 0);
+    clip: rect(4px, 9999px, 94px, 0);
   }
   10% {
-    clip: rect(37px, 9999px, 60px, 0);
+    clip: rect(89px, 9999px, 52px, 0);
   }
   15.0% {
-    clip: rect(12px, 9999px, 57px, 0);
+    clip: rect(95px, 9999px, 10px, 0);
   }
   20% {
-    clip: rect(34px, 9999px, 1px, 0);
+    clip: rect(83px, 9999px, 82px, 0);
   }
   25% {
-    clip: rect(37px, 9999px, 62px, 0);
+    clip: rect(66px, 9999px, 30px, 0);
   }
   30.0% {
-    clip: rect(10px, 9999px, 41px, 0);
+    clip: rect(49px, 9999px, 35px, 0);
   }
   35% {
-    clip: rect(33px, 9999px, 12px, 0);
+    clip: rect(2px, 9999px, 53px, 0);
   }
   40% {
-    clip: rect(66px, 9999px, 94px, 0);
+    clip: rect(32px, 9999px, 40px, 0);
   }
   45% {
-    clip: rect(72px, 9999px, 84px, 0);
+    clip: rect(34px, 9999px, 18px, 0);
   }
   50% {
-    clip: rect(68px, 9999px, 69px, 0);
+    clip: rect(13px, 9999px, 56px, 0);
   }
   55.0% {
-    clip: rect(25px, 9999px, 55px, 0);
+    clip: rect(39px, 9999px, 87px, 0);
   }
   60.0% {
-    clip: rect(28px, 9999px, 25px, 0);
+    clip: rect(91px, 9999px, 3px, 0);
   }
   65% {
-    clip: rect(30px, 9999px, 23px, 0);
+    clip: rect(13px, 9999px, 96px, 0);
   }
   70% {
-    clip: rect(62px, 9999px, 47px, 0);
+    clip: rect(51px, 9999px, 89px, 0);
   }
   75% {
-    clip: rect(83px, 9999px, 59px, 0);
+    clip: rect(63px, 9999px, 46px, 0);
   }
   80% {
-    clip: rect(30px, 9999px, 76px, 0);
+    clip: rect(70px, 9999px, 98px, 0);
   }
   85.0% {
-    clip: rect(44px, 9999px, 3px, 0);
+    clip: rect(73px, 9999px, 6px, 0);
   }
   90% {
-    clip: rect(16px, 9999px, 80px, 0);
+    clip: rect(50px, 9999px, 73px, 0);
   }
   95% {
-    clip: rect(41px, 9999px, 54px, 0);
+    clip: rect(67px, 9999px, 65px, 0);
   }
   100% {
-    clip: rect(77px, 9999px, 93px, 0);
+    clip: rect(20px, 9999px, 66px, 0);
   }
 }
 @-webkit-keyframes svg_dash {
@@ -9343,8 +9344,8 @@ pre {
 /* line 126, ../../app/scss/application.scss */
 .app-logo .tagline {
   display: block;
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1;
   font-weight: 300;
   color: #fff;
@@ -9358,7 +9359,11 @@ pre {
   -ms-animation-delay: 3.16s;
   -o-animation-delay: 3.16s;
 }
-/* line 144, ../../app/scss/application.scss */
+/* line 142, ../../app/scss/application.scss */
+.app-logo .tagline span {
+  display: inline-block;
+}
+/* line 148, ../../app/scss/application.scss */
 .app-logo .flipper {
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -9399,7 +9404,7 @@ pre {
   -o-animation-name: flipper;
 }
 
-/* line 162, ../../app/scss/application.scss */
+/* line 166, ../../app/scss/application.scss */
 .headline {
   display: block;
   margin: 0px auto;
@@ -9418,7 +9423,7 @@ pre {
   -o-animation-delay: 4s;
 }
 @media only screen and (min-width: 768px) {
-  /* line 162, ../../app/scss/application.scss */
+  /* line 166, ../../app/scss/application.scss */
   .headline {
     font-size: 80px;
     font-size: 8rem;
@@ -9426,7 +9431,7 @@ pre {
   }
 }
 
-/* line 181, ../../app/scss/application.scss */
+/* line 185, ../../app/scss/application.scss */
 .overlay-modal {
   z-index: 999;
   position: fixed;
@@ -9439,7 +9444,7 @@ pre {
   background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
 }
 
-/* line 198, ../../app/scss/application.scss */
+/* line 202, ../../app/scss/application.scss */
 .project-detail {
   height: 90%;
   position: absolute;
@@ -9451,7 +9456,7 @@ pre {
   background: #fff;
   color: #000;
 }
-/* line 212, ../../app/scss/application.scss */
+/* line 216, ../../app/scss/application.scss */
 .project-detail .pic-frame {
   width: 100%;
   height: 100%;
@@ -9463,7 +9468,28 @@ pre {
   background-position: center center;
 }
 
-/* line 223, ../../app/scss/application.scss */
+/* line 226, ../../app/scss/application.scss */
+.headbar {
+  width: 100%;
+  margin: 0px auto;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+/* line 232, ../../app/scss/application.scss */
+.headbar .nav {
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+/* line 237, ../../app/scss/application.scss */
+.headbar .nav li {
+  padding: 20px;
+}
+/* line 241, ../../app/scss/application.scss */
+.headbar .nav .contact {
+  float: right;
+}
+
+/* line 247, ../../app/scss/application.scss */
 .spreadTheLove {
   text-align: center;
   padding: 10px 0px 20px;
@@ -9481,12 +9507,12 @@ pre {
   -ms-animation-delay: 4s;
   -o-animation-delay: 4s;
 }
-/* line 232, ../../app/scss/application.scss */
+/* line 256, ../../app/scss/application.scss */
 .spreadTheLove .loveicon {
   color: #e74c3c;
 }
 
-/* line 246, ../../app/scss/application.scss */
+/* line 270, ../../app/scss/application.scss */
 .menu {
   margin: 60px auto 80px;
   -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9494,19 +9520,19 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 246, ../../app/scss/application.scss */
+  /* line 270, ../../app/scss/application.scss */
   .menu {
     opacity: 0;
     margin: 0px;
   }
 }
-/* line 256, ../../app/scss/application.scss */
+/* line 280, ../../app/scss/application.scss */
 .menu .buttons {
   margin: 0px auto;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 263, ../../app/scss/application.scss */
+/* line 287, ../../app/scss/application.scss */
 .menu .buttons .item {
   display: inline-block;
   padding: 0px 20px;
@@ -9516,16 +9542,16 @@ pre {
   font-weight: 300;
   text-decoration: none;
 }
-/* line 274, ../../app/scss/application.scss */
+/* line 298, ../../app/scss/application.scss */
 .menu .buttons .item a {
   color: #fff;
 }
-/* line 277, ../../app/scss/application.scss */
+/* line 301, ../../app/scss/application.scss */
 .menu .buttons .item a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 284, ../../app/scss/application.scss */
+/* line 308, ../../app/scss/application.scss */
 .menu .buttons .item i {
   display: block;
   width: 0%;
@@ -9536,28 +9562,28 @@ pre {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 297, ../../app/scss/application.scss */
+/* line 321, ../../app/scss/application.scss */
 .menu .buttons .item:hover {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
 }
-/* line 302, ../../app/scss/application.scss */
+/* line 326, ../../app/scss/application.scss */
 .menu .buttons .item:hover i {
   background: #7b75cb;
   width: 100%;
 }
-/* line 311, ../../app/scss/application.scss */
+/* line 335, ../../app/scss/application.scss */
 .menu .buttons .item.selected:hover, .menu .buttons .item.active:hover {
   cursor: default;
 }
-/* line 313, ../../app/scss/application.scss */
+/* line 337, ../../app/scss/application.scss */
 .menu .buttons .item.selected i, .menu .buttons .item.active i {
   background: #7b75cb;
   width: 100%;
 }
 
-/* line 326, ../../app/scss/application.scss */
+/* line 350, ../../app/scss/application.scss */
 .portofolio {
   opacity: 0;
   -webkit-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -9570,7 +9596,7 @@ pre {
   -o-animation-delay: 4.5s;
   padding-bottom: 70px;
 }
-/* line 342, ../../app/scss/application.scss */
+/* line 366, ../../app/scss/application.scss */
 .portofolio .grid {
   margin-left: -15px;
   margin-right: -15px;
@@ -9585,7 +9611,7 @@ pre {
 .portofolio .grid:after {
   clear: both;
 }
-/* line 348, ../../app/scss/application.scss */
+/* line 372, ../../app/scss/application.scss */
 .portofolio .grid .grid-item {
   z-index: 1;
   position: relative;
@@ -9608,7 +9634,7 @@ pre {
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 348, ../../app/scss/application.scss */
+  /* line 372, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9619,7 +9645,7 @@ pre {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 348, ../../app/scss/application.scss */
+  /* line 372, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9631,7 +9657,7 @@ pre {
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 348, ../../app/scss/application.scss */
+  /* line 372, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9642,13 +9668,13 @@ pre {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 348, ../../app/scss/application.scss */
+  /* line 372, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     height: 500px;
   }
 }
 @media only screen and (min-width: 1600px) {
-  /* line 348, ../../app/scss/application.scss */
+  /* line 372, ../../app/scss/application.scss */
   .portofolio .grid .grid-item {
     position: relative;
     float: left;
@@ -9658,33 +9684,38 @@ pre {
     padding-right: 15px;
   }
 }
-/* line 388, ../../app/scss/application.scss */
+/* line 412, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .tag {
   z-index: 3;
+  display: inline-block;
+}
+/* line 423, ../../app/scss/application.scss */
+.portofolio .grid .grid-item .tag .title {
   opacity: 0;
   padding: 10px;
-  font-size: 12px;
-  font-size: 1.2rem;
-  line-height: 1;
   color: #000;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
   background: #F1C40F;
   -webkit-box-shadow: 0 10px 16px -4px rgba(36, 45, 50, 0.25);
   box-shadow: 0 10px 16px -4px rgba(36, 45, 50, 0.25);
   -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-transform: translate(-50%, 200%);
-  -ms-transform: translate(-50%, 200%);
-  -webkit-transform: translate(-50%, 200%);
-  transform: translate(-50%, 200%);
+  -moz-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
 }
 @media only screen and (min-width: 768px) {
-  /* line 388, ../../app/scss/application.scss */
-  .portofolio .grid .grid-item .tag {
+  /* line 423, ../../app/scss/application.scss */
+  .portofolio .grid .grid-item .tag .title {
     padding: 10px 20px;
   }
 }
-/* line 412, ../../app/scss/application.scss */
+/* line 447, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .type {
   opacity: 0;
   z-index: 3;
@@ -9701,7 +9732,7 @@ pre {
   -o-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 430, ../../app/scss/application.scss */
+/* line 465, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb {
   z-index: 2;
   opacity: 0;
@@ -9714,7 +9745,7 @@ pre {
   background-position: center center;
   cursor: pointer;
 }
-/* line 449, ../../app/scss/application.scss */
+/* line 484, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb:after {
   content: '';
   opacity: 0;
@@ -9728,18 +9759,18 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 469, ../../app/scss/application.scss */
+/* line 504, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .thumb img {
   display: none;
 }
-/* line 477, ../../app/scss/application.scss */
+/* line 512, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border {
   opacity: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
 }
-/* line 489, ../../app/scss/application.scss */
+/* line 524, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-border svg .shape {
   fill: transparent;
   stroke: #5dd6ff;
@@ -9762,13 +9793,13 @@ pre {
   transition: all 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 @media only screen and (max-width: 320px) {
-  /* line 489, ../../app/scss/application.scss */
+  /* line 524, ../../app/scss/application.scss */
   .portofolio .grid .grid-item .svg-border svg .shape {
     stroke-dashoffset: 1400;
     stroke-dasharray: 1400;
   }
 }
-/* line 526, ../../app/scss/application.scss */
+/* line 561, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .zoomer {
   z-index: 2;
   width: 100%;
@@ -9777,24 +9808,24 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 540, ../../app/scss/application.scss */
+/* line 575, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover {
   z-index: 999;
   cursor: pointer;
 }
-/* line 545, ../../app/scss/application.scss */
-.portofolio .grid .grid-item.loaded:hover .tag {
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+/* line 582, ../../app/scss/application.scss */
+.portofolio .grid .grid-item.loaded:hover .tag .title {
   opacity: 1;
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
-/* line 550, ../../app/scss/application.scss */
+/* line 589, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .type {
   opacity: 0.8;
 }
-/* line 555, ../../app/scss/application.scss */
+/* line 592, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .zoomer {
   -webkit-box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
@@ -9803,38 +9834,38 @@ pre {
   -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
   transform: scale3d(1.1, 1.1, 1.1) translate3d(0, 0, 0);
 }
-/* line 561, ../../app/scss/application.scss */
+/* line 598, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb {
   cursor: pointer;
 }
-/* line 567, ../../app/scss/application.scss */
+/* line 604, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .thumb:after {
   opacity: 0.8;
 }
-/* line 573, ../../app/scss/application.scss */
+/* line 610, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border {
   opacity: 1;
 }
-/* line 577, ../../app/scss/application.scss */
+/* line 614, ../../app/scss/application.scss */
 .portofolio .grid .grid-item.loaded:hover .svg-border .shape {
   stroke: #8880fa;
   stroke-width: 3;
   stroke-dashoffset: 0;
 }
-/* line 594, ../../app/scss/application.scss */
+/* line 631, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader {
   z-index: 1;
   background: transparent;
 }
-/* line 602, ../../app/scss/application.scss */
+/* line 639, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.circle {
   fill: #000;
 }
-/* line 603, ../../app/scss/application.scss */
+/* line 640, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .svg-loader svg path.light {
   fill: #16A4E6;
 }
-/* line 609, ../../app/scss/application.scss */
+/* line 646, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader {
   z-index: 1;
   width: 100%;
@@ -9843,7 +9874,7 @@ pre {
   text-align: center;
   vertical-align: middle;
 }
-/* line 621, ../../app/scss/application.scss */
+/* line 658, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .circle {
   width: 30px;
   height: 30px;
@@ -9878,7 +9909,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 640, ../../app/scss/application.scss */
+/* line 677, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .circle:before {
   content: '';
   display: block;
@@ -9891,7 +9922,7 @@ pre {
   border: 2px solid #000;
   border-left: 2px solid #16A4E6;
 }
-/* line 660, ../../app/scss/application.scss */
+/* line 697, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides {
   width: 25%;
   height: 1px;
@@ -9899,7 +9930,7 @@ pre {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 677, ../../app/scss/application.scss */
+/* line 714, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide {
   position: absolute;
   width: 25%;
@@ -9934,7 +9965,7 @@ pre {
   animation-direction: normal;
   animation-fill-mode: forwards;
 }
-/* line 689, ../../app/scss/application.scss */
+/* line 726, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+1) {
   opacity: 0.2;
   -moz-transform: scale(1.8, 1);
@@ -9947,7 +9978,7 @@ pre {
   -ms-animation-delay: 0.2s;
   -o-animation-delay: 0.2s;
 }
-/* line 695, ../../app/scss/application.scss */
+/* line 732, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+2) {
   opacity: 0.4;
   -moz-transform: scale(1.4, 1);
@@ -9960,12 +9991,12 @@ pre {
   -ms-animation-delay: 0.1s;
   -o-animation-delay: 0.1s;
 }
-/* line 701, ../../app/scss/application.scss */
+/* line 738, ../../app/scss/application.scss */
 .portofolio .grid .grid-item .icon-loader .slides .slide:nth-of-type(0n+3) {
   opacity: 0.8;
 }
 
-/* line 721, ../../app/scss/application.scss */
+/* line 758, ../../app/scss/application.scss */
 .animateGridItem {
   /*
   &.ng-enter-stagger,
@@ -9989,7 +10020,7 @@ pre {
     }
   }*/
 }
-/* line 723, ../../app/scss/application.scss */
+/* line 760, ../../app/scss/application.scss */
 .animateGridItem.ng-enter, .animateGridItem.ng-leave {
   -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10005,7 +10036,7 @@ pre {
   -ms-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 730, ../../app/scss/application.scss */
+/* line 767, ../../app/scss/application.scss */
 .animateGridItem.ng-enter {
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
@@ -10018,7 +10049,7 @@ pre {
   -ms-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
 }
-/* line 736, ../../app/scss/application.scss */
+/* line 773, ../../app/scss/application.scss */
 .animateGridItem.ng-leave {
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
@@ -10032,11 +10063,11 @@ pre {
   -o-animation-name: fadeOutDown;
 }
 
-/* line 774, ../../app/scss/application.scss */
+/* line 811, ../../app/scss/application.scss */
 #loading-bar .bar {
   background: #19b5fe;
 }
-/* line 776, ../../app/scss/application.scss */
+/* line 813, ../../app/scss/application.scss */
 #loading-bar .peg {
   -moz-box-shadow: #19b5fe 1px 0 6px 1px;
   -ms-box-shadow: #19b5fe 1px 0 6px 1px;
@@ -10044,18 +10075,18 @@ pre {
   box-shadow: #19b5fe 1px 0 6px 1px;
 }
 
-/* line 784, ../../app/scss/application.scss */
+/* line 821, ../../app/scss/application.scss */
 #loading-bar-spinner .spinner-icon {
   border-top-color: #19b5fe;
   border-left-color: #19b5fe;
 }
 
-/* line 793, ../../app/scss/application.scss */
+/* line 830, ../../app/scss/application.scss */
 .main-container {
   z-index: 2;
 }
 
-/* line 795, ../../app/scss/application.scss */
+/* line 832, ../../app/scss/application.scss */
 fx-stringz {
   opacity: 0;
   z-index: -1;
@@ -10064,7 +10095,7 @@ fx-stringz {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 808, ../../app/scss/application.scss */
+/* line 845, ../../app/scss/application.scss */
 fx-stringz canvas {
   width: 100%;
   height: 100%;
@@ -10072,7 +10103,7 @@ fx-stringz canvas {
   -o-transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 818, ../../app/scss/application.scss */
+/* line 855, ../../app/scss/application.scss */
 fx-stringz.animated {
   animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -10090,7 +10121,7 @@ fx-stringz.animated {
   -ms-animation-duration: 1.6s;
   -o-animation-duration: 1.6s;
 }
-/* line 824, ../../app/scss/application.scss */
+/* line 861, ../../app/scss/application.scss */
 fx-stringz.animated canvas {
   animation-duration: 5s;
   -webkit-animation-duration: 5s;
@@ -10114,7 +10145,7 @@ fx-stringz.animated canvas {
   -o-animation-name: pulse;
 }
 
-/* line 839, ../../app/scss/application.scss */
+/* line 876, ../../app/scss/application.scss */
 .hintMore {
   z-index: -1;
   opacity: 0;
@@ -10128,13 +10159,13 @@ fx-stringz.animated canvas {
   -o-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 855, ../../app/scss/application.scss */
+/* line 892, ../../app/scss/application.scss */
 .hintMore .message {
   display: inline-block;
   padding: 10px;
   background: #00f;
 }
-/* line 861, ../../app/scss/application.scss */
+/* line 898, ../../app/scss/application.scss */
 .hintMore .message span.icon {
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -10162,7 +10193,7 @@ fx-stringz.animated canvas {
   -ms-animation-delay: 2s;
   -o-animation-delay: 2s;
 }
-/* line 870, ../../app/scss/application.scss */
+/* line 907, ../../app/scss/application.scss */
 .hintMore.ui-show {
   z-index: 10;
   animation-duration: 0.32s;
@@ -10187,7 +10218,7 @@ fx-stringz.animated canvas {
   -o-animation-name: fadeInUp;
   opacity: 1;
 }
-/* line 880, ../../app/scss/application.scss */
+/* line 917, ../../app/scss/application.scss */
 .hintMore.ui-hide {
   -moz-transform: translate3d(0, 200%, 0);
   -ms-transform: translate3d(0, 200%, 0);
@@ -10197,30 +10228,30 @@ fx-stringz.animated canvas {
   z-index: -1;
 }
 
-/* line 894, ../../app/scss/application.scss */
+/* line 931, ../../app/scss/application.scss */
 .tilter3D {
   -webkit-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-/* line 903, ../../app/scss/application.scss */
+/* line 940, ../../app/scss/application.scss */
 .modal-wrapper > .modal {
   display: block;
 }
 
-/* line 904, ../../app/scss/application.scss */
+/* line 941, ../../app/scss/application.scss */
 .ngdialog .ngdialog-content {
   width: 100%;
   height: 100%;
 }
 
-/* line 909, ../../app/scss/application.scss */
+/* line 946, ../../app/scss/application.scss */
 .fancybox-lock {
   overflow: visible !important;
 }
 
-/* line 910, ../../app/scss/application.scss */
+/* line 947, ../../app/scss/application.scss */
 .fancybox-overlay {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -10229,7 +10260,7 @@ fx-stringz.animated canvas {
   background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
 }
 
-/* line 916, ../../app/scss/application.scss */
+/* line 953, ../../app/scss/application.scss */
 .fancybox-close {
   width: auto;
   height: auto;
@@ -10264,7 +10295,7 @@ fx-stringz.animated canvas {
   -ms-animation-name: bounceIn;
   -o-animation-name: bounceIn;
 }
-/* line 931, ../../app/scss/application.scss */
+/* line 968, ../../app/scss/application.scss */
 .fancybox-close:before {
   content: "\f00d";
   display: inline-block;
@@ -10283,17 +10314,17 @@ fx-stringz.animated canvas {
   bottom: 0;
   left: 0;
 }
-/* line 952, ../../app/scss/application.scss */
+/* line 989, ../../app/scss/application.scss */
 .fancybox-close:hover {
   background: #ff0000;
   text-decoration: none;
 }
-/* line 956, ../../app/scss/application.scss */
+/* line 993, ../../app/scss/application.scss */
 .fancybox-close:hover:before {
   color: #121212;
 }
 
-/* line 973, ../../app/scss/application.scss */
+/* line 1010, ../../app/scss/application.scss */
 .strp-window {
   background: none;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIxMCUiIHN0b3AtY29sb3I9IiMxYjE5MWYiIHN0b3Atb3BhY2l0eT0iMC45Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjMxYjg2IiBzdG9wLW9wYWNpdHk9IjAuOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -10302,11 +10333,11 @@ fx-stringz.animated canvas {
   background-image: -webkit-linear-gradient(330deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
   background-image: linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%);
 }
-/* line 979, ../../app/scss/application.scss */
+/* line 1016, ../../app/scss/application.scss */
 .strp-window .strp-container {
   background: none;
 }
-/* line 982, ../../app/scss/application.scss */
+/* line 1019, ../../app/scss/application.scss */
 .strp-window .strp-close {
   width: auto;
   height: auto;
@@ -10316,7 +10347,7 @@ fx-stringz.animated canvas {
   right: auto;
   text-align: center;
 }
-/* line 995, ../../app/scss/application.scss */
+/* line 1032, ../../app/scss/application.scss */
 .strp-window .strp-close .strp-close-background,
 .strp-window .strp-close .strp-close-icon {
   width: 100%;
@@ -10327,7 +10358,7 @@ fx-stringz.animated canvas {
   bottom: 0;
   left: 0;
 }
-/* line 1008, ../../app/scss/application.scss */
+/* line 1045, ../../app/scss/application.scss */
 .strp-window .strp-close .strp-close-background {
   background: #121212;
   border: 1px dashed #444;
@@ -10335,13 +10366,13 @@ fx-stringz.animated canvas {
   -o-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 1017, ../../app/scss/application.scss */
+/* line 1054, ../../app/scss/application.scss */
 .strp-window .strp-close .strp-close-icon {
   width: 100%;
   height: 100%;
   background: none;
 }
-/* line 1023, ../../app/scss/application.scss */
+/* line 1060, ../../app/scss/application.scss */
 .strp-window .strp-close .strp-close-icon:before {
   content: "\f00d";
   display: inline-block;
@@ -10360,11 +10391,11 @@ fx-stringz.animated canvas {
   bottom: 0;
   left: 0;
 }
-/* line 1052, ../../app/scss/application.scss */
+/* line 1089, ../../app/scss/application.scss */
 .strp-window .strp-close:hover .strp-close-background {
   background: #ff0000;
 }
-/* line 1053, ../../app/scss/application.scss */
+/* line 1090, ../../app/scss/application.scss */
 .strp-window .strp-close:hover .strp-close-icon:before {
   color: #121212;
 }

@@ -14,13 +14,18 @@
     // TO DO
     
     appService.factory('ProjectService',
-        ['_', '$rootScope', '$q', '$http',
-        function(_, $rootScope, $q, $http) {
+        ['_', '$rootScope', '$q', '$http', 'GENERAL_CONFIG',
+        function(_, $rootScope, $q, $http, GENERAL_CONFIG) {
 
             //
             // Define projects
             //
             var projects = [];
+
+            var cfg = GENERAL_CONFIG;
+
+            var dirImages = "./assets/portofolio";
+            var dirThumbs = dirImages + "/_thumbs/thumb_";
 
             // fetcher
             var init = function() {
@@ -30,7 +35,7 @@
                 var projectList = [];
 
                 // db reference
-                var sync = $http.jsonp('https://spreadsheets.google.com/feeds/list/1BVPdAa0j09ZdP_3u1AhId941gUpKcngBMliDL7GYnGA/od6/public/values?alt=json-in-script' + '&callback=JSON_CALLBACK');
+                var sync = $http.jsonp(cfg.DBURL);
 
                 // db fetch ok
                 sync.success(function(data) {
@@ -47,11 +52,17 @@
                                 client: classes.gsx$client.$t,
 
                                 color: classes.gsx$color.$t,
-                                thumbUrl: classes.gsx$imageurl.$t
-                                //imageUrl: classes.gsx$imageurl.$t
+
+                                // TODO: finish thumb + real img src
+                                thumbUrl: '',
+                                imageUrl: dirImages + classes.gsx$imageurl.$t
                             };
 
-                            //console.log("project info @ ", $project);
+                            // rewrite folder and extension for thumb image
+                            var thumbSrc = ($project.imageUrl.replace(/^.*(\\|\/|\:)/, ''));
+                            $project.thumbUrl = dirThumbs + thumbSrc.substr(0, thumbSrc.lastIndexOf(".")) + ".jpg";
+
+                            // add to list
                             projectList.push($project);
                         });
                     });

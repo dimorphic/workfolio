@@ -124,10 +124,9 @@ pre {
 
   // tag line
   .tagline {
-    //display: inline-block;
     display: block;
 
-    @include font-size(18, 1);
+    @include font-size(16, 1);
     font-weight: 300;
     color: #fff;
 
@@ -138,6 +137,11 @@ pre {
     @include transition(all 0.3s $animationEasing);
 
     @include animation-delay(3.16s);
+
+    // hi there directive sexy beast!
+    span {
+      display: inline-block;
+    }
   }
 
   // custom anims
@@ -219,6 +223,26 @@ pre {
   }
 }
 
+.headbar {
+  width: 100%;
+  margin: 0px auto;
+
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+
+  .nav {
+
+    @include font-size(13, 1);
+    //text-transform: uppercase;
+
+    li {
+      padding: 20px;
+    }
+
+    .contact { float: right; }
+
+  }
+
+}
 
 .spreadTheLove {
   text-align: center;
@@ -387,25 +411,36 @@ pre {
       // tag line
       .tag {
         z-index: 3;
-        opacity: 0;
 
+        display: inline-block;
         @extend %translateCenter;
-        padding: 10px;
-
-        @include font-size(12, 1);
-        //font-weight: 700;
-        color: #000;
-
-        background: #F1C40F;
-        @include box-shadow(0 10px 16px -4px rgba(36, 45, 50, 0.25));
-
-        @include small() { padding: 10px 20px; }
 
         // Animation ready / Force HA
         @extend %noflicker;
-        @include transition(all 0.2s $animationEasing);
+        //@include transition(all 0.2s $animationEasing);
 
-        @include transform(translate(-50%, 200%));
+        // title holder
+        .title {
+          opacity: 0;
+
+          padding: 10px;
+
+          color: #000;
+          @include font-size(14, 1);
+          text-shadow: 0 1px 1px rgba(255,255,255, 0.7);
+
+          background: #F1C40F;
+          @include box-shadow(0 10px 16px -4px rgba(36, 45, 50, 0.25));
+
+          // responsiveness
+          @include small() { padding: 10px 20px; }
+
+          // Animation ready
+          @extend %noflicker;
+          @include transition(all 0.2s $animationEasing);
+          @include transform(translateY(200%));
+        }
+
       }
 
       // project type
@@ -543,13 +578,15 @@ pre {
 
         // fade in up
         .tag {
-          @include transform(translate(-50%, -50%));
-          opacity: 1;
+
+          .title {
+            opacity: 1;
+            @include transform(translateY(0));
+          }
+
         }
 
-        .type {
-          opacity: 0.8;
-        }
+        .type { opacity: 0.8; }
 
         // zoom in thumb
         .zoomer {

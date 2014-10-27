@@ -50,45 +50,53 @@
 
                 var timings = [0, 200, 400, 600, 800, 1000];
 
-                // TODO: finish logo stroke self-draw ?
+                // fetch elements
                 var $paths = element.find('path');
                 var $circle = $(".st5");
 
-                // butterfly
-                $paths.each(function(i) {
-                    var $path, pathLen, pathRect;
+                //
+                // Draw butterfly helper
+                // TODO: finish logo stroke self-draw ?
+                var drawButterfly = function() {
 
-                    $path = $(this);
-                    pathLen = this.getTotalLength();
+                    // butterfly paths
+                    $paths.each(function (i) {
+                        var $path, pathLen, pathRect;
 
-                    //console.log("$path : ", $path);
-                    //console.log("path len : ", pathLen);
+                        $path = $(this);
+                        pathLen = this.getTotalLength();
 
-                    $path.css({
-                       "stroke-dasharray": "" + pathLen + " " + pathLen,
-                       "stroke-dashoffset": pathLen,
-                       "stroke-width": "5",
-                       "stroke": $path.css("fill"),
-                       "fill": "transparent"
+                        //console.log("$path : ", $path);
+                        //console.log("path len : ", pathLen);
+
+                        $path.css({
+                            "stroke-dasharray": "" + pathLen + " " + pathLen,
+                            "stroke-dashoffset": pathLen,
+                            "stroke-width": "5",
+                            "stroke": $path.css("fill"),
+                            "fill": "transparent"
+                        });
+
+                        pathRect = this.getBoundingClientRect();
+
+                        //console.log("rect : ", pathRect);
+                        //console.log(" ");
+
+                        $path.css({
+                            "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
+                                (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
+                            "fill": $path.css("stroke"),
+                            "stroke-dashoffset": "0"
+                        });
+
                     });
 
-                    pathRect = this.getBoundingClientRect();
+                };
 
-                    //console.log("rect : ", pathRect);
-                    //console.log(" ");
-
-                    $path.css({
-                       "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
-                           (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
-                       "fill": $path.css("stroke"),
-                       "stroke-dashoffset": "0"
-                    });
-
-                });
-
-                // circle anim
-                $timeout(function() {
-
+                //
+                // Draw extra artefacts (circle + crown)
+                //
+                var drawExtra = function() {
                     // circle
                     $circle.css({
                         "stroke": "#fff",
@@ -101,6 +109,15 @@
                     $(".st12").css({
                         "fill": "#fff"
                     });
+                };
+
+                // Fire it up!
+                drawButterfly();
+
+                // circle anim
+                $timeout(function() {
+
+                    drawExtra();
 
                     // broadcast event to show fx.Stringz
                     $rootScope.$emit("fx.stringz:showCanvas");
@@ -161,13 +178,82 @@
     ]);
 
     //
+    // Hi there!
+    //
+    appDirectives.directive("hiThere",
+        ['$timeout', '$interval', '_',
+            function($timeout, $interval, _) {
+
+                // messages
+                var loadMoreMsg = "Scroll down, bro!";
+
+                var greetMessages = [
+                    'Sabin Tudor',
+                    'There is no spoon!',
+                    'contact@sabin-tudor.ro'
+                ];
+
+                // Link to DOM
+                var link = function(scope, element, attrs) {
+
+                    // message model
+                    scope.hiMsg = "";
+
+                    // pointer
+                    var $container = angular.element(element);
+                    var shuffleInterval = 10000; // delay to shuffle msg
+
+                    // fetch random message
+                    $interval(function() {
+
+                        // get a sample message
+                        var msg = _.sample(greetMessages, 1)[0];
+
+                        // check if there's more items for infinite scroller
+                        if(!scope.infiniteDisabled && scope.hiMsg !== loadMoreMsg) {
+                            msg = loadMoreMsg;
+                        }
+
+                        if(msg !== scope.hiMsg) {
+
+                            scope.hiMsg = msg;
+
+                            // shuffle letterz bro!
+                            $container.shuffleLetters({
+                                text: scope.hiMsg
+                            });
+
+                        }
+
+                    }, shuffleInterval);
+
+                    // DEBUG: watch model change
+                    /* scope.$watch("hiMsg", function(newValue, oldValue) {
+                            console.log('old @ ', oldValue);
+                            console.log('new @ ', newValue);
+                            console.log('new vs old @ ', (newValue !== oldValue));
+                            console.log(' ');
+
+                    }); */
+
+                };
+
+                // Return directive config
+                return {
+                    restrict: "A",
+                    link: link
+                };
+            }
+        ]);
+
+    //
     // Grid
     //
 
     // grid item
     appDirectives.directive("gridItem",
-        ['$timeout',
-        function($timeout) {
+        ['$timeout', '_',
+        function($timeout, _) {
             var tpl = 'templates/directives/grid.item.tpl.html';
 
             // Animate each box
@@ -186,9 +272,9 @@
                 var $thumb = element.find(".thumb");
                 var $img = $thumb.find("img");
 
+                // image src
                 var src = scope.project.thumbUrl;
 
-                var fxClass = _.sample(fadeDirections, 1);
                 //var delay = element.index() * 0.1 + 's';
 
                 // open lightbox
@@ -210,6 +296,7 @@
                         $thumb.css("background-image", 'url(' + src + ')');
 
                         // fade item in
+                        var fxClass = _.sample(fadeDirections, 1);
                         $thumb.addClass("animated fadeIn" + fxClass);
 
                         // set item to 'loaded' state
@@ -264,7 +351,7 @@
                     };*/
 
                     var $project = {
-                        url: scope.project.thumbUrl,
+                        url: scope.project.imageUrl,
                         caption: scope.project.name
                     };
 

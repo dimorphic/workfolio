@@ -35,6 +35,8 @@
             $scope.loadMore = function() {
 
                 var addProject = function(item) {
+                    //console.log(item);
+
                     $timeout(function() {
                         $scope.projects.push(item);
                     });

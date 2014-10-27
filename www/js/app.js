@@ -18,6 +18,7 @@
     ];
 
     var appComponents = [
+        'workfolio.config',
         'workfolio.directives',
         'workfolio.controllers',
         'workfolio.routes',
@@ -40,7 +41,6 @@
             
             // Helpers utils
             $rootScope.$log = $log;
-
             // $window.FastClick.attach(document.body);
         }
     ]);  
