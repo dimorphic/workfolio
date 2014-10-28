@@ -27,7 +27,9 @@
             // expose
             return function(tick) {
                 requestAnimationFrame(function() {
-                    $rootScope.$apply(tick);
+                    //$timeout(function() {
+                        $rootScope.$apply(tick);
+                    //});
                 });
             };
 

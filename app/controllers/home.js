@@ -81,10 +81,12 @@
         $scope.mainMenu = [ "all", "app", "branding", "banner" ]; // menu sorters
         $scope.menuModel = 'all'; // curent selected/active menu item
 
-        // filters
+        // order by
+        // TODO: remove this ?
         $scope.predicate = "-year"; // orderBy
         $scope.reverse = false;
 
+        // filters
         $scope.filterQuery = null;
         $scope.setFilter = function(filter) {
             $scope.filterQuery = filter;
@@ -99,7 +101,6 @@
                 $scope.setFilter("");
             } else {
                 $scope.setFilter(newValue);
-
             }
         });
 

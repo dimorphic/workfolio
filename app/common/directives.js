@@ -352,7 +352,7 @@
 
                     var $project = {
                         url: scope.project.imageUrl,
-                        caption: scope.project.name
+                        caption: scope.project.name + ' / ' + scope.project.description + ' / ' + scope.project.client + ' / ' + scope.project.year
                     };
 
                     // wait for event to open light box
@@ -393,8 +393,11 @@
                 // you mobile, bro ?
                 var mobileDevice = $window.isMobile.any();
 
+                // we active ?
+                var active = (mobileDevice) ? false : true;
+
                 // FPS monitor (enable via uncomment)
-                /* var FpsMon = $window.FPSMeter;
+                /*var FpsMon = $window.FPSMeter;
 
                 var meter = new FpsMon({
                     theme: 'dark',
@@ -408,8 +411,6 @@
                 });*/
 
                 // Canvas
-                var active = true;
-
                 var canvas = element.find("canvas")[0];
                 var ctx = canvas.getContext("2d");
                 var W, H = null;
@@ -472,7 +473,7 @@
                         // Paint canvas single color
                         ctx.fillStyle = "transparent";
                         ctx.clearRect(0, 0, W, H);
-                        //  ctx.fillRect( 0, 0, W, H );
+                        // ctx.fillRect( 0, 0, W, H );
 
                         // Draw our strings
                         ctx.lineWidth = 1;

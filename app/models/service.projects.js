@@ -46,28 +46,38 @@
 
                             // project model
                             var $project = {
-                                name: classes.gsx$name.$t,
-                                type: classes.gsx$type.$t,
                                 year: parseInt(classes.gsx$year.$t),
+
+                                name: classes.gsx$name.$t,
+                                description: classes.gsx$caption.$t,
                                 client: classes.gsx$client.$t,
 
+                                type: classes.gsx$type.$t,
                                 color: classes.gsx$color.$t,
 
-                                // TODO: finish thumb + real img src
-                                thumbUrl: '',
+                                thumbUrl: classes.gsx$thumburl.$t,
                                 imageUrl: dirImages + classes.gsx$imageurl.$t
                             };
 
-                            // rewrite folder and extension for thumb image
-                            var thumbSrc = ($project.imageUrl.replace(/^.*(\\|\/|\:)/, ''));
-                            $project.thumbUrl = dirThumbs + thumbSrc.substr(0, thumbSrc.lastIndexOf(".")) + ".jpg";
+                            // rewrite image source (folder and extension)
+
+                            // if thumb field is 'same'
+                            if($project.thumbUrl === "same") {
+                                $project.thumbUrl = $project.imageUrl;
+                            }
+
+                            // if thumb field is 'local'
+                            if($project.thumbUrl === "local") {
+                                var thumbSrc = ($project.imageUrl.replace(/^.*(\\|\/|\:)/, ''));
+                                $project.thumbUrl = dirThumbs + thumbSrc.substr(0, thumbSrc.lastIndexOf(".")) + ".jpg";
+                            }
 
                             // add to list
                             projectList.push($project);
                         });
                     });
 
-                    //projects = projectList;
+                    // projects = projectList;
 
                     // sort data by year, DESC
                     projects = _.sortBy(projectList, function(obj) { return +obj.year; }).reverse();

@@ -23,8 +23,8 @@
 @import "lib/bootstrap/assets/stylesheets/_bootstrap";
 
 // Other components
-@import "/components/angular-loading-bar/build/loading-bar.css";
-@import "/components/strip/css/strip.css";
+@import "../components/angular-loading-bar/build/loading-bar.css";
+@import "../components/strip/css/strip.css";
 //@import "/components/fancybox/source/jquery.fancybox.css";
 
 // Debug-belt (TODO: disable for production?)
@@ -399,8 +399,8 @@ pre {
       @include hand-only() { @include make-xs-column(4); }
       @include small() { @include make-xs-column(4); height: 340px; }  // 768px and up / 3 per row
       @include medium() { @include make-xs-column(3); } // 992px and up / 4 per row
-      @include wide() { height:500px; } // higher grid tiles
-      @include huge() { @include make-xs-column(2); }   // 1200px and up / 6 per row
+      @include wide() { height:500px; } // 1200px and up - higher grid tiles
+      @include huge() { @include make-xs-column(2); }   // 1600px and up / 6 per row
 
       float: none !important; // remove floats
 
