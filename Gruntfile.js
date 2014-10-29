@@ -36,9 +36,11 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-usemin");
 
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-compass");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
 
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-contrib-watch");
@@ -106,7 +108,24 @@ module.exports = function(grunt) {
       }
     },
 
+    // Usemin (NEW)
+    // TODO: finish
+    useminPrepare: {
+        html: 'dist/index.html',
+        options: {
+            root: 'dist',
+            dest: 'dist'
+        }
+    },
+
+    usemin: {
+        html: 'dist/index.html'
+    },
+
+
     // sass pre-processor
+    // TODO: clean this up
+
     // compass: {
     //   options: {
     //     sassDir: 'app/scss',
@@ -266,7 +285,7 @@ module.exports = function(grunt) {
         dest: 'dist/'
       },
 
-      // Copy JavaScript files from app/ to dist/
+      // Copy CSS from www/ to dist/
       css: {
         expand: true,
         cwd: 'www/css',
@@ -274,7 +293,7 @@ module.exports = function(grunt) {
         dest: 'dist/css'
       },
 
-      // Copy JavaScript files from app/ to dist/
+      // Copy JS from app/ to dist/
       js_from_app: {
         expand: true,
         cwd: 'app/',
@@ -282,7 +301,7 @@ module.exports = function(grunt) {
         dest: 'dist/'
       },
 
-      // Copy files from www/ to dist/ (except for .scss and .coffee)
+      // Copy files from www/ to dist/ (except for .scss)
       www: {
         expand: true,
         cwd: 'www/',
@@ -396,6 +415,12 @@ module.exports = function(grunt) {
 
     'concat:models',
     'concat:controllers',
+
+    'useminPrepare',
+    'concat:generated',
+    //'cssmin',
+    'uglify:generated',
+    'usemin',
 
     'connect:livereload',
     //'open:dev',
