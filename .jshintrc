@@ -33,6 +33,7 @@
     "jQuery":     true,
     "angular":    true,
     "Firebase":   true,
+    "Modernizr":  true,
 
     // Sylvester.js
 //    "$V":         true,

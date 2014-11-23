@@ -41,6 +41,8 @@
             
             // Helpers utils
             $rootScope.$log = $log;
+            //$rootScope.Modernizr = $window.Modernizr;
+
             // $window.FastClick.attach(document.body);
         }
     ]);  

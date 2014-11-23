@@ -252,8 +252,8 @@
 
     // grid item
     appDirectives.directive("gridItem",
-        ['$timeout', '_',
-        function($timeout, _) {
+        ['$timeout', '_', 'Modernizr',
+        function($timeout, _, Modernizr) {
             var tpl = 'templates/directives/grid.item.tpl.html';
 
             // Animate each box
@@ -279,12 +279,13 @@
 
                 // open lightbox
                 var handleClick = function (e) {
-                    e.preventDefault();
-
                     scope.$broadcast("lightBox:open");
+                    e.preventDefault();
                 };
 
-                // console.log("img loaded before: ", $img.complete);
+                // check if mobile
+                // TODO: fix this. touchstart fires on document scroll
+                var clickGesture = (Modernizr.touch) ? "click" : "click";
 
                 // bind once
                 $img.one("load", function() {
@@ -303,7 +304,7 @@
                         $item.addClass("loaded");
 
                         // add click event
-                        element.on("click", handleClick);
+                        element.on(clickGesture, handleClick);
 
                     }, 500);
 
@@ -330,7 +331,7 @@
     appDirectives.directive("lightBox",
         ['$timeout', 'Strip',
         function($timeout, Strip) {
-            var tpl = 'templates/partials/lightbox.tpl.html';
+            //var tpl = 'templates/partials/lightbox.tpl.html';
 
             var $boxOptions = {
                 side: 'right'

@@ -571,6 +571,12 @@ pre {
         @include transition(all 0.3s $animationEasing);
       }
 
+      // loaded item
+      &.loaded {
+        .icon-loader { opacity: 0; }
+      }
+
+
       // grid item HOVER
       &.loaded:hover {
         z-index: 999; // render on top of everything

@@ -182,16 +182,15 @@ module.exports = function(grunt) {
       },
 
       // html
-      // html: {
-      //   files: [
-      //     'www/{,*/}*.html'
-      //   ],
-      //   tasks: [ 'copy:html', 'notify:copywww' ],
-      //   options: {
-      //     spawn: false,
-      //     livereload: true // Set livereload to trigger a reload upon change
-      //   }
-      // },
+//      html: {
+//         files: [
+//           'www/index.html'
+//         ],
+//         tasks: [ 'katalyst-compress', 'notify:katalystCompress' ],
+//         options: {
+//           livereload: true // Set livereload to trigger a reload upon change
+//         }
+//      },
 
       // all
       all: {
@@ -335,6 +334,13 @@ module.exports = function(grunt) {
         }
       },
 
+      katalystCompress: {
+        options: {
+            title: 'index.html updated',
+            message: 'Compressing to /dist'
+        }
+      },
+
       livereload: {
         options: {
           title: 'Live reload active',
@@ -350,6 +356,7 @@ module.exports = function(grunt) {
   // Load all tasks from folder
   // grunt.loadTasks('tasks');
 
+  // sass compiler
   grunt.registerTask("katalyst-compile-sass", "Compile SASS if they exist", function() {
 
       var sassFiles;
@@ -401,6 +408,17 @@ module.exports = function(grunt) {
 
   });
 
+  // compressor
+  grunt.registerTask("katalyst-compress", "Concat, minify, uglify + references update", [
+
+      'useminPrepare',
+      'concat:generated',
+      //'cssmin',
+      'uglify:generated',
+      'usemin'
+
+  ]);
+
 
 
   // Server task
@@ -416,12 +434,6 @@ module.exports = function(grunt) {
     'concat:models',
     'concat:controllers',
 
-    'useminPrepare',
-    'concat:generated',
-    //'cssmin',
-    'uglify:generated',
-    'usemin',
-
     'connect:livereload',
     //'open:dev',
     'notify:server',
@@ -430,11 +442,7 @@ module.exports = function(grunt) {
 
   // Build task (to do)
   grunt.registerTask('build', [
-    'clean',
-    'jshint',
-    'uglify',
-    'sass',
-    'copy'
+    'katalyst-compress'
   ]);
 
 

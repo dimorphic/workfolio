@@ -9,7 +9,6 @@
 
 	// Define settings
 	var configData = {
-
 		// General config
 		'GENERAL_CONFIG': {
 			'APP_VERSION': '0.1', // version
@@ -19,7 +18,10 @@
 		// Development settings
 		'DEV_CONFIG': {
 			'debugEnabled': 'true' // set debug mode true to see log outputs (to do: via $logProvider)
-		}
+		},
+
+        // Modernizr features
+        'Modernizr': Modernizr
 	};
 
 	// set constants
