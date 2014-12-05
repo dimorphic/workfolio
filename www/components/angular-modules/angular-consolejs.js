@@ -10,7 +10,8 @@
     //  Better console provider
     //  (via Console.js)
     //
-    Console.factory('Console', ['$window', function($window) {
+    Console.factory('Console', ['$window',
+        function($window) {
             // Better console
             var betterConsole = $window.Console;
 

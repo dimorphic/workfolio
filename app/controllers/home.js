@@ -6,7 +6,7 @@
     //
     var appControllers = angular.module('workfolio.ctrls.home', []);
 
-    var HomeController = function($scope, $timeout, ProjectService) {
+    var HomeController = function($scope, $timeout, ProjectsService) {
         // ---------------
         // PRIVATE METHODS
         // ---------------
@@ -26,7 +26,7 @@
         $scope.showHintMore = !$scope.infiniteDisabled;
 
         // promise!
-        ProjectService.init().then(function(data) {
+        ProjectsService.init().then(function(data) {
 
             // data is here bro!
             $scope.projectsData = data;
@@ -36,6 +36,8 @@
 
                 var addProject = function(item) {
                     //console.log(item);
+
+
 
                     $timeout(function() {
                         $scope.projects.push(item);
@@ -116,7 +118,7 @@
         [
             '$scope',
             '$timeout',
-            'ProjectService',
+            'ProjectsService',
 
             HomeController
         ]

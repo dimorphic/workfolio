@@ -252,8 +252,8 @@
 
     // grid item
     appDirectives.directive("gridItem",
-        ['$timeout', '_', 'Modernizr',
-        function($timeout, _, Modernizr) {
+        ['$timeout', '$rootScope', '_', 'Modernizr',
+        function($timeout, $rootScope, _, Modernizr) {
             var tpl = 'templates/directives/grid.item.tpl.html';
 
             // Animate each box
@@ -262,10 +262,7 @@
             // Link to DOM
             var link = function(scope, element, attrs) {
                 // do nothing if no model
-                if(!scope.project) {
-                    //console.warn('No project scope set! returning...');
-                    return;
-                }
+                if(!scope.project) { return; }
 
                 // continue, do stuffz!
                 var $item = element.find(".grid-item");
@@ -274,13 +271,21 @@
 
                 // image src
                 var src = scope.project.thumbUrl;
-
                 //var delay = element.index() * 0.1 + 's';
 
                 // open lightbox
                 var handleClick = function (e) {
-                    scope.$broadcast("lightBox:open");
                     e.preventDefault();
+
+                    var $projectData = {
+                        url: scope.project.imageUrl,
+                        caption: scope.project.name + ' / ' + scope.project.description + ' / ' + scope.project.client + ' / ' + scope.project.year
+                    };
+
+                    $timeout(function() {
+                        scope.$emit("fxProjector:open");
+                    });
+
                 };
 
                 // check if mobile
@@ -326,9 +331,9 @@
     ]);
 
     //
-    //  Swipebox directive
+    //  Lightbox directive (Strip)
     //
-    appDirectives.directive("lightBox",
+    /*appDirectives.directive("lightBox",
         ['$timeout', 'Strip',
         function($timeout, Strip) {
             //var tpl = 'templates/partials/lightbox.tpl.html';
@@ -346,10 +351,10 @@
                 // bind once
                 $img.one("load", function() {
 
-                    /*var $project = {
-                        href: scope.project.thumbUrl,
-                        title: scope.project.name
-                    };*/
+                    //var $project = {
+                    //    href: scope.project.thumbUrl,
+                    //    title: scope.project.name
+                    //};
 
                     var $project = {
                         url: scope.project.imageUrl,
@@ -372,6 +377,96 @@
             // Return directive config
             return {
                 restrict: "A",
+                link: link
+            };
+        }
+    ]);
+*/
+
+    //
+    //  fxProjector
+    //  Display project details in style
+    //
+    appDirectives.directive("fxProjector",
+        ['$rootScope', '$timeout',
+        function($rootScope, $timeout) {
+            var tpl = 'templates/directives/fx-projector.tpl.html';
+
+            var $boxOptions = {
+                side: 'right'
+            };
+
+            // DOM link
+            var link = function(scope, element, attrs) {
+                var $active = false;
+
+                scope.project = [];
+
+                var _openProjector = function(data) {
+                    $active = true;
+
+                    // assign project details
+                    scope.project = data;
+
+                    // disable body scroll
+                    $rootScope.$broadcast("noScroll:enable");
+                    element.addClass("active");
+
+                    var $text = angular.element(element).find("h1");
+
+                    // shuffle letterz bro!
+                    $text.shuffleLetters({
+                        text: scope.project.name
+                    });
+
+                    // catch image
+                    var $img = element.find("img");
+
+                    // bind once
+                    $img.one("load", function() {
+
+                        //console.log("loaded!");
+                        $img.parent().addClass("loaded");
+
+                    });
+                };
+
+                var _closeProjector = function() {
+
+                    if ($active) {
+
+                        // remove active class
+                        element.removeClass("active");
+                        element.find(".fx-preview").removeClass("loaded");
+
+                        // enable body scroll
+                        $rootScope.$broadcast("noScroll:disable");
+
+                    }
+
+                };
+
+                // close button
+                scope.closeProjector = function() {
+                    //console.log("closing projector...");
+                    _closeProjector();
+                };
+
+                // wait for event to open light box
+                scope.$on('fxProjector:open', function(data) {
+                    //console.log("fxProjector data: ", data);
+                    // we haz dataz ?
+                    if(!data.targetScope.project) { return; }
+
+                    _openProjector(data.targetScope.project);
+                });
+
+            };
+
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
                 link: link
             };
         }

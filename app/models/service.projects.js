@@ -8,12 +8,12 @@
     var appService = angular.module('workfolio.service.projects', []);
 
     //
-    //  Colors service
+    //  Projects service
     //
 
     // TO DO
     
-    appService.factory('ProjectService',
+    appService.factory('ProjectsService',
         ['_', '$rootScope', '$q', '$http', 'GENERAL_CONFIG',
         function(_, $rootScope, $q, $http, GENERAL_CONFIG) {
 
@@ -96,10 +96,6 @@
                 return deferred.promise;
             };
 
-            // init();
-            // var activeProject = [];
-            // var availableProjects = projects;
-
             // expose
             return {
                 init: init,
@@ -108,20 +104,6 @@
                     return projects;
                 }
 
-                /*
-
-                setActive: function(value) {
-                    activeProject = availableProjects[value];
-                },
-
-                getAvailable: function() {
-                    return availableProjects;
-                },
-
-                random: function() {
-                    return availableProjects[_.random(availableProjects.length - 1)];
-                }
-                */
             };
 
         }
