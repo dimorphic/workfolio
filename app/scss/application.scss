@@ -549,6 +549,8 @@ pre {
             }  // 768px and up
             */
 
+            // Animation ready / Force HA
+            @extend %noflicker;
             @include transition(all 0.6s $animationEasing);
             //transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
             //-moz-transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
@@ -629,129 +631,6 @@ pre {
 
       }
 
-      //
-      // Loading icon
-      //
-
-      // svg version
-      .svg-loader {
-        z-index: 1;
-        background: transparent;
-
-        svg {
-          @extend %positionCenter;
-
-          path {
-            &.circle { fill: #000; }
-            &.light { fill: #16A4E6; }
-          }
-        }
-      }
-
-      // css version
-      .icon-loader {
-        z-index: 1;
-
-        width: 100%;
-        min-height: 100%;
-
-        margin: 0 auto;
-
-        text-align: center;
-        vertical-align: middle;
-
-        // circle loader
-        .circle {
-          $ringBorder: 2px;
-          $ringSize: 30px;
-
-          $ringColor: #16A4E6;
-          $ringBg: #000;
-
-          @extend .positionCenter;
-
-          width: $ringSize;
-          height: $ringSize;
-
-          border-radius: 50%;
-          border: $ringBorder solid $ringBg;
-
-          // Animation ready / Force HA
-          @extend %noflicker;
-          @include animate(spin, 0.5s, 0s, linear, infinite);
-
-          &:before {
-            content: '';
-            display: block;
-
-            width: $ringSize;
-            height: $ringSize;
-
-            border-radius: 50%;
-
-            position: absolute;
-            top: -$ringBorder;
-            left: -$ringBorder;
-
-            border: $ringBorder solid $ringBg;
-            border-left: $ringBorder solid $ringColor;
-          }
-
-        } //.circle loader
-
-        // lines loader
-        .slides {
-          $slideSize: 1px;
-          $slideColor: #16A4E6;
-          //$slideColor: #7b75cb;
-
-          @extend .positionCenter;
-          // position: relative;
-          // margin: 0px auto;
-
-          width: 25%;
-          height: $slideSize;
-
-          // Animation ready
-          @extend %noflicker;
-          @include transition(all 0.3s $animationEasing);
-
-          // slide
-          .slide {
-            position: absolute;
-
-            width: 25%;
-            height: $slideSize;
-
-            background: $slideColor;
-
-            // Animation ready / Force HA
-            @extend %noflicker;
-            @include animate(slide, 1.16s, 0s, $animationEasing, infinite);
-
-            &:nth-of-type(0n+1) {
-              opacity: 0.2;
-              @include transform(scale(1.8, 1));
-              @include animation-delay(0.2s);
-            }
-
-            &:nth-of-type(0n+2) {
-              opacity: 0.4;
-              @include transform(scale(1.4, 1));
-              @include animation-delay(0.1s);
-            }
-
-            &:nth-of-type(0n+3) {
-              opacity: 0.8;
-            }
-
-          }
-
-        }
-
-      }
-
-
     } // @end: grid-item
 
   } // @end: grid
@@ -806,7 +685,135 @@ pre {
 
 }
 
+//
+//  fx.loadIcon
+//
 
+load-icon {
+
+  // svg version
+  .svg-loader {
+    z-index: 1;
+    background: transparent;
+
+    svg {
+      @extend %positionCenter;
+
+      path {
+        &.circle {
+          fill: #000;
+        }
+        &.light {
+          fill: #16A4E6;
+        }
+      }
+    }
+  }
+
+  // css version
+  .icon-loader {
+    z-index: 1;
+
+    width: 100%;
+    min-height: 100%;
+
+    margin: 0 auto;
+
+    text-align: center;
+    vertical-align: middle;
+
+    // circle loader
+    .circle {
+      $ringBorder: 2px;
+      $ringSize: 30px;
+
+      $ringColor: #16A4E6;
+      $ringBg: #000;
+
+      @extend .positionCenter;
+
+      width: $ringSize;
+      height: $ringSize;
+
+      border-radius: 50%;
+      border: $ringBorder solid $ringBg;
+
+      // Animation ready / Force HA
+      @extend %noflicker;
+      @include animate(spin, 0.5s, 0s, linear, infinite);
+
+      &:before {
+        content: '';
+        display: block;
+
+        width: $ringSize;
+        height: $ringSize;
+
+        border-radius: 50%;
+
+        position: absolute;
+        top: -$ringBorder;
+        left: -$ringBorder;
+
+        border: $ringBorder solid $ringBg;
+        border-left: $ringBorder solid $ringColor;
+      }
+
+    }
+    //.circle loader
+
+    // lines loader
+    .slides {
+      $slideSize: 1px;
+      $slideColor: #16A4E6;
+      //$slideColor: #7b75cb;
+
+      @extend .positionCenter;
+      // position: relative;
+      // margin: 0px auto;
+
+      width: 25%;
+      height: $slideSize;
+
+      // Animation ready
+      @extend %noflicker;
+      @include transition(all 0.3s $animationEasing);
+
+      // slide
+      .slide {
+        position: absolute;
+
+        width: 25%;
+        height: $slideSize;
+
+        background: $slideColor;
+
+        // Animation ready / Force HA
+        @extend %noflicker;
+        @include animate(slide, 1.16s, 0s, $animationEasing, infinite);
+
+        &:nth-of-type(0n+1) {
+          opacity: 0.2;
+          @include transform(scale(1.8, 1));
+          @include animation-delay(0.2s);
+        }
+
+        &:nth-of-type(0n+2) {
+          opacity: 0.4;
+          @include transform(scale(1.4, 1));
+          @include animation-delay(0.1s);
+        }
+
+        &:nth-of-type(0n+3) {
+          opacity: 0.8;
+        }
+
+      }
+
+    }
+
+  }
+}
 
 //
 //  fx.LoadingBar
@@ -855,11 +862,16 @@ fx-projector {
 
   // preview container
   .fx-preview {
+    position: relative;
+
     display: inline-block;
     height: 100%;
 //    width: 100%;
 
-    max-width: 80%;
+    max-width: 90%;
+
+    // responsiveness
+    @include wide() { max-width: 80%; }
 
     margin: 0px auto;
     padding: 50px 0px 80px;
@@ -874,10 +886,14 @@ fx-projector {
     }
 
     h1 {
-      @include font-size(50,1);
+      @include font-size(30,1);
       font-weight: 300;
 
       margin-bottom: 15px;
+
+      // responsive sizes
+      @include medium() { @include font-size(40,1); }
+      @include wide() { @include font-size(50,1); }
     }
 
     .extra {
@@ -886,6 +902,8 @@ fx-projector {
       // Animation ready / Force HA
       @extend %noflicker;
       @include transition(all 1s $animationEasing);
+
+      h4 { font-weight: 300; }
     }
 
     // close button
@@ -893,9 +911,12 @@ fx-projector {
       width: 40px;
       height: 40px;
 
-      position: absolute;
+      position: static;
       top: 40px;
       right: 40px;
+
+      // responsiveness
+      @include wide() { position: fixed; }
 
       background: none;
       color: #fff;
@@ -914,6 +935,7 @@ fx-projector {
         @extend %noflicker;
         @include transition(all 0.2s $animationEasing);
 
+
         @include transform(rotate(-45deg));
       }
 
@@ -922,10 +944,6 @@ fx-projector {
         background: #f00;
         color: #000;
         border-color: #222;
-
-        @include transform(rotate(0deg));
-
-        .icon { @include transform(rotate(0deg)); }
       }
     }
 
@@ -938,6 +956,8 @@ fx-projector {
 
     // projector preview image loaded
     .fx-preview.loaded {
+
+      .icon-loader { opacity: 0; display: none; }
 
       .extra {
         @include animation-duration(1s);
@@ -956,6 +976,7 @@ fx-projector {
         @include animation-iteration-count(1);
         @include animation-name(fadeInUp);
       }
+
     }
   }
 }

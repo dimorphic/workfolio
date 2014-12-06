@@ -43,6 +43,13 @@
     <link href="./assets/favicon/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
     <link href="./assets/favicon/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 
+    <!-- FB OG -->
+    <meta property="og:image" content="http://sabin-tudor.ro/assets/logo-dimorphic-500x500.jpg" />
+    <meta property="og:url" content="http://sabin-tudor.ro/" />
+    <meta property="og:site_name" content="http://sabin-tudor.ro/" />
+    <meta property="og:title" content="Sabin Tudor : Workfolio (BETA)" />
+    <meta property="og:description" content="In love with design, coding, games, open source and pizza." />
+
     <!-- Set <base> for relative links -->
     <!-- <script>document.write('<base href="'+ document.location +'" />');</script> -->
 
@@ -93,7 +100,7 @@
     -->
 
     <!-- <script src="http://192.168.0.105:4040/target/target-script-min.js#anonymous"></script> --> <!-- WEINRE debugger -->
-    <script src="components/fpsmeter/dist/fpsmeter.min.js"></script>
+    <!-- <script src="components/fpsmeter/dist/fpsmeter.min.js"></script> -->
 
     <!--
     // ---------------------------------------------------------------------------- //
@@ -107,7 +114,8 @@
 
     <!-- build:js js/components.bundle.js -->
     <!-- Underscore + ConsoleJs -->
-    <script src="components/underscore/underscore-min.js"></script>
+    <!--<script src="components/underscore/underscore-min.js"></script>-->
+    <script src="components/lodash/dist/lodash.min.js"></script>
     <script src="components/_hacks/consolejs.min.js"></script>
 
     <!-- AngularJS "Supercharged" -->
@@ -129,10 +137,9 @@
     <script src="components/angular-loading-bar/build/loading-bar.min.js"></script>
     <script src="components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
 
-    <!-- Strip -->
-    <!--<script src="components/strip/js/strip.pkgd.min.js"></script>-->
-    <!--<script src="components/angular-extra/angular-strip.js"></script>-->
-
+    <!-- Velocity -->
+    <script src="components/velocity/velocity.min.js"></script>
+    <script src="components/velocity/velocity.ui.min.js"></script>
     <script src="components/shuffleLetters/jquery.shuffleLetters.js"></script>
     <!-- endbuild -->
 

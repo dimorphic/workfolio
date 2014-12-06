@@ -21,11 +21,25 @@
         //
         $scope.projects = [];
 
-        $scope.loadMore = null;
-        $scope.infiniteDisabled = true;
-        $scope.showHintMore = !$scope.infiniteDisabled;
+        $scope.loadMore = null; // infinite scroll trigger/caller
+        $scope.infiniteDisabled = true; // infinite status flag
+        $scope.showHintMore = !$scope.infiniteDisabled; // got more ?
 
-        // promise!
+        // add project
+        var itemsToAdd = 4;
+        var _addProject = function(item) {
+            // TODO: check if item is in list already ?
+            // TODO: ... maybe fixes random ng-dupe bug ? yes plx ?
+            var check = _.find($scope.projects, item);
+            if (check) { return; }
+
+            //$timeout(function() {
+                $scope.projects.push(item);
+            //});
+        };
+
+        // init bro
+        // TODO: clean up code to service ?
         ProjectsService.init().then(function(data) {
 
             // data is here bro!
@@ -33,39 +47,26 @@
 
             // load more function
             $scope.loadMore = function() {
+                $timeout(function() {
+                    // how many items to add when we reach bottom
+                    var remaining = $scope.projectsData.length - $scope.projects.length;
 
-                var addProject = function(item) {
-                    //console.log(item);
+                    if (remaining) {
+                        $scope.showHintMore = true;
 
+                        var last = $scope.projects.length;
+                        var items = (remaining < itemsToAdd) ? remaining : itemsToAdd;
 
+                        for (var i = last; i < last + items; i++) {
+                            _addProject($scope.projectsData[i]);
+                        }
 
-                    $timeout(function() {
-                        $scope.projects.push(item);
-                    });
-                };
-
-                // how many items to add when we reach bottom
-                var itemsToAdd = 4;
-                var remaining = $scope.projectsData.length - $scope.projects.length;
-
-                if(remaining) {
-                    $scope.showHintMore = true;
-
-                    var last = $scope.projects.length;
-                    var items = (remaining < itemsToAdd) ? remaining : itemsToAdd;
-
-                    for(var i = last; i < last+items; i++) {
-                        addProject($scope.projectsData[i]);
+                    } else {
+                        // disable infinite scroll
+                        $scope.infiniteDisabled = true;
+                        $scope.showHintMore = !$scope.infiniteDisabled;
                     }
-
-                } else {
-                    // console.log('no more items to add');
-
-                    // disable infinite scroll
-                    $scope.infiniteDisabled = true;
-                    $scope.showHintMore = !$scope.infiniteDisabled;
-                }
-
+                });
             };
 
             // enable infinite scroll
@@ -96,9 +97,6 @@
 
         // watch for changes on menu
         $scope.$watch("menuModel", function(newValue, oldValue) {
-            // console.log("menu filter has changed : ", oldValue, " -> ", newValue);
-            //alert('da fak @ ' + $scope.menuModel);
-
             if(newValue === "all") {
                 $scope.setFilter("");
             } else {

@@ -45,14 +45,28 @@
         function($rootScope, $timeout) {
             var tpl = 'templates/directives/app-logo.tpl.html';
 
+            // rgb to hex
+            var rgbToHex = function(color) {
+                if(color.substr(0, 1) === "#") { return color; }
+
+                var digits = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+
+                return (digits && digits.length === 4) ? "#" +
+                        ("0" + parseInt(digits[1], 10).toString(16)).slice(-2) + // red
+                        ("0" + parseInt(digits[2], 10).toString(16)).slice(-2) + // green
+                        ("0" + parseInt(digits[3], 10).toString(16)).slice(-2) : ''; // blue or nada
+            };
+
             // Link to DOM
             var link = function(scope, element, attrs) {
 
-                var timings = [0, 200, 400, 600, 800, 1000];
+                var _timings = [0, 200, 400, 600, 800, 1000, 1200];
+                var _drawDelay = 200; // ms
 
                 // fetch elements
                 var $paths = element.find('path');
                 var $circle = $(".st5");
+                var $crown = $(".st12");
 
                 //
                 // Draw butterfly helper
@@ -66,11 +80,13 @@
                         $path = $(this);
                         pathLen = this.getTotalLength();
 
-                        //console.log("$path : ", $path);
-                        //console.log("path len : ", pathLen);
+                        var color = rgbToHex($path.css("fill"));
+
+                        /*
+                        OLD METHOD
 
                         $path.css({
-                            "stroke-dasharray": "" + pathLen + " " + pathLen,
+                            "stroke-dasharray": pathLen,
                             "stroke-dashoffset": pathLen,
                             "stroke-width": "5",
                             "stroke": $path.css("fill"),
@@ -79,15 +95,40 @@
 
                         pathRect = this.getBoundingClientRect();
 
-                        //console.log("rect : ", pathRect);
-                        //console.log(" ");
-
                         $path.css({
-                            "transition": "stroke-dashoffset 3s ease " + timings[i] + "ms, fill 1s ease-in " +
-                                (1500 + timings[i]) + "ms, stroke-width 1s ease " + (4500 + timings[i]),
+                            "transition": "stroke-dashoffset 3s ease " + _timings[i] + "ms, fill 1s ease-in " +
+                                (1500 + _timings[i]) + "ms, stroke-width 1s ease " + (4500 + _timings[i]),
                             "fill": $path.css("stroke"),
                             "stroke-dashoffset": "0"
                         });
+                         */
+
+                        var transitionDelay = i * _drawDelay;
+                        var transition = "stroke-dashoffset 3s ease " + transitionDelay + "ms, " +
+                                         "fill 1s ease-in " + (1500 + transitionDelay) + "ms";
+
+                        $path.css({
+                            "stroke-dasharray": pathLen,
+                            "stroke-dashoffset": pathLen,
+                            "stroke-width": 5,
+
+                            "stroke": color,
+                            "fill": "transparent"
+                        });
+
+                        pathRect = this.getBoundingClientRect();
+
+                        $path.css({ "transition": transition });
+
+                        $path.velocity(
+                            { fill: color },
+                            { queue: false, easing: "ease-in" }
+                        );
+
+                        $path.velocity(
+                            { strokeDashoffset: 0 },
+                            { queue: false, easing: "ease" }
+                        );
 
                     });
 
@@ -97,18 +138,31 @@
                 // Draw extra artefacts (circle + crown)
                 //
                 var drawExtra = function() {
-                    // circle
+                    var transition = "stroke-dasharray 1.6s ease";
+                    var circlePath = parseInt($circle[0].getTotalLength());
+
                     $circle.css({
-                        "stroke": "#fff",
-                        //"stroke-dasharray": "" + circlePath + " " + circlePath,
-                        "stroke-dasharray": "0"
-                        //"opacity": "1"
+                        "transition": transition,
+                        "stroke-dasharray": circlePath,
+                        "stroke-dashoffset": circlePath
                     });
 
+                    // circle
+                    $timeout(function() {
+
+                        $circle.velocity(
+                            {
+                                stroke: "#fff",
+                                strokeDasharray: [ 0, circlePath ]
+                                //strokeDashoffset: [ 0, circlePath ]
+                            },
+                            { queue: false }
+                        );
+
+                    }, 200);
+
                     // crown
-                    $(".st12").css({
-                        "fill": "#fff"
-                    });
+                    $crown.css({ "fill": "#fff" });
                 };
 
                 // Fire it up!
@@ -123,8 +177,6 @@
                     $rootScope.$emit("fx.stringz:showCanvas");
 
                 }, 3000);
-
-                // console.log($paths);
 
             };
 
@@ -420,15 +472,22 @@
                     });
 
                     // catch image
-                    var $img = element.find("img");
+                    var img = new Image();
+                    img.classList.add("img-responsive");
+                    img.classList.add("animated");
 
-                    // bind once
-                    $img.one("load", function() {
+                    var $img = $(img);
 
-                        //console.log("loaded!");
-                        $img.parent().addClass("loaded");
-
+                    // one load
+                    $img.one('load', function() {
+                        element.find(".fx-preview").addClass("loaded");
                     });
+
+                    // set src, trigger load event
+                    img.src = scope.project.imageUrl;
+
+                    // append
+                    element.find(".fx-preview").append($img);
                 };
 
                 var _closeProjector = function() {
@@ -442,6 +501,11 @@
                         // enable body scroll
                         $rootScope.$broadcast("noScroll:disable");
 
+                        // catch image
+                        var $img = element.find("img");
+                        $img.remove();
+
+                        $active = false;
                     }
 
                 };

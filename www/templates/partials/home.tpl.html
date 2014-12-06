@@ -1,12 +1,12 @@
 <!-- DEBUG -->
 <div style="display: none;">
     <div class="debug fixed">
-        <pre>{{ modern }}</pre>
+        <pre>{{ debug }}</pre>
 
-        <pre>{{ filterQuery }}</pre>
-        <input type="text" ng-model="filterQuery.type">
+        <!--<pre>{{ filterQuery }}</pre>-->
+        <!--<input type="text" ng-model="filterQuery.type">-->
 
-        <input type="text" ng-model="hiMsg" />
+        <!--<input type="text" ng-model="hiMsg" />-->
     </div>
 </div>
 
@@ -61,12 +61,13 @@
         <div class="grid">
 
             <!-- INFINITE SCROLLER -->
-            <div infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-disabled='infiniteDisabled'>
+            <div infinite-scroll='loadMore()'
+                 infinite-scroll-distance='0'
+                 infinite-scroll-disabled='infiniteDisabled'>
 
                 <!-- GRID ITEM -->
-                <grid-item ng-repeat="project in projects | filter:filterQuery"
+                <grid-item ng-repeat="project in projects | filter:filterQuery track by project.id"
                            class="animateGridItem"
-
                            id="project_{{ ::$index }}"
                            project="projects[$index]">
 

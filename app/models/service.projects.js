@@ -46,6 +46,7 @@
 
                             // project model
                             var $project = {
+                                id: classes.id.$t,
                                 year: parseInt(classes.gsx$year.$t),
 
                                 name: classes.gsx$name.$t,

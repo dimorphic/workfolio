@@ -1,16 +1,13 @@
-<div class="debug fixed">{{ project | json }}</div>
-
 <div class="fx-preview">
     <button type="button" class="btn btn-close" ng-click="closeProjector()"><span class="fa fa-close icon"></span></span></button>
 
     <h1>{{ project.name }}</h1>
-
-    <!--<div class="glitch" data-text="TEST">TEST</div>-->
 
     <div class="extra">
         <h4>{{ project.description }}</h4>
         <span>{{ project.client }} / {{ project.year }}</span>
     </div>
 
-    <img ng-src="{{ project.imageUrl }}" class="img-responsive animated " />
+    <load-icon></load-icon>
+
 </div>
