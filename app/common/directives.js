@@ -74,7 +74,8 @@
                 var drawButterfly = function() {
 
                     // butterfly paths
-                    $paths.each(function (i) {
+                    $paths.each(function (item) {
+
                         var $path, pathLen, pathRect;
 
                         $path = $(this);
@@ -103,7 +104,7 @@
                         });
                          */
 
-                        var transitionDelay = i * _drawDelay;
+                        var transitionDelay = item * _drawDelay;
                         var transition = "stroke-dashoffset 3s ease " + transitionDelay + "ms, " +
                                          "fill 1s ease-in " + (1500 + transitionDelay) + "ms";
 
@@ -121,13 +122,8 @@
                         $path.css({ "transition": transition });
 
                         $path.velocity(
-                            { fill: color },
-                            { queue: false, easing: "ease-in" }
-                        );
-
-                        $path.velocity(
-                            { strokeDashoffset: 0 },
-                            { queue: false, easing: "ease" }
+                            { fill: color, strokeDashoffset: 0 },
+                            { queue: false }
                         );
 
                     });
@@ -138,14 +134,14 @@
                 // Draw extra artefacts (circle + crown)
                 //
                 var drawExtra = function() {
-                    var transition = "stroke-dasharray 1.6s ease";
-                    var circlePath = parseInt($circle[0].getTotalLength());
+                    /*var transition = "stroke-dasharray 0.7s ease";
+                    //var circlePath = parseInt($circle[0].getTotalLength());
 
                     $circle.css({
-                        "transition": transition,
-                        "stroke-dasharray": circlePath,
-                        "stroke-dashoffset": circlePath
-                    });
+                        "transition": transition
+                        //"stroke-dasharray": circlePath,
+                        //"stroke-dashoffset": circlePath
+                    });*/
 
                     // circle
                     $timeout(function() {
@@ -153,13 +149,13 @@
                         $circle.velocity(
                             {
                                 stroke: "#fff",
-                                strokeDasharray: [ 0, circlePath ]
-                                //strokeDashoffset: [ 0, circlePath ]
+                                strokeDasharray: 0,
+                                //strokeDashoffset: 0
                             },
-                            { queue: false }
+                            { queue: false, duration: 400 }
                         );
 
-                    }, 200);
+                    }, 300);
 
                     // crown
                     $crown.css({ "fill": "#fff" });
@@ -196,26 +192,6 @@
         ['$timeout',
         function($timeout) {
             var tpl = 'templates/directives/load-icon.tpl.html';
-
-            // Link to DOM
-            var link = function(scope, element, attrs) { };
-
-            // Return directive config
-            return {
-                restrict: "E",
-                templateUrl: tpl,
-                link: link
-            };
-        }
-    ]);
-
-    //
-    // Hint more @ infinite scroller
-    //
-    appDirectives.directive("infiniteHintMore",
-        ['$timeout',
-        function($timeout) {
-            var tpl = 'templates/directives/hint-more.tpl.html';
 
             // Link to DOM
             var link = function(scope, element, attrs) { };
@@ -268,11 +244,13 @@
 
                         if(msg !== scope.hiMsg) {
 
-                            scope.hiMsg = msg;
-
                             // shuffle letterz bro!
-                            $container.shuffleLetters({
-                                text: scope.hiMsg
+                            $timeout(function() {
+                                scope.hiMsg = msg;
+
+                                $container.shuffleLetters({
+                                    text: scope.hiMsg
+                                });
                             });
 
                         }
@@ -444,10 +422,6 @@
         function($rootScope, $timeout) {
             var tpl = 'templates/directives/fx-projector.tpl.html';
 
-            var $boxOptions = {
-                side: 'right'
-            };
-
             // DOM link
             var link = function(scope, element, attrs) {
                 var $active = false;
@@ -540,8 +514,8 @@
     //  Experimental: fxStringz
     //
     appDirectives.directive("fxStringz",
-        ['$rootScope', '$window', '$timeout', 'AnimateService',
-        function($rootScope, $window, $timeout, AnimateService) {
+        ['$rootScope', '$window', '$timeout', '_', 'AnimateService',
+        function($rootScope, $window, $timeout, _, AnimateService) {
 
             // template
             var tpl = 'templates/directives/fx-stringz.tpl.html';
@@ -555,20 +529,23 @@
 
                 // we active ?
                 var active = (mobileDevice) ? false : true;
+                var showFPS = false;
 
                 // FPS monitor (enable via uncomment)
-                /*var FpsMon = $window.FPSMeter;
+                var meter, FPSMeter = $window.FPSMeter || null;
 
-                var meter = new FpsMon({
-                    theme: 'dark',
-                    heat: 1,
+                if (active && showFPS && FPSMeter) {
+                    meter = new FPSMeter({
+                        theme: 'dark',
+                        heat: 1,
 
-                    graph: 1,
-                    history: 10,
+                        graph: 1,
+                        history: 10,
 
-                    left: 'auto',
-                    right: 0
-                });*/
+                        left: 'auto',
+                        right: 0
+                    });
+                }
 
                 // Canvas
                 var canvas = element.find("canvas")[0];
@@ -621,6 +598,15 @@
                     };
                 };
 
+                // points color replacer
+                var generateColor = function(p, str, alpha) {
+                    str = "rgba(%r,%g,%b,%a)".replace(/%([a-z])/g, function( m, v ) {
+                        return v === "a" ? alpha : p.setColor[ v ] ;
+                    });
+
+                    return str;
+                };
+
                 //
                 // Animation / loop / ticker
                 //
@@ -639,10 +625,16 @@
                         ctx.lineWidth = 1;
 
                         // Cycle over every point
-                        angular.forEach(points, function(p) {
+                        //_.each(points, function(p) {
+                        var i, k, pointsNo = points.length;
+
+                        for (i = 0; i < pointsNo; i++) {
+                            var p = points[i];
 
                             // Compare each point to current point
-                            angular.forEach(points, function(q) {
+                            //_.each(points, function(q) {
+                            for (k = 0; k < pointsNo; k++) {
+                                var q = points[k];
 
                                 // Find distance between two points
                                 var xd = p.pos.x - q.pos.x;
@@ -663,28 +655,25 @@
                                     ctx.stroke();
 
                                     // Draw string
-                                    ctx.strokeStyle = "rgba(%r,%g,%b,%a)".replace(/%([a-z])/g, function( m, v ) {
-                                        return v === "a" ? alpha : p.setColor[ v ] ;
-                                    });
-
+                                    ctx.strokeStyle = generateColor(p, ctx.strokeStyle, alpha);
                                     ctx.beginPath();
                                     ctx.moveTo( p.pos.x, p.pos.y );
                                     ctx.lineTo( q.pos.x, q.pos.y );
                                     ctx.stroke();
                                 }
 
-                            });
+                            }
 
                             // Update location of point for next frame
                             p.pos.update();
 
-                        });
+                        }
+
+                        // fps meter ticker
+                        if (showFPS && FPSMeter) { meter.tick(); }
 
                         // queue up the next frame
                         animate(tick);
-
-                        // fps meter ticker
-                        // meter.tick();
 
                     })();
 
@@ -710,9 +699,9 @@
                         // Attach events
                         scope.$on('fx.stringz:showCanvas', function () {
 
-                            $timeout(function() {
+                            //$timeout(function() {
                                 element.addClass("animated fadeIn");
-                            }, 100);
+                            //}, 200);
 
                         });
 
