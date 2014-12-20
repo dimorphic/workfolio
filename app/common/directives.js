@@ -6,7 +6,9 @@
     //
 	var appDirectives = angular.module('workfolio.directives', []);
 
+    //
     // No scroll
+    //
     appDirectives.directive("noScroll",
         ['$rootScope', '$timeout',
         function($rootScope, $timeout) {
@@ -136,7 +138,6 @@
                 var drawExtra = function() {
                     /*var transition = "stroke-dasharray 0.7s ease";
                     //var circlePath = parseInt($circle[0].getTotalLength());
-
                     $circle.css({
                         "transition": transition
                         //"stroke-dasharray": circlePath,
@@ -144,18 +145,16 @@
                     });*/
 
                     // circle
-                    $timeout(function() {
-
+                    //$timeout(function() {
                         $circle.velocity(
                             {
                                 stroke: "#fff",
                                 strokeDasharray: 0,
                                 //strokeDashoffset: 0
                             },
-                            { queue: false, duration: 400 }
+                            { queue: false, duration: 400, delay: 300 }
                         );
-
-                    }, 300);
+                    //}, 300);
 
                     // crown
                     $crown.css({ "fill": "#fff" });
@@ -186,7 +185,7 @@
     ]);
 
     //
-    // Loading SVG icon
+    // Loading icon
     //
     appDirectives.directive("loadIcon",
         ['$timeout',
@@ -206,11 +205,51 @@
     ]);
 
     //
+    // Head bar
+    //
+    appDirectives.directive("headBar",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/head-bar.tpl.html';
+
+            // Link to DOM
+            var link = function(scope, element, attrs) { };
+
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
+
+    //
+    // GitHub project link
+    //
+    appDirectives.directive("gitLink",
+        ['$timeout',
+        function($timeout) {
+            var tpl = 'templates/directives/git-link.tpl.html';
+
+            // Link to DOM
+            var link = function(scope, element, attrs) { };
+
+            // Return directive config
+            return {
+                restrict: "E",
+                templateUrl: tpl,
+                link: link
+            };
+        }
+    ]);
+
+    //
     // Hi there!
     //
     appDirectives.directive("hiThere",
-        ['$timeout', '$interval', '_',
-            function($timeout, $interval, _) {
+        ['$timeout', '$interval', '$window', '_',
+            function($timeout, $interval, $window, _) {
 
                 // messages
                 var loadMoreMsg = "Scroll down, bro!";
@@ -223,6 +262,9 @@
 
                 // Link to DOM
                 var link = function(scope, element, attrs) {
+                    // you mobile, bro ?
+                    var mobileDevice = $window.isMobile.any();
+                    var doShuffle = (mobileDevice) ? false : true;
 
                     // message model
                     scope.hiMsg = "";
@@ -245,26 +287,21 @@
                         if(msg !== scope.hiMsg) {
 
                             // shuffle letterz bro!
-                            $timeout(function() {
+                            //$timeout(function() {
                                 scope.hiMsg = msg;
 
-                                $container.shuffleLetters({
-                                    text: scope.hiMsg
-                                });
-                            });
+                                if(doShuffle) {
+                                    $container.shuffleLetters({
+                                        text: scope.hiMsg
+                                    });
+                                } else {
+                                    $container.html(scope.hiMsg);
+                                }
+                            //});
 
                         }
 
                     }, shuffleInterval);
-
-                    // DEBUG: watch model change
-                    /* scope.$watch("hiMsg", function(newValue, oldValue) {
-                            console.log('old @ ', oldValue);
-                            console.log('new @ ', newValue);
-                            console.log('new vs old @ ', (newValue !== oldValue));
-                            console.log(' ');
-
-                    }); */
 
                 };
 
@@ -418,14 +455,17 @@
     //  Display project details in style
     //
     appDirectives.directive("fxProjector",
-        ['$rootScope', '$timeout',
-        function($rootScope, $timeout) {
+        ['$rootScope', '$timeout', '$window',
+        function($rootScope, $timeout, $window) {
             var tpl = 'templates/directives/fx-projector.tpl.html';
 
             // DOM link
             var link = function(scope, element, attrs) {
-                var $active = false;
+                // you mobile, bro ?
+                var mobileDevice = $window.isMobile.any();
+                var doShuffle = (mobileDevice) ? false : true;
 
+                var $active = false;
                 scope.project = [];
 
                 var _openProjector = function(data) {
@@ -438,12 +478,14 @@
                     $rootScope.$broadcast("noScroll:enable");
                     element.addClass("active");
 
-                    var $text = angular.element(element).find("h1");
+                    if(doShuffle) {
+                        var $text = angular.element(element).find("h1");
 
-                    // shuffle letterz bro!
-                    $text.shuffleLetters({
-                        text: scope.project.name
-                    });
+                        // shuffle letterz bro!
+                        $text.shuffleLetters({
+                            text: scope.project.name
+                        });
+                    }
 
                     // catch image
                     var img = new Image();

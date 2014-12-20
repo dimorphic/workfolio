@@ -5,15 +5,15 @@
 // ---------------------------------------------------------------------------- //
 // 3rd party "resources"
 
-@import url("//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css"); // Animate.css
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css");
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext"); // Open Sans
+@import "../components/angular-loading-bar/build/loading-bar.css";
 
 // ---------------------------------------------------------------------------- //
 // ---------- APP DEPENDENCIES ------------------------------------------------ //
 // ---------------------------------------------------------------------------- //
 
-@import "_reset"; // general reset
+@import "katalyst/_reset"; // general reset
 
 // SCSS Framework + DEBUG styles (Compass)
 @import "compass/css3";
@@ -22,24 +22,25 @@
 @import "lib/bootstrap/assets/stylesheets/_bootstrap-compass";
 @import "lib/bootstrap/assets/stylesheets/_bootstrap";
 
-// Other components
-@import "../components/angular-loading-bar/build/loading-bar.css";
+// Other components/modules
+@import "modules/_animate"; // Animate.css
+@import "modules/_git-ribbon"; // Git ribbon
 
 // Debug-belt (TODO: disable for production?)
-@import "_debug";
+@import "katalyst/_debug";
 
 // Color Schemas + Theme config
-@import "_colors";
-@import "_config";
+@import "katalyst/_colors";
+@import "katalyst/_config";
 
 // Utility MIXIN-belt
-@import "_mixins";
+@import "katalyst/_mixins";
 
 // Global styles
-@import "_global";
+@import "katalyst/_global";
 
 // Custom FX / animations
-@import "_fx";
+@import "katalyst/_fx";
 
 // ---------------------------------------------------------------------------- //
 // ---------- "WORKHOLIO" APP STYLES ------------------------------------------ //
@@ -163,6 +164,7 @@ pre {
 
 .headline {
   display: block;
+  opacity: 0;
 
   margin: 0px auto;
   text-align: center;
@@ -816,30 +818,29 @@ load-icon {
 //
 //  fx.LoadingBar
 //
-$loading-bar-color: #19b5fe;
+$fx-loadingbar-color: #19b5fe;
 
 #loading-bar {
-  .bar { background: $loading-bar-color; }
+  .bar { background: $fx-loadingbar-color; }
 
   .peg {
-    -moz-box-shadow: $loading-bar-color 1px 0 6px 1px;
-    -ms-box-shadow: $loading-bar-color 1px 0 6px 1px;
-    -webkit-box-shadow: $loading-bar-color 1px 0 6px 1px;
-    box-shadow: $loading-bar-color 1px 0 6px 1px;
+    -moz-box-shadow: $fx-loadingbar-color 1px 0 6px 1px;
+    -ms-box-shadow: $fx-loadingbar-color 1px 0 6px 1px;
+    -webkit-box-shadow: $fx-loadingbar-color 1px 0 6px 1px;
+    box-shadow: $fx-loadingbar-color 1px 0 6px 1px;
   }
 }
 
 #loading-bar-spinner .spinner-icon {
-  border-top-color:  $loading-bar-color;
-  border-left-color: $loading-bar-color;
+  border-top-color:  $fx-loadingbar-color;
+  border-left-color: $fx-loadingbar-color;
 }
 
-
-//
-//  fx.Stringz
-//
 .main-container { z-index: 2; }
 
+//
+//  fx.Projector
+//
 fx-projector {
   @extend %positionCenter;
   position: fixed;
@@ -884,6 +885,8 @@ fx-projector {
     }
 
     h1 {
+      opacity: 0;
+
       @include font-size(30,1);
       font-weight: 300;
 
@@ -957,21 +960,28 @@ fx-projector {
 
       .icon-loader { opacity: 0; display: none; }
 
+      h1 {
+        @include animation-duration(0.6s);
+        @include animation-timing-function($animationEasing);
+        @include animation-iteration-count(1);
+        @include animation-fill-mode(forwards);
+        @include animation-name(fadeInDown);
+      }
+
       .extra {
+        @include animation-delay(0.4s);
         @include animation-duration(1s);
         @include animation-timing-function($animationEasing);
         @include animation-iteration-count(1);
-        @include animation-name(fadeInDown);
-
-        opacity: 1;
+        @include animation-fill-mode(forwards);
+        @include animation-name(fadeIn);
       }
       
       img {
-        // opacity: 1;
-
         @include animation-duration(1s);
         @include animation-timing-function($animationEasing);
         @include animation-iteration-count(1);
+        @include animation-fill-mode(forwards);
         @include animation-name(fadeInUp);
       }
 
@@ -979,12 +989,19 @@ fx-projector {
   }
 }
 
+//
+//  fx.Stringz
+//
 fx-stringz {
   @extend %positionCenter;
+
+  display: none;
 
   opacity: 0;
   z-index: -1;
   position: fixed;
+
+  background: none;
 
   // Animation ready / Force HA
   @extend %noflicker;
@@ -996,6 +1013,8 @@ fx-stringz {
     width: 100%;
     height: 100%;
 
+    background: none;
+
     // Animation ready / Force HA
     @extend %noflicker;
     @include transition(all 0.4s $animationEasing);
@@ -1006,6 +1025,8 @@ fx-stringz {
     @include animation-timing-function($animationEasing);
     @include animation-delay(0.32s);
     @include animation-duration(1.6s); // fade in duration
+
+    display: block;
 
     // i'm pretty !
     canvas {
@@ -1021,57 +1042,44 @@ fx-stringz {
 }
 
 //
-// Hint: There's more bro!
+// GitHub link ribbon
 //
-.hintMore {
-  z-index: -1;
-  opacity: 0;
+git-link {
+  width: 130px;
+  height: 130px;
 
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  overflow: hidden;
+
+  position: absolute;
+  top: 0;
   right: 0;
 
-  text-align: center;
-  padding: 30px;
+  // actual ribbon
+  .ribbon {
+    display: none;
+    opacity: 0;
 
-  // Animation ready / Force HA
-  @extend %noflicker;
-  @include transition(all 0.3s $animationEasing);
-
-  .message {
-    display: inline-block;
-
-    padding: 10px;
-    background: #00f;
-
-    span.icon {
-      @include animation-duration(1s);
-      @include animation-timing-function($animationEasing);
-      @include animation-iteration-count(infinite);
-      @include animation-name(bounce);
-      @include animation-delay(2s);
+    a {
+      font-family: 'Open Sans', sans-serif;
+      @include font-size(12, 1);
+      font-weight: 400;
+      line-height: 20px;
     }
-  }
 
-  &.ui-show {
-    z-index: 10;
-
-    @include animation-duration(0.32s);
+    @include animation-delay(5s);
+    @include animation-duration(1s);
     @include animation-timing-function($animationEasing);
     @include animation-iteration-count(1);
-    @include animation-name(fadeInUp);
-    opacity: 1;
+    @include animation-fill-mode(forwards);
+    @include animation-name(fadeIn);
+
+    // show git ribbon on large screens only
+    @include wide() {
+      display: inline-block;
+      @include animation-name(fadeIn);
+    }
+
   }
-
-  &.ui-hide {
-//      @include transition(all 0.3s ease-in-out);
-
-    @include transform(translate3d(0, 200%, 0));
-    opacity: 0;
-    z-index: -1;
-  }
-
 }
 
 //
@@ -1082,166 +1090,4 @@ fx-stringz {
   // Animation ready
   @extend %noflicker; // force 3d render
   @include transition(transform $animationEasing);
-}
-
-
-// Custom fixes
-// TODO: clean up
-.modal-wrapper > .modal { display: block; } // oc.modal display fix
-.ngdialog .ngdialog-content { width:100%; height: 100%; } // ngDialog fix
-
-//
-// Fancybox customization
-//
-.fancybox-lock { overflow: visible !important; } // remove jump to top bug (lolz)
-.fancybox-overlay {
-  //@include background-image(linear-gradient(120deg, #1b191f 0%, #231b86 100%));
-  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
-}
-
-// close bttn
-.fancybox-close {
-  width: auto;
-  height: auto;
-
-  padding: 20px;
-
-  background: #121212;
-  border: 1px dashed #444;
-
-  text-align: center;
-  text-decoration: none;
-
-  top: 5px;
-  right: 5px;
-
-  &:before {
-    content: "\f00d";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-
-    color: #fff;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 40px;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  &:hover {
-    background: #ff0000;
-    text-decoration: none;
-
-    &:before { color: #121212; }
-  }
-
-  // Animation ready / Force HA
-  @extend %noflicker;
-  @include transition(all 0.2s $animationEasing);
-
-  @include animation-duration(0.32s);
-  @include animation-timing-function($animationEasing);
-  @include animation-iteration-count(1);
-  @include animation-name(bounceIn);
-
-}
-
-//
-// Strip customization
-//
-.strp-window {
-
-  background: none;
-  @include background-image(linear-gradient(120deg, rgba(27, 25, 31, 0.9) 10%, rgba(35, 27, 134, 0.9) 100%));
-
-  // strip container
-  .strp-container { background: none; }
-
-  // close bttn container
-  .strp-close {
-    width: auto;
-    height: auto;
-
-    padding: 20px;
-
-    top: 10px;
-    left: 10px;
-    right: auto;
-
-    text-align: center;
-
-    // Close bttn
-    .strp-close-background,
-    .strp-close-icon {
-      width: 100%;
-      height: 100%;
-
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    // bg
-    .strp-close-background {
-      background: #121212;
-      border: 1px dashed #444;
-
-      // Animation ready / Force HA
-      @include transition(all 0.2s $animationEasing);
-    }
-
-    // icon
-    .strp-close-icon {
-      width: 100%;
-      height: 100%;
-
-      background: none;
-
-      &:before {
-        content: "\f00d";
-        display: inline-block;
-        
-        width: 100%;
-        height: 100%;
-
-        background: transparent;
-
-        color: #fff;
-        font: normal normal normal 14px/40px FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-
-
-
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-    }
-
-    // hover action
-    &:hover {
-
-      .strp-close-background { background: #ff0000; }
-      .strp-close-icon:before {
-        color: #121212;
-      }
-    }
-
-  }
-
 }

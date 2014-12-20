@@ -81,7 +81,7 @@
 
 
         // menu
-        $scope.mainMenu = [ "all", "app", "branding", "banner" ]; // menu sorters
+        $scope.mainMenu = [ "all", "app", "branding", "other", "wallpaper" ]; // menu sorters
         $scope.menuModel = 'all'; // curent selected/active menu item
 
         // order by
