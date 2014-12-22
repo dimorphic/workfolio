@@ -20,6 +20,7 @@ If Ruby is ok, proceed to install SASS and Compass via Terminal :
 
 `$ gem update --system && gem install compass`
 
-## Options
- 
-To do
+# To do
+- [ ] Better docs
+- [ ] Fix logo draw (maybe revert logo draw anim back to CSS?)
+- [ ] Old code cleanup here and there
