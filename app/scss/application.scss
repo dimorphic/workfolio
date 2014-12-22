@@ -1045,6 +1045,9 @@ fx-stringz {
 // GitHub link ribbon
 //
 git-link {
+  $git-ribbon-bg: #3A116C;
+  $git-ribbon-hover: #4900A1;
+
   width: 130px;
   height: 130px;
 
@@ -1059,6 +1062,10 @@ git-link {
     display: none;
     opacity: 0;
 
+    background: $git-ribbon-bg;
+    border: 0;
+
+    // link
     a {
       font-family: 'Open Sans', sans-serif;
       @include font-size(12, 1);
@@ -1066,6 +1073,12 @@ git-link {
       line-height: 20px;
     }
 
+    // hover state
+    &:hover {
+      background: $git-ribbon-hover;
+    }
+
+    // animation
     @include animation-delay(5s);
     @include animation-duration(1s);
     @include animation-timing-function($animationEasing);
