@@ -2,13 +2,17 @@ Workfolio
 ============
 Source code of my work portofolio ([sabin-tudor.ro](http://sabin-tudor.ro/)). Showcase your work in style!
 
-Built using Angular, SCSS, Grunt and Google Docs as *database*. Best viewed in Chrome.
+Built using Angular, SCSS, Grunt and Google Docs as **database**.
 Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
 
-Coffee, pizza and other ancient sorceries used aswell, no kitties harmed tho.
+
+Coffee, pizza and other ancient sorceries used aswell, no kitties harmed tho. Best viewed in Chrome.
 
 ## Getting started
-This bundle requires: [NodeJS](http://nodejs.org/) + [GruntJS](http://gruntjs.com/) + [Compass](http://compass-style.org/install/)
+This bundle requires:
+* [NodeJS](http://nodejs.org/)
+* [GruntJS](http://gruntjs.com/)
+* [Compass](http://compass-style.org/install/)
 
 ### Install Grunt
 `$ npm install -g grunt-cli`
