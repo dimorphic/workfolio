@@ -1,6 +1,6 @@
 /*
 
-  Live Code Playground
+  Katalyst Playground v0.5
 
 */
 
