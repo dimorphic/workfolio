@@ -22,7 +22,7 @@ If Ruby is ok, proceed to install SASS and Compass via Terminal :
 `$ gem update --system && gem install compass`
 
 ## Running
-Fire up grunt using `$ grunt` and you're ready to develop! Any changes to files will be pushed by Grunt to your browser.
+Fire up using `$ grunt` and you're ready to develop! Any changes to files will be pushed by Grunt to your browser.
 
 When ready to go live, use `$ grunt build`.
 
