@@ -1,13 +1,12 @@
-App
+Workfolio
 ============
-To do:
+Source code of [sabin-tudor.ro](http://sabin-tudor.ro/), my work portofolio.
+
+Built using Angular, SCSS, Grunt and Google Docs as database.
+Best viewed in Chrome.
 
 ## Getting started
-This bundle requires:
-
-[NodeJS](http://nodejs.org/)
-[GruntJS](http://gruntjs.com/)
-[Compass](http://compass-style.org/install/)
+This bundle requires: [NodeJS](http://nodejs.org/) + [GruntJS](http://gruntjs.com/) + [Compass](http://compass-style.org/install/)
 
 ### Install Grunt
 `$ npm install -g grunt-cli`
@@ -20,7 +19,13 @@ If Ruby is ok, proceed to install SASS and Compass via Terminal :
 
 `$ gem update --system && gem install compass`
 
-# To do
+## Running
+Fire up grunt using `$ grunt` and you're ready to develop! Any changes to files will be pushed by Grunt to your browser.
+
+When ready to go live, use `$ grunt build`.
+
+## To do
 - [ ] Better docs
-- [ ] Fix logo draw (maybe revert logo draw anim back to CSS?)
-- [ ] Old code cleanup here and there
+- [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
+- [ ] Clean-up old code
+- [ ] Rewrite / clean Grunt tasks (maybe switch to Gulp?)
