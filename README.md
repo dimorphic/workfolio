@@ -2,7 +2,7 @@ Workfolio
 ============
 Source code of my work portofolio ([sabin-tudor.ro](http://sabin-tudor.ro/)). Showcase your work in style!
 
-Built using Angular, SCSS, Grunt and Google Docs as **database**.
+Built using AngularJS, SCSS, GruntJS and Google Docs as **database**.
 Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
 
 
