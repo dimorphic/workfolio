@@ -1,6 +1,6 @@
 Workfolio
 ============
-Showcase your work in style! Source code of my work portofolio ([sabin-tudor.ro](http://sabin-tudor.ro/)).
+Source code of [sabin-tudor.ro](http://sabin-tudor.ro/).
 
 Built using AngularJS, SCSS, GruntJS and Google Docs as **database**.
 Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
@@ -32,6 +32,8 @@ When ready to go live, use `$ grunt build`.
 
 ## To do
 - [ ] Better docs
-- [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
 - [ ] Clean-up old code
-- [ ] Rewrite / clean Grunt tasks (maybe switch to Gulp?)
+- [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
+- [ ] Switch to one "dynamic" SVG border for improvement performance? (less SVGs = less memory = win = yes?)
+- [ ] Write a *better* "build" task
+- [ ] Clean / rewrite some Grunt tasks (maybe switch to Gulp?)
