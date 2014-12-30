@@ -2,7 +2,7 @@ Workfolio
 ============
 Source code of [sabin-tudor.ro](http://sabin-tudor.ro/).
 
-Built using AngularJS, SCSS, GruntJS and Google Docs as **database**.
+Built using **AngularJS**, **SCSS**, **GruntJS** and **Google Docs** as *database*.
 Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
 
 
@@ -31,9 +31,9 @@ Fire up using `$ grunt` and you're ready to develop! Any changes to files will b
 When ready to go live, use `$ grunt build`.
 
 ## To do
-- [ ] Better docs
 - [ ] Clean-up old code
 - [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
 - [ ] Switch to one "dynamic" SVG border for improvement performance? (less SVGs = less memory = win = yes?)
 - [ ] Write a *better* "build" task
+- [ ] Better docs
 - [ ] Clean / rewrite some Grunt tasks (maybe switch to Gulp?)
