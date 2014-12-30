@@ -4,7 +4,7 @@
     //
     // Directives
     //
-	var appDirectives = angular.module('workfolio.directives', []);
+    var appDirectives = angular.module('workfolio.directives', []);
 
     //
     // No scroll
