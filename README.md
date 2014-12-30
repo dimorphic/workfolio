@@ -33,7 +33,7 @@ When ready to go live, use `$ grunt build`.
 ## To do
 - [ ] Clean-up old code
 - [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
-- [ ] Switch to one "dynamic" SVG border for improvement performance? (less SVGs = less memory = win = yes?)
+- [ ] Switch to one "dynamic" SVG border for improved performance? (less SVGs = less memory = win = yes?)
 - [ ] Write a *better* "build" task
 - [ ] Better docs
 - [ ] Clean / rewrite some Grunt tasks (maybe switch to Gulp?)
