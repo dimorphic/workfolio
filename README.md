@@ -6,7 +6,7 @@ Built using **AngularJS**, **SCSS**, **GruntJS** and **Google Docs** as *databas
 
 Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
 
-Coffee, pizza and other ancient sorceries used aswell, no kitties harmed tho!
+Coffee, pizza and other ancient sorceries used aswell, no kitties harmed tho! :)
 
 ## Getting started
 This bundle requires:
