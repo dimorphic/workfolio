@@ -6,14 +6,15 @@
     // Dependencies
     //
     var dependencyModules = [
-        'Console', 'underscore',
-        //'Strip',
+        'Console',
+        'underscore',
+
         'ngTouch',
+        'ngAnimate',
         'ui.router',
+
         'ui.bootstrap',
         'ui.showhide',
-        'ngAnimate',
-        //'ngRoute',
 
         'angular-loading-bar',
         'infinite-scroll'

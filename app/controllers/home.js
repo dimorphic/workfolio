@@ -11,6 +11,7 @@
         // PRIVATE METHODS
         // ---------------
         var $state = $scope.$state;
+        var itemsToAdd = 4;
 
         // ---------------
         // PUBLIC METHODS
@@ -26,7 +27,6 @@
         $scope.showHintMore = !$scope.infiniteDisabled; // got more ?
 
         // add project
-        var itemsToAdd = 4;
         var _addProject = function(item) {
             // TODO: check if item is in list already ?
             // TODO: ... maybe fixes random ng-dupe bug ? yes plx ?
@@ -39,7 +39,7 @@
         };
 
         // init bro
-        // TODO: clean up code to service ?
+        // TODO: clean up + move code to service ?
         ProjectsService.init().then(function(data) {
 
             // data is here bro!
@@ -80,7 +80,10 @@
         });
 
 
-        // menu
+        //
+        // Menu
+        // TODO: rewrite as module
+        //
         $scope.mainMenu = [ "all", "app", "branding", "other", "wallpaper" ]; // menu sorters
         $scope.menuModel = 'all'; // curent selected/active menu item
 

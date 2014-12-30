@@ -13,8 +13,8 @@
 
     // TO DO: double check this?
     appService.factory('AnimateService',
-        ['$rootScope', '$window', '$timeout',
-        function($rootScope, $window, $timeout) {
+        ['$rootScope', '$window',
+        function($rootScope, $window) {
 
             //
             // Define raF
@@ -26,11 +26,11 @@
 
             // expose
             return function(tick) {
-                requestAnimationFrame(function() {
-                    //$timeout(function() {
-                        $rootScope.$apply(tick);
-                    //});
-                });
+                requestAnimationFrame(tick);
+
+                /*requestAnimationFrame(function() {
+                    $rootScope.$apply(tick);
+                });*/
             };
 
         }
