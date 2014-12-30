@@ -23,7 +23,7 @@ This task requires you to have [Ruby](http://www.ruby-lang.org/en/downloads/), [
 
 If Ruby is ok, proceed to install SASS and Compass via Terminal :
 
-`$ gem update --system && gem install compass`
+`$ (sudo) gem update --system && (sudo) gem install compass`
 
 ## Running
 Fire up using `$ grunt` and you're ready to develop! Any changes to files will be pushed by Grunt to your browser.
