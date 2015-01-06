@@ -34,6 +34,7 @@ When ready to go live, use `$ grunt build`.
 - [ ] Clean-up old code
 - [ ] Fix SVG logo draw (maybe revert logo draw animation back to CSS?).
 - [ ] Switch to one "dynamic" SVG border for improved performance? (less SVGs = less memory = win = yes?)
+- [ ] fx.projector: add left / right arrows navigation ?
 - [ ] Write a *better* "build" task
 - [ ] Better docs
 - [ ] Clean / rewrite some Grunt tasks (maybe switch to Gulp?)
