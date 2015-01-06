@@ -468,6 +468,9 @@
                 var $active = false;
                 scope.project = [];
 
+                //
+                // open action
+                //
                 var _openProjector = function(data) {
                     $active = true;
 
@@ -506,6 +509,9 @@
                     element.find(".fx-preview").append($img);
                 };
 
+                //
+                // close action
+                //
                 var _closeProjector = function() {
 
                     if ($active) {
@@ -532,15 +538,35 @@
                     _closeProjector();
                 };
 
-                // wait for event to open light box
+                // wait for event to open projector
                 scope.$on('fxProjector:open', function(data) {
-                    //console.log("fxProjector data: ", data);
                     // we haz dataz ?
                     if(!data.targetScope.project) { return; }
 
                     _openProjector(data.targetScope.project);
                 });
 
+                // listen for ESC key
+                // ... and close projector
+                angular.element($window).bind("keyup", function(ev) {
+                    if ($active) {
+                        var charcode = ev.which ? ev.which : ev.keyCode;
+
+                        // esc key
+                        if (charcode === 27) { _closeProjector(); }
+                    }
+                });
+
+                // listen for outside click
+                // ... and close projector
+                element.bind("click", function(ev) {
+                    if ($active) {
+                        var $clicker = element[0];
+                        var $target = angular.element(ev.target)[0];
+
+                        if ($target === $clicker) { _closeProjector(); }
+                    }
+                });
             };
 
             // Return directive config
