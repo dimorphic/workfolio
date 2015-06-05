@@ -4,7 +4,7 @@ Source code of [sabin-tudor.ro](http://sabin-tudor.ro/).
 
 Built using **AngularJS**, **SCSS**, **GruntJS** and **Google Docs** as *database*. Best viewed in [Chrome](http://www.google.com/chrome/).
 
-Database sample : [here](https://docs.google.com/spreadsheets/d/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/edit?usp=sharing)
+Database sample : [here](http://bit.ly/workfolio-db)
 
 Coffee, pizza and other ancient sorceries used aswell, no kitties harmed tho! :)
 
