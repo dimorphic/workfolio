@@ -23,8 +23,7 @@
     "tag": "v0.3.1",
     "commit": "06428191f76733f9991834957b87ce2264057267"
   },
-  "_source": "git://github.com/darsain/fpsmeter.git",
-  "_target": "~0.3.1",
-  "_originalSource": "fpsmeter",
-  "_direct": true
+  "_source": "https://github.com/darsain/fpsmeter.git",
+  "_target": "0.3.1",
+  "_originalSource": "fpsmeter"
 }
