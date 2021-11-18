@@ -1,6 +1,6 @@
 {
   "name": "workfolio",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Personal portofolio showcase",
   "main": "www/index.html",
   "scripts": {
