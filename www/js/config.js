@@ -11,8 +11,9 @@
 	var configData = {
 		// General config
 		'GENERAL_CONFIG': {
-			'APP_VERSION': '0.1', // version
-			'DBURL': 'https://spreadsheets.google.com/feeds/list/1BVPdAa0j09ZdP_3u1AhId941gUpKcngBMliDL7GYnGA/od6/public/values?alt=json-in-script' + '&callback=JSON_CALLBACK' // google docs as db
+			'APP_VERSION': '1.0', // version
+			// 'DBURL': 'https://spreadsheets.google.com/feeds/list/1BVPdAa0j09ZdP_3u1AhId941gUpKcngBMliDL7GYnGA/od6/public/values?alt=json-in-script' + '&callback=JSON_CALLBACK', // google docs as db
+			'DBURL': 'https://opensheet.vercel.app/1BspNtXilNaTvik9Z5dTH9hymxSVj3VdbNW5WIAo11-M/Sheet1' // why Google why ?!
 		},
 
 		// Development settings
